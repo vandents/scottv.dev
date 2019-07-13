@@ -1,0 +1,32 @@
+h2 { margin-top: 20px; }
+
+.project-img,
+.project-img-mobile {
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  height: 400px;
+  width: auto;
+}
+
+.project-img:hover {
+  cursor: pointer;
+}
+
+mat-card-title {
+  font-size: 175% !important;
+}
+
+mat-card {
+  margin-bottom: 30px;
+}
+
+.icon-github {
+  margin: 0px 0px 0px -5px !important;
+}
+
+.a-github {
+  margin-top: -20px !important;
+}
