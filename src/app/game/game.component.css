@@ -1,12 +1,243 @@
-/* canvas {
-  border: 1px solid black !important;
-  width: 600px;
-  height: 600px;
+mat-card {
+  height: 550px;
+  width: 550px;
 }
 
-table {
-  height: 600px;
-  width: 600px;
-  display: block;
-  margin: 20px auto 0 auto;
-} */
+.div1 {
+  margin-top: 160px !important;
+  border: 1px solid;
+}
+
+.div2 {
+  margin-top: 350px;
+  border: 1px solid;
+}
+
+.div3 {
+  position: absolute;
+  border: 1px solid;
+  height: 100%;
+  margin-top: -16px;
+  margin-left: 160px;
+}
+
+.div4 {
+  position: absolute;
+  border: 1px solid;
+  height: 550px;
+  margin-top: -16px;
+  margin-left: 350px;
+}
+
+/* 1st row */
+.x00 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 15px;
+  padding-left: 45px;
+}
+
+.o00 {
+  font-size: 700%;
+  position: absolute;
+  margin-top: -20px !important;
+  padding-left: 40px;
+}
+
+.x01 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 15px;
+  padding-left: 230px;
+}
+
+.o01 {
+  font-size: 700%;
+  position: absolute;
+  margin-top: -20px !important;
+  padding-left: 225px;
+}
+
+.x02 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 15px;
+  padding-left: 420px;
+}
+
+.o02 {
+  font-size: 700%;
+  position: absolute;
+  margin-top: -20px !important;
+  padding-left: 415px;
+}
+
+/* 2nd row */
+.x10 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 200px;
+  padding-left: 45px;
+}
+
+.o10 {
+  font-size: 700%;
+  position: absolute;
+  padding-top: 165px;
+  padding-left: 40px;
+}
+
+.x11 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 200px;
+  padding-left: 230px;
+}
+
+.o11 {
+  font-size: 700%;
+  position: absolute;
+  padding-top: 165px;
+  padding-left: 225px;
+}
+
+.x12 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 200px;
+  padding-left: 420px;
+}
+
+.o12 {
+  font-size: 700%;
+  position: absolute;
+  margin-top: 165px !important;
+  padding-left: 415px;
+}
+
+/* 3rd row */
+.x20 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 385px;
+  padding-left: 45px;
+}
+
+.o20 {
+  font-size: 700%;
+  position: absolute;
+  padding-top: 350px;
+  padding-left: 40px;
+}
+
+.x21 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 385px;
+  padding-left: 230px;
+}
+
+.o21 {
+  font-size: 700%;
+  position: absolute;
+  padding-top: 350px;
+  padding-left: 225px;
+}
+
+.x22 {
+  font-size: 500%;
+  position: absolute;
+  padding-top: 385px;
+  padding-left: 420px;
+}
+
+.o22 {
+  font-size: 700%;
+  position: absolute;
+  margin-top: 350px !important;
+  padding-left: 415px;
+}
+
+/* 1st Row */
+.span00 {
+  position: absolute;
+  width: 155px;
+  height: 155px;
+  margin-top: -10px !important;
+  margin-left: -5px;
+}
+.span00:hover { cursor: pointer; }
+
+.span01 {
+  position: absolute;
+  width: 170px;
+  height: 155px;
+  margin-top: -10px !important;
+  margin-left: 170px;
+}
+.span01:hover { cursor: pointer; }
+
+.span02 {
+  position: absolute;
+  width: 160px;
+  height: 155px;
+  margin-top: -10px !important;
+  margin-left: 360px;
+}
+.span02:hover { cursor: pointer; }
+
+/* 2nd Row */
+.span10 {
+  position: absolute;
+  width: 155px;
+  height: 170px;
+  margin-top: 170px;
+  margin-left: -5px;
+}
+.span10:hover { cursor: pointer; }
+
+.span11 {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  margin-top: 170px;
+  margin-left: 170px;
+}
+.span11:hover { cursor: pointer; }
+
+.span12 {
+  position: absolute;
+  width: 160px;
+  height: 170px;
+  margin-top: 170px;
+  margin-left: 360px;
+}
+.span12:hover { cursor: pointer; }
+
+/* 3rd Row */
+.span20 {
+  position: absolute;
+  width: 155px;
+  height: 165px;
+  margin-top: 360px;
+  margin-left: -5px;
+}
+.span20:hover { cursor: pointer; }
+
+.span21 {
+  position: absolute;
+  width: 170px;
+  height: 165px;
+  margin-top: 360px;
+  margin-left: 170px;
+}
+.span21:hover { cursor: pointer; }
+
+.span22 {
+  position: absolute;
+  width: 160px;
+  height: 165px;
+  margin-top: 360px;
+  margin-left: 360px;
+}
+.span22:hover { cursor: pointer; }

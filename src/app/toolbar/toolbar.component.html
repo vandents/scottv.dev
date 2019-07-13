@@ -1,9 +1,23 @@
 <mat-toolbar class="navbar">
   <mat-toolbar-row>
     <span class="fill-remaining-space"></span>
-    <a mat-button routerLink="home" routerLinkActive="current" color="primary">Home</a>
+    <a mat-button routerLink="home" routerLinkActive="current" color="primary" matTooltip="Home"><fa-icon [icon]="['fas', 'home']" size="lg"></fa-icon></a>
     <a mat-button routerLink="projects" routerLinkActive="current" color="primary">Projects</a>
-    <a mat-button routerLink="maze-game" routerLinkActive="current" color="primary">Game</a>
+    <a mat-button routerLink="game" routerLinkActive="current" color="primary">Tic-Tac-Toe</a>
     <span class="fill-remaining-space"></span>
+
+    <button mat-button *ngIf="screenWidth > 600" style="margin-right: 5px;" [matMenuTriggerFor]="menu"><fa-icon [icon]="['fas', 'address-book']" size="sm"></fa-icon>&nbsp;&nbsp;<span>Info</span></button>
+    <button mat-button *ngIf="!(screenWidth > 600)" [matMenuTriggerFor]="menu">
+      <fa-icon [icon]="['fas', 'address-book']" size="lg"></fa-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(myEmail)"><fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>&nbsp;&nbsp;{{myEmail}}</button>
+
+      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left"><fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>&nbsp;&nbsp;vandents</a>
+
+      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn_resume.pdf" download><fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>&nbsp;&nbsp;Download Resume
+      </a>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

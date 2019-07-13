@@ -4,7 +4,8 @@
   <mat-card-header>
     <div mat-card-avatar class="avi"></div>
     <p>
-      What's so cool about computers?
+      I'm a computer engineering student at GVSU with experience in web development and microcontrollers.
+      I never cared much for computers (except for video games of course) until I found out that it's not that hard to make them do cool things - and often times those cool things can really benefit people.
     </p>
   </mat-card-header>
 </mat-card>
@@ -200,7 +201,7 @@
 </div>
 
 <div style="margin-bottom: 12px;"></div>
-<a class="a-download-res" href="../../assets/vandentoorn_resume.pdf" download>
+<a class="a-download-res" (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn_resume.pdf" download>
   <button mat-button class="btn-download-res">Download Resume</button>
 </a>
 <div style="margin-bottom: 35px;"></div>

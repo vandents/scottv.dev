@@ -1,3 +1,41 @@
-<p>
-  game works!
-</p>
+<mat-card>
+  <!-- 1st row -->
+  <span *ngIf="xArray[0][0]" class="x00">X</span>
+  <span *ngIf="oArray[0][0]" class="o00">o</span>
+  <span *ngIf="xArray[0][1]" class="x01">X</span>
+  <span *ngIf="oArray[0][1]" class="o01">o</span>
+  <span *ngIf="xArray[0][2]" class="x02">X</span>
+  <span *ngIf="oArray[0][2]" class="o02">o</span>
+
+  <!-- 2nd row -->
+  <span *ngIf="xArray[1][0]" class="x10">X</span>
+  <span *ngIf="oArray[1][0]" class="o10">o</span>
+  <span *ngIf="xArray[1][1]" class="x11">X</span>
+  <span *ngIf="oArray[1][1]" class="o11">o</span>
+  <span *ngIf="xArray[1][2]" class="x12">X</span>
+  <span *ngIf="oArray[1][2]" class="o12">o</span>
+
+  <!-- 3rd row -->
+  <span *ngIf="xArray[2][0]" class="x20">X</span>
+  <span *ngIf="oArray[2][0]" class="o20">o</span>
+  <span *ngIf="xArray[2][1]" class="x21">X</span>
+  <span *ngIf="oArray[2][1]" class="o21">o</span>
+  <span *ngIf="xArray[2][2]" class="x22">X</span>
+  <span *ngIf="oArray[2][2]" class="o22">o</span>
+
+  <span (click)="squareClicked(0, 0)" class="span00"></span>
+  <span (click)="squareClicked(0, 1)" class="span01"></span>
+  <span (click)="squareClicked(0, 2)" class="span02"></span>
+  <span (click)="squareClicked(1, 0)" class="span10"></span>
+  <span (click)="squareClicked(1, 1)" class="span11"></span>
+  <span (click)="squareClicked(1, 2)" class="span12"></span>
+  <span (click)="squareClicked(2, 0)" class="span20"></span>
+  <span (click)="squareClicked(2, 1)" class="span21"></span>
+  <span (click)="squareClicked(2, 2)" class="span22"></span>
+
+  <!-- Board lines -->
+  <mat-divider class="div1"></mat-divider>
+  <mat-divider class="div2"></mat-divider>
+  <mat-divider [vertical]="true" class="div3"></mat-divider>
+  <mat-divider [vertical]="true" class="div4"></mat-divider>
+</mat-card>

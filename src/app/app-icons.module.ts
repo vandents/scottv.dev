@@ -5,15 +5,20 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 // Solid Icons (fas)
 import {
+  faAddressBook,
   faBalanceScale,
   faCircle,
   faCode,
   faCodeBranch,
   faCube,
+  faEnvelope,
+  faFilePdf,
+  faHome,
   faMicrochip,
   faMonument,
   faMousePointer,
-  faTerminal
+  faTerminal,
+  faTrophy
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand Icons (fab)
@@ -45,15 +50,20 @@ export class AppIconsModule {
   constructor() {
     library.add(
       // fas
+      faAddressBook,
       faBalanceScale,
       faCircle,
       faCode,
       faCodeBranch,
       faCube,
+      faEnvelope,
+      faFilePdf,
+      faHome,
       faMicrochip,
       faMonument,
       faMousePointer,
       faTerminal,
+      faTrophy,
 
       // fab
       faAngular,

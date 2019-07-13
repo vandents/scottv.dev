@@ -1,3 +1,6 @@
-a {
-  margin: 2px;
+a { margin: 2px; }
+
+/* Prevent links from turning blue. */
+a.mat-menu-item:hover {
+  color: white;
 }

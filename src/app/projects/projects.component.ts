@@ -15,6 +15,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
   @HostListener('window:resize', ['$event'])

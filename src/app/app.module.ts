@@ -1,7 +1,7 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatTabsModule, MatButtonModule, MatGridListModule } from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatButtonModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -21,13 +21,17 @@ import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { GameComponent } from './game/game.component';
 
+// Component Dialogs
+import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.component';
+import { GameWinDialogComponent } from './game/game-win-dialog/game-win-dialog.component';
+
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module';
 import { AppIconsModule } from './app-icons.module';
 
 // Various Third Party Modules
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.
     HomeComponent,
     ProjectsComponent,
     GameComponent,
-    ViewImageDialogComponent
+    ViewImageDialogComponent,
+    GameWinDialogComponent
   ],
   imports: [
     AppIconsModule,
@@ -52,6 +57,7 @@ import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.
     MatGridListModule,
     MatInputModule,
     MatListModule,
+    MatMenuModule,
     MatSnackBarModule,
     MatTooltipModule,
     MatTabsModule,
@@ -62,7 +68,8 @@ import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.
     ReactiveFormsModule
   ],
   entryComponents: [
-    ViewImageDialogComponent
+    ViewImageDialogComponent,
+    GameWinDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
