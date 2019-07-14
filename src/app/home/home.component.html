@@ -26,7 +26,8 @@
   <mat-card-actions>
     <mat-chip-list>
       <mat-chip>
-        <fa-icon [icon]="['fas', 'balance-scale']" size="lg" transform="shrink-7" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fas', 'balance-scale']" size="lg" transform="shrink-7" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fas', 'balance-scale']" size="lg" transform="shrink-6"></fa-icon>
         &nbsp;3.5 GPA
       </mat-chip>
     </mat-chip-list>
@@ -48,27 +49,34 @@
   <mat-card-actions>
     <mat-chip-list>
       <mat-chip>
-        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fab', 'angular']" size="lg" transform="shrink-4"></fa-icon>
         &nbsp;Angular
       </mat-chip>
       <mat-chip>
-        <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
         &nbsp;TypeScript
       </mat-chip>
       <mat-chip>
-        <fa-icon [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5"></fa-icon>
         &nbsp;HTML5
       </mat-chip>
       <mat-chip>
-        <fa-icon [icon]="['fab', 'sass']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fab', 'sass']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fab', 'sass']" size="lg" transform="shrink-6"></fa-icon>
         &nbsp;SCSS
       </mat-chip>
       <mat-chip>
-        <fa-icon [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5">
+        </fa-icon>
         &nbsp;Subversion
       </mat-chip>
       <mat-chip>
-        <fa-icon [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="!safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        <fa-icon *ngIf="safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5"></fa-icon>
         &nbsp;Visual Studio Code
       </mat-chip>
     </mat-chip-list>
@@ -85,27 +93,33 @@
       <h4>Languages</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;C
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;TypeScript
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;JavaScript
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'html5']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;HTML5
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'sass']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'sass']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'sass']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;SCSS
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;CSS
         </mat-chip>
       </mat-chip-list>
@@ -113,7 +127,8 @@
       <h4 class="know-h4">Web Frameworks</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'angular']" size="lg" transform="shrink-4"></fa-icon>
           &nbsp;Angular
         </mat-chip>
       </mat-chip-list>
@@ -121,7 +136,8 @@
       <h4 class="know-h4">Version Control</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Subversion
         </mat-chip>
       </mat-chip-list>
@@ -129,19 +145,23 @@
       <h4 class="know-h4">Platforms</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Web
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Arduino
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;TI Launchpad
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'terminal']" size="lg" transform="shrink-7.5"></fa-icon>
           &nbsp;Terminal
         </mat-chip>
       </mat-chip-list>
@@ -149,15 +169,18 @@
       <h4 class="know-h4">IDEs</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Visual Studio Code
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Code Composer Studio
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'terminal']" size="lg" transform="shrink-7.5"></fa-icon>
           &nbsp;Code::Blocks
         </mat-chip>
       </mat-chip-list>
@@ -171,28 +194,35 @@
     <mat-card>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Microcontrollers
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;Circuits
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fab', 'windows']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fab', 'windows']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fab', 'windows']" size="lg" transform="shrink-5.5"></fa-icon>
           &nbsp;Microsoft Office
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']" rotate="180"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']" rotate="180"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'monument']" size="lg" transform="shrink-5.5" rotate="180">
+          </fa-icon>
           &nbsp;CNC Machining
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']" rotate="180"></fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"
+            rotate="180"></fa-icon>
+          <fa-icon *ngIf="safari" [icon]="['fas', 'monument']" size="lg" transform="shrink-5.5" rotate="180"></fa-icon>
           &nbsp;G Code
         </mat-chip>
         <mat-chip>
-          <fa-icon [icon]="['fas', 'cube']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']">
-          </fa-icon>
+          <fa-icon *ngIf="!safari" [icon]="['fas', 'cube']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+            <fa-icon *ngIf="safari" [icon]="['fas', 'cube']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;SolidWorks
         </mat-chip>
       </mat-chip-list>
