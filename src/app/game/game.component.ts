@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
 
 @Component({
@@ -12,13 +12,22 @@ export class GameComponent implements OnInit {
   oArray: boolean[][];
   /** True -> x's turn, false -> o's turn */
   whosTurn: boolean;
+  /** Once numTurns hits 9 and there's not a winner we know it's a draw. */
+  numTurns: number;
   xWon: boolean;
   oWon: boolean;
+  screenWidth: number;
 
-  constructor(private dialog: MatDialog) { }
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.screenWidth = window.innerWidth;
+  }
+
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.screenWidth = window.innerWidth;
     this.initBoard();
   }
 
@@ -28,10 +37,17 @@ export class GameComponent implements OnInit {
     this.whosTurn = true;
     this.xWon = false;
     this.oWon = false;
+    this.numTurns = 0;
   }
 
-  toggleWhosTurn() {
-    this.whosTurn = !this.whosTurn;
+  isScreenLarge() {
+    if (this.screenWidth >= 992) return true;
+    return false;
+  }
+
+  isScreenBigEnough() {
+    if (this.screenWidth > 650) return true;
+    return false;
   }
 
   /** Main game handler */
@@ -50,9 +66,15 @@ export class GameComponent implements OnInit {
     }
 
     if (this.checkForWinner()) this.openGameWinDialog();
+    else if (this.numTurns >= 9) this.openSnackBar(`It's a draw!`, `Reset Board`);
   }
 
-  checkForWinner() {
+  toggleWhosTurn() {
+    this.whosTurn = !this.whosTurn;
+    this.numTurns++;
+  }
+
+  checkForWinner(): boolean {
     if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.xWon = true; return true; }
     if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.xWon = true; return true; }
     if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.xWon = true; return true; }
@@ -70,6 +92,8 @@ export class GameComponent implements OnInit {
     if (this.oArray[0][2] && this.oArray[1][2] && this.oArray[2][2]) { this.oWon = true; return true; }
     if (this.oArray[0][0] && this.oArray[1][1] && this.oArray[2][2]) { this.oWon = true; return true; }
     if (this.oArray[0][2] && this.oArray[1][1] && this.oArray[2][0]) { this.oWon = true; return true; }
+
+    return false;
   }
 
   openGameWinDialog() {
@@ -83,6 +107,15 @@ export class GameComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe(result => {
+      this.initBoard();
+    });
+  }
+
+  openSnackBar(message: string, action = 'Dismiss') {
+    const snackBarRef = this.snackBar.open(message, action, {
+    });
+
+    snackBarRef.onAction().subscribe(() => {
       this.initBoard();
     });
   }

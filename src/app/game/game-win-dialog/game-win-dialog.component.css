@@ -1,7 +1,29 @@
+mat-card {
+  height: 400px;
+  width: 500px;
+}
+
 h1 {
   font-size: 200%;
+  margin-top: 10px;
+  margin-left: 25px;
 }
 
 fa-icon {
+  position: absolute;
+  margin-left: 147px;
+  margin-top: 40px;
   color: goldenrod;
+}
+
+p {
+  position: absolute;
+  margin-left: 167px;
+  margin-top: 220px;
+}
+
+button {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }

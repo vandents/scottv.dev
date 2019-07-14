@@ -1,6 +1,92 @@
-mat-card {
+.game-card {
   height: 550px;
   width: 550px;
+}
+
+.side-card {
+  height: 235px;
+  width: 235px;
+}
+
+.bottom-card {
+  height: 75px;
+  width: 510px;
+  margin-top: 15px !important;
+  margin-left: 20px;
+}
+
+.bottom-card-title {
+  position: absolute;
+  bottom: 25px;
+  left: 15px;
+  right: 0;
+}
+
+.btn-reset-top {
+  position: absolute;
+  padding-top: 5px;
+  bottom: -15px;
+  right: -15px;
+  margin-top: 5px
+}
+.btn-reset-top:hover {
+  background-color: rgb(220, 220, 220);
+  transition: background-color .25s .02s;
+}
+
+.btn-reset-bottom {
+  position: absolute;
+  padding-top: 5px;
+  right: 15px;
+  margin-top: 7px
+}
+.btn-reset-bottom:hover {
+  background-color: rgb(220, 220, 220);
+  transition: background-color .25s .02s;
+}
+.btn-reset-bottom h6 {
+  color: rgb(66, 66, 66);
+  font-size: 105%;
+}
+
+.x-turn {
+  position: absolute;
+  font-size: 1400%;
+  padding-left: 40px;
+  margin-top: -51px !important;
+}
+
+.o-turn {
+  position: absolute;
+  font-size: 2000%;
+  padding-left: 21px;
+  margin-top: -140px !important;
+}
+
+.x-turn-bottom {
+  position: absolute;
+  font-size: 400%;
+  padding-left: 135px;
+  margin-top: -25px !important;
+}
+
+.o-turn-bottom {
+  position: absolute;
+  font-size: 580%;
+  padding-left: 128px;
+  margin-top: -56px !important;
+}
+
+.btn-reset {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  right: 0;
+}
+
+.noMarginPadding {
+  padding: 0px 0px !important;
+  margin: 0px 0px !important;
 }
 
 .div1 {
