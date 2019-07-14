@@ -26,7 +26,7 @@ export class ProjectsComponent implements OnInit {
   openViewImageDialog(imageSource: string) {
     const dialogRef = this.dialog.open(
       ViewImageDialogComponent, {
-        width: '600px',
+        maxWidth: '600px',
         data: {
           imgSrc: imageSource
         }
