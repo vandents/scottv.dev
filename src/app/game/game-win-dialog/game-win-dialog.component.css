@@ -18,12 +18,14 @@ fa-icon {
 
 p {
   position: absolute;
+  font-size: 105%;
   margin-left: 167px;
   margin-top: 220px;
 }
 
 button {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  font-size: 115%;
+  right: 8px;
+  bottom: 8px;
 }
