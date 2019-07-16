@@ -1,0 +1,5 @@
+@media screen and (max-width: 991px) {
+  mat-card {
+    margin-bottom: 20px;
+  }
+}

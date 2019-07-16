@@ -1,0 +1,42 @@
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { VERSION } from '../../environments/version';
+
+export interface Dependency {
+  name: string;
+  link: string;
+  version: string;
+  iconPackage: string;
+  icon: string;
+}
+
+@Component({
+  selector: 'app-build-info',
+  templateUrl: './build-info.component.html',
+  styleUrls: ['./build-info.component.css']
+})
+export class BuildInfoComponent implements OnInit {
+  dependencies: Dependency[];
+  buildInfo: Dependency[];
+
+  constructor(private title: Title) {
+    this.title.setTitle('Scott VandenToorn - Build Info');
+  }
+
+  ngOnInit() {
+    this.dependencies = [
+      { name: 'Angular', version: require('@angular/core/package.json').version, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Angular Material', version: require('@angular/material/package.json').version, link: 'https://www.npmjs.com/package/@angular/material', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Angular Font Awesome', version: '0.4.0', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
+      { name: 'Bootstrap', version: '4.1.3', link: 'https://www.bootstrap.com', iconPackage: 'fas', icon: 'bold' },
+      { name: 'RxJS', version: require('rxjs/package.json').version, link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
+      { name: 'TypeScript', version: require('typescript/package.json').version, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
+    ];
+
+    this.buildInfo = [
+      { name: 'Date', version: VERSION.date, link: 'build-info', iconPackage: 'fas', icon: 'calendar' },
+      { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottvandentoorn.com/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
+    ];
+  }
+
+}
