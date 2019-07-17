@@ -1,7 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
 
+/** A little something I hacked together. */
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -23,7 +25,13 @@ export class GameComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
 
-  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
+  constructor(
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private title: Title
+  ) {
+    this.title.setTitle('Scott VandenToorn - Game');
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);
