@@ -24,7 +24,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   copyToClipboard(val: string) {
-    let selBox = document.createElement('textarea');
+    const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
