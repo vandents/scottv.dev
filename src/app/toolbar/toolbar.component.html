@@ -12,11 +12,15 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(myEmail)"><fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>&nbsp;&nbsp;{{myEmail}}</button>
+      <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(myEmail)"><fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;{{myEmail}}</button>
 
-      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left"><fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>&nbsp;&nbsp;vandents</a>
+      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left"><fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;vandents</a>
 
-      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn_resume.pdf" download><fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>&nbsp;&nbsp;Download Resume
+      <a mat-menu-item routerLink="build-info">
+        <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>&nbsp;&nbsp;&nbsp;View Build Info
+      </a>
+
+      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn_resume.pdf" download>&nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;Download Resume
       </a>
     </mat-menu>
   </mat-toolbar-row>
