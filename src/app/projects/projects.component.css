@@ -6,13 +6,37 @@ h2 { margin-top: 20px; }
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0px;
+  margin-top: 10px;
   height: 400px;
   width: auto;
 }
-
 .project-img:hover {
   cursor: pointer;
+}
+@media screen and (max-width: 400px) {
+  .project-img-mobile {
+    height: 375px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .project-img-mobile {
+    height: 375px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .project-img-mobile {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .project-img-mobile {
+    height: 330px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .project-img-mobile {
+    height: 310px;
+  }
 }
 
 mat-card-title {
@@ -24,10 +48,14 @@ mat-card {
   margin-bottom: 30px;
 }
 
-.icon-github {
-  margin: 0px 0px 0px -10px !important;
+.a-github {
+  position: absolute;
+  bottom: -13px;
+  right: -10px;
 }
 
-.a-github {
-  margin-top: -20px !important;
+.a-build {
+  position: absolute;
+  bottom: -13px;
+  right: 30px;
 }

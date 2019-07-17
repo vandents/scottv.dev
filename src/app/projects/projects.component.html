@@ -5,7 +5,7 @@
 <h2>TI Launchpad Handheld Slot Machine</h2>
 <mat-card>
   <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon class="icon-github" [icon]="['fab', 'github']" size="lg"></fa-icon>
+    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
   </a>
   <img *ngIf="screenWidth > 600" mat-card-image class="project-img" src="../../assets/img/slot-machine.jpg" alt="Slot Machine"
     (click)="openViewImageDialog('../../assets/img/slot-machine.jpg')" matTooltip="Click to enlarge" matTooltipPosition="right" aria-label="Enlarge Slot Machine Photo">
@@ -25,10 +25,6 @@
 
 <h2>GVSU Robo Sockey robot "The Boi"</h2>
 <mat-card>
-  <a class="a-github" href="https://github.com/vandents/Robo-Sockey-arduino-robot-the-boi" target="_blank"
-    matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon class="icon-github" [icon]="['fab', 'github']" size="lg"></fa-icon>
-  </a>
   <img *ngIf="screenWidth > 600" mat-card-image class="project-img" src="../../assets/img/the-boi.jpg"
     alt="Slot Machine" (click)="openViewImageDialog('../../assets/img/the-boi.jpg')" matTooltip="Click to enlarge"
     matTooltipPosition="right" aria-label="Enlarge Slot Machine Photo">
@@ -45,15 +41,24 @@
     I was fortunate to be a part of an amzing team. Our robot, named "The Boi", implemented many original design features.
     We not only obtained first place, but also earned the Design Innovation Award.
   </mat-card-content>
+  <a class="a-github" href="https://github.com/vandents/Robo-Sockey-arduino-robot-the-boi" target="_blank"
+    matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
+    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
+  </a>
 </mat-card>
 
-<h2>scottvandentoorn.com</h2>
+<h2 style="display: inline;">scottvandentoorn.com</h2>
+
 <mat-card>
-  <a class="a-github" href="https://github.com/vandents/scottvandentoorn.com" target="_blank"
-  matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon class="icon-github" [icon]="['fab', 'github']" size="lg"></fa-icon>
+  <a class="a-github" href="https://github.com/vandents/scottvandentoorn.com"
+  target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
+    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
   </a>
-  <mat-card-content style="margin-top:5px;">
+  <mat-card-content style="margin-top: 5px; margin-bottom: -3px;">
     This is the website you are currently on. I made it from scratch using the Angular framework. I'm pretty proud of it as it's only the second thing I've ever programmed that's not in C!
   </mat-card-content>
+  <a class="a-build" routerLink="/build-info"
+    matTooltip="Build Info" aria-label="View Build Info">
+    <fa-icon [icon]="['fas', 'hammer']" size="2x"></fa-icon>
+  </a>
 </mat-card>
