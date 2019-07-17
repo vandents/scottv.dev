@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewImageDialogComponent } from '../view-image-dialog/view-image-dialog.component';
 
@@ -10,7 +12,8 @@ import { ViewImageDialogComponent } from '../view-image-dialog/view-image-dialog
 export class ProjectsComponent implements OnInit {
   screenWidth: number;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private title: Title, public router: Router, private dialog: MatDialog) {
+    this.title.setTitle('Scott VandenToorn - Home');
     this.getScreenSize();
   }
 

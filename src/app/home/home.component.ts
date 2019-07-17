@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ export class HomeComponent implements OnInit {
   chrome: any;
   safari: any;
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private title: Title, private snackBar: MatSnackBar) {
+    this.title.setTitle('Scott VandenToorn - Home');
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);
