@@ -31,6 +31,8 @@ import { AppIconsModule } from './app-icons.module';
 
 // Various Third Party Modules
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BuildInfoComponent } from './build-info/build-info.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProjectsComponent,
     GameComponent,
     ViewImageDialogComponent,
-    GameWinDialogComponent
+    GameWinDialogComponent,
+    BuildInfoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     AppIconsModule,
