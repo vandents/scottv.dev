@@ -35,7 +35,7 @@ export class BuildInfoComponent implements OnInit {
 
     this.buildInfo = [
       { name: 'Date', version: VERSION.date, link: 'build-info', iconPackage: 'fas', icon: 'calendar' },
-      { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottvandentoorn.com/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
+      { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottv.dev/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
     ];
   }
 
