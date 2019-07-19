@@ -16,14 +16,18 @@ img.avi {
   height: 200px;
   clip-path: circle(100px at center);
   width: auto;
+  
 }
 
 .avi {
   background-image: url('../../assets/img/avi.jpg');
   background-size: cover;
-  /* Override .mat-card-avatar height/width */
+  /* Override .mat-card-avatar height/width. */
   height: 145px !important;
   width: 145px !important;
+  /* Auto margins to center avi when text drops below @ <= 400px. */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* Logos. */

@@ -3,11 +3,16 @@
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar class="avi"></div>
-    <p>
+    <p *ngIf="!isSmallPhone()">
       I'm a computer engineering student at GVSU with experience in web development and microcontrollers.
       I never cared much for computers (except for video games of course) until I found out that it's not that hard to make them do cool things - and often times those cool things can really benefit people.
     </p>
   </mat-card-header>
+  <mat-card-content style="padding-top: 12px;" *ngIf="isSmallPhone()">
+    I'm a computer engineering student at GVSU with experience in web development and microcontrollers.
+    I never cared much for computers (except for video games of course) until I found out that it's not that hard to make
+    them do cool things - and often times those cool things can really benefit people.
+  </mat-card-content>
 </mat-card>
 
 <h2>Education</h2>
