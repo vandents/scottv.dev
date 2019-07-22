@@ -13,7 +13,7 @@ export class ProjectsComponent implements OnInit {
   screenWidth: number;
 
   constructor(private title: Title, public router: Router, private dialog: MatDialog) {
-    this.title.setTitle('Scott VandenToorn - Home');
+    this.title.setTitle('Scott VandenToorn - Projects');
     this.getScreenSize();
   }
 
