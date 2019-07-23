@@ -101,7 +101,7 @@
 
 .div3 {
   position: absolute;
-  border: 4px solid;
+  border: 2px solid !important;
   height: 100%;
   margin-top: -16px;
   margin-left: 160px;
@@ -109,7 +109,7 @@
 
 .div4 {
   position: absolute;
-  border: 4px solid;
+  border: 2px solid !important;
   height: 550px;
   margin-top: -16px;
   margin-left: 350px;
