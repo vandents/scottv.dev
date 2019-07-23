@@ -90,13 +90,13 @@
 }
 
 .div1 {
-  margin-top: 160px !important;
-  border: 2px solid;
+  margin-top: 160px;
+  border: 2px solid !important;
 }
 
 .div2 {
   margin-top: 350px;
-  border: 2px solid;
+  border: 2px solid !important;
 }
 
 .div3 {
