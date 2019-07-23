@@ -1,9 +1,8 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatTabsModule, MatButtonModule, MatGridListModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
@@ -20,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { GameComponent } from './game/game.component';
+import { BuildInfoComponent } from './build-info/build-info.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // Component Dialogs
 import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.component';
@@ -31,9 +32,6 @@ import { AppIconsModule } from './app-icons.module';
 
 // Various Third Party Modules
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BuildInfoComponent } from './build-info/build-info.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 
 @NgModule({
   declarations: [
@@ -64,12 +62,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatMenuModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatTabsModule,
-    MatTabsModule,
     MatToolbarModule,
-    FontAwesomeModule,
-    FormsModule,
-    ReactiveFormsModule
+    FontAwesomeModule
   ],
   entryComponents: [
     ViewImageDialogComponent,
