@@ -1,5 +1,6 @@
 a { margin: 2px; }
 
+/* Gets rid of default link styling. */
 .mat-menu-item:hover {
   color: white;
 }
