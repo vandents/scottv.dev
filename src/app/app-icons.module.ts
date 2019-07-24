@@ -22,9 +22,11 @@ import {
   faMicrochip,
   faMonument,
   faMousePointer,
+  faRobot,
   faSquare,
   faTerminal,
-  faTrophy
+  faTrophy,
+  faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand Icons (fab)
@@ -77,9 +79,11 @@ export class AppIconsModule {
       faMicrochip,
       faMonument,
       faMousePointer,
+      faRobot,
       faSquare,
       faTerminal,
       faTrophy,
+      faUserFriends,
 
       // fab
       faAngular,

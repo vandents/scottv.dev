@@ -3,44 +3,55 @@
     <mat-card class="game-card">
       <!-- 1st row -->
       <span *ngIf="xArray[0][0]" class="x00">X</span>
-      <span *ngIf="oArray[0][0]" class="o00">o</span>
+      <span *ngIf="oArray[0][0] && !isRobot" class="o00">o</span>
       <span *ngIf="xArray[0][1]" class="x01">X</span>
-      <span *ngIf="oArray[0][1]" class="o01">o</span>
+      <span *ngIf="oArray[0][1] && !isRobot" class="o01">o</span>
       <span *ngIf="xArray[0][2]" class="x02">X</span>
-      <span *ngIf="oArray[0][2]" class="o02">o</span>
+      <span *ngIf="oArray[0][2] && !isRobot" class="o02">o</span>
+      <fa-icon *ngIf="oArray[0][0] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot00"></fa-icon>
+      <fa-icon *ngIf="oArray[0][1] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot01"></fa-icon>
+      <fa-icon *ngIf="oArray[0][2] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot02"></fa-icon>
 
       <!-- 2nd row -->
       <span *ngIf="xArray[1][0]" class="x10">X</span>
-      <span *ngIf="oArray[1][0]" class="o10">o</span>
+      <span *ngIf="oArray[1][0] && !isRobot" class="o10">o</span>
       <span *ngIf="xArray[1][1]" class="x11">X</span>
-      <span *ngIf="oArray[1][1]" class="o11">o</span>
+      <span *ngIf="oArray[1][1] && !isRobot" class="o11">o</span>
       <span *ngIf="xArray[1][2]" class="x12">X</span>
-      <span *ngIf="oArray[1][2]" class="o12">o</span>
+      <span *ngIf="oArray[1][2] && !isRobot" class="o12">o</span>
+      <fa-icon *ngIf="oArray[1][0] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot10"></fa-icon>
+      <fa-icon *ngIf="oArray[1][1] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot11"></fa-icon>
+      <fa-icon *ngIf="oArray[1][2] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot12"></fa-icon>
 
       <!-- 3rd row -->
       <span *ngIf="xArray[2][0]" class="x20">X</span>
-      <span *ngIf="oArray[2][0]" class="o20">o</span>
+      <span *ngIf="oArray[2][0] && !isRobot" class="o20">o</span>
       <span *ngIf="xArray[2][1]" class="x21">X</span>
-      <span *ngIf="oArray[2][1]" class="o21">o</span>
+      <span *ngIf="oArray[2][1] && !isRobot" class="o21">o</span>
       <span *ngIf="xArray[2][2]" class="x22">X</span>
-      <span *ngIf="oArray[2][2]" class="o22">o</span>
+      <span *ngIf="oArray[2][2] && !isRobot" class="o22">o</span>
+      <fa-icon *ngIf="oArray[2][0] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot20"></fa-icon>
+      <fa-icon *ngIf="oArray[2][1] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot21"></fa-icon>
+      <fa-icon *ngIf="oArray[2][2] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot22"></fa-icon>
 
-      <span (click)="squareClicked(0, 0)" class="span00"></span>
-      <span (click)="squareClicked(0, 1)" class="span01"></span>
-      <span (click)="squareClicked(0, 2)" class="span02"></span>
-      <span (click)="squareClicked(1, 0)" class="span10"></span>
-      <span (click)="squareClicked(1, 1)" class="span11"></span>
-      <span (click)="squareClicked(1, 2)" class="span12"></span>
-      <span (click)="squareClicked(2, 0)" class="span20"></span>
-      <span (click)="squareClicked(2, 1)" class="span21"></span>
-      <span (click)="squareClicked(2, 2)" class="span22"></span>
+      <span *ngIf="isClickEnabled()">
+        <span (click)="squareClicked(0, 0)" class="span00"></span>
+        <span (click)="squareClicked(0, 1)" class="span01"></span>
+        <span (click)="squareClicked(0, 2)" class="span02"></span>
+        <span (click)="squareClicked(1, 0)" class="span10"></span>
+        <span (click)="squareClicked(1, 1)" class="span11"></span>
+        <span (click)="squareClicked(1, 2)" class="span12"></span>
+        <span (click)="squareClicked(2, 0)" class="span20"></span>
+        <span (click)="squareClicked(2, 1)" class="span21"></span>
+        <span (click)="squareClicked(2, 2)" class="span22"></span>
+      </span>
 
       <!-- Board lines -->
       <mat-divider class="div1"></mat-divider>
       <mat-divider class="div2"></mat-divider>
       <mat-divider [vertical]="true" class="div3"></mat-divider>
       <mat-divider [vertical]="true" class="div4"></mat-divider>
-      <button *ngIf="isScreenLarge()" mat-flat-button color="primary" class="btn-reset-top" (click)="initBoard()">
+      <button *ngIf="isScreenLarge()" mat-flat-button color="primary" class="btn-reset-top" (click)="resetBoard()">
         <h6 style="color: rgb(66, 66, 66);">Reset Board</h6>
       </button>
     </mat-card>
@@ -52,7 +63,8 @@
       <mat-card class="side-card">
         <mat-card-content class="noMarginPadding">
           <span *ngIf="whosTurn" class="x-turn">X</span>
-          <span *ngIf="!whosTurn" class="o-turn">o</span>
+          <span *ngIf="!whosTurn && !isRobot" class="o-turn">o</span>
+          <fa-icon *ngIf="!whosTurn && isRobot" [icon]="['fas', 'robot']" size="10x" class="robot-turn"></fa-icon>
         </mat-card-content>
       </mat-card>
     </div>
@@ -64,8 +76,9 @@
     <mat-card class="bottom-card">
       <span class="bottom-card-title">Current Player:</span>
       <span *ngIf="whosTurn" class="x-turn-bottom">X</span>
-      <span *ngIf="!whosTurn" class="o-turn-bottom">o</span>
-      <button mat-flat-button color="primary" class="btn-reset-bottom" (click)="initBoard()">
+      <span *ngIf="!whosTurn && !isRobot" class="o-turn-bottom">o</span>
+      <fa-icon *ngIf="!whosTurn && isRobot" [icon]="['fas', 'robot']" size="3x" class="robot-turn-bottom"></fa-icon>
+      <button mat-flat-button color="primary" class="btn-reset-bottom" (click)="resetBoard()">
         <h6>Reset Board</h6>
       </button>
     </mat-card>

@@ -25,6 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 // Component Dialogs
 import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.component';
 import { GameWinDialogComponent } from './game/game-win-dialog/game-win-dialog.component';
+import { ChooseCompetitorDialogComponent } from './game/choose-competitor-dialog/choose-competitor-dialog.component';
 
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +45,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ViewImageDialogComponent,
     GameWinDialogComponent,
     BuildInfoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChooseCompetitorDialogComponent
   ],
   imports: [
     AppIconsModule,
@@ -67,7 +69,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   entryComponents: [
     ViewImageDialogComponent,
-    GameWinDialogComponent
+    GameWinDialogComponent,
+    ChooseCompetitorDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title cdkFocusInitial>Would you like to play against a Mr. Roboto or a friend?</mat-card-title>
+
+  <div style="margin-top: 12%;"></div>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col-6">
+        <button mat-button (click)="closeDialog(true)">
+          <fa-icon [icon]="['fas', 'robot']" size="8x"></fa-icon>
+          <br>
+          Mr. Roboto
+        </button>
+      </div>
+
+      <div class="col-6">
+        <button mat-button (click)="closeDialog(false)">
+          <fa-icon [icon]="['fas', 'user-friends']" size="8x"></fa-icon><br>
+          Friend
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

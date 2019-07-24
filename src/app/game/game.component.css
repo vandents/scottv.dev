@@ -49,6 +49,19 @@
   font-size: 105%;
 }
 
+.btn-reset {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  right: 0;
+}
+
+.noMarginPadding {
+  padding: 0px 0px !important;
+  margin: 0px 0px !important;
+}
+
+/* Current player */
 .x-turn {
   position: absolute;
   font-size: 1400%;
@@ -61,6 +74,12 @@
   font-size: 2000%;
   padding-left: 21px;
   margin-top: -140px !important;
+}
+
+.robot-turn {
+  position: absolute;
+  top: 40px;
+  left: 31px;
 }
 
 .x-turn-bottom {
@@ -77,20 +96,15 @@
   margin-top: -56px !important;
 }
 
-.btn-reset {
+.robot-turn-bottom {
   position: absolute;
-  bottom: 5px;
-  left: 5px;
-  right: 0;
+  top: 14px;
+  left: 141px;
 }
 
-.noMarginPadding {
-  padding: 0px 0px !important;
-  margin: 0px 0px !important;
-}
-
+/* Board lines */
 .div1 {
-  margin-top: 160px;
+  margin-top: 160px !important;
   border: 2px solid !important;
 }
 
@@ -158,6 +172,24 @@
   padding-left: 415px;
 }
 
+.robot00 {
+  position: absolute;
+  padding-top: 18px;
+  padding-left: 14px;
+}
+
+.robot01 {
+  position: absolute;
+  padding-top: 18px;
+  padding-left: 197px;
+}
+
+.robot02 {
+  position: absolute;
+  padding-top: 18px;
+  padding-left: 386px;
+}
+
 /* 2nd row */
 .x10 {
   font-size: 500%;
@@ -201,6 +233,24 @@
   padding-left: 415px;
 }
 
+.robot10 {
+  position: absolute;
+  padding-top: 205px;
+  padding-left: 14px;
+}
+
+.robot11 {
+  position: absolute;
+  padding-top: 205px;
+  padding-left: 197px;
+}
+
+.robot12 {
+  position: absolute;
+  padding-top: 205px;
+  padding-left: 386px;
+}
+
 /* 3rd row */
 .x20 {
   font-size: 500%;
@@ -242,6 +292,24 @@
   position: absolute;
   margin-top: 350px !important;
   padding-left: 415px;
+}
+
+.robot20 {
+  position: absolute;
+  padding-top: 395px;
+  padding-left: 14px;
+}
+
+.robot21 {
+  position: absolute;
+  padding-top: 395px;
+  padding-left: 197px;
+}
+
+.robot22 {
+  position: absolute;
+  padding-top: 395px;
+  padding-left: 386px;
 }
 
 /* 1st Row */
