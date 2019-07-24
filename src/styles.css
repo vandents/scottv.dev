@@ -14,6 +14,11 @@ body {
   margin: 0;
 }
 
+/* Navbar active link styling. */
+a.current {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 /* Gets rid of weird blue border on focus. */
 button:focus {
   outline: none;
