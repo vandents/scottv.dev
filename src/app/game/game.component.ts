@@ -3,9 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent } from './choose-competitor-dialog/choose-competitor-dialog.component';
-import { stringify } from 'querystring';
 
-/** A little something I hacked together. */
+/** A little something I hacked together */
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -16,12 +15,14 @@ export class GameComponent implements OnInit {
   oArray: boolean[][];
   /** True -> x's turn, false -> o's turn */
   whosTurn: boolean;
-  /** Once numTurns hits 9 and there's not a winner we know it's a draw. */
+  /** Once numTurns hits 9 and there's not a winner we know it's a draw */
   numTurns: number;
   xWon: boolean;
   oWon: boolean;
-  screenWidth: number;
+  /** True if user is playing against Mr. Roboto */
   isRobot: boolean;
+  /** Current width of the users screen */
+  screenWidth: number;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
@@ -43,17 +44,21 @@ export class GameComponent implements OnInit {
     this.openChooseCompetitorDialog();
   }
 
+  /** @returns {boolean} true if screen width is bigger than 992px; */
   isScreenLarge() {
     if (this.screenWidth >= 992) return true;
     return false;
   }
 
-  isScreenBigEnough() {
+  /** @returns {boolean} true if screen width is bigger than 650px; */
+  isScreenBigEnough(): boolean {
     if (this.screenWidth > 650) return true;
     return false;
   }
 
+  /** Sets game values to an initial state */
   initBoard() {
+    console.log('initBoard()');
     this.xArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.oArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.whosTurn = Math.random() < 0.5;
@@ -62,7 +67,9 @@ export class GameComponent implements OnInit {
     this.numTurns = 0;
   }
 
+  /** Initialized board. If it's Mr. Robot's turn robotMove() is called */
   resetBoard() {
+    console.log('resetBoard()');
     this.initBoard();
     if (this.isRobot && !this.whosTurn) {
       setTimeout(() => {
@@ -73,6 +80,7 @@ export class GameComponent implements OnInit {
 
   /** Main game handler */
   squareClicked(row: number, column: number) {
+    console.log('squareClicked()');
     if (this.whosTurn) {
       if (this.oArray[row][column] == false) {
         this.xArray[row][column] = true;
@@ -93,24 +101,27 @@ export class GameComponent implements OnInit {
       setTimeout(() => {
         this.robotMove();
         if (this.checkForWinner()) this.openGameWinDialog();
-        else if (this.numTurns >= 9) this.openSnackBar(`It's a draw!`, `Reset Board`);
+        else if (this.numTurns >= 9) this.openDrawSnackBar();
       }, timeout);
     } else {
       if (this.checkForWinner()) this.openGameWinDialog();
-      else if (this.numTurns >= 9) this.openSnackBar(`It's a draw!`, `Reset Board`);
+      else if (this.numTurns >= 9) this.openDrawSnackBar();
     }
   }
 
+  /** Toggles whosTurn and increments numTurns */
   toggleWhosTurn() {
+    console.log('toggleWhosTurn()');
     this.whosTurn = !this.whosTurn;
     this.numTurns++;
   }
 
+  /**
+   * Sets xWon or oWon to true if win condition is found
+   * @returns true if win condition is found
+   */
   checkForWinner(): boolean {
-    // console.log('xArray:');
-    // console.log(this.xArray);
-    // console.log('oArray:');
-    // console.log(this.oArray);
+    console.log('checkForWinner()');
     if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.xWon = true; return true; }
     if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.xWon = true; return true; }
     if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.xWon = true; return true; }
@@ -132,8 +143,11 @@ export class GameComponent implements OnInit {
     return false;
   }
 
+  /** Main handler for Mr. Roboto's turn */
   robotMove(isFirstTurn?: boolean) {
-    if (isFirstTurn) {
+    console.log('robotMove()');
+    // Play in the corner for the first move
+    if (isFirstTurn === true) {
       let i: number;
       let j: number;
       if (Math.random() < 0.5) i = 0;
@@ -146,28 +160,35 @@ export class GameComponent implements OnInit {
       return;
     }
 
-    if (this.findWin()) {
+    if (this.findMrRobotoWin()) {
       this.toggleWhosTurn();
       return;
     }
-    if (this.killPotentialWin()) {
+    if (this.blockOpponentWin()) {
       this.toggleWhosTurn();
       return;
     }
-    this.randomMove();
+    this.robotRandMove();
     this.toggleWhosTurn();
   }
 
-  randomMove() {
+  /** Determines a valid random move for Mr. Roboto */
+  robotRandMove() {
+    console.log('robotRandMove()');
     let moveNotFound = true;
     let row: number;
     let col: number;
     const legalMoves = this.getLegalMoves();
 
     while (moveNotFound) {
+      if (this.numTurns >= 9) {
+        this.openDrawSnackBar();
+        break;
+      }
+
       row = this.getRandomInt(3);
       col = this.getRandomInt(3);
-      if (legalMoves[row][col]) {
+      if (legalMoves[row][col] === true) {
         this.oArray[row][col] = true;
         moveNotFound = false;
         return;
@@ -175,8 +196,12 @@ export class GameComponent implements OnInit {
     }
   }
 
-  /** @returns {boolean} true if executed a winning placement. */
-  findWin(): boolean {
+  /**
+   * Finds any winning moves for Mr. Roboto and executes them
+   * @returns {boolean} true if Mr. Roboto executed a winning placement
+   */
+  findMrRobotoWin(): boolean {
+    console.log('findMrRobotoWin()');
     const legalMoves = this.getLegalMoves();
     let tally = 0;
 
@@ -292,17 +317,29 @@ export class GameComponent implements OnInit {
     if (this.oArray[1][1]) tally++;
     if (this.oArray[2][0]) tally++;
     if (tally >= 2) {
-      if (this.oArray[0][2] && this.oArray[1][1] && legalMoves[2][0]) this.oArray[2][0] = true;
-      else if (this.oArray[0][2] && this.oArray[2][0] && legalMoves[1][1]) this.oArray[1][1] = true;
-      else if (this.oArray[1][1] && this.oArray[2][0] && legalMoves[0][2]) this.oArray[0][2] = true;
-      return true;
+      if (this.oArray[0][2] && this.oArray[1][1] && legalMoves[2][0]) {
+        this.oArray[2][0] = true;
+        return true;
+      }
+      if (this.oArray[0][2] && this.oArray[2][0] && legalMoves[1][1]) {
+        this.oArray[1][1] = true;
+        return true;
+      }
+      if (this.oArray[1][1] && this.oArray[2][0] && legalMoves[0][2]) {
+        this.oArray[0][2] = true;
+        return true;
+      }
     }
 
     return false;
   }
 
-  /** @returns {boolean} true if the opponents potential win was killed. */
-  killPotentialWin(): boolean {
+  /**
+   * Finds any two-in-a-row's and executes move for Mr. Roboto to block them
+   * @returns {boolean} true if the opponents potential win was killed.
+   */
+  blockOpponentWin(): boolean {
+    console.log('blockOpponentWin()');
     const legalMoves = this.getLegalMoves();
     let tally = 0;
 
@@ -435,7 +472,9 @@ export class GameComponent implements OnInit {
     return false;
   }
 
-  getLegalMoves() {
+  /** @returns {boolean[][]} 2D array of valid moves a player may execute */
+  getLegalMoves(): boolean[][] {
+    console.log('getLegalMoves()');
     const legalMoves = [[true, true, true], [true, true, true], [true, true, true]];
 
     for (let i = 0; i < 3; i++) {
@@ -443,21 +482,27 @@ export class GameComponent implements OnInit {
         if (this.xArray[i][j] || this.oArray[i][j]) legalMoves[i][j] = false;
       }
     }
-    // console.log('legalMoves:');
-    // console.log(legalMoves);
     return legalMoves;
   }
 
-  getRandomInt(max) {
+  /**
+   * @param max The max value of the random integer (non-inclusive)
+   * @returns {number} a random number between 0 and max
+   */
+  getRandomInt(max: number): number {
+    console.log('getRandomInt()');
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  isClickEnabled(): boolean {
+  /** @returns {boolean} false if it is Mr. Roboto's turn */
+  isBoardClickEnabled(): boolean {
     if (!this.whosTurn && this.isRobot) return false;
     return true;
   }
 
+  /** Opens GameWinDialog */
   openGameWinDialog() {
+    console.log('openGameWinDialog()');
     let winner: string;
     if (this.xWon) winner = 'Player X';
     else if (this.oWon && this.isRobot) winner = 'Mr. Roboto';
@@ -477,10 +522,11 @@ export class GameComponent implements OnInit {
     });
   }
 
+  /** Opens ChooseCompetitorDialog */
   openChooseCompetitorDialog() {
     const dialogRef = this.dialog.open(
       ChooseCompetitorDialogComponent, {
-        width: '500px', height: '350px',
+        width: '400px', height: '280px',
         data: { }
       }
     );
@@ -488,15 +534,27 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.isRobot = result;
       if (this.isRobot && !this.whosTurn) this.robotMove(true);
+
+      if (!this.isRobot) {
+        this.snackBar.open(`We all know you're really playing against yourself`, '', {
+          duration: 2500
+        });
+      }
     });
   }
 
-  openSnackBar(message: string, action = 'Dismiss') {
-    const snackBarRef = this.snackBar.open(message, action, {
-    });
+  /**
+   * Opens snackbar to notify players of a draw
+   * Initializes board after snackbar closes
+   * @param message Snackbar message
+   * @param action Text for button on the right side of snackbar
+   */
+  openDrawSnackBar() {
+    console.log('openDrawSnackBar()');
+    const snackBarRef = this.snackBar.open(`It's a draw!`, 'Reset Board');
 
     snackBarRef.onAction().subscribe(() => {
-      this.initBoard();
+      this.resetBoard();
     });
   }
 

@@ -34,7 +34,8 @@
       <fa-icon *ngIf="oArray[2][1] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot21"></fa-icon>
       <fa-icon *ngIf="oArray[2][2] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot22"></fa-icon>
 
-      <span *ngIf="isClickEnabled()">
+      <!-- The clickable parts of the board -->
+      <span *ngIf="isBoardClickEnabled()">
         <span (click)="squareClicked(0, 0)" class="span00"></span>
         <span (click)="squareClicked(0, 1)" class="span01"></span>
         <span (click)="squareClicked(0, 2)" class="span02"></span>
