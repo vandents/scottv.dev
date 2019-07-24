@@ -1,5 +1,9 @@
 h2 { margin-top: 20px; }
 
+.no-margin-bottom {
+  margin-bottom: 0px !important;
+}
+
 .project-img,
 .project-img-mobile {
   border-radius: 4px;
