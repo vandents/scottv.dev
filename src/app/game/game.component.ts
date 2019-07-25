@@ -58,7 +58,6 @@ export class GameComponent implements OnInit {
 
   /** Sets game values to an initial state */
   initBoard() {
-    console.log('initBoard()');
     this.xArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.oArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.whosTurn = Math.random() < 0.5;
@@ -69,7 +68,6 @@ export class GameComponent implements OnInit {
 
   /** Initialized board. If it's Mr. Robot's turn robotMove() is called */
   resetBoard() {
-    console.log('resetBoard()');
     this.initBoard();
     if (this.isRobot && !this.whosTurn) {
       setTimeout(() => {
@@ -80,7 +78,6 @@ export class GameComponent implements OnInit {
 
   /** Main game handler */
   squareClicked(row: number, column: number) {
-    console.log('squareClicked()');
     if (this.whosTurn) {
       if (this.oArray[row][column] == false) {
         this.xArray[row][column] = true;
@@ -111,7 +108,6 @@ export class GameComponent implements OnInit {
 
   /** Toggles whosTurn and increments numTurns */
   toggleWhosTurn() {
-    console.log('toggleWhosTurn()');
     this.whosTurn = !this.whosTurn;
     this.numTurns++;
   }
@@ -121,7 +117,6 @@ export class GameComponent implements OnInit {
    * @returns true if win condition is found
    */
   checkForWinner(): boolean {
-    console.log('checkForWinner()');
     if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.xWon = true; return true; }
     if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.xWon = true; return true; }
     if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.xWon = true; return true; }
@@ -145,7 +140,6 @@ export class GameComponent implements OnInit {
 
   /** Main handler for Mr. Roboto's turn */
   robotMove(isFirstTurn?: boolean) {
-    console.log('robotMove()');
     // Play in the corner for the first move
     if (isFirstTurn === true) {
       let i: number;
@@ -174,7 +168,6 @@ export class GameComponent implements OnInit {
 
   /** Determines a valid random move for Mr. Roboto */
   robotRandMove() {
-    console.log('robotRandMove()');
     let moveNotFound = true;
     let row: number;
     let col: number;
@@ -201,7 +194,6 @@ export class GameComponent implements OnInit {
    * @returns {boolean} true if Mr. Roboto executed a winning placement
    */
   findMrRobotoWin(): boolean {
-    console.log('findMrRobotoWin()');
     const legalMoves = this.getLegalMoves();
     let tally = 0;
 
@@ -339,7 +331,6 @@ export class GameComponent implements OnInit {
    * @returns {boolean} true if the opponents potential win was killed.
    */
   blockOpponentWin(): boolean {
-    console.log('blockOpponentWin()');
     const legalMoves = this.getLegalMoves();
     let tally = 0;
 
@@ -474,7 +465,6 @@ export class GameComponent implements OnInit {
 
   /** @returns {boolean[][]} 2D array of valid moves a player may execute */
   getLegalMoves(): boolean[][] {
-    console.log('getLegalMoves()');
     const legalMoves = [[true, true, true], [true, true, true], [true, true, true]];
 
     for (let i = 0; i < 3; i++) {
@@ -490,7 +480,6 @@ export class GameComponent implements OnInit {
    * @returns {number} a random number between 0 and max
    */
   getRandomInt(max: number): number {
-    console.log('getRandomInt()');
     return Math.floor(Math.random() * Math.floor(max));
   }
 
@@ -502,7 +491,6 @@ export class GameComponent implements OnInit {
 
   /** Opens GameWinDialog */
   openGameWinDialog() {
-    console.log('openGameWinDialog()');
     let winner: string;
     if (this.xWon) winner = 'Player X';
     else if (this.oWon && this.isRobot) winner = 'Mr. Roboto';
@@ -535,9 +523,13 @@ export class GameComponent implements OnInit {
       this.isRobot = result;
       if (this.isRobot && !this.whosTurn) this.robotMove(true);
 
-      if (!this.isRobot) {
+      if (this.isRobot !== true) {
         this.snackBar.open(`We all know you're really playing against yourself`, '', {
           duration: 2500
+        });
+      } else {
+        this.snackBar.open(`You are player X`, 'Dismiss', {
+          duration: 3000
         });
       }
     });
@@ -550,7 +542,6 @@ export class GameComponent implements OnInit {
    * @param action Text for button on the right side of snackbar
    */
   openDrawSnackBar() {
-    console.log('openDrawSnackBar()');
     const snackBarRef = this.snackBar.open(`It's a draw!`, 'Reset Board');
 
     snackBarRef.onAction().subscribe(() => {
