@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/** Dialog for choosing to play against Mr. Robot or a friend */
 @Component({
   selector: 'app-choose-competitor-dialog',
   templateUrl: './choose-competitor-dialog.component.html',

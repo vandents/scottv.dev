@@ -10,6 +10,7 @@ export interface Dependency {
   icon: string;
 }
 
+/** Page for displaying build and dependency info */
 @Component({
   selector: 'app-build-info',
   templateUrl: './build-info.component.html',

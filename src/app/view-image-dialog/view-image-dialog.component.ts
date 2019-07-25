@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/** Dialog for expanding an image on the project page */
 @Component({
   selector: 'app-view-image-dialog',
   templateUrl: './view-image-dialog.component.html',

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/** Dialog displayed when a player wins */
 @Component({
   selector: 'app-game-win-dialog',
   templateUrl: './game-win-dialog.component.html',

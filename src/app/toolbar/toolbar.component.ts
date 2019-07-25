@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/** The navigation bar at the top of the screen */
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
