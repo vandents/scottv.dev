@@ -6,8 +6,8 @@
     <a mat-button routerLink="game" routerLinkActive="current" color="primary">Tic-Tac-Toe</a>
     <span class="fill-remaining-space"></span>
 
-    <button mat-button *ngIf="screenWidth > 600" style="margin-right: 5px;" [matMenuTriggerFor]="menu"><fa-icon [icon]="['fas', 'address-book']" size="sm"></fa-icon>&nbsp;&nbsp;<span>Info</span></button>
-    <button mat-button *ngIf="!(screenWidth > 600)" [matMenuTriggerFor]="menu">
+    <button mat-button *ngIf="browser.isScreenMedium()" style="margin-right: 5px;" [matMenuTriggerFor]="menu"><fa-icon [icon]="['fas', 'address-book']" size="sm"></fa-icon>&nbsp;&nbsp;<span>Info</span></button>
+    <button mat-button *ngIf="!browser.isScreenMedium()" [matMenuTriggerFor]="menu">
       <fa-icon [icon]="['fas', 'address-book']" size="lg"></fa-icon>
     </button>
 

@@ -27,12 +27,16 @@ import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.
 import { GameWinDialogComponent } from './game/game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent } from './game/choose-competitor-dialog/choose-competitor-dialog.component';
 
+// Services
+import { BrowserService } from './services/browser-service/browser.service';
+
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module';
 import { AppIconsModule } from './app-icons.module';
 
 // Various Third Party Modules
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GameWinDialogComponent,
     ChooseCompetitorDialogComponent
   ],
-  providers: [],
+  providers: [
+    BrowserService,
+    DeviceDetectorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

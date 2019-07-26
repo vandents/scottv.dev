@@ -45,3 +45,7 @@ img.avi {
   background-image: url('../../assets/img/volgistics.png');
   background-size: cover;
 }
+
+fa-icon {
+  margin-left: -4px !important;
+}

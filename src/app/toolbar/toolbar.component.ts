@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BrowserService } from '../services/browser-service/browser.service';
 
 /** The navigation bar at the top of the screen */
 @Component({
@@ -9,19 +10,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  screenWidth: number;
   myEmail = 'vandents@mail.gvsu.edu';
 
-  constructor(public router: Router, private snackBar: MatSnackBar) {
-    this.getScreenSize();
-  }
+  constructor(
+    public router: Router,
+    private snackBar: MatSnackBar,
+    public browser: BrowserService
+  ) { }
 
   ngOnInit() {
-  }
-
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-    this.screenWidth = window.innerWidth;
   }
 
   copyToClipboard(val: string) {

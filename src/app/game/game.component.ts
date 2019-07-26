@@ -1,8 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent } from './choose-competitor-dialog/choose-competitor-dialog.component';
+import { BrowserService } from '../services/browser-service/browser.service';
 
 /** A little something I hacked together */
 @Component({
@@ -21,39 +22,20 @@ export class GameComponent implements OnInit {
   oWon: boolean;
   /** True if user is playing against Mr. Roboto */
   isRobot: boolean;
-  /** Current width of the users screen */
-  screenWidth: number;
-
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-    this.screenWidth = window.innerWidth;
-  }
 
   constructor(
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private title: Title
+    private title: Title,
+    public browser: BrowserService
   ) {
     this.title.setTitle('Scott VandenToorn - Game');
   }
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.screenWidth = window.innerWidth;
     this.initBoard();
     this.openChooseCompetitorDialog();
-  }
-
-  /** @returns {boolean} true if screen width is bigger than 992px; */
-  isScreenLarge() {
-    if (this.screenWidth >= 992) return true;
-    return false;
-  }
-
-  /** @returns {boolean} true if screen width is bigger than 650px; */
-  isScreenBigEnough(): boolean {
-    if (this.screenWidth > 650) return true;
-    return false;
   }
 
   /** Sets game values to an initial state */

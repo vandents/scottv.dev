@@ -1,8 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewImageDialogComponent } from '../view-image-dialog/view-image-dialog.component';
+import { BrowserService } from '../services/browser-service/browser.service';
 
 @Component({
   selector: 'app-projects',
@@ -10,24 +11,22 @@ import { ViewImageDialogComponent } from '../view-image-dialog/view-image-dialog
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  screenWidth: number;
 
-  constructor(private title: Title, public router: Router, private dialog: MatDialog) {
+  constructor(
+    private title: Title,
+    public router: Router,
+    private dialog: MatDialog,
+    public browser: BrowserService
+  ) {
     this.title.setTitle('Scott VandenToorn - Projects');
-    this.getScreenSize();
   }
 
   ngOnInit() {
     window.scrollTo(0, 0);
   }
 
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-    this.screenWidth = window.innerWidth;
-  }
-
   openViewImageDialog(imageSource: string) {
-    const dialogRef = this.dialog.open(
+    this.dialog.open(
       ViewImageDialogComponent, {
         maxWidth: '600px',
         data: {
