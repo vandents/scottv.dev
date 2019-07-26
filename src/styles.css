@@ -12,31 +12,37 @@ body {
   min-height: 100vh;
   position: relative;
   margin: 0;
+  text-rendering: optimizeLegibility;
 }
 
-/* Navbar active link styling. */
+/* Navbar active link styling */
 a.current {
   background: rgba(255, 255, 255, 0.04);
 }
 
-/* Gets rid of weird blue border on focus. */
+/* Gets rid of weird blue border on focus */
 button:focus {
   outline: none;
   border: 0;
 }
 
-/* Allows ViewImageDialog to not have a border. */
+/* Allows ViewImageDialog to not have a border */
 mat-dialog-container {
   padding: 0px 0px 0px 0px !important;
 }
 
-/* Toolbar containing the three main nav buttons. */
+/**************************
+ * Toolbar
+ **************************/
+
+/* Toolbar containing the three main nav buttons */
 .navbar {
+  position: -webkit-sticky !important;
   position: sticky;
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  top: 0;         /* Sets the sticky toolbar to be at the top */
+  z-index: 1000;  /* Ensure that content doesn't overlap the toolbar */
   padding: 0px;
-  min-height: 44px !important; /* Change this value in the toolbar row as well. */
+  min-height: 44px !important; /* Always change this value in the toolbar row as well */
 }
 
 .navbar mat-toolbar-row {
