@@ -2,7 +2,9 @@
   <div class="col-lg-7 col-md-8 col-12">
     <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0">
       <mat-grid-tile>
-        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
       </mat-grid-tile>
       <mat-grid-tile>
         
@@ -11,7 +13,10 @@
         
       </mat-grid-tile>
       <mat-grid-tile>
-        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
       </mat-grid-tile>
       <mat-grid-tile>
         
@@ -19,11 +24,8 @@
       <mat-grid-tile>
         
       </mat-grid-tile>
-      <mat-grid-tile (click)="whosTurn = !whosTurn">
+      <mat-grid-tile>
         
-      </mat-grid-tile>
-      <mat-grid-tile (click)="isRobot = !isRobot">
-        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
       </mat-grid-tile>
       <mat-grid-tile>
         
@@ -110,6 +112,17 @@
   </div> -->
 
   <div *ngIf="browser.isScreen767()" class="col-lg-5 col-md-4">
+    <div class="actions-side clearfix">
+      <button mat-button class="change-btn-side">
+        <fa-icon [icon]="['fas', 'user-friends']"></fa-icon>
+        &nbsp;&nbsp;Change Opponent
+      </button>
+      <button mat-button class="reset-btn-side">
+        <fa-icon [icon]="['fas', 'undo-alt']"></fa-icon>
+        &nbsp;&nbsp;Reset Board
+      </button>
+    </div>
+
     <mat-card class="cur-player-side clearfix">
       <mat-card-title cdkFocusInitial>Current Player</mat-card-title>
       <div class="divider-container" style="margin-top: -4px !important;">
@@ -142,7 +155,7 @@
   <div class="col-12">
     <mat-card class="cur-player-bottom">
       <div class="row">
-        <div class="col-4">
+        <div class="col-5">
           <mat-card-title cdkFocusInitial style="margin-top: -10px;">Current Player</mat-card-title>
           <div class="divider-container" style="margin-top: -6px !important;">
             <mat-divider></mat-divider>
@@ -155,14 +168,15 @@
             </div>
           </mat-card-content>
         </div>
-        <div class="col-8">
-          <div class="row">
-            <button mat-flat-button class="reset-btn">Reset</button>
-          </div>
-          <div style="margin-top: 5px;"></div>
-          <div class="row">
-            <button mat-flat-button class="reset-btn">Change Opponent</button>
-          </div>
+        <div class="col-7">
+          <button mat-button class="change-btn-bottom">
+            <fa-icon [icon]="['fas', 'user-friends']"></fa-icon>
+            &nbsp;Change Opponent
+          </button>
+          <button mat-button class="reset-btn-bottom">
+            <fa-icon [icon]="['fas', 'undo-alt']"></fa-icon>
+            &nbsp;Reset Board
+          </button>
         </div>
       </div>
     </mat-card>

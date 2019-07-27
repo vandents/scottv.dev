@@ -43,11 +43,8 @@ mat-grid-tile:hover {
 
 @media screen and (max-width: 992px) {
   .horizontal-1 { border: 3px solid #303030 !important; }
-
   .horizontal-2 { border: 3px solid #303030 !important; }
-
   .vertical-1 { border: 3px solid #303030 !important; }
-
   .vertical-2 { border: 3px solid #303030 !important; }
 }
 
@@ -65,6 +62,23 @@ mat-card-content {
   width: 230px;
 }
 
+.actions-side {
+  float: right;
+  width: 230px;
+}
+
+.reset-btn-side {
+  background-color: rgb(33, 33, 33);
+  width: 100%;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+
+.change-btn-side {
+  background-color: rgb(33, 33, 33);
+  width: 100%;
+}
+
 .cur-player-bottom {
   margin-top: 20px;
   height: 110px;
@@ -73,6 +87,33 @@ mat-card-content {
 .cur-player-bottom mat-card { width: 100% !important; }
 
 .cur-player-bottom mat-card-title { font-size: 100%; }
+
+.reset-btn-bottom {
+  background-color: rgb(33, 33, 33);
+  position: absolute;
+  right: 4px;
+  top: 42px;
+  height: 47px;
+  width: 60%;
+}
+
+.change-btn-bottom {
+  background-color: rgb(33, 33, 33);
+  position: absolute;
+  right: 4px;
+  top: -10px;
+  height: 47px;
+  width: 60%;
+}
+
+@media screen and (max-width: 500px) {
+  .reset-btn-bottom { width: 80%; }
+  .change-btn-bottom { width: 80%; }
+}
+@media screen and (max-width: 400px) {
+  .reset-btn-bottom { width: 90%; }
+  .change-btn-bottom { width: 90%; }
+}
 
 /* Current player */
 .x-turn {
@@ -103,11 +144,9 @@ mat-card-content {
   }
 }
 
-.reset-btn {
-  background-color: rgb(33, 33, 33);
-  position: relative;
-  right: 0;
-}
+
+
+
 
 
 

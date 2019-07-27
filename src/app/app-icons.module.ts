@@ -28,6 +28,7 @@ import {
   faSkull,
   faTerminal,
   faTrophy,
+  faUndoAlt,
   faUser,
   faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
@@ -89,6 +90,7 @@ export class AppIconsModule {
       faSkull,
       faTerminal,
       faTrophy,
+      faUndoAlt,
       faUser,
       faUserFriends,
 
