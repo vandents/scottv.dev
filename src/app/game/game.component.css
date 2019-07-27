@@ -1,3 +1,117 @@
+mat-grid-list {
+  background-color: rgb(33, 33, 33);
+  border-radius: 4px;
+}
+
+mat-grid-tile {
+  transition: 0.1s;
+}
+
+mat-grid-tile:hover {
+  background-color: rgb(38, 38, 38);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.horizontal-1 {
+  position: absolute;
+  margin-top: calc(33.333%);
+  width: 100%;
+  border: 4px solid #303030 !important;
+}
+
+.horizontal-2 {
+  position: absolute;
+  margin-top: calc(66.666%);
+  width: 100%;
+  border: 4px solid #303030 !important;
+}
+
+.vertical-1 {
+  position: absolute;
+  margin-left: calc(33.333%);
+  height: 100%;
+  border: 4px solid #303030 !important;
+}
+
+.vertical-2 {
+  position: absolute;
+  margin-left: calc(66.666%);
+  height: 100%;
+  border: 4px solid #303030 !important;
+}
+
+@media screen and (max-width: 992px) {
+  .horizontal-1 { border: 3px solid #303030 !important; }
+
+  .horizontal-2 { border: 3px solid #303030 !important; }
+
+  .vertical-1 { border: 3px solid #303030 !important; }
+
+  .vertical-2 { border: 3px solid #303030 !important; }
+}
+
+mat-card {
+  text-align: center;
+}
+
+mat-card-content {
+  margin: 0;
+}
+
+.cur-player-side {
+  float: right;
+  height: 270px;
+  width: 230px;
+}
+
+.cur-player-bottom {
+  margin-top: 20px;
+  height: 110px;
+}
+
+.cur-player-bottom mat-card { width: 100% !important; }
+
+.cur-player-bottom mat-card-title { font-size: 100%; }
+
+/* Current player */
+.x-turn {
+  font-size: 1400%;
+  margin-top: -51px !important;
+}
+
+.o-turn {
+  font-size: 2000%;
+  margin-top: -140px !important;
+}
+
+.robot-turn {
+  margin-top: 35px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .x-turn {
+    font-size: 400%;
+    margin-top: -10px !important;
+  }
+  .o-turn {
+    font-size: 575%;
+    margin-top: -37px !important;
+  }
+  .robot-turn {
+    margin-top: 15px !important;
+  }
+}
+
+.reset-btn {
+  background-color: rgb(33, 33, 33);
+  position: relative;
+  right: 0;
+}
+
+
+
+
 .game-card {
   height: 550px;
   width: 550px;
@@ -27,22 +141,24 @@
   padding-top: 5px;
   bottom: -15px;
   right: -15px;
-  margin-top: 5px
+  margin-top: 5px;
+  transition: 0.1s;
 }
 .btn-reset-top:hover {
   background-color: rgb(220, 220, 220);
-  transition: background-color .25s .02s;
+  transition: 0.2s;
 }
 
 .btn-reset-bottom {
   position: absolute;
   padding-top: 5px;
   right: 15px;
-  margin-top: 7px
+  margin-top: 7px;
+  transition: 0.1s;
 }
 .btn-reset-bottom:hover {
-  background-color: rgb(220, 220, 220);
-  transition: background-color .25s .02s;
+  opacity: 0.87;
+  transition: 0.2s;
 }
 .btn-reset-bottom h6 {
   color: rgb(66, 66, 66);
@@ -59,27 +175,6 @@
 .noMarginPadding {
   padding: 0px 0px !important;
   margin: 0px 0px !important;
-}
-
-/* Current player */
-.x-turn {
-  position: absolute;
-  font-size: 1400%;
-  padding-left: 40px;
-  margin-top: -51px !important;
-}
-
-.o-turn {
-  position: absolute;
-  font-size: 2000%;
-  padding-left: 21px;
-  margin-top: -140px !important;
-}
-
-.robot-turn {
-  position: absolute;
-  top: 40px;
-  left: 31px;
 }
 
 .x-turn-bottom {

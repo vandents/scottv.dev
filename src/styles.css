@@ -15,6 +15,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 /* Navbar active link styling */
 a.current {
   background: rgba(255, 255, 255, 0.04);
@@ -29,6 +39,13 @@ button:focus {
 /* Allows ViewImageDialog to not have a border */
 mat-dialog-container {
   padding: 0px 0px 0px 0px !important;
+}
+
+/* mat-divider container, centers and makes width 50% */
+.divider-container {
+  margin: auto;
+  position: relative;
+  width: 50%;
 }
 
 /**************************

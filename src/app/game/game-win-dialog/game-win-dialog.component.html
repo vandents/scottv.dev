@@ -1,6 +1,45 @@
 <mat-card>
-  <h1 cdkFocusInitial>Congratulations <span style="font-size: 120%;">{{playerName}}</span>!</h1>
-  <fa-icon [icon]="['fas', 'trophy']" size="10x"></fa-icon>
-  <p>You've earned this.</p>
-  <button mat-button [mat-dialog-close]>Close</button>
+  <h1 cdkFocusInitial>Congratulations <br><span style="font-size: 130%;">{{playerName}}!</span></h1>
+  <div class="divider-container">
+    <mat-divider></mat-divider>
+  </div>
+
+  <!------------------ Losers (fade out) ------------------>
+  <!-- X won, show O -->
+  <div *ngIf="xWin && !animateLoser" class="icon-container icon-o" [@fade]="'out'">o</div>
+  <div *ngIf="xWin && resting" [style.color]="restColor" class="icon-container icon-o">o</div>
+
+  <!-- O won, show X -->
+  <div *ngIf="oWin && !animateLoser" class="icon-container icon-x" [@fade]="'out'">X</div>
+  <div *ngIf="oWin && resting" [style.color]="restColor" class="icon-container icon-x">X</div>
+
+  <!-- Robot won, show X -->
+  <div *ngIf="robotWin && !animateLoser" class="icon-container" [@fade]="'out'">
+    <fa-icon [icon]="['fas', 'user']" size="8x"></fa-icon>
+  </div>
+  <div *ngIf="robotWin && resting" class="icon-container" [style.color]="restColor">
+    <fa-icon [icon]="['fas', 'user']" size="8x"></fa-icon>
+  </div>
+
+  <!-- Robot Lost, show robot -->
+  <div *ngIf="robotLose && !animateLoser" class="icon-container" [@fade]="'out'">
+    <fa-icon [icon]="['fas', 'robot']" size="8x"></fa-icon>
+  </div>
+  <div *ngIf="robotLose && resting" class="icon-container" [style.color]="restColor">
+    <fa-icon [icon]="['fas', 'robot']" size="8x"></fa-icon>
+  </div>
+
+  <!------------------ Winners (fade in) ------------------>
+  <!-- Skull icon fade in -->
+  <div *ngIf="animateWinner && !robotWin" class="icon-container" [@fade]="'in'">
+    <fa-icon [icon]="['fas', 'skull']" size="8x" class="icon-skull"></fa-icon>
+  </div>
+
+  <!-- Robot icon fade in -->
+  <div *ngIf="animateWinner && robotWin" class="icon-container icon-robot" [@fade]="'in'">
+    <fa-icon [icon]="['fas', 'robot']" size="8x" class="icon-skull"></fa-icon>
+  </div>
+
+  <div *ngIf="animateMessage && robotWin" class="icon-container message" [@fade]="'in'">{{ message }}</div>
+  <button mat-flat-button color="primary" [mat-dialog-close]>Close</button>
 </mat-card>

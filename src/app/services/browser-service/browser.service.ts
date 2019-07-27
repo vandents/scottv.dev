@@ -15,19 +15,31 @@ export class BrowserService {
    *****************************************/
 
   /** @returns {boolean} true if screen width is bigger than 992px */
-  isScreenLarge(): boolean {
+  isScreen992(): boolean {
     if (this.platform.width() >= 992) return true;
     return false;
   }
 
+  /** @returns {boolean} true if screen width is bigger than 500px */
+  isScreen767(): boolean {
+    if (this.platform.width() > 767) return true;
+    return false;
+  }
+
   /** @returns {boolean} true if screen width is bigger than 650px */
-  isScreenMedium(): boolean {
+  isScreen650(): boolean {
     if (this.platform.width() > 650) return true;
     return false;
   }
 
+  /** @returns {boolean} true if screen width is bigger than 500px */
+  isScreen500(): boolean {
+    if (this.platform.width() > 500) return true;
+    return false;
+  }
+
   /** @returns {boolean} true if screen width is bigger than 400px */
-  isScreenSmall(): boolean {
+  isScreen400(): boolean {
     if (this.platform.width() > 400) return true;
     return false;
   }

@@ -1,5 +1,42 @@
-<div *ngIf="browser.isScreenMedium()" class="row">
-  <div class="col-md-7 col-12">
+<div class="row">
+  <div class="col-lg-7 col-md-8 col-12">
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0">
+      <mat-grid-tile>
+        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+      </mat-grid-tile>
+      <mat-grid-tile (click)="whosTurn = !whosTurn">
+        
+      </mat-grid-tile>
+      <mat-grid-tile (click)="isRobot = !isRobot">
+        <fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+      </mat-grid-tile>
+
+      <mat-divider class="horizontal-1"></mat-divider>
+      <mat-divider class="horizontal-2"></mat-divider>
+      <mat-divider class="vertical-1" [vertical]="true"></mat-divider>
+      <mat-divider class="vertical-2" [vertical]="true"></mat-divider>
+    </mat-grid-list>
+
+
+    <div *ngIf="false">
     <mat-card class="game-card">
       <!-- 1st row -->
       <span *ngIf="xArray[0][0]" class="x00">X</span>
@@ -34,7 +71,7 @@
       <fa-icon *ngIf="oArray[2][1] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot21"></fa-icon>
       <fa-icon *ngIf="oArray[2][2] && isRobot" [icon]="['fas', 'robot']" size="6x" class="robot22"></fa-icon>
 
-      <!-- The clickable parts of the board -->
+      <!-- Clickable parts of the board -->
       <span *ngIf="isBoardClickEnabled()">
         <span (click)="squareClicked(0, 0)" class="span00"></span>
         <span (click)="squareClicked(0, 1)" class="span01"></span>
@@ -52,27 +89,42 @@
       <mat-divider class="div2"></mat-divider>
       <mat-divider [vertical]="true" class="div3"></mat-divider>
       <mat-divider [vertical]="true" class="div4"></mat-divider>
-      <button *ngIf="browser.isScreenLarge()" mat-flat-button color="primary" class="btn-reset-top" (click)="resetBoard()">
+      <button *ngIf="browser.isScreen992()" mat-flat-button color="primary" class="btn-reset-top" (click)="resetBoard()">
         <h6 style="color: rgb(66, 66, 66);">Reset Board</h6>
       </button>
     </mat-card>
+    </div>
   </div>
 
-  <div *ngIf="browser.isScreenLarge()" class="col-5">
+  <!-- <div *ngIf="browser.isScreen767()" class="col-lg-5 col-md-4">
     <div style="position: absolute; right: 20%;">
       <h2>&nbsp;&nbsp;Current Player</h2>
       <mat-card class="side-card">
         <mat-card-content class="noMarginPadding">
-          <span *ngIf="whosTurn" class="x-turn">X</span>
-          <span *ngIf="!whosTurn && !isRobot" class="o-turn">o</span>
+          <div *ngIf="whosTurn" class="x-turn">X</div>
+          <div *ngIf="!whosTurn && !isRobot" class="o-turn">o</div>
           <fa-icon *ngIf="!whosTurn && isRobot" [icon]="['fas', 'robot']" size="10x" class="robot-turn"></fa-icon>
         </mat-card-content>
       </mat-card>
     </div>
+  </div> -->
+
+  <div *ngIf="browser.isScreen767()" class="col-lg-5 col-md-4">
+    <mat-card class="cur-player-side clearfix">
+      <mat-card-title cdkFocusInitial>Current Player</mat-card-title>
+      <div class="divider-container" style="margin-top: -4px !important;">
+        <mat-divider></mat-divider>
+      </div>
+      <mat-card-content>
+        <div *ngIf="whosTurn" class="x-turn" [@mediumFade]="'in'">X</div>
+        <div *ngIf="!whosTurn && !isRobot" class="o-turn" [@mediumFade]="'in'">o</div>
+        <div *ngIf="!whosTurn && isRobot" class="robot-turn" [@mediumFade]="'in'"><fa-icon [icon]="['fas', 'robot']" size="10x"></fa-icon></div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 
-<div *ngIf="browser.isScreenMedium() && !browser.isScreenLarge()" class="row">
+<!-- <div *ngIf="!browser.isScreen767()" class="row">
   <div class="col-7">
     <mat-card class="bottom-card">
       <span class="bottom-card-title">Current Player:</span>
@@ -84,13 +136,35 @@
       </button>
     </mat-card>
   </div>
-</div>
+</div> -->
 
-<div class="row" *ngIf="!browser.isScreenMedium()" style="padding-top: 10px;">
-  <div class="col-1"></div>
-  <div class="col-10">
-    <mat-card>
-      <mat-card-title style="font-size: 125%;">This game works best on bigger screens.</mat-card-title>
+<div *ngIf="!browser.isScreen767()" class="row">
+  <div class="col-12">
+    <mat-card class="cur-player-bottom">
+      <div class="row">
+        <div class="col-4">
+          <mat-card-title cdkFocusInitial style="margin-top: -10px;">Current Player</mat-card-title>
+          <div class="divider-container" style="margin-top: -6px !important;">
+            <mat-divider></mat-divider>
+          </div>
+          <mat-card-content>
+            <div *ngIf="whosTurn" class="x-turn" [@mediumFade]="'in'">X</div>
+            <div *ngIf="!whosTurn && !isRobot" class="o-turn" [@mediumFade]="'in'">o</div>
+            <div *ngIf="!whosTurn && isRobot" class="robot-turn" [@mediumFade]="'in'">
+              <fa-icon [icon]="['fas', 'robot']" size="4x" transform="shrink-2.5"></fa-icon>
+            </div>
+          </mat-card-content>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <button mat-flat-button class="reset-btn">Reset</button>
+          </div>
+          <div style="margin-top: 5px;"></div>
+          <div class="row">
+            <button mat-flat-button class="reset-btn">Change Opponent</button>
+          </div>
+        </div>
+      </div>
     </mat-card>
   </div>
 </div>

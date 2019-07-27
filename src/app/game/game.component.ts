@@ -4,12 +4,30 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent } from './choose-competitor-dialog/choose-competitor-dialog.component';
 import { BrowserService } from '../services/browser-service/browser.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+enum Player {
+  x = 1,
+  o,
+  robot
+}
 
 /** A little something I hacked together */
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.css'],
+  animations: [
+    trigger('fastFade', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0 }), animate(150)]),
+      transition(':leave', animate(1000, style({ opacity: 0.43, color: 'rgb(38, 38, 38)' })))
+    ]),
+    trigger('mediumFade', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0.2 }), animate(300)]),
+    ])
+  ]
 })
 export class GameComponent implements OnInit {
   xArray: boolean[][];
@@ -18,8 +36,7 @@ export class GameComponent implements OnInit {
   whosTurn: boolean;
   /** Once numTurns hits 9 and there's not a winner we know it's a draw */
   numTurns: number;
-  xWon: boolean;
-  oWon: boolean;
+  winner: Player;
   /** True if user is playing against Mr. Roboto */
   isRobot: boolean;
 
@@ -35,7 +52,7 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.initBoard();
-    this.openChooseCompetitorDialog();
+    // this.openChooseCompetitorDialog();
   }
 
   /** Sets game values to an initial state */
@@ -43,8 +60,6 @@ export class GameComponent implements OnInit {
     this.xArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.oArray = [[false, false, false], [false, false, false], [false, false, false]];
     this.whosTurn = Math.random() < 0.5;
-    this.xWon = false;
-    this.oWon = false;
     this.numTurns = 0;
   }
 
@@ -99,23 +114,55 @@ export class GameComponent implements OnInit {
    * @returns true if win condition is found
    */
   checkForWinner(): boolean {
-    if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.xWon = true; return true; }
-    if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.xWon = true; return true; }
-    if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.xWon = true; return true; }
-    if (this.xArray[0][0] && this.xArray[1][0] && this.xArray[2][0]) { this.xWon = true; return true; }
-    if (this.xArray[0][1] && this.xArray[1][1] && this.xArray[2][1]) { this.xWon = true; return true; }
-    if (this.xArray[0][2] && this.xArray[1][2] && this.xArray[2][2]) { this.xWon = true; return true; }
-    if (this.xArray[0][0] && this.xArray[1][1] && this.xArray[2][2]) { this.xWon = true; return true; }
-    if (this.xArray[0][2] && this.xArray[1][1] && this.xArray[2][0]) { this.xWon = true; return true; }
+    if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.winner = Player.x; return true; }
+    if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.winner = Player.x; return true; }
+    if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.winner = Player.x; return true; }
+    if (this.xArray[0][0] && this.xArray[1][0] && this.xArray[2][0]) { this.winner = Player.x; return true; }
+    if (this.xArray[0][1] && this.xArray[1][1] && this.xArray[2][1]) { this.winner = Player.x; return true; }
+    if (this.xArray[0][2] && this.xArray[1][2] && this.xArray[2][2]) { this.winner = Player.x; return true; }
+    if (this.xArray[0][0] && this.xArray[1][1] && this.xArray[2][2]) { this.winner = Player.x; return true; }
+    if (this.xArray[0][2] && this.xArray[1][1] && this.xArray[2][0]) { this.winner = Player.x; return true; }
 
-    if (this.oArray[0][0] && this.oArray[0][1] && this.oArray[0][2]) { this.oWon = true; return true; }
-    if (this.oArray[1][0] && this.oArray[1][1] && this.oArray[1][2]) { this.oWon = true; return true; }
-    if (this.oArray[2][0] && this.oArray[2][1] && this.oArray[2][2]) { this.oWon = true; return true; }
-    if (this.oArray[0][0] && this.oArray[1][0] && this.oArray[2][0]) { this.oWon = true; return true; }
-    if (this.oArray[0][1] && this.oArray[1][1] && this.oArray[2][1]) { this.oWon = true; return true; }
-    if (this.oArray[0][2] && this.oArray[1][2] && this.oArray[2][2]) { this.oWon = true; return true; }
-    if (this.oArray[0][0] && this.oArray[1][1] && this.oArray[2][2]) { this.oWon = true; return true; }
-    if (this.oArray[0][2] && this.oArray[1][1] && this.oArray[2][0]) { this.oWon = true; return true; }
+    if (this.oArray[0][0] && this.oArray[0][1] && this.oArray[0][2]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else  this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[1][0] && this.oArray[1][1] && this.oArray[1][2]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[2][0] && this.oArray[2][1] && this.oArray[2][2]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[0][0] && this.oArray[1][0] && this.oArray[2][0]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[0][1] && this.oArray[1][1] && this.oArray[2][1]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[0][2] && this.oArray[1][2] && this.oArray[2][2]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[0][0] && this.oArray[1][1] && this.oArray[2][2]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
+    if (this.oArray[0][2] && this.oArray[1][1] && this.oArray[2][0]) {
+      if (this.isRobot) this.winner = Player.robot;
+      else this.winner = Player.o;
+      return true;
+    }
 
     return false;
   }
@@ -431,12 +478,10 @@ export class GameComponent implements OnInit {
       if (this.xArray[0][2] && this.xArray[1][1] && legalMoves[2][0]) {
         this.oArray[2][0] = true;
         return true;
-      }
-      else if (this.xArray[0][2] && this.xArray[2][0] && legalMoves[1][1]) {
+      } else if (this.xArray[0][2] && this.xArray[2][0] && legalMoves[1][1]) {
         this.oArray[1][1] = true;
         return true;
-      }
-      else if (this.xArray[1][1] && this.xArray[2][0] && legalMoves[0][2]) {
+      } else if (this.xArray[1][1] && this.xArray[2][0] && legalMoves[0][2]) {
         this.oArray[0][2] = true;
         return true;
       }
@@ -473,16 +518,11 @@ export class GameComponent implements OnInit {
 
   /** Opens GameWinDialog */
   openGameWinDialog() {
-    let winner: string;
-    if (this.xWon) winner = 'Player X';
-    else if (this.oWon && this.isRobot) winner = 'Mr. Roboto';
-    else winner = 'Player O';
-
     const dialogRef = this.dialog.open(
       GameWinDialogComponent, {
-        width: '500px', height: '400px',
         data: {
-          winner: winner
+          winner: this.winner,
+          isRobot: this.isRobot
         }
       }
     );
@@ -495,10 +535,7 @@ export class GameComponent implements OnInit {
   /** Opens ChooseCompetitorDialog */
   openChooseCompetitorDialog() {
     const dialogRef = this.dialog.open(
-      ChooseCompetitorDialogComponent, {
-        width: '400px', height: '280px',
-        data: { }
-      }
+      ChooseCompetitorDialogComponent, { data: { } }
     );
 
     dialogRef.afterClosed().subscribe(result => {

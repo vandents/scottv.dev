@@ -25,8 +25,10 @@ import {
   faMousePointer,
   faRobot,
   faSquare,
+  faSkull,
   faTerminal,
   faTrophy,
+  faUser,
   faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -43,6 +45,7 @@ import {
   faJs,
   faJsSquare,
   faSass,
+  faSlackHash,
   faWindows
 } from '@fortawesome/free-brands-svg-icons';
 
@@ -83,8 +86,10 @@ export class AppIconsModule {
       faMousePointer,
       faRobot,
       faSquare,
+      faSkull,
       faTerminal,
       faTrophy,
+      faUser,
       faUserFriends,
 
       // fab
@@ -99,6 +104,7 @@ export class AppIconsModule {
       faJs,
       faJsSquare,
       faSass,
+      faSlackHash,
       faWindows
     );
   }

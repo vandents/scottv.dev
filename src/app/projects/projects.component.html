@@ -1,15 +1,18 @@
 <h1>Projects.</h1>
 <p>Here are some of the cool things I've made!</p>
-<mat-divider></mat-divider>
+<mat-divider *ngIf="browser.isScreen992()"></mat-divider>
+<div *ngIf="!browser.isScreen992()" class="divider-container">
+  <mat-divider></mat-divider>
+</div>
 
 <h2>TI Launchpad Handheld Slot Machine</h2>
 <mat-card>
   <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
     <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
   </a>
-  <img *ngIf="browser.isScreenMedium()" mat-card-image class="project-img" src="../../assets/img/slot-machine.jpg" alt="Slot Machine"
+  <img *ngIf="browser.isScreen650()" mat-card-image class="project-img" src="../../assets/img/slot-machine.jpg" alt="Slot Machine"
     (click)="openViewImageDialog('../../assets/img/slot-machine.jpg')" matTooltip="Click to enlarge" matTooltipPosition="right" aria-label="Enlarge Slot Machine Photo">
-  <img *ngIf="!browser.isScreenMedium()" mat-card-image class="project-img-mobile" src="../../assets/img/slot-machine.jpg" alt="Slot Machine">
+  <img *ngIf="!browser.isScreen650()" mat-card-image class="project-img-mobile" src="../../assets/img/slot-machine.jpg" alt="Slot Machine">
   <mat-card-content>
     This handheld GameBoy-esque device is a slot machine my peer, Zakkaria Hales, and I created for a final project in a microcontroller
     class. The slot machine uses a TI MSP432 Launchpad microcontroller. Creating both the hardware <b>and</b> software made this by far one of my favorite projects.
@@ -23,12 +26,12 @@
   </mat-card-content>
 </mat-card>
 
-<h2>GVSU Robo Sockey robot "The Boi"</h2>
+<h2>GVSU Robo Sockey Robot</h2>
 <mat-card>
-  <img *ngIf="browser.isScreenMedium()" mat-card-image class="project-img" src="../../assets/img/the-boi.jpg"
+  <img *ngIf="browser.isScreen650()" mat-card-image class="project-img" src="../../assets/img/the-boi.jpg"
     alt="Slot Machine" (click)="openViewImageDialog('../../assets/img/the-boi.jpg')" matTooltip="Click to enlarge"
     matTooltipPosition="right" aria-label="Enlarge Slot Machine Photo">
-  <img *ngIf="!browser.isScreenMedium()" mat-card-image class="project-img-mobile" src="../../assets/img/the-boi.jpg"
+  <img *ngIf="!browser.isScreen650()" mat-card-image class="project-img-mobile" src="../../assets/img/the-boi.jpg"
     alt="Slot Machine">
   <mat-card-content>
     GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between all of the

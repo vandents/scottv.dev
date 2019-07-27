@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BrowserService } from 'src/app/services/browser-service/browser.service';
 
-/** Dialog for choosing to play against Mr. Robot or a friend */
+/** Dialog to choosing playing against Mr. Robot or a friend */
 @Component({
   selector: 'app-choose-competitor-dialog',
   templateUrl: './choose-competitor-dialog.component.html',
@@ -10,6 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ChooseCompetitorDialogComponent implements OnInit {
 
   constructor(
+    public browser: BrowserService,
     public dialogRef: MatDialogRef<ChooseCompetitorDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }

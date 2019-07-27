@@ -1,31 +1,59 @@
 mat-card {
-  height: 400px;
-  width: 500px;
+  width: 300px !important;
+  height: 370px;
+  text-align: center;
 }
 
 h1 {
   font-size: 200%;
-  margin-top: 10px;
-  margin-left: 25px;
-}
-
-fa-icon {
-  position: absolute;
-  margin-left: 147px;
-  margin-top: 40px;
-  color: goldenrod;
-}
-
-p {
-  position: absolute;
-  font-size: 105%;
-  margin-left: 167px;
-  margin-top: 220px;
 }
 
 button {
+  border-radius: 0 !important;
+  width: 100%;
+  height: 40px;
   position: absolute;
-  font-size: 115%;
-  right: 8px;
-  bottom: 8px;
+  font-size: 130%;
+  right: 0px;
+  bottom: 0px;
+  transition: 0.1s;
+}
+
+button:hover {
+  transition: 0.2s;
+  opacity: 0.87;
+}
+
+.message {
+  margin-top: 168px !important;
+  font-size: 130%;
+  font-family: monospace;
+  color: rgb(190, 150, 150);
+}
+
+@media screen and (max-width: 370px) {
+  .message { font-size: 125%; }
+  mat-card { width: auto !important; }
+}
+
+/* Icons */
+.icon-container {
+  position: absolute;
+  width: 100%;
+  margin-left: -16px;
+  margin-top: 27px;
+}
+
+.icon-x {
+  font-size: 950%;
+  margin-top: -18px !important;
+}
+
+.icon-o {
+  font-size: 1450%;
+  margin-top: -109px !important;
+}
+
+.icon-skull {
+  color: rgba(231, 13, 13, 1);
 }
