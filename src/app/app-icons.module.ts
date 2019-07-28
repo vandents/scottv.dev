@@ -24,13 +24,10 @@ import {
   faMonument,
   faMousePointer,
   faRobot,
-  faSquare,
-  faSkull,
+  faSkullCrossbones,
   faTerminal,
-  faTrophy,
   faUndoAlt,
-  faUser,
-  faUserFriends
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand Icons (fab)
@@ -41,12 +38,10 @@ import {
   faGit,
   faGithub,
   faGithubAlt,
-  faGithubSquare,
   faHtml5,
   faJs,
   faJsSquare,
   faSass,
-  faSlackHash,
   faWindows
 } from '@fortawesome/free-brands-svg-icons';
 
@@ -86,13 +81,10 @@ export class AppIconsModule {
       faMonument,
       faMousePointer,
       faRobot,
-      faSquare,
-      faSkull,
+      faSkullCrossbones,
       faTerminal,
-      faTrophy,
       faUndoAlt,
       faUser,
-      faUserFriends,
 
       // fab
       faAngular,
@@ -101,12 +93,10 @@ export class AppIconsModule {
       faGit,
       faGithub,
       faGithubAlt,
-      faGithubSquare,
       faHtml5,
       faJs,
       faJsSquare,
       faSass,
-      faSlackHash,
       faWindows
     );
   }

@@ -12,7 +12,12 @@ enum Player {
   robot
 }
 
-/** A little something I hacked together */
+/**
+ * A little something I hacked together.
+ * One thing to note is that the Mr. Roboto hijacks Player O's board array
+ * when the user selects to play against him. Just a little heads up for anyone
+ * trying to follow the code.
+ */
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -20,19 +25,19 @@ enum Player {
   animations: [
     trigger('fastFade', [
       state('in', style({ opacity: 1 })),
-      transition(':enter', [style({ opacity: 0 }), animate(150)]),
-      transition(':leave', animate(1000, style({ opacity: 0.43, color: 'rgb(38, 38, 38)' })))
+      transition(':enter', [style({ opacity: 0.5 }), animate(300)]),
+      transition(':leave', animate(350, style({ opacity: 0.3, color: 'rgb(38, 38, 38)' })))
     ]),
     trigger('mediumFade', [
       state('in', style({ opacity: 1 })),
-      transition(':enter', [style({ opacity: 0.2 }), animate(300)]),
+      transition(':enter', [style({ opacity: 0.2 }), animate(450)]),
     ])
   ]
 })
 export class GameComponent implements OnInit {
   xArray: boolean[][];
   oArray: boolean[][];
-  /** True -> x's turn, false -> o's turn */
+  /** True -> x's turn, false -> o/robot's turn */
   whosTurn: boolean;
   /** Once numTurns hits 9 and there's not a winner we know it's a draw */
   numTurns: number;
@@ -52,7 +57,7 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.initBoard();
-    // this.openChooseCompetitorDialog();
+    this.openChooseCompetitorDialog();
   }
 
   /** Sets game values to an initial state */
@@ -63,18 +68,24 @@ export class GameComponent implements OnInit {
     this.numTurns = 0;
   }
 
-  /** Initialized board. If it's Mr. Robot's turn robotMove() is called */
+  /** Initializes board. If it's Mr. Robot's turn after init robotMove() is called */
   resetBoard() {
     this.initBoard();
     if (this.isRobot && !this.whosTurn) {
       setTimeout(() => {
         this.robotMove(true);
-      }, 1000);
+      }, 1250);
     }
+  }
+
+  changeOpponent() {
+    this.initBoard();
+    this.openChooseCompetitorDialog();
   }
 
   /** Main game handler */
   squareClicked(row: number, column: number) {
+    if (this.isRobotTurn()) return;
     if (this.whosTurn) {
       if (this.oArray[row][column] == false) {
         this.xArray[row][column] = true;
@@ -88,15 +99,14 @@ export class GameComponent implements OnInit {
       }
     }
 
-    if (!this.whosTurn && this.isRobot) {
-      let timeout = this.getRandomInt(700);
-      if (timeout < 150) timeout = 150;
+    if (this.isRobotTurn()) {
+      const turnTimeout = 600;
 
       setTimeout(() => {
         this.robotMove();
         if (this.checkForWinner()) this.openGameWinDialog();
         else if (this.numTurns >= 9) this.openDrawSnackBar();
-      }, timeout);
+      }, turnTimeout);
     } else {
       if (this.checkForWinner()) this.openGameWinDialog();
       else if (this.numTurns >= 9) this.openDrawSnackBar();
@@ -114,12 +124,12 @@ export class GameComponent implements OnInit {
    * @returns true if win condition is found
    */
   checkForWinner(): boolean {
-    if (this.xArray[0][0] && this.xArray[0][1] && this.xArray[0][2]) { this.winner = Player.x; return true; }
-    if (this.xArray[1][0] && this.xArray[1][1] && this.xArray[1][2]) { this.winner = Player.x; return true; }
-    if (this.xArray[2][0] && this.xArray[2][1] && this.xArray[2][2]) { this.winner = Player.x; return true; }
-    if (this.xArray[0][0] && this.xArray[1][0] && this.xArray[2][0]) { this.winner = Player.x; return true; }
-    if (this.xArray[0][1] && this.xArray[1][1] && this.xArray[2][1]) { this.winner = Player.x; return true; }
-    if (this.xArray[0][2] && this.xArray[1][2] && this.xArray[2][2]) { this.winner = Player.x; return true; }
+    for (let i = 0; i <= 2; i++) {
+      if (this.xArray[i][0] && this.xArray[i][1] && this.xArray[i][2]) { this.winner = Player.x; return true; }
+    }
+    for (let i = 0; i <= 2; i++) {
+      if (this.xArray[0][i] && this.xArray[1][i] && this.xArray[2][i]) { this.winner = Player.x; return true; }
+    }
     if (this.xArray[0][0] && this.xArray[1][1] && this.xArray[2][2]) { this.winner = Player.x; return true; }
     if (this.xArray[0][2] && this.xArray[1][1] && this.xArray[2][0]) { this.winner = Player.x; return true; }
 
@@ -169,7 +179,7 @@ export class GameComponent implements OnInit {
 
   /** Main handler for Mr. Roboto's turn */
   robotMove(isFirstTurn?: boolean) {
-    // Play in the corner for the first move
+    // Play in one of the corners for the first move
     if (isFirstTurn === true) {
       let i: number;
       let j: number;
@@ -510,10 +520,10 @@ export class GameComponent implements OnInit {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  /** @returns {boolean} false if it is Mr. Roboto's turn */
-  isBoardClickEnabled(): boolean {
-    if (!this.whosTurn && this.isRobot) return false;
-    return true;
+  /** @returns {boolean} true if it is Mr. Roboto's turn */
+  isRobotTurn(): boolean {
+    if (!this.whosTurn && this.isRobot) return true;
+    return false;
   }
 
   /** Opens GameWinDialog */
@@ -539,6 +549,7 @@ export class GameComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe(result => {
+      this.initBoard();
       this.isRobot = result;
       if (this.isRobot && !this.whosTurn) this.robotMove(true);
 

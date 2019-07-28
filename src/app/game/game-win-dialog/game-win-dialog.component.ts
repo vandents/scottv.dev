@@ -9,8 +9,8 @@ enum Player {
   robot
 }
 
-const OUT_TIME = 950;
-const IN_TIME = 1800;
+const IN_TIME = 2300;
+const OUT_TIME = 1400;
 
 /** Dialog displayed when a player wins */
 @Component({
@@ -27,7 +27,7 @@ const IN_TIME = 1800;
       transition(':enter', [style({ opacity: 0 }), animate(IN_TIME)]),
       // fade out when destroyed. this could also be written as transition('void => *')
       // fading out uses a different syntax, with the "style" being passed into animate()
-      transition(':leave', animate(OUT_TIME, style({ opacity: 0.43, color: 'rgb(38, 38, 38)' })))
+      transition(':leave', animate(OUT_TIME, style({ opacity: 0.465, color: 'rgb(36, 36, 36)' })))
     ])
   ]
 })
@@ -50,7 +50,7 @@ export class GameWinDialogComponent implements OnInit {
     `Silicon > Carbon`,
     `The Singularity is nigh`,
     `Rest in peace, human`,
-    `Hasta la vista, baby`,
+    `Hasta la vista, baby`
   ];
 
   constructor(
@@ -87,11 +87,11 @@ export class GameWinDialogComponent implements OnInit {
   /** Manages icon/message animations */
   animations() {
     const randNum = this.getRandomInt(this.robotMessages.length);
-    this.message = this.robotMessages[0];
+    this.message = this.robotMessages[randNum];
 
     setTimeout(() => {
       this.animateWinner = true;
-    }, 900);
+    }, 750);
 
     setTimeout(() => {
       this.animateLoser = true;
@@ -99,11 +99,11 @@ export class GameWinDialogComponent implements OnInit {
       setTimeout(() => {
         this.resting = true;
       }, OUT_TIME - 10);
-    }, 1500);
+    }, 1100);
 
     setTimeout(() => {
       this.animateMessage = true;
-    }, 1400);
+    }, 1100);
   }
 
   /**

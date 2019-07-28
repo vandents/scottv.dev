@@ -1,3 +1,7 @@
+/********************************
+ * Game Board
+ ********************************/
+
 mat-grid-list {
   background-color: rgb(33, 33, 33);
   border-radius: 4px;
@@ -12,6 +16,14 @@ mat-grid-tile:hover {
   cursor: pointer;
   transition: 0.2s;
 }
+@media screen and (max-width: 768px) {
+  mat-grid-tile:hover { background-color:  rgb(33, 33, 33); }
+}
+
+
+/********************************
+ * Game Board Lines
+ ********************************/
 
 .horizontal-1 {
   position: absolute;
@@ -48,22 +60,60 @@ mat-grid-tile:hover {
   .vertical-2 { border: 3px solid #303030 !important; }
 }
 
-mat-card {
-  text-align: center;
+
+/********************************
+ * Board Icons
+ ********************************/
+
+/* Have to put margins on o because it's a lowercase letter */
+.o-player {
+  font-size: 1250%;
+  margin-top: -42px;
+}
+.x-player { font-size: 875%; }
+@media screen and (max-width: 1199px) {
+  .o-player { margin-top: -47px; }
+}
+@media screen and (max-width: 992px) {
+  .o-player {
+    font-size: 950%;
+    margin-top: -33px;
+  }
+  .x-player { font-size: 675%; }
+}
+@media screen and (max-width: 500px) {
+  .o-player {
+    font-size: 760%;
+    margin-top: -30px;
+  }
+  .x-player { font-size: 550%; }
+}
+@media screen and (max-width: 450px) {
+  .o-player { margin-top: -26px; }
 }
 
-mat-card-content {
-  margin: 0;
+
+/********************************
+ * Angular Materical Card (for action cards)
+ ********************************/
+
+mat-card { text-align: center; }
+
+mat-card-content { margin: 0; }
+
+
+/********************************
+ * Action Card Side
+ ********************************/
+
+.actions-side {
+  float: right;
+  width: 230px;
 }
 
 .cur-player-side {
   float: right;
   height: 270px;
-  width: 230px;
-}
-
-.actions-side {
-  float: right;
   width: 230px;
 }
 
@@ -79,14 +129,10 @@ mat-card-content {
   width: 100%;
 }
 
-.cur-player-bottom {
-  margin-top: 20px;
-  height: 110px;
-}
 
-.cur-player-bottom mat-card { width: 100% !important; }
-
-.cur-player-bottom mat-card-title { font-size: 100%; }
+/********************************
+ * Action Card Bottom
+ ********************************/
 
 .reset-btn-bottom {
   background-color: rgb(33, 33, 33);
@@ -106,7 +152,7 @@ mat-card-content {
   width: 60%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 530px) {
   .reset-btn-bottom { width: 80%; }
   .change-btn-bottom { width: 80%; }
 }
@@ -115,21 +161,29 @@ mat-card-content {
   .change-btn-bottom { width: 90%; }
 }
 
-/* Current player */
+.actions-bottom {
+  margin-top: 20px;
+  height: 110px;
+}
+
+.actions-bottom mat-card { width: 100% !important; }
+
+.actions-bottom mat-card-title { font-size: 100%; }
+
+
+/********************************
+ * Current Player Icons
+ ********************************/
+
 .x-turn {
   font-size: 1400%;
   margin-top: -51px !important;
 }
-
 .o-turn {
   font-size: 2000%;
   margin-top: -140px !important;
 }
-
-.robot-turn {
-  margin-top: 35px !important;
-}
-
+.robot-turn { margin-top: 35px !important; }
 @media screen and (max-width: 767px) {
   .x-turn {
     font-size: 400%;
@@ -139,393 +193,5 @@ mat-card-content {
     font-size: 575%;
     margin-top: -37px !important;
   }
-  .robot-turn {
-    margin-top: 15px !important;
-  }
+  .robot-turn { margin-top: 15px !important; }
 }
-
-
-
-
-
-
-
-
-.game-card {
-  height: 550px;
-  width: 550px;
-}
-
-.side-card {
-  height: 235px;
-  width: 235px;
-}
-
-.bottom-card {
-  height: 75px;
-  width: 510px;
-  margin-top: 15px !important;
-  margin-left: 20px;
-}
-
-.bottom-card-title {
-  position: absolute;
-  bottom: 25px;
-  left: 15px;
-  right: 0;
-}
-
-.btn-reset-top {
-  position: absolute;
-  padding-top: 5px;
-  bottom: -15px;
-  right: -15px;
-  margin-top: 5px;
-  transition: 0.1s;
-}
-.btn-reset-top:hover {
-  background-color: rgb(220, 220, 220);
-  transition: 0.2s;
-}
-
-.btn-reset-bottom {
-  position: absolute;
-  padding-top: 5px;
-  right: 15px;
-  margin-top: 7px;
-  transition: 0.1s;
-}
-.btn-reset-bottom:hover {
-  opacity: 0.87;
-  transition: 0.2s;
-}
-.btn-reset-bottom h6 {
-  color: rgb(66, 66, 66);
-  font-size: 105%;
-}
-
-.btn-reset {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  right: 0;
-}
-
-.noMarginPadding {
-  padding: 0px 0px !important;
-  margin: 0px 0px !important;
-}
-
-.x-turn-bottom {
-  position: absolute;
-  font-size: 400%;
-  padding-left: 135px;
-  margin-top: -25px !important;
-}
-
-.o-turn-bottom {
-  position: absolute;
-  font-size: 580%;
-  padding-left: 128px;
-  margin-top: -56px !important;
-}
-
-.robot-turn-bottom {
-  position: absolute;
-  top: 14px;
-  left: 141px;
-}
-
-/* Board lines */
-.div1 {
-  margin-top: 160px !important;
-  border: 2px solid !important;
-}
-
-.div2 {
-  margin-top: 350px;
-  border: 2px solid !important;
-}
-
-.div3 {
-  position: absolute;
-  border: 2px solid !important;
-  height: 100%;
-  margin-top: -16px;
-  margin-left: 160px;
-}
-
-.div4 {
-  position: absolute;
-  border: 2px solid !important;
-  height: 550px;
-  margin-top: -16px;
-  margin-left: 350px;
-}
-
-/* 1st row */
-.x00 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 15px;
-  padding-left: 45px;
-}
-
-.o00 {
-  font-size: 700%;
-  position: absolute;
-  margin-top: -20px !important;
-  padding-left: 40px;
-}
-
-.x01 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 15px;
-  padding-left: 230px;
-}
-
-.o01 {
-  font-size: 700%;
-  position: absolute;
-  margin-top: -20px !important;
-  padding-left: 225px;
-}
-
-.x02 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 15px;
-  padding-left: 420px;
-}
-
-.o02 {
-  font-size: 700%;
-  position: absolute;
-  margin-top: -20px !important;
-  padding-left: 415px;
-}
-
-.robot00 {
-  position: absolute;
-  padding-top: 18px;
-  padding-left: 14px;
-}
-
-.robot01 {
-  position: absolute;
-  padding-top: 18px;
-  padding-left: 197px;
-}
-
-.robot02 {
-  position: absolute;
-  padding-top: 18px;
-  padding-left: 386px;
-}
-
-/* 2nd row */
-.x10 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 200px;
-  padding-left: 45px;
-}
-
-.o10 {
-  font-size: 700%;
-  position: absolute;
-  padding-top: 165px;
-  padding-left: 40px;
-}
-
-.x11 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 200px;
-  padding-left: 230px;
-}
-
-.o11 {
-  font-size: 700%;
-  position: absolute;
-  padding-top: 165px;
-  padding-left: 225px;
-}
-
-.x12 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 200px;
-  padding-left: 420px;
-}
-
-.o12 {
-  font-size: 700%;
-  position: absolute;
-  margin-top: 165px !important;
-  padding-left: 415px;
-}
-
-.robot10 {
-  position: absolute;
-  padding-top: 205px;
-  padding-left: 14px;
-}
-
-.robot11 {
-  position: absolute;
-  padding-top: 205px;
-  padding-left: 197px;
-}
-
-.robot12 {
-  position: absolute;
-  padding-top: 205px;
-  padding-left: 386px;
-}
-
-/* 3rd row */
-.x20 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 385px;
-  padding-left: 45px;
-}
-
-.o20 {
-  font-size: 700%;
-  position: absolute;
-  padding-top: 350px;
-  padding-left: 40px;
-}
-
-.x21 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 385px;
-  padding-left: 230px;
-}
-
-.o21 {
-  font-size: 700%;
-  position: absolute;
-  padding-top: 350px;
-  padding-left: 225px;
-}
-
-.x22 {
-  font-size: 500%;
-  position: absolute;
-  padding-top: 385px;
-  padding-left: 420px;
-}
-
-.o22 {
-  font-size: 700%;
-  position: absolute;
-  margin-top: 350px !important;
-  padding-left: 415px;
-}
-
-.robot20 {
-  position: absolute;
-  padding-top: 395px;
-  padding-left: 14px;
-}
-
-.robot21 {
-  position: absolute;
-  padding-top: 395px;
-  padding-left: 197px;
-}
-
-.robot22 {
-  position: absolute;
-  padding-top: 395px;
-  padding-left: 386px;
-}
-
-/* 1st Row */
-.span00 {
-  position: absolute;
-  width: 155px;
-  height: 155px;
-  margin-top: -10px !important;
-  margin-left: -5px;
-}
-.span00:hover { cursor: pointer; }
-
-.span01 {
-  position: absolute;
-  width: 170px;
-  height: 155px;
-  margin-top: -10px !important;
-  margin-left: 170px;
-}
-.span01:hover { cursor: pointer; }
-
-.span02 {
-  position: absolute;
-  width: 160px;
-  height: 155px;
-  margin-top: -10px !important;
-  margin-left: 360px;
-}
-.span02:hover { cursor: pointer; }
-
-/* 2nd Row */
-.span10 {
-  position: absolute;
-  width: 155px;
-  height: 170px;
-  margin-top: 170px;
-  margin-left: -5px;
-}
-.span10:hover { cursor: pointer; }
-
-.span11 {
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  margin-top: 170px;
-  margin-left: 170px;
-}
-.span11:hover { cursor: pointer; }
-
-.span12 {
-  position: absolute;
-  width: 160px;
-  height: 170px;
-  margin-top: 170px;
-  margin-left: 360px;
-}
-.span12:hover { cursor: pointer; }
-
-/* 3rd Row */
-.span20 {
-  position: absolute;
-  width: 155px;
-  height: 165px;
-  margin-top: 360px;
-  margin-left: -5px;
-}
-.span20:hover { cursor: pointer; }
-
-.span21 {
-  position: absolute;
-  width: 170px;
-  height: 165px;
-  margin-top: 360px;
-  margin-left: 170px;
-}
-.span21:hover { cursor: pointer; }
-
-.span22 {
-  position: absolute;
-  width: 160px;
-  height: 165px;
-  margin-top: 360px;
-  margin-left: 360px;
-}
-.span22:hover { cursor: pointer; }
