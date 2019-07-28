@@ -27,7 +27,8 @@ import {
   faSkullCrossbones,
   faTerminal,
   faUndoAlt,
-  faUser
+  faUser,
+  faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand Icons (fab)
@@ -85,6 +86,7 @@ export class AppIconsModule {
       faTerminal,
       faUndoAlt,
       faUser,
+      faUserFriends,
 
       // fab
       faAngular,
