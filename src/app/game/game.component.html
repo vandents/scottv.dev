@@ -1,114 +1,402 @@
 <div class="row">
   <div class="col-lg-7 col-md-8 col-12">
-    <!---------- Game Board ---------->
+    <!-------------------- Game Board -------------------->
     <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0">
+      <!---------- Row 0, Col 0, Tile 1 ---------->
       <mat-grid-tile (click)="squareClicked(0, 0)">
-        <div *ngIf="xArray[0][0]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[0][0]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[0][0]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[0][0]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[0]">
+            <div *ngIf="xArray[0][0]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[0][0]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[0]">
+            <div *ngIf="xArray[0][0]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[0][0]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 0, Col 1, Tile 1 ---------->
       <mat-grid-tile (click)="squareClicked(0, 1)">
-        <div *ngIf="xArray[0][1]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[0][1]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[0][1]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[0][1]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[1]">
+            <div *ngIf="xArray[0][1]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[0][1]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[1]">
+            <div *ngIf="xArray[0][1]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[0][1]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 0, Col 2, Tile 2 ---------->
       <mat-grid-tile (click)="squareClicked(0, 2)">
-        <div *ngIf="xArray[0][2]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[0][2]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[0][2]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[0][2]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[2]">
+            <div *ngIf="xArray[0][2]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[0][2]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[2]">
+            <div *ngIf="xArray[0][2]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[0][2]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 1, Col 0, Tile 3 ---------->
       <mat-grid-tile (click)="squareClicked(1, 0)">
-        <div *ngIf="xArray[1][0]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[1][0]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[1][0]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[1][0]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[3]">
+            <div *ngIf="xArray[1][0]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[1][0]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[3]">
+            <div *ngIf="xArray[1][0]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[1][0]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 1, Col 1, Tile 4 ---------->
       <mat-grid-tile (click)="squareClicked(1, 1)">
-        <div *ngIf="xArray[1][1]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[1][1]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[1][1]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[1][1]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[4]">
+            <div *ngIf="xArray[1][1]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[1][1]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[4]">
+            <div *ngIf="xArray[1][1]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[1][1]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 1, Col 2, Tile 5 ---------->
       <mat-grid-tile (click)="squareClicked(1, 2)">
-        <div *ngIf="xArray[1][2]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[1][2]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[1][2]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[1][2]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[5]">
+            <div *ngIf="xArray[1][2]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[1][2]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[5]">
+            <div *ngIf="xArray[1][2]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[1][2]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 2, Col 0, Tile 6 ---------->
       <mat-grid-tile (click)="squareClicked(2, 0)">
-        <div *ngIf="xArray[2][0]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[2][0]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[2][0]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[2][0]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[6]">
+            <div *ngIf="xArray[2][0]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[2][0]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[6]">
+            <div *ngIf="xArray[2][0]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[2][0]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 2, Col 1, Tile 7 ---------->
       <mat-grid-tile (click)="squareClicked(2, 1)">
-        <div *ngIf="xArray[2][1]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[2][1]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[2][1]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[2][1]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[7]">
+            <div *ngIf="xArray[2][1]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[2][1]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[7]">
+            <div *ngIf="xArray[2][1]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[2][1]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
 
+
+      <!---------- Row 2, Col 2, Tile 8 ---------->
       <mat-grid-tile (click)="squareClicked(2, 2)">
-        <div *ngIf="xArray[2][2]" class="x-player" [@fastFade]="'in'">X</div>
-        <span *ngIf="oArray[2][2]" [@fastFade]="'in'">
-          <div *ngIf="!isRobot" class="o-player">o</div>
-          <span *ngIf="isRobot">
-            <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-            <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+        <!-- Gameplay Icons -->
+        <span *ngIf="!gameOver">
+          <div *ngIf="xArray[2][2]" class="x-player" [@fastFade]="'in'">X</div>
+          <span *ngIf="oArray[2][2]">
+            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
+            <span *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
+            </span>
+          </span>
+        </span>
+        <!-- Win Animations -->
+        <span *ngIf="gameOver">
+          <!-- Turn grey -->
+          <span *ngIf="greyArray[8]">
+            <div *ngIf="xArray[2][2]" class="x-player" [@grey]="'in'">X</div>
+            <span *ngIf="oArray[2][2]" [@grey]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
+          </span>
+          <!-- Turn blue -->
+          <span *ngIf="!greyArray[8]">
+            <div *ngIf="xArray[2][2]" class="x-player" [@blue]="'in'">X</div>
+            <span *ngIf="oArray[2][2]" [@blue]="'in'">
+              <div *ngIf="!isRobot" class="o-player">o</div>
+              <span *ngIf="isRobot">
+                <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+                <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+              </span>
+            </span>
           </span>
         </span>
       </mat-grid-tile>
+
 
       <!---------- Board Lines ---------->
       <mat-divider class="horizontal-1"></mat-divider>
@@ -118,7 +406,7 @@
     </mat-grid-list>
   </div>
   
-  <!---------- Side Action Card (desktop) ---------->
+  <!-------------------- Side Action Card (desktop) -------------------->
   <div *ngIf="browser.isScreen767()" class="col-lg-5 col-md-4">
     <div class="actions-side clearfix">
       <button mat-button class="change-btn-side" (click)="changeOpponent()">
@@ -145,7 +433,7 @@
   </div>
 </div>
 
-<!---------- Bottom Action Card (mobile) ---------->
+<!-------------------- Bottom Action Card (mobile) -------------------->
 <div *ngIf="!browser.isScreen767()" class="row">
   <div class="col-12">
     <mat-card class="actions-bottom">
