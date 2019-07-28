@@ -9,8 +9,8 @@ enum Player {
   robot
 }
 
-const IN_TIME = 2300;
-const OUT_TIME = 1400;
+const IN_TIME = 1300;
+const OUT_TIME = 1000;
 
 /** Dialog displayed when a player wins */
 @Component({
@@ -91,7 +91,7 @@ export class GameWinDialogComponent implements OnInit {
 
     setTimeout(() => {
       this.animateWinner = true;
-    }, 750);
+    }, 500);
 
     setTimeout(() => {
       this.animateLoser = true;
@@ -99,11 +99,11 @@ export class GameWinDialogComponent implements OnInit {
       setTimeout(() => {
         this.resting = true;
       }, OUT_TIME - 10);
-    }, 1100);
+    }, 700);
 
     setTimeout(() => {
       this.animateMessage = true;
-    }, 1100);
+    }, 700);
   }
 
   /**
