@@ -52,7 +52,7 @@ enum WinPos {
       transition(':leave', animate(350, style({ opacity: 0.3 })))
     ]),
     trigger('grey', [
-      state('in', style({ color: 'rgb(66, 66, 66' })),
+      state('in', style({ color: '#333333' })),
       transition(':enter', [style({ opacity: 0.5 }), animate(400)]),
       transition(':leave', animate(350, style({ opacity: 0.3 })))
     ])
