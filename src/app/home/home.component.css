@@ -1,17 +1,17 @@
-/* Headings. */
+/* Headings */
 h2 { margin-top: 20px; }
 
 .know-h4 {
   margin: 18px 0px 7px 0px;
 }
 
-/* Resume download link. */
+/* Resume download link */
 .a-download-res {
   margin-top: 10px;
   float: right !important;
 }
 
-/* Headshot picture. */
+/* Headshot picture */
 img.avi {
   height: 200px;
   clip-path: circle(100px at center);
@@ -30,7 +30,7 @@ img.avi {
   margin-left: auto;
 }
 
-/* Logos. */
+/* Logos */
 .mat-card-avatar {
   height: 75px;
   width: 75px;

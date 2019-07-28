@@ -11,7 +11,11 @@ import { BrowserService } from '../services/browser-service/browser.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private title: Title, private snackBar: MatSnackBar, public browser: BrowserService) {
+  constructor(
+    private title: Title,
+    private snackBar: MatSnackBar,
+    public browser: BrowserService
+  ) {
     this.title.setTitle('Scott VandenToorn - Home');
   }
 

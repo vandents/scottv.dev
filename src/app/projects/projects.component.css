@@ -4,6 +4,20 @@ h2 { margin-top: 20px; }
   margin-bottom: 0px !important;
 }
 
+mat-card-title {
+  font-size: 175% !important;
+}
+
+mat-card {
+  padding-top: 5px !important;
+  margin-bottom: 30px;
+}
+
+
+/********************************
+ * Clickable Project Images
+ ********************************/
+
 .project-img,
 .project-img-mobile {
   border-radius: 4px;
@@ -38,14 +52,10 @@ h2 { margin-top: 20px; }
   }
 }
 
-mat-card-title {
-  font-size: 175% !important;
-}
 
-mat-card {
-  padding-top: 5px !important;
-  margin-bottom: 30px;
-}
+/********************************
+ * Links
+ ********************************/
 
 .a-github {
   position: absolute;
