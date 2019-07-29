@@ -69,8 +69,12 @@ mat-grid-tile:hover {
 .o-player {
   font-size: 1250%;
   margin-top: -42px;
+  user-select: none;
 }
-.x-player { font-size: 875%; }
+.x-player {
+  font-size: 875%;
+  user-select: none;
+}
 @media screen and (max-width: 1199px) {
   .o-player { margin-top: -47px; }
 }
