@@ -117,8 +117,8 @@ export class GameComponent implements OnInit {
     this.openChooseCompetitorDialog();
   }
 
-  /** Toggles whosTurn and increments numTurns */
-  toggleWhosTurn() {
+  /** Toggles isTurnX and increments numTurns */
+  toggleTurn() {
     this.isTurnX = !this.isTurnX;
     this.numTurns++;
   }
@@ -130,10 +130,10 @@ export class GameComponent implements OnInit {
 
     if (this.isTurnX) {          // Place X icon
       this.board[tileNum].x = true;
-      this.toggleWhosTurn();
+      this.toggleTurn();
     } else if (!this.isRobot) {  // Place O icon
       this.board[tileNum].o = true;
-      this.toggleWhosTurn();
+      this.toggleTurn();
     }
 
     if (this.isRobotTurn()) {
@@ -174,7 +174,7 @@ export class GameComponent implements OnInit {
       // Check O
       if (!(this.board[i].x || this.board[i + 1].x || this.board[i + 2].x)) { // Check that X isn't in the tile
         if (this.board[i].o && this.board[i + 1].o && this.board[i + 2].o) {
-          this.winner = Player.o;
+          this.isRobot ? this.winner = Player.robot : this.winner = Player.o;
           if (i === 0) this.setWinAnimationArray(WinPos.row1);        // First row 0, 1, 2
           else if (i === 3) this.setWinAnimationArray(WinPos.row2);   // Second row 3, 4, 5
           else if (i === 6) this.setWinAnimationArray(WinPos.row3);   // Third row 6, 7, 8
@@ -197,7 +197,7 @@ export class GameComponent implements OnInit {
       // Check O
       if (!(this.board[i].x || this.board[i + 3].x || this.board[i + 6].x)) { // Check that X isn't in the tile
         if (this.board[i].o && this.board[i + 3].o && this.board[i + 6].o) {
-          this.winner = Player.o;
+          this.isRobot ? this.winner = Player.robot : this.winner = Player.o;
           if (i === 0) this.setWinAnimationArray(WinPos.col1);        // First column 0, 3, 6
           else if (i === 1) this.setWinAnimationArray(WinPos.col2);   // Second column 1, 4, 7
           else if (i === 2) this.setWinAnimationArray(WinPos.col3);   // Third column 2, 5, 8
@@ -212,21 +212,21 @@ export class GameComponent implements OnInit {
       this.setWinAnimationArray(WinPos.left);
       return true;
     }
+    // Check O diagonal left 0, 4, 8 (\)
+    if (this.board[0].o && this.board[4].o && this.board[8].o) {
+      this.isRobot ? this.winner = Player.robot : this.winner = Player.o;
+      this.setWinAnimationArray(WinPos.left);
+      return true;
+    }
     // Check X diagonal right 2, 4, 6 (/)
     if (this.board[2].x && this.board[4].x && this.board[6].x) {
       this.winner = Player.x;
       this.setWinAnimationArray(WinPos.right);
       return true;
     }
-    // Check O diagonal left 0, 4, 8 (\)
-    if (this.board[0].o && this.board[4].o && this.board[8].o) {
-      this.winner = Player.o;
-      this.setWinAnimationArray(WinPos.left);
-      return true;
-    }
     // Check O diagonal right 2, 4, 6 (/)
     if (this.board[2].o && this.board[4].o && this.board[6].o) {
-      this.winner = Player.o;
+      this.isRobot ? this.winner = Player.robot : this.winner = Player.o;
       this.setWinAnimationArray(WinPos.right);
       return true;
     }
@@ -288,21 +288,21 @@ export class GameComponent implements OnInit {
       if (Math.random() < 0.5) i = this.getRandomInt(2) * 2;  // 0, 2
       else i = (this.getRandomInt(2) * 2) + 6;                // 6, 8
       this.board[i].o = true;
-      this.toggleWhosTurn();
+      this.toggleTurn();
       return;
     }
 
     if (this.strategicMove(false)) {  // Check for robot wins
-      this.toggleWhosTurn();
+      this.toggleTurn();
       return;
     }
     if (this.strategicMove(true)) {  // Check for blockable opponent wins
-      this.toggleWhosTurn();
+      this.toggleTurn();
       return;
     }
     // If no robot wins or blockable opponent wins place a move randomly
     this.randomMove();
-    this.toggleWhosTurn();
+    this.toggleTurn();
   }
 
   /** Determines a valid random move for Mr. Roboto */
