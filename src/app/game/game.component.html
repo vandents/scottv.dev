@@ -7,14 +7,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[0].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[0].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[0].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -51,14 +51,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[1].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[1].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[1].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -95,14 +95,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[2].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[2].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[2].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -139,14 +139,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[3].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[3].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[3].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -183,14 +183,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[4].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[4].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[4].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -227,14 +227,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[5].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[5].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[5].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -271,14 +271,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[6].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[6].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[6].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -315,14 +315,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[7].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[7].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
-              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
-              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+          <div *ngIf="board[7].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
+              <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+              <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
@@ -359,14 +359,14 @@
         <!-- Gameplay Icons -->
         <span *ngIf="!gameOver">
           <div *ngIf="board[8].x" class="x-player" [@fastFade]="'in'">X</div>
-          <span *ngIf="board[8].o">
-            <div *ngIf="!isRobot" class="o-player" [@fastFade]="'in'">o</div>
-            <span *ngIf="isRobot">
+          <div *ngIf="board[8].o" [@fastFade]="'in'">
+            <div *ngIf="!isRobot" class="o-player">o</div>
+            <div *ngIf="isRobot">
               <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x" [@fastFade]="'in'"></fa-icon>
               <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x" [@fastFade]="'in'"></fa-icon>
               <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x" [@fastFade]="'in'"></fa-icon>
-            </span>
-          </span>
+            </div>
+          </div>
         </span>
         <!-- Win Animations -->
         <span *ngIf="gameOver">
