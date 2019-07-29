@@ -50,7 +50,7 @@ interface Board {
       transition(':enter', [style({ opacity: 0.5 }), animate(300)]),
       transition(':leave', animate(350, style({ opacity: 0.3 })))
     ]),
-    trigger('mediumFade', [ // Current Player" icons
+    trigger('mediumFade', [ // "Current Player" icons
       state('in', style({ opacity: 1 })),
       transition(':enter', [style({ opacity: 0.2 }), animate(450)])
     ]),
