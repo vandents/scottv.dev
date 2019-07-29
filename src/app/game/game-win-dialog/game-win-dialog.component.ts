@@ -99,11 +99,11 @@ export class GameWinDialogComponent implements OnInit {
       setTimeout(() => {
         this.resting = true;
       }, OUT_TIME - 10);
-    }, 700);
+    }, 550);
 
     setTimeout(() => {
       this.animateMessage = true;
-    }, 700);
+    }, 550);
   }
 
   /**
