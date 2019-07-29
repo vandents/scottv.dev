@@ -48,7 +48,7 @@ interface Board {
     trigger('fastFade', [   // Board icons
       state('in', style({ opacity: 1 })),
       transition(':enter', [style({ opacity: 0.5 }), animate(300)]),
-      transition(':leave', animate(350, style({ opacity: 0.3 })))
+      transition(':leave', animate(350, style({ opacity: 0 })))
     ]),
     trigger('mediumFade', [ // "Current Player" icons
       state('in', style({ opacity: 1 })),
