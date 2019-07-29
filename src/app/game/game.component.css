@@ -182,12 +182,17 @@ mat-card-content { margin: 0; }
 .x-turn {
   font-size: 1400%;
   margin-top: -51px !important;
+  user-select: none;
 }
 .o-turn {
   font-size: 2000%;
   margin-top: -140px !important;
+  user-select: none;
 }
-.robot-turn { margin-top: 35px !important; }
+.robot-turn {
+  margin-top: 35px !important;
+  user-select: none;
+}
 @media screen and (max-width: 767px) {
   .x-turn {
     font-size: 400%;
