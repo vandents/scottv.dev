@@ -46,11 +46,11 @@ export class GameWinDialogComponent implements OnInit {
   restColor = 'rgb(50, 50, 50)';  // Color for loser icon post-animation
   message: string;
   robotMessages = [
-    `Praise your robot overlords`,
-    `Silicon > Carbon`,
-    `The Singularity is nigh`,
-    `Rest in peace, human`,
-    `Hasta la vista, baby`
+    `Praise your robot overlords.`,
+    `Silicon > Carbon.`,
+    `The Singularity is nigh.`,
+    `Rest in peace, human.`,
+    `Hasta la vista, baby.`
   ];
 
   constructor(
