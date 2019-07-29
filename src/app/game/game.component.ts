@@ -103,6 +103,7 @@ export class GameComponent implements OnInit {
 
   /** Initializes board. If it's Mr. Robot's turn after init robotMove() is called */
   resetBoard() {
+    if (this.isRobotTurn()) return;
     this.initBoard();
     if (this.isRobot && !this.isTurnX) {
       setTimeout(() => {
