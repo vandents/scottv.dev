@@ -20,8 +20,4 @@ export class ViewImageDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
-
 }
