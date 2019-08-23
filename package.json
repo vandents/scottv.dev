@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node version.js && ng serve",
-    "build": "node version.js && ng build --prod --build-optimizer --output-hashing=all",
+    "build": "node version.js && ng build --prod --aot --build-optimizer --output-hashing=all",
     "publish": "ngh --repo=https://GH_TOKEN@github.com/vandents/scottv.dev.git --name=\"vandents\" --email=vandents@mail.gvsu.edu --no-silent",
     "test": "ng test",
     "lint": "ng lint",
