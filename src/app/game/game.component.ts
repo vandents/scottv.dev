@@ -5,6 +5,8 @@ import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.compon
 import { ChooseCompetitorDialogComponent } from './choose-competitor-dialog/choose-competitor-dialog.component';
 import { BrowserService } from '../services/browser-service/browser.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { FirebaseService, Players } from '../services/firebase-service/firebase.service';
+import { Subscription } from 'rxjs';
 
 enum Player {
   x = 1,
@@ -76,12 +78,17 @@ export class GameComponent implements OnInit {
   /** True if user is playing against Mr. Roboto */
   isRobot: boolean;
   gameOver: boolean;
+  players: Players = null;
+  playersSub: Subscription;
+  /** Used for ngFor when looping through tile template */
+  boardPositions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
   constructor(
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private title: Title,
-    public browser: BrowserService
+    public browser: BrowserService,
+    private firebaseService: FirebaseService
   ) {
     this.title.setTitle('Scott VandenToorn - Game');
   }
@@ -90,6 +97,10 @@ export class GameComponent implements OnInit {
     window.scrollTo(0, 0);
     this.initBoard();
     this.openChooseCompetitorDialog();
+    this.players = this.firebaseService.getInitialStats();
+    this.firebaseService.getStats().subscribe(players => {
+      this.players = players[0];
+    });
   }
 
   /** Sets game and board values to an initial state */
@@ -110,6 +121,19 @@ export class GameComponent implements OnInit {
         this.robotMove(true);
       }, 1250);
     }
+  }
+
+  /** Updates win stats on firebase */
+  updateFirebase() {
+    if (this.isRobot) {
+      this.winner === Player.x ? this.firebaseService.addHumanWin() :
+        this.firebaseService.addRobotWin();
+    }
+  }
+
+  /** @returns Total number of games played */
+  getTotalGames(): number {
+    return this.players.humanWins + this.players.robotWins + this.players.draw;
   }
 
   /** Initializes board, then opens choose competitor dialog */
@@ -139,17 +163,29 @@ export class GameComponent implements OnInit {
 
     if (this.isRobotTurn()) {
       const turnTimeout = 700;
-      if (this.checkForWinner()) this.openGameWinDialog();
-      else {
+      if (this.checkForWinner()) {
+        this.openGameWinDialog();
+        this.updateFirebase();
+      } else {
         setTimeout(() => {
           this.robotMove();
-          if (this.checkForWinner()) this.openGameWinDialog();
-          else if (this.numTurns >= 9) this.openDrawSnackBar();
+          if (this.checkForWinner()) {
+            this.openGameWinDialog();
+            this.updateFirebase();
+          } else if (this.numTurns >= 9) {
+            this.openDrawSnackBar();
+            if (this.isRobot) this.firebaseService.addDraw();
+          }
         }, turnTimeout);
       }
     } else {
-      if (this.checkForWinner()) this.openGameWinDialog();
-      else if (this.numTurns >= 9) this.openDrawSnackBar();
+      if (this.checkForWinner()) {
+        this.openGameWinDialog();
+        this.updateFirebase();
+      } else if (this.numTurns >= 9) {
+        this.openDrawSnackBar();
+        if (this.isRobot) this.firebaseService.addDraw();
+      }
     }
   }
 

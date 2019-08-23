@@ -117,8 +117,34 @@ mat-card-content { margin: 0; }
 
 .cur-player-side {
   float: right;
-  height: 270px;
+  height: 269px;
   width: 230px;
+}
+
+.win-stats-side {
+  float: right;
+  height: 244px;
+  width: 230px;
+  margin-top: 20px;
+}
+
+.win-name-side {
+  font-size: 100%;
+  text-align: left;
+  padding: 0px 0px 0px 18px;
+  margin-top: 12px !important;
+}
+
+.win-num-side {
+  font-size: 100%;
+  text-align: right;
+  padding: 0px 3px 0px 0px;
+  margin-top: 12px !important;
+}
+
+.stats-date {
+  margin-top: -10px;
+  font-size: 75%;
 }
 
 .reset-btn-side {
@@ -135,7 +161,7 @@ mat-card-content { margin: 0; }
 
 
 /********************************
- * Action Card Bottom
+ * Actions Bottom
  ********************************/
 
 .reset-btn-bottom {
@@ -173,6 +199,16 @@ mat-card-content { margin: 0; }
 .actions-bottom mat-card { width: 100% !important; }
 
 .actions-bottom mat-card-title { font-size: 100%; }
+
+.win-stats-bottom {
+  margin-top: 20px;
+}
+
+.form-field {
+  width: 33%;
+  height: 50px;
+  color: white !important;
+}
 
 
 /********************************

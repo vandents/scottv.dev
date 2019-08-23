@@ -1,16 +1,20 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatButtonModule, MatGridListModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule, MatInputModule, MatButtonModule, MatGridListModule, MatMenuModule, MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
+
+// Firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
 
 // Components
 import { AppComponent } from './app.component';
@@ -29,6 +33,7 @@ import { ChooseCompetitorDialogComponent } from './game/choose-competitor-dialog
 
 // Services
 import { BrowserService } from './services/browser-service/browser.service';
+import { FirebaseService } from './services/firebase-service/firebase.service';
 
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -65,11 +70,14 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     MatGridListModule,
     MatInputModule,
     MatListModule,
+    MatExpansionModule,
     MatMenuModule,
     MatSnackBarModule,
     MatTooltipModule,
     MatToolbarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase, 'scottv.dev'),
+    AngularFirestoreModule
   ],
   entryComponents: [
     ViewImageDialogComponent,
@@ -78,7 +86,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   ],
   providers: [
     BrowserService,
-    DeviceDetectorService
+    DeviceDetectorService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })
