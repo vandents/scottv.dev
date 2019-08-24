@@ -26,6 +26,7 @@ export class FirebaseService {
     this.playersArray = this.afs.collection('players').valueChanges();
     this.playersSub = this.playersArray.subscribe(players => {
       this.players = players[0];
+      this.initPlayers = players[0];
     });
   }
 
