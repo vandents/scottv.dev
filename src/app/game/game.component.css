@@ -101,7 +101,10 @@ mat-grid-tile:hover {
  * Angular Materical Card (for action cards)
  ********************************/
 
-mat-card { text-align: center; }
+mat-card {
+  text-align: center;
+  overflow: hidden;
+}
 
 mat-card-content { margin: 0; }
 
