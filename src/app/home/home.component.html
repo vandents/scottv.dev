@@ -108,13 +108,19 @@
           &nbsp;&nbsp;C
         </mat-chip>
         <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'java']" size="lg" transform="shrink-6.5"
+            [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'java']" size="lg" transform="shrink-4.5"></fa-icon>
+          &nbsp;&nbsp;Java
+        </mat-chip>
+        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;&nbsp;TypeScript
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;&nbsp;JavaScript
         </mat-chip>
         <mat-chip>
@@ -184,18 +190,23 @@
       <h4 class="know-h4">IDEs</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5"></fa-icon>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;&nbsp;Visual Studio Code
         </mat-chip>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
+          &nbsp;&nbsp;IntelliJ
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;&nbsp;Code Composer Studio
         </mat-chip>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'terminal']" size="lg" transform="shrink-7.5"></fa-icon>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;&nbsp;Code::Blocks
         </mat-chip>
       </mat-chip-list>
