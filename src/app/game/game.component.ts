@@ -450,10 +450,7 @@ export class GameComponent implements OnInit {
   }
 
   /** @returns {boolean} true if it is Mr. Roboto's turn */
-  isRobotTurn(): boolean {
-    if (!this.isTurnX && this.isRobot) return true;
-    return false;
-  }
+  isRobotTurn(): boolean { return !this.isTurnX && this.isRobot; }
 
   /** Opens GameWinDialog */
   openGameWinDialog() {
