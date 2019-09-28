@@ -5,7 +5,7 @@
   <mat-divider></mat-divider>
 </div>
 
-<h2>TI Launchpad Handheld Slot Machine</h2>
+<h2>TI Launchpad Slot Machine</h2>
 <mat-card>
   <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
     <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
@@ -14,19 +14,21 @@
     (click)="openViewImageDialog('../../assets/img/slot-machine.jpg')" matTooltip="Click to enlarge" matTooltipPosition="right" aria-label="Enlarge Slot Machine Photo">
   <img *ngIf="!browser.isScreen650()" mat-card-image class="project-img-mobile" src="../../assets/img/slot-machine.jpg" alt="Slot Machine">
   <mat-card-content>
-    This handheld GameBoy-esque device is a slot machine my peer, Zakkaria Hales, and I created for a final project in a microcontroller
-    class. The slot machine uses a TI MSP432 Launchpad microcontroller. Creating both the hardware <b>and</b> software made this by far one of my favorite projects.
+    It looks just like a GameBoy, but this device is actually a slot machine. Classmate Zakkaria Hales and I designed and
+    programmed the machine as the final project in a microcontroller class. You can even insert pennies to keep playing after we take
+    all of your money, which will happen every time. Being the dirty capitalists we are, we heavily rigged the game against
+    the player. Penny by penny, we hope to recover the money we spent on textbooks that semester.
   </mat-card-content>
   <mat-card-content class="no-margin-bottom">
-    The goal of the project was to design a slot machine using a 16x4 LCD for UI, a keypad for credit
-    entry, pushbuttons for gameplay and a speaker and tri-color LED for win condition notifications. The heart of
-    the system is a TI MSP432 Launchpad microcontroller. Additional features include a penny slot for credit entry,
-    a side door opened by a positional servo for penny retrieval, a rechargeable battery, a switch for power
-    control and blue relaxing ambient lighting (a string of LEDs I stole from an old Halloween costume).
+    The design constraints were to design a slot machine which must utilize a keypad, pushbuttons, speaker, tri-color LED,
+    7-segment display indicating level of brightness, 16x4 LCD with potentiometer controlled brightness, and a TI MSP432 Launchpad
+    to do the decision making. Additional features we added include a penny slot for credit entry, a door attached to a
+    positional servo for penny retrieval, rechargeable battery, relaxing blue ambient lighting, and a selection of Super
+    Mario Bros tunes of which the user can set to be their victory sound.
   </mat-card-content>
 </mat-card>
 
-<h2>GVSU Robo Sockey Robot</h2>
+<h2>Robo Sockey Arduino Robot</h2>
 <mat-card>
   <img *ngIf="browser.isScreen650()" mat-card-image class="project-img" src="../../assets/img/the-boi.jpg"
     alt="Slot Machine" (click)="openViewImageDialog('../../assets/img/the-boi.jpg')" matTooltip="Click to enlarge"
@@ -34,15 +36,15 @@
   <img *ngIf="!browser.isScreen650()" mat-card-image class="project-img-mobile" src="../../assets/img/the-boi.jpg"
     alt="Slot Machine">
   <mat-card-content>
-    GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between all of the
-    students enrolled in Introduction to Engineering II. Students are tasked with creating an Arduino robot from
-    scratch that could navigate itself through obstacles without human assistance. Using a 6-foot-by-6-foot arena, teams
-    have three minutes to compete with each other to deliver the most amount of balls into a goal. Teams of 4 were assigned
-    at the beginning of the semester, with about 40 teams competing in the competition.
+    GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between students enrolled
+    in the Introduction to Engineering II courses. Around 40 teams, each consisting of 4 students, are tasked with creating an
+    Arduino robot capable of autonomously navigating a course full of obstacles and other robots. Simultaneously, the robots must
+    find and capture randomly placed balls and deliver them to one of the 4 goals. With 4 robots in the 6-foot-by-6-foot arena,
+    teams have three minutes to score as many points as they can before the rounds is over.
   </mat-card-content>
   <mat-card-content class="no-margin-bottom">
-    I was fortunate to be a part of an amzing team. Our robot, named "The Boi", implemented many original design features.
-    We not only obtained first place, but also earned the Design Innovation Award.
+    My hard-working team implemented many original design features into our robot, which we named The Boi. The Boi scored as many
+    goals as he could muster, managing to obtain first place and earn the Design Innovation Award.
   </mat-card-content>
   <a class="a-github" href="https://github.com/vandents/Robo-Sockey-arduino-robot-the-boi" target="_blank"
     matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
@@ -57,9 +59,10 @@
     <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
   </a>
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
-    This is the website you are currently on. It's written using Google's Angular framework.
-    I'm pretty proud of it as it's one of the first things I've programmed that's not in C!
-    Check out the Tic Tac Toe game if you haven't already.
+    This is the website you are currently on. It's written using Google's Angular framework and was my first
+    programming project that I didn't write entirely in C. If you haven't already, see yourself to the
+    <a routerLink="../game">Tic-Tac-Toe</a> tab
+    to challenge Mr. Roboto.
   </mat-card-content>
   <a class="a-build" routerLink="/build-info"
     matTooltip="Build Info" aria-label="View Build Info">

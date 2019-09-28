@@ -1,22 +1,18 @@
 <h1>Welcome! My name is Scott VandenToorn.</h1>
 
 <mat-card>
-  <mat-card-header>
+  <mat-card-header class="header-welcome">
     <div mat-card-avatar class="avi"></div>
-    <p *ngIf="browser.isScreen400()">
-      This is my personal website meant to showcase my projects and serve as an extension of my resume.
-      I also like to experiment with things on here, e.g. my Tic Tac Toe robot (try it out!).
-      I'm a computer engineering student with experience in web development and microcontrollers.
-      I never cared much for computers until I found out that it's not that hard to make
-      them do cool things; often times those cool things really benefit people!
-    </p>
+    <div class="p-welcome-container">
+      <span *ngIf="browser.isScreen400()" class="p-welcome">
+        This is my personal website meant to showcase my projects and serve as an extension of my resume.
+        Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
+      </span>
+    </div>
   </mat-card-header>
   <mat-card-content style="padding-top: 12px;" *ngIf="!browser.isScreen400()">
     This is my personal website meant to showcase my projects and serve as an extension of my resume.
-    I also like to experiment with things on here, e.g. my Tic Tac Toe robot (try it out!).
-    I'm a computer engineering student with experience in web development and microcontrollers.
-    I never cared much for computers until I found out that it's not that hard to make
-    them do cool things; often times those cool things really benefit people!
+    Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
   </mat-card-content>
 </mat-card>
 
@@ -30,7 +26,9 @@
   </mat-card-header>
 
   <mat-card-content>
-    I'm currently pursuing a degree in computer engineering to prepare myself for a career in one of the most exciting fields.
+    Why Computer Engineering? I really find it to be quite a lot of fun. I love building something
+    and watching it come to life. My favorite part is that <i>"Aha!"</i> moment when your team finally
+    finds the solution to a seemingly unsolveable problem.
   </mat-card-content>
 
   <mat-card-actions>
@@ -54,7 +52,10 @@
   </mat-card-header>
 
   <mat-card-content>
-    Volgistics is a group of dedicated individuals who provide web software and a cloud database to manage an organization's volunteers. I take great pride in the part I play developing a software that real people benefit from. Volgistics is written in Delphi and I use the Angular framework to transform it into a web application.
+    Volgistics is a group of dedicated individuals who provide web software and a cloud database to manage an
+    organization’s volunteers. Volgistics is written in Delphi; I’m responsible for using the Angular framework to transform
+    it into a web application. The Volgistics developers take great pride in the part we play developing software that real
+    people benefit from.
   </mat-card-content>
   <mat-card-actions>
     <mat-chip-list>
@@ -98,7 +99,7 @@
   <div class="col-md-12">
     <mat-card>
       <p>
-        Here are some technologies that I have used before and know how to use. I am better with some more than others.
+        Here are some technologies that I have used before and know how to use. I'm better with some more than others.
       </p>
       <h4>Languages</h4>
       <mat-chip-list>
@@ -114,14 +115,14 @@
           &nbsp;&nbsp;Java
         </mat-chip>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;TypeScript
-        </mat-chip>
-        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'js-square']" size="lg" transform="shrink-6"></fa-icon>
           &nbsp;&nbsp;JavaScript
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
+          &nbsp;&nbsp;TypeScript
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'html5']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
@@ -261,7 +262,7 @@
 </div>
 
 <div style="margin-bottom: 12px;"></div>
-<a class="a-download-res" (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn_resume.pdf" download>
+<a class="a-download-res" (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn-resume.pdf" download>
   <button mat-button class="btn-download-res">Download Resume</button>
 </a>
 <div style="margin-bottom: 35px;"></div>
