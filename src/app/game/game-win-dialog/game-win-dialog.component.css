@@ -2,6 +2,7 @@ mat-card {
   width: 300px !important;
   height: 387px;
   text-align: center;
+  overflow: hidden;
 }
 
 h1 { font-size: 200%; }
