@@ -19,6 +19,11 @@ button {
   bottom: 0px;
 }
 
+.absolute-container {
+  position: absolute;
+  width: 100%;
+}
+
 .message {
   margin-top: 178px !important;
   font-size: 130%;

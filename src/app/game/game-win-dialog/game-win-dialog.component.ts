@@ -42,7 +42,7 @@ export class GameWinDialogComponent implements OnInit {
   animateWinner = false;  // Triggers for winner animations
   animateLoser = false;   // Triggers for loser animations
   animateMessage = false; // Triggers for robot message animations
-  resting: boolean;       // Trigger for loser icon post-animation
+  resting = false;        // Trigger for loser icon post-animation
   restColor = 'rgb(50, 50, 50)';  // Color for loser icon post-animation
   message: string;
   robotMessages = [
