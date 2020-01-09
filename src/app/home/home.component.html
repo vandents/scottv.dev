@@ -139,6 +139,11 @@
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;&nbsp;CSS
         </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-4.5"></fa-icon>
+          &nbsp;&nbsp;NodeJS
+        </mat-chip>
       </mat-chip-list>
 
       <h4 class="know-h4">Web Frameworks</h4>

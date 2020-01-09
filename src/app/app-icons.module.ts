@@ -44,6 +44,7 @@ import {
   faJava,
   faJs,
   faJsSquare,
+  faNodeJs,
   faSass,
   faWindows
 } from '@fortawesome/free-brands-svg-icons';
@@ -102,6 +103,7 @@ export class AppIconsModule {
       faJava,
       faJs,
       faJsSquare,
+      faNodeJs,
       faSass,
       faWindows
     );
