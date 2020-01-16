@@ -1,29 +1,40 @@
 <div class="row" style="margin-bottom: 20px;">
   <div class="col-12 center-children">
-    <mat-form-field class="num-elements-form-field">
+    <mat-form-field class="dropdown">
       <mat-label>Number of Elements</mat-label>
-      <mat-select [(value)]="numElements">
-        <ng-container *ngFor="let i of numElementsOptions">
-          <!-- (onSelectionChange)="generateNewArray($event)" -->
-          <mat-option [value]="i" (onSelectionChange)="generateNewArray($event)">{{ i }}</mat-option>
-        </ng-container>
+      <mat-select [value]="100" [disabled]="isSorting">
+        <mat-option *ngFor="let i of getArray(10, 50)" [value]="i" (click)="setNumElements(i)">
+          {{ i }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-button (click)="generateNewArray()">
+    <mat-form-field class="dropdown">
+      <mat-label>Delay (ms)</mat-label>
+      <mat-select [value]="sortDelay" [disabled]="isSorting">
+        <mat-option [value]="0" (click)="setDelay(0)">0</mat-option>
+        <mat-option [value]="1" (click)="setDelay(1)">1</mat-option>
+        <mat-option [value]="5" (click)="setDelay(5)">5</mat-option>
+        <mat-option *ngFor="let i of getArray(5, 10)" [value]="i" (click)="setDelay(i)">
+          {{ i }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="randomize()" [disabled]="isSorting">
       Randomize
     </button>
-
-    <button mat-button (click)="onSort()">
+    <button mat-button (click)="onSort()" [disabled]="isSorting">
       Sort
+    </button>
+    <!-- <button mat-button (click)="cancelSort = !cancelSort" [disabled]="!isSorting">
+      Cancel
+    </button> -->
+    <button mat-button (click)="isPaused = !isPaused" disabled="true">
+      <!-- [disabled]="!isSorting && !isPaused" -->
+      Pause
     </button>
   </div>
 </div>
 
-<div class="chart" #chart>
-  <div *ngFor="let i of array" class="element" [ngStyle]="{ 'width': getElementWidth(), 'height': getElementHeight(i), 'border': getElementBorder() }">
-    <div *ngIf="100 >= numElements" class="element-number" [ngStyle]="{ 'width': getElementWidth() }">
-      &nbsp;{{ i }}
-    </div>
-  </div>
-</div>
+<div class="chart" id="chart" #chart></div>

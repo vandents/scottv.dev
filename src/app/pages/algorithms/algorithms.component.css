@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.num-elements-form-field {
-  width: 250px;
+.dropdown {
+  width: 150px;
+  margin-left: 20px;
 }
 
 button {
@@ -14,18 +15,10 @@ button {
 
 .chart {
   height: 500px;
-  width: 1000px;
+  max-width: 1000px;
   border-top: 14px solid var(--secondary);;
   margin-left: auto;
   margin-right: auto;
-}
-
-.element {
-  height: 90%;
-  float: left;
-  background-color: rgb(163, 207, 236);
-  /* rgb(122, 195, 243) */
-  /* border: 0.25px solid var(--secondary); */
 }
 
 .element-number {
