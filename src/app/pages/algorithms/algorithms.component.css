@@ -14,11 +14,10 @@ button {
 }
 
 .chart {
-  height: 500px;
-  max-width: 1000px;
-  border-top: 14px solid var(--secondary);;
-  margin-left: auto;
-  margin-right: auto;
+  height: 550px;
+  max-width: 1140px;
+  border-top: 14px solid var(--secondary);
+  margin: 40px auto 0 auto;
 }
 
 .element-number {

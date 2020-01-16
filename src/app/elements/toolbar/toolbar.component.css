@@ -1,4 +1,4 @@
-a { margin: 2px; }
+a { margin: 2px 4px; }
 
 /* Gets rid of default link styling. */
 .mat-menu-item:hover {

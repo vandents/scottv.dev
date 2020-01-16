@@ -1,9 +1,20 @@
-<div class="row" style="margin-bottom: 20px;">
+<div class="chart" id="chart" #chart></div>
+
+<div class="row" style="margin-top: 100px;">
   <div class="col-12 center-children">
     <mat-form-field class="dropdown">
+      <mat-label>Algorithm</mat-label>
+      <mat-select [value]="0" [disabled]="algoServ.isProcessing()">
+        <mat-option *ngFor="let algo of algos" [value]="algo.kind" (click)="setAlgo(algo)">
+          {{ algo.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="dropdown">
       <mat-label>Number of Elements</mat-label>
-      <mat-select [value]="100" [disabled]="isSorting">
-        <mat-option *ngFor="let i of getArray(10, 50)" [value]="i" (click)="setNumElements(i)">
+      <mat-select [value]="150" [disabled]="algoServ.isProcessing()">
+        <mat-option *ngFor="let i of getArray(8, 50)" [value]="i" (click)="algoServ.setNumElements(i)">
           {{ i }}
         </mat-option>
       </mat-select>
@@ -11,30 +22,21 @@
 
     <mat-form-field class="dropdown">
       <mat-label>Delay (ms)</mat-label>
-      <mat-select [value]="sortDelay" [disabled]="isSorting">
-        <mat-option [value]="0" (click)="setDelay(0)">0</mat-option>
-        <mat-option [value]="1" (click)="setDelay(1)">1</mat-option>
-        <mat-option [value]="5" (click)="setDelay(5)">5</mat-option>
-        <mat-option *ngFor="let i of getArray(5, 10)" [value]="i" (click)="setDelay(i)">
+      <mat-select [value]="algoServ.getDelay()" [disabled]="algoServ.isProcessing()">
+        <mat-option [value]="0" (click)="algoServ.setDelay(0)">No Animation</mat-option>
+        <mat-option [value]="1" (click)="algoServ.setDelay(1)">1</mat-option>
+        <mat-option [value]="5" (click)="algoServ.setDelay(5)">5</mat-option>
+        <mat-option *ngFor="let i of getArray(3, 10)" [value]="i" (click)="algoServ.setDelay(i)">
           {{ i }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-button (click)="randomize()" [disabled]="isSorting">
+    <button mat-button (click)="algoServ.randomize()" [disabled]="algoServ.isProcessing()">
       Randomize
     </button>
-    <button mat-button (click)="onSort()" [disabled]="isSorting">
+    <button mat-button (click)="onSort()" [disabled]="algoServ.isProcessing()">
       Sort
-    </button>
-    <!-- <button mat-button (click)="cancelSort = !cancelSort" [disabled]="!isSorting">
-      Cancel
-    </button> -->
-    <button mat-button (click)="isPaused = !isPaused" disabled="true">
-      <!-- [disabled]="!isSorting && !isPaused" -->
-      Pause
     </button>
   </div>
 </div>
-
-<div class="chart" id="chart" #chart></div>

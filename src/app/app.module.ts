@@ -32,6 +32,7 @@ import { AlgorithmsComponent              } from './pages/algorithms/algorithms.
 // Services
 import { BrowserService                   } from '@services/browser-service/browser.service';
 import { FirebaseService                  } from '@services/firebase-service/firebase.service';
+import { AlgorithmService                 } from './services/algorithm-service/algorithm.service';
 
 // Custom Modules
 import { AppRoutingModule                 } from './app-routing.module';
@@ -91,6 +92,7 @@ import { environment                      } from '../environments/environment';
     ChooseCompetitorDialogComponent
   ],
   providers: [
+    AlgorithmService,
     BrowserService,
     DeviceDetectorService,
     FirebaseService
