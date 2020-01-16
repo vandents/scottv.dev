@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { GameComponent } from './game/game.component';
-import { BuildInfoComponent } from './build-info/build-info.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from '@pages/home/home.component';
+import { ProjectsComponent } from '@pages/projects/projects.component';
+import { GameComponent } from '@pages/game/game.component';
+import { BuildInfoComponent } from '@pages/build-info/build-info.component';
+import { PageNotFoundComponent } from '@pages/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

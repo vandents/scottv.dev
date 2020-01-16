@@ -2,7 +2,16 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": "./",
+    "paths": {
+      "@app/*":           ["app/*"],
+      "@elements/*":      ["app/elements/*"],
+      "@dialogs/*":       ["app/elements/dialogs/*"],
+      "@pages/*":         ["app/pages/*"],
+      "@services/*":      ["app/services/*"],
+      "@assets/*":        ["app/assets/*"]
+    }
   },
   "exclude": [
     "test.ts",

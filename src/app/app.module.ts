@@ -1,47 +1,50 @@
 // Angular Modules
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatGridListModule, MatMenuModule, MatExpansionModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatListModule } from '@angular/material/list';
+import { BrowserModule                    } from '@angular/platform-browser';
+import { NgModule                         } from '@angular/core';
+import { BrowserAnimationsModule          } from '@angular/platform-browser/animations';
+import { MatCardModule                    } from '@angular/material/card';
+import { MatTooltipModule                 } from '@angular/material/tooltip';
+import { MatDividerModule                 } from '@angular/material/divider';
+import { MatChipsModule                   } from '@angular/material/chips';
+import { MatDialogModule                  } from '@angular/material/dialog';
+import { MatSnackBarModule                } from '@angular/material/snack-bar';
+import { MatListModule                    } from '@angular/material/list';
 
-// Firebase
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { environment } from '../environments/environment';
+// Root component
+import { AppComponent                     } from './app.component';
 
-// Components
-import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { GameComponent } from './game/game.component';
-import { BuildInfoComponent } from './build-info/build-info.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// Elements
+import { ToolbarComponent                 } from '@elements/toolbar/toolbar.component';
+import { FooterComponent                  } from '@elements/footer/footer.component';
+import { ViewImageDialogComponent         } from '@elements/dialogs/view-image-dialog/view-image-dialog.component';
+import { GameWinDialogComponent           } from '@elements/dialogs/game-win-dialog/game-win-dialog.component';
+import { ChooseCompetitorDialogComponent  } from '@elements/dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
 
-// Component Dialogs
-import { ViewImageDialogComponent } from './view-image-dialog/view-image-dialog.component';
-import { GameWinDialogComponent } from './game/game-win-dialog/game-win-dialog.component';
-import { ChooseCompetitorDialogComponent } from './game/choose-competitor-dialog/choose-competitor-dialog.component';
+// Pages
+import { HomeComponent                    } from '@pages/home/home.component';
+import { ProjectsComponent                } from '@pages/projects/projects.component';
+import { GameComponent                    } from '@pages/game/game.component';
+import { BuildInfoComponent               } from '@pages/build-info/build-info.component';
+import { PageNotFoundComponent            } from '@pages/page-not-found/page-not-found.component';
 
 // Services
-import { BrowserService } from './services/browser-service/browser.service';
-import { FirebaseService } from './services/firebase-service/firebase.service';
+import { BrowserService                   } from '@services/browser-service/browser.service';
+import { FirebaseService                  } from '@services/firebase-service/firebase.service';
 
 // Custom Modules
-import { AppRoutingModule } from './app-routing.module';
-import { AppIconsModule } from './app-icons.module';
+import { AppRoutingModule                 } from './app-routing.module';
+import { AppIconsModule                   } from './app-icons.module';
 
-// Various Third Party Modules
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DeviceDetectorService } from 'ngx-device-detector';
+// Third Party Modules
+import { FontAwesomeModule                } from '@fortawesome/angular-fontawesome';
+import { DeviceDetectorService            } from 'ngx-device-detector';
+import { AngularFireModule                } from 'angularfire2';
+import { AngularFirestoreModule           } from 'angularfire2/firestore';
+
+// Environment variables
+import { environment                      } from '../environments/environment';
+
 
 @NgModule({
   declarations: [

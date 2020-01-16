@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BrowserService } from 'src/app/services/browser-service/browser.service';
+import { BrowserService } from '@services/browser-service/browser.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 enum Player {

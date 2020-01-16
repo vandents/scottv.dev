@@ -14,7 +14,7 @@ img.avi {
 }
 
 .avi {
-  background-image: url('../../assets/img/avi.jpg');
+  background-image: url('../../../assets/img/avi.jpg');
   background-size: cover;
   /* Override .mat-card-avatar height/width */
   height: 145px !important;
@@ -32,12 +32,12 @@ img.avi {
 }
 
 .gvsu-logo {
-  background-image: url('../../assets/img/gvsu-logo.jpg');
+  background-image: url('../../../assets/img/gvsu-logo.jpg');
   background-size: cover;
 }
 
 .volgistics-logo {
-  background-image: url('../../assets/img/volgistics.png');
+  background-image: url('../../../assets/img/volgistics.png');
   background-size: cover;
 }
 

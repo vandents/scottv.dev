@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MatDialog, MatSnackBar } from '@angular/material';
-import { GameWinDialogComponent } from './game-win-dialog/game-win-dialog.component';
-import { ChooseCompetitorDialogComponent } from './choose-competitor-dialog/choose-competitor-dialog.component';
-import { BrowserService } from '../services/browser-service/browser.service';
+import { GameWinDialogComponent } from '@dialogs/game-win-dialog/game-win-dialog.component';
+import { ChooseCompetitorDialogComponent } from '@dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
+import { BrowserService } from '@services/browser-service/browser.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { FirebaseService, Players } from '../services/firebase-service/firebase.service';
+import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
 import { Subscription } from 'rxjs';
 
 enum Player {

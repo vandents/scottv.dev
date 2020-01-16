@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ViewImageDialogComponent } from '../view-image-dialog/view-image-dialog.component';
-import { BrowserService } from '../services/browser-service/browser.service';
+import { ViewImageDialogComponent } from '@dialogs/view-image-dialog/view-image-dialog.component';
+import { BrowserService } from '@services/browser-service/browser.service';
 
 @Component({
   selector: 'app-projects',

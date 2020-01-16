@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Title } from '@angular/platform-browser';
-import { BrowserService } from '../services/browser-service/browser.service';
+import { BrowserService } from '@services/browser-service/browser.service';
 
 /** Home page */
 @Component({
