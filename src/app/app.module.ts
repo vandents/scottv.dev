@@ -1,5 +1,5 @@
 // Angular Modules
-import { MatToolbarModule, MatInputModule, MatButtonModule, MatGridListModule, MatMenuModule, MatExpansionModule } from '@angular/material';
+import { MatToolbarModule, MatInputModule, MatButtonModule, MatGridListModule, MatMenuModule, MatExpansionModule, MatSelectModule } from '@angular/material';
 import { BrowserModule                    } from '@angular/platform-browser';
 import { NgModule                         } from '@angular/core';
 import { BrowserAnimationsModule          } from '@angular/platform-browser/animations';
@@ -27,6 +27,7 @@ import { ProjectsComponent                } from '@pages/projects/projects.compo
 import { GameComponent                    } from '@pages/game/game.component';
 import { BuildInfoComponent               } from '@pages/build-info/build-info.component';
 import { PageNotFoundComponent            } from '@pages/page-not-found/page-not-found.component';
+import { AlgorithmsComponent              } from './pages/algorithms/algorithms.component';
 
 // Services
 import { BrowserService                   } from '@services/browser-service/browser.service';
@@ -58,7 +59,8 @@ import { environment                      } from '../environments/environment';
     GameWinDialogComponent,
     BuildInfoComponent,
     PageNotFoundComponent,
-    ChooseCompetitorDialogComponent
+    ChooseCompetitorDialogComponent,
+    AlgorithmsComponent
   ],
   imports: [
     AppIconsModule,
@@ -75,6 +77,7 @@ import { environment                      } from '../environments/environment';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
+    MatSelectModule,
     MatSnackBarModule,
     MatTooltipModule,
     MatToolbarModule,

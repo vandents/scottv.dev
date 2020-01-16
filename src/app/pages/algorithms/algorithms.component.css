@@ -1,0 +1,35 @@
+.center-children {
+  text-align: center;
+}
+
+.num-elements-form-field {
+  width: 250px;
+}
+
+button {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  margin-left: 20px;
+}
+
+.chart {
+  height: 500px;
+  width: 1000px;
+  border-top: 14px solid var(--secondary);;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.element {
+  height: 90%;
+  float: left;
+  background-color: rgb(163, 207, 236);
+  /* rgb(122, 195, 243) */
+  /* border: 0.25px solid var(--secondary); */
+}
+
+.element-number {
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+  font-size: 8px;
+}

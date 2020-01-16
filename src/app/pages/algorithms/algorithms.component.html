@@ -1,0 +1,29 @@
+<div class="row" style="margin-bottom: 20px;">
+  <div class="col-12 center-children">
+    <mat-form-field class="num-elements-form-field">
+      <mat-label>Number of Elements</mat-label>
+      <mat-select [(value)]="numElements">
+        <ng-container *ngFor="let i of numElementsOptions">
+          <!-- (onSelectionChange)="generateNewArray($event)" -->
+          <mat-option [value]="i" (onSelectionChange)="generateNewArray($event)">{{ i }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="generateNewArray()">
+      Randomize
+    </button>
+
+    <button mat-button (click)="onSort()">
+      Sort
+    </button>
+  </div>
+</div>
+
+<div class="chart" #chart>
+  <div *ngFor="let i of array" class="element" [ngStyle]="{ 'width': getElementWidth(), 'height': getElementHeight(i), 'border': getElementBorder() }">
+    <div *ngIf="100 >= numElements" class="element-number" [ngStyle]="{ 'width': getElementWidth() }">
+      &nbsp;{{ i }}
+    </div>
+  </div>
+</div>
