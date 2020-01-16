@@ -3,12 +3,10 @@
 <mat-card>
   <mat-card-header class="header-welcome">
     <div mat-card-avatar class="avi"></div>
-    <div class="p-welcome-container">
-      <span *ngIf="browser.isScreen400()" class="p-welcome">
-        This is my personal website meant to showcase my projects and serve as an extension of my resume.
-        Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
-      </span>
-    </div>
+    <span *ngIf="browser.isScreen400()" class="welcome-text-desktop">
+      This is my personal website meant to showcase my projects and serve as an extension of my resume.
+      Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
+    </span>
   </mat-card-header>
   <mat-card-content style="padding-top: 12px;" *ngIf="!browser.isScreen400()">
     This is my personal website meant to showcase my projects and serve as an extension of my resume.
@@ -120,6 +118,11 @@
           &nbsp;&nbsp;JavaScript
         </mat-chip>
         <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-4.5"></fa-icon>
+          &nbsp;&nbsp;NodeJS
+        </mat-chip>
+        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;&nbsp;TypeScript
@@ -138,11 +141,6 @@
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'css3-alt']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;&nbsp;CSS
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'node-js']" size="lg" transform="shrink-4.5"></fa-icon>
-          &nbsp;&nbsp;NodeJS
         </mat-chip>
       </mat-chip-list>
 
@@ -189,7 +187,7 @@
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'terminal']" size="lg" transform="shrink-8.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'terminal']" size="lg" transform="shrink-7.5"></fa-icon>
-          &nbsp;&nbsp;Terminal
+          &nbsp;&nbsp;CLI
         </mat-chip>
       </mat-chip-list>
 
@@ -252,14 +250,14 @@
           &nbsp;&nbsp;CNC Machining
         </mat-chip>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']" rotate="180"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'monument']" size="lg" transform="shrink-5.5" rotate="180"></fa-icon>
-          &nbsp;&nbsp;G Code
-        </mat-chip>
-        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'cube']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'cube']" size="lg" transform="shrink-4.5"></fa-icon>
           &nbsp;&nbsp;SolidWorks
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-6.5"></fa-icon>
+          &nbsp;&nbsp;MatLab
         </mat-chip>
       </mat-chip-list>
     </mat-card>
@@ -267,7 +265,5 @@
 </div>
 
 <div style="margin-bottom: 12px;"></div>
-<a class="a-download-res" (click)="openSnackBar('Downloading resume.')" href="../../assets/vandentoorn-resume.pdf" download>
-  <button mat-button class="btn-download-res">Download Resume</button>
-</a>
+
 <div style="margin-bottom: 35px;"></div>
