@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeModule, FaIconLibrary, FaConfig } from '@fortawesome/angular-fontawesome';
 
 // Solid Icons (fas)
 import {
@@ -24,7 +23,10 @@ import {
   faMicrochip,
   faMonument,
   faMousePointer,
+  faRandom,
   faRobot,
+  faSmileWink,
+  faSortAmountUp,
   faSquareRootAlt,
   faSkullCrossbones,
   faTerminal,
@@ -64,8 +66,8 @@ import {
 })
 export class AppIconsModule {
 
-  constructor() {
-    library.add(
+  constructor(library: FaIconLibrary, faConfig: FaConfig) {
+    library.addIcons(
       // fas
       faAddressBook,
       faBalanceScale,
@@ -86,7 +88,10 @@ export class AppIconsModule {
       faMicrochip,
       faMonument,
       faMousePointer,
+      faRandom,
       faRobot,
+      faSmileWink,
+      faSortAmountUp,
       faSquareRootAlt,
       faSkullCrossbones,
       faTerminal,

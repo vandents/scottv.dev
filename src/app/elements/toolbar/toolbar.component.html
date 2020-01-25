@@ -1,28 +1,58 @@
 <mat-toolbar class="navbar">
-  <mat-toolbar-row>
-    <span class="fill-remaining-space"></span>
-    <a mat-button routerLink="home" routerLinkActive="current" color="primary" matTooltip="Home"><fa-icon [icon]="['fas', 'home']" size="lg"></fa-icon></a>
-    <a mat-button routerLink="projects" routerLinkActive="current" color="primary">Projects</a>
-    <a mat-button routerLink="game" routerLinkActive="current" color="primary">Tic-Tac-Toe</a>
-    <a mat-button routerLink="algorithms" routerLinkActive="current" color="primary">Sort Algorithms</a>
+  <mat-toolbar-row style="text-align: center !important;">
     <span class="fill-remaining-space"></span>
 
-    <button mat-button *ngIf="browser.isScreen650()" style="margin-right: 5px;" [matMenuTriggerFor]="menu"><fa-icon [icon]="['fas', 'address-book']" size="sm"></fa-icon>&nbsp;&nbsp;<span>Info</span></button>
-    <button mat-button *ngIf="!browser.isScreen650()" [matMenuTriggerFor]="menu">
-      <fa-icon [icon]="['fas', 'address-book']" size="lg"></fa-icon>
+    <a mat-button routerLink="home" routerLinkActive="current" color="primary" matTooltip="Home" class="toolbar-item">
+      <fa-icon [icon]="['fas', 'home']" size="lg"></fa-icon>
+    </a>
+    <a mat-button routerLink="projects" routerLinkActive="current" color="primary" class="toolbar-item">
+      Projects
+    </a>
+    <button mat-button [matMenuTriggerFor]="fun" class="toolbar-item"
+      [style.background]="router.url.includes('game') || router.url.includes('algorithms') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
+      <ng-container *ngIf="browser.isScreen500()">
+        <fa-icon [icon]="['fas', 'smile-wink']" size="md"></fa-icon>&nbsp;&nbsp;
+      </ng-container>
+      <span>Fun Stuff</span>
+    </button>
+    <button mat-button [matMenuTriggerFor]="info" class="toolbar-item"
+      [style.background]="router.url.includes('build-info') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
+      <fa-icon [icon]="['fas', 'address-book']" [size]="browser.isScreen500() ? 'md' : 'lg'"></fa-icon>
+      <ng-container *ngIf="browser.isScreen500()">
+        &nbsp;&nbsp;Info
+      </ng-container>
     </button>
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(myEmail)"><fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;{{myEmail}}</button>
+    <span class="fill-remaining-space"></span>
 
-      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left"><fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;vandents</a>
+    <!-- Fun Stuff -->
+    <mat-menu #fun="matMenu">
+      <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">Tic-Tac-Toe</a>
+      <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">Interactive Algorithms</a>
+    </mat-menu>
+
+    <!-- Info -->
+    <mat-menu #info="matMenu">
+      <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(emailAddress)">
+        <fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>
+        &nbsp;&nbsp;{{ emailAddress }}
+      </button>
+
+      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left">
+        <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
+        &nbsp;&nbsp;vandents
+      </a>
 
       <a mat-menu-item routerLink="build-info">
-        <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>&nbsp;&nbsp;&nbsp;View Build Info
+        <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>
+        &nbsp;&nbsp;&nbsp;View Build Info
       </a>
 
-      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>&nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>&nbsp;&nbsp;&nbsp;Download Resume
-      </a>
+      <!-- <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>
+        &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
+        &nbsp;&nbsp;&nbsp;Download Resume
+      </a> -->
     </mat-menu>
+
   </mat-toolbar-row>
 </mat-toolbar>

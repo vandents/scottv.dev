@@ -1,8 +1,15 @@
 .container { 
   padding-top: 16px;
   padding-bottom: 98px;
+  overflow: hidden !important;
+}
+
+/* Applied when viewing algos on mobile */
+.thin-container {
+  padding: 16px 6px 89px 6px !important;
 }
 
 .app-frame {
   min-height: calc(100vh);
+  overflow: hidden !important;
 }

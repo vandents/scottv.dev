@@ -1,14 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { fromEvent } from 'rxjs';
 
 /** Service for the detecting browser width and type */
 @Injectable({
   providedIn: 'root'
 })
 export class BrowserService {
+  @Output() public widthChanges: EventEmitter<number>;
 
-  constructor(private platform: Platform, private deviceServ: DeviceDetectorService) { }
+
+  constructor(
+    private platform: Platform,
+    private deviceServ: DeviceDetectorService
+  ) {
+    this.widthChanges = new EventEmitter<number>();
+
+    // Emit width change event when window resizes
+    fromEvent(window, 'resize').subscribe((event: any) => {
+      this.widthChanges.emit(event.target.innerWidth);
+    });
+  }
+
 
   /*****************************************
    * Screen size

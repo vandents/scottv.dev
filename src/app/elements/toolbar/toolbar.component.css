@@ -1,6 +1,13 @@
-a { margin: 2px 4px; }
+.mat-button { margin: 2px 4px; }
+@media (max-width: 350px) {
+  .mat-button { margin: 2px 0; }
+}
 
 /* Gets rid of default link styling. */
 .mat-menu-item:hover {
   color: white;
+}
+
+mat-toolbar-row {
+  padding: 0;
 }

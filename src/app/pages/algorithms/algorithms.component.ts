@@ -1,88 +1,64 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
-import { AlgorithmService } from '@app/services/algorithm-service/algorithm.service';
-
-
-enum Algos {
-  quick = 0,
-  bubble,
-  selection
-}
-
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { AlgorithmService, Algos } from '@app/services/algorithm-service/algorithm.service';
+import { Title } from '@angular/platform-browser';
+import { BrowserService } from '@app/services/browser-service/browser.service';
+import { Subscription } from 'rxjs';
 
 /**
- * A neat component that displays different algorithms sorting variable-sized lists in real time
+ * A neat component for displaying various sorting algorithms in real time
  */
 @Component({
   selector: 'app-algorithms',
   templateUrl: './algorithms.component.html',
   styleUrls: ['./algorithms.component.css']
 })
-export class AlgorithmsComponent implements OnInit, AfterViewInit {
+export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('chart', { static: true }) chartRef: ElementRef;
-  algos: Array<{ name: string, kind: Algos }>;
+  algorithms: Array<{ name: string, kind: Algos }>;
   selectedAlgo: { name: string, kind: Algos };
-  array: Array<number>;
+  algos: typeof Algos;
   numElements: number;
-
+  private widthSub: Subscription;
 
   constructor(
-    private snackbar: MatSnackBar,
-    public algoServ: AlgorithmService
+    public algoServ: AlgorithmService,
+    private title: Title,
+    private browser: BrowserService
   ) {
-    this.algos = [
-      { name: 'Quick Sort', kind: Algos.quick },
-      { name: 'Bubble Sort', kind: Algos.bubble },
-      { name: 'Selection Sort', kind: Algos.selection }
-    ];
-    this.selectedAlgo = this.algos[0];
+    this.title.setTitle('Scott VandenToorn - Algorithms');
+    this.algorithms = algoServ.getAlgorithms();
+    this.selectedAlgo = this.algorithms[0];
+    this.algos = Algos;
+    this.numElements = this.browser.isScreen500() ? 250 : 100;
+    this.algoServ.setNumElements(this.numElements);
   }
 
 
   ngOnInit() {
+    // Pass element ref
     this.algoServ.setChartRef(this.chartRef);
+
+    this.widthSub = this.browser.widthChanges.subscribe((width: number) => {
+      if (width <= 500) this.numElements = this.numElements > 150 ? 100 : this.numElements;
+    });
   }
 
-  /**
-   * Delay a little bit to make sure everything is
-   * initialized before we manipulate the DOM
-   */
   ngAfterViewInit() {
+    // Delay a little bit to make sure everything is
+    // initialized before we manipulate the DOM
     setTimeout(() => {
       this.algoServ.randomize();
-    }, 5);
+    });
   }
 
-
-  /** Handles sorting via different  */
-  async onSort() {
-    this.algoServ.setProcessing(true);
-
-    switch (this.selectedAlgo.kind) {
-      case Algos.quick:
-        await this.algoServ.quickSort().then(val => {
-          if (val[0] && val[0] === -1) this.snackbar.open('Sort paused', '', { duration: 2500 });
-          this.algoServ.setProcessing(false);
-          this.snackbar.open('Sort complete', '', { duration: 2500 });
-        });
-        break;
-
-      case Algos.bubble:
-        this.algoServ.bubbleSort();
-        break;
-
-      case Algos.selection:
-        this.algoServ.selectionSort();
-        break;
-
-      default:
-        this.snackbar.open('Something went wrong', '', { duration: 3000 });
-        break;
-    }
+  ngOnDestroy() {
+    this.widthSub.unsubscribe();
   }
+
 
   /** Generates data for the Number of Elements dropdown */
   getArray(size: number, step: number): Array<number> {
+    if (!this.browser.isScreen500()) size = 3;
     return [...Array(size).keys()].map(i => (i + 1) * step);
   }
 
@@ -92,6 +68,10 @@ export class AlgorithmsComponent implements OnInit, AfterViewInit {
    */
   setAlgo(algo: { name: string, kind: Algos }) {
     this.selectedAlgo = algo;
+    if (this.selectedAlgo.kind === Algos.Bubble || this.selectedAlgo.kind === Algos.Insertion) {
+      this.algoServ.setNumElements(50);
+      this.numElements = 50;
+    }
   }
 
 }

@@ -1,27 +1,63 @@
-.center-children {
+/********************************
+ * Chart
+ ********************************/
+
+.chart {
+  height: 550px;
+  max-width: 1140px;
+  margin: 0 auto;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 500px) {
+  .chart { height: 410px; }
+}
+
+@media (max-width: 370px) {
+  .chart { height: 350px; }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .chart { height: 300px; }
+}
+
+
+/********************************
+ * Actions Card
+ ********************************/
+
+mat-card {
+  padding: 20px 8px;
+  margin: 50px auto 0 auto;
   text-align: center;
 }
 
-.dropdown {
-  width: 150px;
-  margin-left: 20px;
+mat-form-field,
+mat-select {
+  overflow: visible !important;
 }
 
 button {
   background-color: rgb(33, 33, 33);
   color: white;
-  margin-left: 20px;
+  margin: 4px 24px 0 24px !important;
 }
 
-.chart {
-  height: 550px;
-  max-width: 1140px;
-  border-top: 14px solid var(--secondary);
-  margin: 40px auto 0 auto;
+.element-dropdown {
+  width: 100px;
+  margin: 0 8px 0 16px !important;
 }
 
-.element-number {
-  transform: rotate(270deg);
-  transform-origin: left top 0;
-  font-size: 8px;
+.algo-dropdown {
+  width: 140px;
+  margin: 0 16px 0 8px !important;
+}
+
+@media (max-width: 420px) {
+  mat-card { margin-top: 30px; }
+}
+
+@media (max-width: 350px) {
+  button { margin-top: 0; }
+  mat-card { padding: 12px 0; }
 }

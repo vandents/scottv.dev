@@ -10,6 +10,7 @@ import { MatChipsModule                   } from '@angular/material/chips';
 import { MatDialogModule                  } from '@angular/material/dialog';
 import { MatSnackBarModule                } from '@angular/material/snack-bar';
 import { MatListModule                    } from '@angular/material/list';
+import { FormsModule                      } from '@angular/forms';
 
 // Root component
 import { AppComponent                     } from './app.component';
@@ -83,6 +84,7 @@ import { environment                      } from '../environments/environment';
     MatTooltipModule,
     MatToolbarModule,
     FontAwesomeModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'scottv.dev'),
     AngularFirestoreModule
   ],

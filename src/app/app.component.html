@@ -1,6 +1,6 @@
 <div class="app-frame mat-app-background">
   <app-toolbar></app-toolbar>
-  <div class="container">
+  <div [ngClass]="containerClass">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
