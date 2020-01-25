@@ -112,6 +112,8 @@ THE SOFTWARE.
 
 @angular/material/menu
 
+@angular/material/select
+
 @angular/material/snack-bar
 
 @angular/material/toolbar
@@ -691,9 +693,6 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 
 END OF TERMS AND CONDITIONS
 
-
-web-animations-js
-Apache-2.0
 
 zone.js
 MIT
