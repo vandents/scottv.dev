@@ -1,6 +1,6 @@
 import { Injectable, ElementRef, OnDestroy } from '@angular/core';
 import { BrowserService } from '../browser-service/browser.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 
 
