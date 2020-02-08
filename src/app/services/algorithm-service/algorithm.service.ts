@@ -3,7 +3,7 @@ import { BrowserService } from '../browser-service/browser.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 
-
+/** The different kinds of algorithms */
 export enum Algos {
   Quick = 0,
   Selection,
@@ -18,14 +18,23 @@ export enum Algos {
   providedIn: 'root'
 })
 export class AlgorithmService implements OnDestroy {
+  /** Reference the chart so we can manipulate its contents */
   private chartRef: ElementRef;
+  /** Array of elements we'll sort through */
   private array: Array<number>;
+  /** Number of elements being sorted through */
   private numElements: number;
+  /** The time that the delay() method will delay for, in milliseconds */
   private delayTime: number;
+  /** True if the algorithm is currently processing */
   private _isProcessing: boolean;
+  /** True if the contents of the chart are currently sorted */
   private _isSorted: boolean;
+  /** Index of the bar that should be red */
   private redIdx = -1;
+  /** Index of the bar that should be green */
   private greenIDX = -1;
+  /** Subscribes to changes in the browser width */
   private widthSub: Subscription;
 
 
@@ -50,6 +59,10 @@ export class AlgorithmService implements OnDestroy {
   }
 
 
+  /**
+   * Runs a given sorting algorithm
+   * @param algoKind Kind of the algorithm to be executed
+   */
   public onSort(algoKind: Algos) {
     this._isProcessing = true;
     this.setAppropriateDelay(algoKind);
@@ -126,11 +139,11 @@ export class AlgorithmService implements OnDestroy {
 
   getAlgorithms(): Array<{ name: string, kind: Algos }> {
     return [
-      { name: 'Quick Sort', kind: Algos.Quick },
+      { name: 'Quick Sort',     kind: Algos.Quick     },
       { name: 'Selection Sort', kind: Algos.Selection },
       { name: 'Insertion Sort', kind: Algos.Insertion },
-      { name: 'Bubble Sort', kind: Algos.Bubble },
-      { name: 'Count Sort', kind: Algos.Count }
+      { name: 'Bubble Sort',    kind: Algos.Bubble    },
+      { name: 'Count Sort',     kind: Algos.Count     }
     ];
   }
 
@@ -334,7 +347,7 @@ export class AlgorithmService implements OnDestroy {
         this.array[minAt] = temp;
         this.redIdx = i;
         this.greenIDX = minAt;
-        await this.updateChart();
+        this.updateChart();
         await this.delay();
       }
     }
