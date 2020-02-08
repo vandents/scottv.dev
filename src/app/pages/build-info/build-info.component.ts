@@ -16,15 +16,13 @@ export interface Dependency {
   templateUrl: './build-info.component.html',
   styleUrls: ['./build-info.component.css']
 })
-export class BuildInfoComponent implements OnInit {
+export class BuildInfoComponent {
   dependencies: Dependency[];
   buildInfo: Dependency[];
 
   constructor(private title: Title) {
     this.title.setTitle('Scott VandenToorn - Build Info');
-  }
 
-  ngOnInit() {
     this.dependencies = [
       { name: 'Angular', version: require('@angular/core/package.json').version, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
       { name: 'Angular Material', version: require('@angular/material/package.json').version, link: 'https://www.npmjs.com/package/@angular/material', iconPackage: 'fab', icon: 'angular' },
