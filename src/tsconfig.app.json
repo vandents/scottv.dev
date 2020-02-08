@@ -13,8 +13,8 @@
       "@assets/*":        ["app/assets/*"]
     }
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
+  "files": [
+    "main.ts",
+    "polyfills.ts"
   ]
 }
