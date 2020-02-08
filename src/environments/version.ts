@@ -1,15 +1,15 @@
 // IMPORTANT: THIS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 /* tslint:disable */
 export const VERSION = {
-    "dirty": true,
-    "raw": "771927e-dirty",
-    "hash": "771927e",
+    "dirty": false,
+    "raw": "5386822",
+    "hash": "5386822",
     "distance": null,
     "tag": null,
     "semver": null,
-    "suffix": "771927e-dirty",
+    "suffix": "5386822",
     "semverString": null,
     "version": "0.0.0",
-    "date": "February 7, 2020, 8:44 PM"
+    "date": "February 7, 2020, 8:48 PM"
 };
 /* tslint:enable */
