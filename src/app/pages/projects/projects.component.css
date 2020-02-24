@@ -18,8 +18,7 @@ mat-card {
  * Clickable Project Images
  ********************************/
 
-.project-img,
-.project-img-mobile {
+.project-img {
   border-radius: 4px;
   display: block;
   margin-left: auto;
@@ -28,28 +27,22 @@ mat-card {
   height: 400px;
   width: auto;
 }
+
 .project-img:hover {
   cursor: pointer;
 }
+
 @media screen and (max-width: 400px) {
-  .project-img-mobile {
-    height: 375px;
-  }
+  .project-img { height: 375px; }
 }
 @media screen and (max-width: 370px) {
-  .project-img-mobile {
-    height: 350px;
-  }
+  .project-img { height: 350px; }
 }
 @media screen and (max-width: 350px) {
-  .project-img-mobile {
-    height: 330px;
-  }
+  .project-img { height: 330px; }
 }
 @media screen and (max-width: 330px) {
-  .project-img-mobile {
-    height: 310px;
-  }
+  .project-img { height: 310px; }
 }
 
 

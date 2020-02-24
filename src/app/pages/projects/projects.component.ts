@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,7 +10,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent {
 
   constructor(
     private title: Title,
@@ -19,11 +19,9 @@ export class ProjectsComponent implements OnInit {
     public browser: BrowserService
   ) {
     this.title.setTitle('Scott VandenToorn - Projects');
-  }
-
-  ngOnInit() {
     window.scrollTo(0, 0);
   }
+
 
   openViewImageDialog(imageSource: string) {
     this.dialog.open(
@@ -34,6 +32,10 @@ export class ProjectsComponent implements OnInit {
         }
       }
     );
+  }
+
+  getTooltip(): string {
+    return this.browser.isScreen650() ? 'Click to enlarge' : '';
   }
 
 }
