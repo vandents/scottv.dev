@@ -1,3 +1,7 @@
+mat-chip {
+  user-select: none;
+}
+
 /* Headings */
 h2 { margin-top: 20px; }
 

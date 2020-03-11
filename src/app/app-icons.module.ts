@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule, FaIconLibrary, FaConfig } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 // Solid Icons (fas)
 import {
   faAddressBook,
   faBalanceScale,
   faBold,
+  faBug,
   faCalendar,
   faCircle,
   faCode,
@@ -48,6 +49,7 @@ import {
   faJs,
   faJsSquare,
   faNodeJs,
+  faPython,
   faSass,
   faWindows
 } from '@fortawesome/free-brands-svg-icons';
@@ -66,12 +68,13 @@ import {
 })
 export class AppIconsModule {
 
-  constructor(library: FaIconLibrary, faConfig: FaConfig) {
+  constructor(library: FaIconLibrary) {
     library.addIcons(
       // fas
       faAddressBook,
       faBalanceScale,
       faBold,
+      faBug,
       faCalendar,
       faCircle,
       faCode,
@@ -111,6 +114,7 @@ export class AppIconsModule {
       faJs,
       faJsSquare,
       faNodeJs,
+      faPython,
       faSass,
       faWindows
     );
