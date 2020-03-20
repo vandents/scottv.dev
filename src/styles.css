@@ -1,3 +1,7 @@
+.mat-chip {
+  overflow: hidden;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -48,6 +52,7 @@ mat-dialog-container {
   width: 50%;
 }
 
+
 /**************************
  * Toolbar
  **************************/
@@ -65,6 +70,7 @@ mat-dialog-container {
 .navbar mat-toolbar-row {
   height: 44px;
 }
+
 
 /**************************
  * Footer
