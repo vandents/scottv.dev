@@ -1,11 +1,11 @@
 // Angular Modules
-import { MatButtonModule } from '@angular/material/button';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule                  } from '@angular/material/button';
+import { MatExpansionModule               } from '@angular/material/expansion';
+import { MatGridListModule                } from '@angular/material/grid-list';
+import { MatInputModule                   } from '@angular/material/input';
+import { MatMenuModule                    } from '@angular/material/menu';
+import { MatSelectModule                  } from '@angular/material/select';
+import { MatToolbarModule                 } from '@angular/material/toolbar';
 import { BrowserModule                    } from '@angular/platform-browser';
 import { NgModule                         } from '@angular/core';
 import { BrowserAnimationsModule          } from '@angular/platform-browser/animations';
@@ -34,7 +34,7 @@ import { ProjectsComponent                } from '@pages/projects/projects.compo
 import { GameComponent                    } from '@pages/game/game.component';
 import { BuildInfoComponent               } from '@pages/build-info/build-info.component';
 import { PageNotFoundComponent            } from '@pages/page-not-found/page-not-found.component';
-import { AlgorithmsComponent              } from './pages/algorithms/algorithms.component';
+import { AlgorithmsComponent              } from '@pages/algorithms/algorithms.component';
 
 // Services
 import { BrowserService                   } from '@services/browser-service/browser.service';
