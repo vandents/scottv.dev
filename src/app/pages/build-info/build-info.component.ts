@@ -26,16 +26,20 @@ export class BuildInfoComponent {
     this.dependencies = [
       { name: 'Angular', version: require('@angular/core/package.json').version, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
       { name: 'Angular Material', version: require('@angular/material/package.json').version, link: 'https://www.npmjs.com/package/@angular/material', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Font Awesome', version: '0.5.0', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
+      { name: 'Angular Font Awesome', version: '4.7.0', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
       { name: 'Bootstrap', version: '4.1.3', link: 'https://www.bootstrap.com', iconPackage: 'fas', icon: 'bold' },
       { name: 'RxJS', version: require('rxjs/package.json').version, link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
       { name: 'TypeScript', version: require('typescript/package.json').version, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
     ];
 
     this.buildInfo = [
-      { name: 'Date', version: VERSION.date, link: 'build-info', iconPackage: 'fas', icon: 'calendar' },
+      { name: 'Date', version: VERSION.date, link: '', iconPackage: 'fas', icon: 'calendar' },
       { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottv.dev/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
     ];
+  }
+
+  onLinkClick(e: MouseEvent, link: string) {
+    if (!link) e.preventDefault();
   }
 
 }

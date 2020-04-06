@@ -3,3 +3,7 @@
     margin-bottom: 20px;
   }
 }
+
+.no-link:hover {
+  cursor: default;
+}

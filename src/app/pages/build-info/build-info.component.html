@@ -6,13 +6,16 @@
         <mat-list compact>
           <mat-list-item *ngFor="let build of buildInfo">
             <fa-icon [icon]="[build.iconPackage, build.icon]" size="lg"></fa-icon>
-            <h3 matLine>{{build.name}}</h3>
-            <a [href]="build.link" target="_blank" matLine>{{build.version}}</a>
+            <h3 matLine>{{ build.name }}</h3>
+            <a matLine [href]="build.link" target="_blank" (click)="onLinkClick($event, build.link)" [ngClass]="build.link ? '' : 'no-link'" >
+              {{ build.version }}
+            </a>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
     </mat-card>
   </div>
+
   <div class="col-lg-5">
     <h2>Dependencies</h2>
     <mat-card>
@@ -20,8 +23,10 @@
         <mat-list compact>
           <mat-list-item *ngFor="let dep of dependencies">
             <fa-icon [icon]="[dep.iconPackage, dep.icon]" size="lg"></fa-icon>
-            <h3 matLine>{{dep.name}}</h3>
-            <a [href]="dep.link" target="_blank" matLine>{{dep.version}}</a>
+            <h3 matLine>{{ dep.name }}</h3>
+            <a matLine [href]="dep.link" target="_blank" >
+              {{ dep.version }}
+            </a>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
