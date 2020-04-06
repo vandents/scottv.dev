@@ -1,5 +1,4 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { fromEvent } from 'rxjs';
 
@@ -11,10 +10,7 @@ export class BrowserService {
   @Output() public widthChanges: EventEmitter<number>;
 
 
-  constructor(
-    private platform: Platform,
-    private deviceServ: DeviceDetectorService
-  ) {
+  constructor(private deviceServ: DeviceDetectorService) {
     this.widthChanges = new EventEmitter<number>();
 
     // Emit width change event when window resizes
@@ -30,31 +26,31 @@ export class BrowserService {
 
   /** @returns {boolean} true if screen width is bigger than 992px */
   isScreen992(): boolean {
-    if (this.platform.width() >= 992) return true;
+    if (window.innerWidth >= 992) return true;
     return false;
   }
 
   /** @returns {boolean} true if screen width is bigger than 500px */
   isScreen767(): boolean {
-    if (this.platform.width() > 767) return true;
+    if (window.innerWidth > 767) return true;
     return false;
   }
 
   /** @returns {boolean} true if screen width is bigger than 650px */
   isScreen650(): boolean {
-    if (this.platform.width() > 650) return true;
+    if (window.innerWidth > 650) return true;
     return false;
   }
 
   /** @returns {boolean} true if screen width is bigger than 500px */
   isScreen500(): boolean {
-    if (this.platform.width() > 500) return true;
+    if (window.innerWidth > 500) return true;
     return false;
   }
 
   /** @returns {boolean} true if screen width is bigger than 400px */
   isScreen400(): boolean {
-    if (this.platform.width() > 400) return true;
+    if (window.innerWidth > 400) return true;
     return false;
   }
 

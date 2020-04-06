@@ -32,7 +32,6 @@
     "angular-font-awesome": "^3.1.2",
     "angularfire2": "^5.4.2",
     "firebase": "^6.6.2",
-    "font-awesome": "^4.7.0",
     "git-describe": "^4.0.4",
     "ngx-device-detector": "^1.4.1",
     "rxjs": "^6.5.4",
