@@ -113,6 +113,11 @@
           &nbsp;&nbsp;JavaScript
         </mat-chip>
         <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-6.5"></fa-icon>
+          &nbsp;&nbsp;MATLAB
+        </mat-chip>
+        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'python']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'python']" size="lg" transform="shrink-5.5"></fa-icon>
           &nbsp;&nbsp;Python
@@ -218,11 +223,6 @@
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'monument']" size="lg" transform="shrink-5.5" rotate="180">
           </fa-icon>
           &nbsp;&nbsp;CNC Machining
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;MATLAB
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
