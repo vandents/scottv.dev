@@ -1,14 +1,6 @@
-mat-chip {
-  user-select: none;
-}
-
-/* Headings */
-h2 { margin-top: 20px; }
-
-.know-h4 {
-  margin: 18px 0px 7px 0px;
-}
-
+/********************************
+ * Pictures
+ ********************************/
 
 /* Headshot picture */
 img.avi {
@@ -28,13 +20,7 @@ img.avi {
   margin-left: auto;
 }
 
-
 /* Logos */
-.mat-card-avatar {
-  height: 75px;
-  width: 75px;
-}
-
 .gvsu-logo {
   background-image: url('../../../assets/img/gvsu-logo.jpg');
   background-size: cover;
@@ -43,6 +29,33 @@ img.avi {
 .volgistics-logo {
   background-image: url('../../../assets/img/volgistics.png');
   background-size: cover;
+}
+
+.dornerworks-logo {
+  background-image: url('../../../assets/img/dornerworks.png');
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  height: 75px;
+  width: 75px;
+}
+
+
+/********************************
+ * Other
+ ********************************/
+
+mat-chip {
+  user-select: none;
+}
+
+h2 {
+  margin-top: 28px;
+}
+
+.know-h4 {
+  margin: 18px 0 7px 0;
 }
 
 fa-icon {
