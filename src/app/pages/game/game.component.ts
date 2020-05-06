@@ -9,6 +9,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
 import { Subscription } from 'rxjs';
 
+
+/** Player enum */
 enum Player {
   x = 1,
   o,
@@ -37,11 +39,12 @@ interface Board {
   winSpot: boolean;
 }
 
+
 /**
  * A little something I hacked together.
  * One thing to note is that the Mr. Roboto hijacks Player O's board array
  * when the user selects to play against him. Just a little heads up for anyone
- * trying to follow the code.
+ * trying to follow.
  */
 @Component({
   selector: 'app-game',
@@ -84,6 +87,7 @@ export class GameComponent implements OnInit {
   /** Used for ngFor when looping through tile template */
   boardPositions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+
   constructor(
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
@@ -103,6 +107,7 @@ export class GameComponent implements OnInit {
       this.players = players[0];
     });
   }
+
 
   /** Sets game and board values to an initial state */
   initBoard() {

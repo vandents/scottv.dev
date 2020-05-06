@@ -7,6 +7,7 @@ import {
   faAddressBook,
   faBalanceScale,
   faBold,
+  faBolt,
   faBug,
   faCalendar,
   faCircle,
@@ -28,6 +29,7 @@ import {
   faRobot,
   faSmileWink,
   faSortAmountUp,
+  faSortNumericUpAlt,
   faSquareRootAlt,
   faSkullCrossbones,
   faTerminal,
@@ -51,8 +53,10 @@ import {
   faNodeJs,
   faPython,
   faSass,
-  faWindows
+  faWindows,
+  faSlackHash
 } from '@fortawesome/free-brands-svg-icons';
+
 
 /**
  * This is a module to import individual font awesome icons.
@@ -74,6 +78,7 @@ export class AppIconsModule {
       faAddressBook,
       faBalanceScale,
       faBold,
+      faBolt,
       faBug,
       faCalendar,
       faCircle,
@@ -95,6 +100,7 @@ export class AppIconsModule {
       faRobot,
       faSmileWink,
       faSortAmountUp,
+      faSortNumericUpAlt,
       faSquareRootAlt,
       faSkullCrossbones,
       faTerminal,
@@ -116,6 +122,7 @@ export class AppIconsModule {
       faNodeJs,
       faPython,
       faSass,
+      faSlackHash,
       faWindows
     );
   }

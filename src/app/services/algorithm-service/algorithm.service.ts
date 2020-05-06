@@ -3,7 +3,8 @@ import { BrowserService } from '../browser-service/browser.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 
-/** The different kinds of algorithms */
+
+/** The different sorting algorithms */
 export enum Algos {
   Quick = 0,
   Selection,
@@ -13,7 +14,7 @@ export enum Algos {
 }
 
 
-/** Provides the meat and potatoes for the interactive sorting algorithms */
+/** Meat and potatoes for the interactive sorting algorithms */
 @Injectable({
   providedIn: 'root'
 })
@@ -50,7 +51,7 @@ export class AlgorithmService implements OnDestroy {
 
     this.widthSub = this.browser.widthChanges.subscribe((width: any) => {
       if (!this._isProcessing)
-      setTimeout(() => this.updateChart());
+        setTimeout(() => this.updateChart());
     });
   }
 
@@ -360,7 +361,7 @@ export class AlgorithmService implements OnDestroy {
    * Insertion Sort
    **********************************************************/
 
-   /** Insertion sort algorithm */
+  /** Insertion sort algorithm */
   async insertionSort() {
     for (let i = 0; i < this.array.length; i++) {
       const k = this.array[i];
@@ -418,7 +419,7 @@ export class AlgorithmService implements OnDestroy {
    * Count Sort
    **********************************************************/
 
-   /** Count sort algorithm */
+  /** Count sort algorithm */
   async countSourt(min: number, max: number) {
     let z = 0;
     const count = [];
@@ -448,4 +449,5 @@ export class AlgorithmService implements OnDestroy {
 
     this.resetSortVals();
   }
+
 }

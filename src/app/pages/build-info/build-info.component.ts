@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { VERSION } from '../../../environments/version';
 
+
 export interface Dependency {
   name: string;
   link: string;
@@ -9,6 +10,7 @@ export interface Dependency {
   iconPackage: string;
   icon: string;
 }
+
 
 /** Page for displaying build and dependency info */
 @Component({
@@ -19,6 +21,7 @@ export interface Dependency {
 export class BuildInfoComponent {
   dependencies: Dependency[];
   buildInfo: Dependency[];
+
 
   constructor(private title: Title) {
     this.title.setTitle('Scott VandenToorn - Build Info');
@@ -37,6 +40,7 @@ export class BuildInfoComponent {
       { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottv.dev/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
     ];
   }
+
 
   onLinkClick(e: MouseEvent, link: string) {
     if (!link) e.preventDefault();

@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { BrowserService } from '@services/browser-service/browser.service';
 
+
 /** Home page */
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
   }
+
 
   openSnackBar(message: string, action = 'Dismiss') {
     this.snackBar.open(message, action, {

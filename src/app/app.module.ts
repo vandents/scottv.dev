@@ -71,6 +71,8 @@ import { environment                      } from '../environments/environment';
     AlgorithmsComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase, 'scottv.dev'),
+    AngularFirestoreModule,
     AppIconsModule,
     AppRoutingModule,
     BrowserModule,
@@ -90,14 +92,12 @@ import { environment                      } from '../environments/environment';
     MatTooltipModule,
     MatToolbarModule,
     FontAwesomeModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'scottv.dev'),
-    AngularFirestoreModule
+    FormsModule
   ],
   entryComponents: [
-    ViewImageDialogComponent,
+    ChooseCompetitorDialogComponent,
     GameWinDialogComponent,
-    ChooseCompetitorDialogComponent
+    ViewImageDialogComponent
   ],
   providers: [
     AlgorithmService,

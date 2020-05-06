@@ -27,20 +27,26 @@
 
     <!-- Fun Stuff -->
     <mat-menu #fun="matMenu">
-      <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">Tic-Tac-Toe</a>
-      <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">Interactive Algorithms</a>
+      <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
+        <fa-icon [icon]="['fab', 'slack-hash']" size="lg"></fa-icon>
+        &nbsp;&nbsp;&nbsp;Tic-Tac-Toe
+      </a>
+      <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">
+        <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
+        &nbsp;&nbsp;&nbsp;Algorithms
+      </a>
     </mat-menu>
 
     <!-- Info -->
     <mat-menu #info="matMenu">
       <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="left" (click)="copyToClipboard(emailAddress)">
         <fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>
-        &nbsp;&nbsp;{{ emailAddress }}
+        &nbsp;&nbsp;&nbsp;{{ emailAddress }}
       </button>
 
-      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Link to GitHub" matTooltipPosition="left">
+      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Go to GitHub" matTooltipPosition="left">
         <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
-        &nbsp;&nbsp;vandents
+        &nbsp;&nbsp;&nbsp;vandents
       </a>
 
       <a mat-menu-item routerLink="build-info">

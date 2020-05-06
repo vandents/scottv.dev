@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { BrowserService } from '@app/services/browser-service/browser.service';
 import { Subscription } from 'rxjs';
 
+
 /**
  * A neat component for displaying various sorting algorithms in real time
  */
@@ -20,6 +21,7 @@ export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
   numElements: number;
   private widthSub: Subscription;
 
+
   constructor(
     public algoServ: AlgorithmService,
     private title: Title,
@@ -32,7 +34,6 @@ export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.numElements = this.browser.isScreen500() ? 250 : 100;
     this.algoServ.setNumElements(this.numElements);
   }
-
 
   ngOnInit() {
     // Pass element ref

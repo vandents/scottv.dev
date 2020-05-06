@@ -1,9 +1,30 @@
-@media screen and (max-width: 991px) {
-  mat-card {
-    margin-bottom: 20px;
-  }
+h2,
+mat-card {
+  width: 310px;
 }
 
 .no-link:hover {
   cursor: default;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 767px) {
+  h2,
+  mat-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h2.depend {
+    margin-top: 28px;
+  }
+  .flex-box {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
 }

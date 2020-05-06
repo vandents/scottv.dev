@@ -2,6 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { fromEvent } from 'rxjs';
 
+
 /** Service for the detecting browser width and type */
 @Injectable({
   providedIn: 'root'

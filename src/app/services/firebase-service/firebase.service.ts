@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable, Subscription } from 'rxjs';
 
+
 export interface Players {
   id?: string;
   humanWins?: number;
@@ -9,6 +10,8 @@ export interface Players {
   draw?: number;
 }
 
+
+/** Service for manipulating win statistics in firebase */
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +21,7 @@ export class FirebaseService {
   playersArray: Observable<Players[]>;
   playersSub: Subscription;
   playersDoc: AngularFirestoreDocument<Players>;
+
 
   constructor(public afs: AngularFirestore) {
     this.afs.collection('players').get().subscribe(res => {
@@ -29,6 +33,7 @@ export class FirebaseService {
       this.initPlayers = players[0];
     });
   }
+
 
   getInitialStats() {
     if (this.initPlayers) return this.initPlayers;
