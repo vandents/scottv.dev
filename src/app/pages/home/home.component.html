@@ -126,7 +126,31 @@
       <p>
         Here are some technologies that I have used before and know how to use. I'm better with some more than others.
       </p>
-      <h4>Languages</h4>
+      <h4>IDEs</h4>
+      <mat-chip-list>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
+          &nbsp;&nbsp;Code Composer Studio
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
+          &nbsp;&nbsp;IntelliJ
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
+          &nbsp;&nbsp;VSCode
+        </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
+          &nbsp;&nbsp;Xilinx Vivado
+        </mat-chip>
+      </mat-chip-list>
+
+      <h4 class="know-h4">Languages</h4>
       <mat-chip-list>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
@@ -166,29 +190,6 @@
         </mat-chip>
       </mat-chip-list>
 
-      <h4 class="know-h4">Web Frameworks</h4>
-      <mat-chip-list>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-4"></fa-icon>
-          &nbsp;&nbsp;Angular
-        </mat-chip>
-      </mat-chip-list>
-
-      <h4 class="know-h4">Version Control</h4>
-      <mat-chip-list>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'git']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'git']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;Git
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;Subversion
-        </mat-chip>
-      </mat-chip-list>
-
       <h4 class="know-h4">Platforms</h4>
       <mat-chip-list>
         <mat-chip>
@@ -213,27 +214,26 @@
         </mat-chip>
       </mat-chip-list>
 
-      <h4 class="know-h4">IDEs</h4>
+      <h4 class="know-h4">Version Control</h4>
       <mat-chip-list>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
-          &nbsp;&nbsp;Code Composer Studio
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'git']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'git']" size="lg" transform="shrink-6.5"></fa-icon>
+          &nbsp;&nbsp;Git
         </mat-chip>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
-          &nbsp;&nbsp;IntelliJ
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5"></fa-icon>
+          &nbsp;&nbsp;Subversion
         </mat-chip>
+      </mat-chip-list>
+
+      <h4 class="know-h4">Web Frameworks</h4>
+      <mat-chip-list>
         <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
-          &nbsp;&nbsp;VSCode
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-6"></fa-icon>
-          &nbsp;&nbsp;Xilinx Vivado
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-4"></fa-icon>
+          &nbsp;&nbsp;Angular
         </mat-chip>
       </mat-chip-list>
     </mat-card>

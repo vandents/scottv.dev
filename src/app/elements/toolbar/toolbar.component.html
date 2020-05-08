@@ -27,13 +27,13 @@
 
     <!-- Fun Stuff -->
     <mat-menu #fun="matMenu">
-      <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
-        <fa-icon [icon]="['fab', 'slack-hash']" size="lg"></fa-icon>
-        &nbsp;&nbsp;&nbsp;Tic-Tac-Toe
-      </a>
       <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">
         <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
         &nbsp;&nbsp;&nbsp;Algorithms
+      </a>
+      <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
+        <fa-icon [icon]="['fab', 'slack-hash']" size="lg"></fa-icon>
+        &nbsp;&nbsp;&nbsp;Tic-Tac-Toe
       </a>
     </mat-menu>
 
