@@ -1,20 +1,25 @@
-<h1>Welcome! My name is Scott VandenToorn.</h1>
-
-<mat-card>
-  <mat-card-header class="header-welcome">
+<h1 *ngIf="browser.isScreen500()">Welcome!</h1>
+<mat-card class="welcome-card">
+  <mat-card-header>
     <div mat-card-avatar class="avi"></div>
-    <span *ngIf="browser.isScreen400()" class="welcome-text-desktop">
+    <h1 *ngIf="!browser.isScreen500()">Welcome!</h1>
+    <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
+      My name is Scott VandenToorn.
       This is my personal website meant to showcase my projects and serve as an extension of my resume.
-      Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
+      <br><br>
+      Make sure to explore <em>Fun Stuff</em> before you leave. Thanks for visiting!
     </span>
   </mat-card-header>
-  <mat-card-content style="padding-top: 12px;" *ngIf="!browser.isScreen400()">
+  <mat-card-content *ngIf="!browser.isScreen500()">
+    My name is Scott VandenToorn.
     This is my personal website meant to showcase my projects and serve as an extension of my resume.
-    Sometimes I like to experiment with things on here, e.g. Mr. Roboto the Tic Tac Toe robot (who you should totally check out).
+    <br><br>
+    Make sure to explore <em>Fun Stuff</em> before you leave. Thanks for visiting!
   </mat-card-content>
 </mat-card>
 
-<h2>Education</h2>
+
+<h2 style="margin-top: 40px;">Education</h2>
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar class="gvsu-logo"></div>
@@ -23,13 +28,12 @@
     <mat-card-subtitle>2017 - 2022</mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content>
+  <mat-card-content class="card-text">
     Why Computer Engineering? It's really quite a lot of fun. I love building something
     and watching it come to life. My favorite part is that <i>"Aha!"</i> moment when your team finally
     finds the solution to a seemingly unsolveable problem.
   </mat-card-content>
-
-  <mat-card-actions>
+  <mat-card-content>
     <mat-chip-list>
       <mat-chip>
         <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'balance-scale']" size="lg" transform="shrink-7" [mask]="['fas', 'circle']"></fa-icon>
@@ -37,22 +41,23 @@
         &nbsp;&nbsp;3.47 GPA
       </mat-chip>
     </mat-chip-list>
-  </mat-card-actions>
+  </mat-card-content>
 </mat-card>
+
 
 <h2>Experience</h2>
 <mat-card style="margin-bottom: 12px;">
   <mat-card-header>
     <div mat-card-avatar class="dornerworks-logo"></div>
-    <mat-card-title>Embedded Medical IoT Engineer <small>(Co-op)</small></mat-card-title>
+    <mat-card-title>Embedded IoT Engineer <small>(Co-op)</small></mat-card-title>
     <mat-card-subtitle>DornerWorks, Grand Rapids, MI</mat-card-subtitle>
     <mat-card-subtitle>May 2020 - Present</mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content>
+  <mat-card-content class="card-text">
     Description coming soon...
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-content>
     <mat-chip-list>
       <mat-chip>
         <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
@@ -70,8 +75,9 @@
         &nbsp;&nbsp;Placeholder
       </mat-chip>
     </mat-chip-list>
-  </mat-card-actions>
+  </mat-card-content>
 </mat-card>
+
 
 <mat-card>
   <mat-card-header>
@@ -81,13 +87,13 @@
     <mat-card-subtitle>July 2019 - May 2020</mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content>
+  <mat-card-content class="card-text">
     Volgistics is a group of dedicated individuals who provide web software and a cloud database to manage an
     organization’s volunteers. Volgistics was originally written in Delphi; our main focus has been to transform
     the front end into single page applications using Angular. The Volgistics team takes great pride in the part
-    we play developing software that real people benefit from.
+    they play developing software that real people benefit from.
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-content>
     <mat-chip-list>
       <mat-chip>
         <fa-icon *ngIf="browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
@@ -116,8 +122,9 @@
         &nbsp;&nbsp;VSCode
       </mat-chip>
     </mat-chip-list>
-  </mat-card-actions>
+  </mat-card-content>
 </mat-card>
+
 
 <h2>Programming Knowledge</h2>
 <div class="row">
@@ -179,6 +186,13 @@
           &nbsp;&nbsp;Python
         </mat-chip>
         <mat-chip>
+          <span style="transform: rotate(-45deg);">
+            <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'gem']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+            <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'gem']" size="lg" transform="shrink-5.5"></fa-icon>
+          </span>
+          &nbsp;Ruby
+        </mat-chip>
+        <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'code']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;&nbsp;TypeScript
@@ -195,17 +209,12 @@
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;Arduino
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
           &nbsp;&nbsp;FPGA
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;TI Launchpad
+          &nbsp;&nbsp;Microcontroller
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
@@ -235,10 +244,16 @@
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fab', 'angular']" size="lg" transform="shrink-4"></fa-icon>
           &nbsp;&nbsp;Angular
         </mat-chip>
+        <mat-chip>
+          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'database']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'database']" size="lg" transform="shrink-4"></fa-icon>
+          &nbsp;&nbsp;Rails
+        </mat-chip>
       </mat-chip-list>
     </mat-card>
   </div>
 </div>
+
 
 <h2>Other Skills</h2>
 <div class="row" style="margin-bottom: 47px;">
@@ -255,11 +270,6 @@
           <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'monument']" size="lg" transform="shrink-5.5" rotate="180">
           </fa-icon>
           &nbsp;&nbsp;CNC Machining
-        </mat-chip>
-        <mat-chip>
-          <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          <fa-icon *ngIf="!browser.maskWorks()" [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5"></fa-icon>
-          &nbsp;&nbsp;Microcontrollers
         </mat-chip>
         <mat-chip>
           <fa-icon *ngIf="browser.maskWorks()" [icon]="['fas', 'cube']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>

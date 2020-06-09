@@ -1,33 +1,14 @@
 /********************************
- * Pictures
+ * Logos
  ********************************/
 
-/* Headshot picture */
-img.avi {
-  height: 200px;
-  clip-path: circle(100px at center);
-  width: auto;
+.mat-card-avatar {
+  height: 75px;
+  width: 75px;
 }
 
-.avi {
-  background-image: url('../../../assets/img/avi.jpg');
-  background-size: cover;
-  /* Override .mat-card-avatar height/width */
-  height: 145px !important;
-  width: 145px !important;
-  /* Auto margins to center avi when text drops below @ <= 400px */
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Logos */
 .gvsu-logo {
   background-image: url('../../../assets/img/gvsu-logo.jpg');
-  background-size: cover;
-}
-
-.volgistics-logo {
-  background-image: url('../../../assets/img/volgistics.png');
   background-size: cover;
 }
 
@@ -36,9 +17,71 @@ img.avi {
   background-size: cover;
 }
 
-.mat-card-avatar {
-  height: 75px;
-  width: 75px;
+.volgistics-logo {
+  background-image: url('../../../assets/img/volgistics.png');
+  background-size: cover;
+}
+
+
+/********************************
+ * Welcome card
+ ********************************/
+
+.avi {
+  background-image: url('../../../assets/img/avi.jpg');
+  background-size: cover;
+  height: 135px;
+  width: 135px;
+  align-self: center;
+}
+
+.welcome-card .mat-card-header {
+  justify-content: center;
+}
+
+.welcome-card .mat-card-content {
+  padding-top: 12px;
+}
+
+.welcome-text-desktop, h1 {
+  align-self: center;
+}
+
+.welcome-text-desktop {
+  max-width: 55%;
+}
+
+@media(max-width: 500px) {
+  h1 {
+    margin: 0 0 0 -12px;
+    font-weight: 400;
+  }
+  .avi {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media(max-width: 410px) {
+  h1 {
+    margin-left: -14px;
+    font-size: 2.3rem;
+  }
+  .avi {
+    height: 110px;
+    width: 110px;
+  }
+}
+
+@media (max-width: 350px) {
+  h1 {
+    margin-left: -16px;
+    font-size: 2.2rem !important;
+  }
+  .avi {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 
@@ -46,16 +89,20 @@ img.avi {
  * Other
  ********************************/
 
-mat-chip {
-  user-select: none;
-}
-
 h2 {
   margin-top: 28px;
 }
 
 .know-h4 {
   margin: 18px 0 7px 0;
+}
+
+.card-text {
+  padding: 0 3px;
+}
+
+mat-chip {
+  user-select: none;
 }
 
 fa-icon {
