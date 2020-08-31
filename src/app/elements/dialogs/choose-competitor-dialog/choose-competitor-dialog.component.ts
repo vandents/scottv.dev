@@ -6,7 +6,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
 @Component({
   selector: 'app-choose-competitor-dialog',
   templateUrl: './choose-competitor-dialog.component.html',
-  styleUrls: ['./choose-competitor-dialog.component.css']
+  styleUrls: ['./choose-competitor-dialog.component.scss']
 })
 export class ChooseCompetitorDialogComponent implements OnInit {
 

@@ -49,7 +49,7 @@ interface Board {
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css'],
+  styleUrls: ['./game.component.scss'],
   animations: [
     trigger('fastFade', [   // Board icons
       state('in', style({ opacity: 1 })),

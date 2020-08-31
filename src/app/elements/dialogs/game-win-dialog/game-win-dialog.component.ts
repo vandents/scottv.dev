@@ -16,7 +16,7 @@ const OUT_TIME = 1000;
 @Component({
   selector: 'app-game-win-dialog',
   templateUrl: './game-win-dialog.component.html',
-  styleUrls: ['./game-win-dialog.component.css'],
+  styleUrls: ['./game-win-dialog.component.scss'],
   animations: [
     trigger('fade', [
       // the "in" style determines the "resting" state of the element when it is visible.

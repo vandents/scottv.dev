@@ -16,7 +16,7 @@ export interface Dependency {
 @Component({
   selector: 'app-build-info',
   templateUrl: './build-info.component.html',
-  styleUrls: ['./build-info.component.css']
+  styleUrls: ['./build-info.component.scss']
 })
 export class BuildInfoComponent {
   dependencies: Dependency[];
