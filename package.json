@@ -27,7 +27,6 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@ionic/angular": "^4.11.10",
     "angular-cli-ghpages": "^0.6.2",
     "angular-font-awesome": "^3.1.2",
     "angularfire2": "^5.4.2",

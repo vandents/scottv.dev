@@ -70,10 +70,4 @@ export class BrowserService {
     return this.deviceServ.browser.toLowerCase() === 'instagram';
   }
 
-  /** @returns {boolean} true if the masked icons on the home page will display correctly */
-  maskWorks(): boolean {
-    if (this.isSafari() || this.isInstagram()) return false;
-    return true;
-  }
-
 }
