@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
+// Regular Icons (far)
+import {
+  faMoon as farMoon,
+  faSun as farSun
+} from '@fortawesome/free-regular-svg-icons';
+
 // Solid Icons (fas)
 import {
   faAddressBook,
@@ -26,6 +32,7 @@ import {
   faLowVision,
   faMicrochip,
   faMonument,
+  faMoon,
   faMousePointer,
   faRandom,
   faRobot,
@@ -42,7 +49,9 @@ import {
 
 // Brand Icons (fab)
 import {
+  faAndroid,
   faAngular,
+  faApple,
   faCss3Alt,
   faFontAwesome,
   faGit,
@@ -56,8 +65,9 @@ import {
   faNodeJs,
   faPython,
   faSass,
-  faWindows,
-  faSlackHash
+  faSlackHash,
+  faVuejs,
+  faWindows
 } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -77,6 +87,10 @@ export class AppIconsModule {
 
   constructor(library: FaIconLibrary) {
     library.addIcons(
+      // far
+      farMoon,
+      farSun,
+
       // fas
       faAddressBook,
       faBalanceScale,
@@ -100,6 +114,7 @@ export class AppIconsModule {
       faLowVision,
       faMicrochip,
       faMonument,
+      faMoon,
       faMousePointer,
       faRandom,
       faRobot,
@@ -114,7 +129,9 @@ export class AppIconsModule {
       faUserFriends,
 
       // fab
+      faAndroid,
       faAngular,
+      faApple,
       faCss3Alt,
       faFontAwesome,
       faGit,
@@ -129,6 +146,7 @@ export class AppIconsModule {
       faPython,
       faSass,
       faSlackHash,
+      faVuejs,
       faWindows
     );
   }

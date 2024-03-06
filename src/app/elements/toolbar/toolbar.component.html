@@ -2,22 +2,22 @@
   <mat-toolbar-row style="text-align: center !important;">
     <span class="fill-remaining-space"></span>
 
-    <a mat-button routerLink="home" routerLinkActive="current" color="primary" matTooltip="Home" class="toolbar-item">
+    <a mat-button routerLink="home" routerLinkActive="current" matTooltip="Home" class="toolbar-item">
       <fa-icon [icon]="['fas', 'home']" size="lg"></fa-icon>
     </a>
-    <a mat-button routerLink="projects" routerLinkActive="current" color="primary" class="toolbar-item">
-      Projects
+    <a mat-button routerLink="portfolio" routerLinkActive="current" class="toolbar-item">
+      Portfolio
     </a>
     <button mat-button [matMenuTriggerFor]="fun" class="toolbar-item"
       [style.background]="router.url.includes('game') || router.url.includes('algorithms') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
       <ng-container *ngIf="browser.isScreen500()">
-        <fa-icon [icon]="['fas', 'smile-wink']" size="md"></fa-icon>&nbsp;&nbsp;
+        <fa-icon [icon]="['fas', 'smile-wink']" size="sm"></fa-icon>&nbsp;&nbsp;
       </ng-container>
       <span>Fun Stuff</span>
     </button>
     <button mat-button [matMenuTriggerFor]="info" class="toolbar-item"
       [style.background]="router.url.includes('build-info') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
-      <fa-icon [icon]="['fas', 'address-book']" [size]="browser.isScreen500() ? 'md' : 'lg'"></fa-icon>
+      <fa-icon [icon]="['fas', 'address-book']" [size]="browser.isScreen500() ? 'sm' : 'lg'"></fa-icon>
       <ng-container *ngIf="browser.isScreen500()">
         &nbsp;&nbsp;Info
       </ng-container>
@@ -51,13 +51,35 @@
 
       <a mat-menu-item routerLink="build-info">
         <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>
-        &nbsp;&nbsp;&nbsp;View Build Info
+        &nbsp;&nbsp;&nbsp;Build Info
       </a>
 
-      <!-- <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>
+      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" download>
+        <!-- href="../../../assets/vandentoorn-resume.pdf" -->
         &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
         &nbsp;&nbsp;&nbsp;Download Resume
-      </a> -->
+      </a>
+    </mat-menu>
+
+    <button mat-icon-button class="theme-button" matTooltip="Switch Theme"
+      [matMenuTriggerFor]="menu" matTooltipPosition="below" matTooltipClass="mat-tooltip-multi">
+      <fa-icon *ngIf="themeService.isLight()" [icon]="['far', 'sun']" size="sm"></fa-icon>
+      <fa-icon *ngIf="themeService.isDark()" [icon]="['far', 'moon']" size="sm"></fa-icon>
+      <fa-icon *ngIf="themeService.isBlack()" [icon]="['fas', 'moon']" size="sm"></fa-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="appComponent.setTheme(ThemeType.Light)">
+        <fa-icon [icon]="['far', 'sun']" size="sm"></fa-icon>
+        <span>Light</span>
+      </button>
+      <button mat-menu-item (click)="appComponent.setTheme(ThemeType.Dark)">
+        <fa-icon [icon]="['far', 'moon']" size="sm"></fa-icon>
+        <span>Dark</span>
+      </button>
+      <button mat-menu-item (click)="appComponent.setTheme(ThemeType.Black)">
+        <fa-icon [icon]="['fas', 'moon']" size="sm"></fa-icon>
+        <span>Night</span>
+      </button>
     </mat-menu>
 
   </mat-toolbar-row>

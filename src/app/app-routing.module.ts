@@ -9,10 +9,10 @@ import { PageNotFoundComponent  } from '@pages/page-not-found/page-not-found.com
 import { AlgorithmsComponent    } from '@pages/algorithms/algorithms.component';
 
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'projects', component: ProjectsComponent },
+  { path: 'portfolio', component: ProjectsComponent },
   { path: 'game', component: GameComponent },
   { path: 'build-info', component: BuildInfoComponent },
   { path: 'algorithms', component: AlgorithmsComponent },
@@ -24,9 +24,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: false }),
-    CommonModule
+    RouterModule.forRoot(appRoutes, { enableTracing: false })
   ],
   exports: [RouterModule]
 })

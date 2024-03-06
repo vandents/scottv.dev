@@ -161,7 +161,7 @@ export class AlgorithmService implements OnDestroy {
     for (const i of this.array) {
       innerHTML += `
         <div style="width: ${this.getElementWidth()}; height: ${this.getElementHeight(i)}; float: left;
-          background-color: ${this.getBackgroundColor(idx)}; ${this.getElementBorder()};"></div>
+          background-color: ${this.getBackgroundColor(idx)}; border: 0.1px solid #303030;"></div>
       `;
       idx++;
     }
@@ -178,16 +178,11 @@ export class AlgorithmService implements OnDestroy {
     return `${i / 4}%`;
   }
 
-  /** @return Border styling for a bar in the chart */
-  private getElementBorder(): string {
-    return this.numElements > 100 ? 'border-right: 0.1px solid #303030' : 'border: 0.1px solid #303030';
-  }
-
   /** @return Background color for each bar */
   getBackgroundColor(index: number): string {
     if (this.redIdx === index) return 'rgb(190, 54, 54)';
-    if (this.greenIDX === index) return 'rgb(28, 173, 93)';
-    return 'rgb(216, 250, 247)';
+    if (this.greenIDX === index) return 'rgb(20, 135, 72)';
+    return 'rgb(173, 227, 223)';
   }
 
 

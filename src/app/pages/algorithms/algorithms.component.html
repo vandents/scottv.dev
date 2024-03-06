@@ -2,38 +2,40 @@
 
 <div class="row">
   <mat-card>
-    <mat-form-field class="algo-dropdown">
-      <mat-label>Algorithm</mat-label>
-      <mat-select [value]="0" [disabled]="algoServ.isProcessing()">
-        <mat-option *ngFor="let algo of algorithms" [value]="algo.kind" (click)="setAlgo(algo); algoServ.randomize();">
-          {{ algo.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div>
+      <mat-form-field class="algo-dropdown">
+        <mat-label>Algorithm</mat-label>
+        <mat-select [value]="0" [disabled]="algoServ.isProcessing()">
+          <mat-option *ngFor="let algo of algorithms" [value]="algo.kind" (click)="setAlgo(algo); algoServ.randomize();">
+            {{ algo.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field class="element-dropdown">
-      <mat-label># Elements</mat-label>
-      <mat-select [(ngModel)]="numElements" [disabled]="algoServ.isProcessing() || selectedAlgo.kind == algos.Bubble || selectedAlgo.kind == algos.Insertion">
-        <ng-container *ngIf="selectedAlgo.kind != algos.Bubble && selectedAlgo.kind != algos.Insertion; else option50">
-          <mat-option *ngFor="let i of getArray(8, 50)" [value]="i" (click)="algoServ.setNumElements(i); algoServ.randomize();">
-            {{ i }}
-          </mat-option>
-        </ng-container>
-        <ng-template #option50>
-          <mat-option [value]="50" >
-            50
-          </mat-option>
-        </ng-template>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field class="element-dropdown">
+        <mat-label># Elements</mat-label>
+        <mat-select [(ngModel)]="numElements" [disabled]="algoServ.isProcessing() || selectedAlgo.kind == algos.Bubble || selectedAlgo.kind == algos.Insertion">
+          <ng-container *ngIf="selectedAlgo.kind != algos.Bubble && selectedAlgo.kind != algos.Insertion; else option50">
+            <mat-option *ngFor="let i of getArray(8, 50)" [value]="i" (click)="algoServ.setNumElements(i); algoServ.randomize();">
+              {{ i }}
+            </mat-option>
+          </ng-container>
+          <ng-template #option50>
+            <mat-option [value]="50" >
+              50
+            </mat-option>
+          </ng-template>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
     <div>
-      <button mat-button (click)="algoServ.randomize()" [disabled]="algoServ.isProcessing()">
-        <fa-icon [icon]="['fas', 'random']" size="md"></fa-icon>
+      <button mat-raised-button color="primary" (click)="algoServ.randomize()" [disabled]="algoServ.isProcessing()">
+        <fa-icon [icon]="['fas', 'random']" size="sm"></fa-icon>
         &nbsp;&nbsp;Randomize
       </button>
-      <button mat-button (click)="algoServ.onSort(selectedAlgo.kind)" [disabled]="algoServ.isProcessing() || algoServ.isSorted()">
-        <fa-icon [icon]="['fas', 'sort-amount-up']" size="md" rotate="270"></fa-icon>
+      <button mat-raised-button color="primary" (click)="algoServ.onSort(selectedAlgo.kind)" [disabled]="algoServ.isProcessing() || algoServ.isSorted()">
+        <fa-icon [icon]="['fas', 'sort-amount-up']" size="sm" [rotate]="270"></fa-icon>
         &nbsp;&nbsp;Sort
       </button>
     </div>

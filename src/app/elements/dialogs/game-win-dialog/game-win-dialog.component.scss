@@ -1,11 +1,13 @@
 mat-card {
-  width: 300px !important;
-  height: 387px;
+  width: 320px !important;
   text-align: center;
   overflow: hidden;
 }
 
-h1 { font-size: 200%; }
+h1 {
+  margin-top: 16px;
+  font-size: 200%;
+}
 
 button {
   background-color: rgb(33, 33, 33);
@@ -19,17 +21,13 @@ button {
   bottom: 0px;
 }
 
-.absolute-container {
-  position: absolute;
-  width: 100%;
-}
-
 .message {
   margin-top: 178px !important;
   font-size: 130%;
   font-family: monospace;
   color: rgb(190, 150, 150);
 }
+
 @media screen and (max-width: 370px) {
   .message { font-size: 125%; }
   mat-card { width: auto !important; }
@@ -42,8 +40,12 @@ button {
 .icon-container {
   position: absolute;
   width: 100%;
-  margin-left: -16px;
   margin-top: 42px;
+  padding-top: 88px;
+}
+
+.robot-padding {
+  padding-top: 116px;
 }
 
 .icon-x {

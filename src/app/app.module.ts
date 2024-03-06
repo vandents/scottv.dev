@@ -17,6 +17,8 @@ import { MatDialogModule                  } from '@angular/material/dialog';
 import { MatSnackBarModule                } from '@angular/material/snack-bar';
 import { MatListModule                    } from '@angular/material/list';
 import { FormsModule                      } from '@angular/forms';
+import { RouterModule                     } from '@angular/router';
+import { CommonModule                     } from '@angular/common';
 
 // Root component
 import { AppComponent                     } from './app.component';
@@ -39,17 +41,18 @@ import { AlgorithmsComponent              } from '@pages/algorithms/algorithms.c
 // Services
 import { BrowserService                   } from '@services/browser-service/browser.service';
 import { FirebaseService                  } from '@services/firebase-service/firebase.service';
-import { AlgorithmService                 } from './services/algorithm-service/algorithm.service';
+import { AlgorithmService                 } from '@services/algorithm-service/algorithm.service';
+import { ThemeService                     } from '@services/theme-service/theme.service';
 
 // Custom Modules
-import { AppRoutingModule                 } from './app-routing.module';
-import { AppIconsModule                   } from './app-icons.module';
+import { AppRoutingModule                 } from '@app/app-routing.module';
+import { AppIconsModule                   } from '@app/app-icons.module';
 
 // Third Party Modules
 import { FontAwesomeModule                } from '@fortawesome/angular-fontawesome';
 import { DeviceDetectorService            } from 'ngx-device-detector';
-import { AngularFireModule                } from 'angularfire2';
-import { AngularFirestoreModule           } from 'angularfire2/firestore';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore   } from '@angular/fire/firestore';
 
 // Environment variables
 import { environment                      } from '../environments/environment';
@@ -68,15 +71,20 @@ import { environment                      } from '../environments/environment';
     BuildInfoComponent,
     PageNotFoundComponent,
     ChooseCompetitorDialogComponent,
-    AlgorithmsComponent
+    AlgorithmsComponent,
+    // Dialogs
+    ChooseCompetitorDialogComponent,
+    GameWinDialogComponent,
+    ViewImageDialogComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase, 'scottv.dev'),
-    AngularFirestoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     AppIconsModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
@@ -92,18 +100,15 @@ import { environment                      } from '../environments/environment';
     MatTooltipModule,
     MatToolbarModule,
     FontAwesomeModule,
-    FormsModule
-  ],
-  entryComponents: [
-    ChooseCompetitorDialogComponent,
-    GameWinDialogComponent,
-    ViewImageDialogComponent
+    FormsModule,
+    RouterModule,
   ],
   providers: [
     AlgorithmService,
     BrowserService,
     DeviceDetectorService,
-    FirebaseService
+    FirebaseService,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })

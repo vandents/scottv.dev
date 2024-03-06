@@ -1,8 +1,8 @@
-.container { 
+.container {
   padding-top: 16px;
   padding-bottom: 98px;
   overflow: hidden !important;
-  /* max-width: 960px; */
+  min-height: calc(100vh - 108px);
 }
 
 .app-frame {

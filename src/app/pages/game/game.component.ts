@@ -7,6 +7,7 @@ import { ChooseCompetitorDialogComponent } from '@dialogs/choose-competitor-dial
 import { BrowserService } from '@services/browser-service/browser.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
+import { ThemeService } from '@app/services/theme-service/theme.service';
 import { Subscription } from 'rxjs';
 
 
@@ -42,7 +43,7 @@ interface Board {
 
 /**
  * A little something I hacked together.
- * One thing to note is that the Mr. Roboto hijacks Player O's board array
+ * One thing to note is that Mr. Roboto uses Player O's board array
  * when the user selects to play against him. Just a little heads up for anyone
  * trying to follow.
  */
@@ -82,7 +83,7 @@ export class GameComponent implements OnInit {
   /** True if user is playing against Mr. Roboto */
   isRobot: boolean;
   gameOver: boolean;
-  players: Players = null;
+  players: Players;
   playersSub: Subscription;
   /** Used for ngFor when looping through tile template */
   boardPositions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -93,7 +94,8 @@ export class GameComponent implements OnInit {
     private snackBar: MatSnackBar,
     private title: Title,
     public browser: BrowserService,
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    public themeService: ThemeService
   ) {
     this.title.setTitle('Scott VandenToorn - Game');
   }
@@ -139,7 +141,7 @@ export class GameComponent implements OnInit {
 
   /** @returns Total number of games played */
   getTotalGames(): number {
-    return this.players.humanWins + this.players.robotWins + this.players.draw;
+    return +this.players.humanWins! + +this.players.robotWins! + +this.players.draw!;
   }
 
   /** Initializes board, then opens choose competitor dialog */

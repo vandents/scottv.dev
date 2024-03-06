@@ -7,6 +7,10 @@ mat-grid-list {
   border-radius: 4px;
 }
 
+.light-grid {
+  background-color: white;
+}
+
 mat-grid-tile {
   transition: 0.1s;
 }
@@ -16,8 +20,19 @@ mat-grid-tile:hover {
   cursor: pointer;
   transition: 0.2s;
 }
+
+.light-grid mat-grid-tile:hover {
+  background-color: rgb(245, 245, 245);
+}
+
 @media screen and (max-width: 768px) {
-  mat-grid-tile:hover { background-color:  rgb(33, 33, 33); }
+  mat-grid-tile:hover {
+    background-color:  rgb(33, 33, 33);
+  }
+
+  .light-grid mat-grid-tile:hover {
+    background-color: white;
+  }
 }
 
 
@@ -104,6 +119,7 @@ mat-grid-tile:hover {
 mat-card {
   text-align: center;
   overflow: hidden;
+  padding: 16px;
 }
 
 mat-card-content { margin: 0; }
@@ -146,19 +162,16 @@ mat-card-content { margin: 0; }
 }
 
 .stats-date {
-  margin-top: -10px;
   font-size: 75%;
 }
 
 .reset-btn-side {
-  background-color: rgb(33, 33, 33);
   width: 100%;
   margin-top: 7px;
   margin-bottom: 20px;
 }
 
 .change-btn-side {
-  background-color: rgb(33, 33, 33);
   width: 100%;
 }
 
@@ -168,7 +181,6 @@ mat-card-content { margin: 0; }
  ********************************/
 
 .reset-btn-bottom {
-  background-color: rgb(33, 33, 33);
   position: absolute;
   right: 4px;
   top: 42px;
@@ -177,7 +189,6 @@ mat-card-content { margin: 0; }
 }
 
 .change-btn-bottom {
-  background-color: rgb(33, 33, 33);
   position: absolute;
   right: 4px;
   top: -10px;
@@ -209,8 +220,16 @@ mat-card-content { margin: 0; }
 
 .form-field {
   width: 33%;
-  height: 50px;
   color: white !important;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 1;
+  justify-content: end;
+}
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  border-radius: 0;
 }
 
 
@@ -220,17 +239,19 @@ mat-card-content { margin: 0; }
 
 .x-turn {
   font-size: 1400%;
-  margin-top: -51px !important;
+  margin-top: -61px !important;
   user-select: none;
 }
 .o-turn {
   font-size: 2000%;
-  margin-top: -140px !important;
+  margin-top: -170px !important;
   user-select: none;
+  margin-left: -10px;
 }
 .robot-turn {
-  margin-top: 35px !important;
+  margin-top: 25px !important;
   user-select: none;
+  margin-left: -16px;
 }
 @media screen and (max-width: 767px) {
   .x-turn {

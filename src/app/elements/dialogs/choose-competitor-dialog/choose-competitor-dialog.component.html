@@ -1,31 +1,28 @@
-<mat-card>
-  <mat-card-title cdkFocusInitial>Choose your opponent</mat-card-title>
-  <div class="divider-container" style="margin-top: -4px !important;">
-    <mat-divider></mat-divider>
-  </div>
-  <div style="margin-top: 10%;"></div>
+<h1 cdkFocusInitial mat-dialog-title>Choose your opponent</h1>
+<div class="divider-container" style="margin-top: -4px !important;">
+  <mat-divider></mat-divider>
+</div>
 
-  <mat-card-content>
-    <div class="row">
-      <div class="col-6">
-        <button mat-button (click)="closeDialog(true)">
-          <fa-icon *ngIf="browser.isScreen500()" [icon]="['fas', 'robot']" size="8x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen500() && browser.isScreen400()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen500() && !browser.isScreen400()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-          <br>
-          Mr. Roboto
-        </button>
-      </div>
-
-      <div class="col-6">
-        <button mat-button (click)="closeDialog(false)">
-          <fa-icon *ngIf="browser.isScreen500()" [icon]="['fas', 'user-friends']" size="8x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen500() && browser.isScreen400()" [icon]="['fas', 'user-friends']" size="6x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen500() && !browser.isScreen400()" [icon]="['fas', 'user-friends']" size="5x"></fa-icon>
-          <br>
-          Friend
-        </button>
-      </div>
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-6">
+      <button mat-button (click)="closeDialog(true)">
+        <fa-icon *ngIf="browser.isScreen500()" [icon]="['fas', 'robot']" size="8x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen500() && browser.isScreen400()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen500() && !browser.isScreen400()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+        <br>
+        <div class="button-text">Mr. Roboto</div>
+      </button>
     </div>
-  </mat-card-content>
-</mat-card>
+
+    <div class="col-6">
+      <button mat-button (click)="closeDialog(false)">
+        <fa-icon *ngIf="browser.isScreen500()" [icon]="['fas', 'user-friends']" size="8x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen500() && browser.isScreen400()" [icon]="['fas', 'user-friends']" size="6x"></fa-icon>
+        <fa-icon *ngIf="!browser.isScreen500() && !browser.isScreen400()" [icon]="['fas', 'user-friends']" size="5x"></fa-icon>
+        <br>
+        <div class="button-text">Friend</div>
+      </button>
+    </div>
+  </div>
+</mat-dialog-content>

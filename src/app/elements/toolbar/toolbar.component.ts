@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BrowserService } from '@services/browser-service/browser.service';
+import { AppComponent } from '@app/app.component';
+import { ThemeService, ThemeType } from '@app/services/theme-service/theme.service';
 
 /** The navigation bar at the top of the screen */
 @Component({
@@ -11,13 +13,16 @@ import { BrowserService } from '@services/browser-service/browser.service';
 })
 export class ToolbarComponent {
   emailAddress: string;
+  ThemeType = ThemeType;
 
   constructor(
     public router: Router,
     private snackBar: MatSnackBar,
-    public browser: BrowserService
+    public browser: BrowserService,
+    public appComponent: AppComponent,
+    public themeService: ThemeService
   ) {
-    this.emailAddress = 'vandents@mail.gvsu.edu';
+    this.emailAddress = 'svandentoorn@gmail.com';
   }
 
   copyToClipboard(val: string) {

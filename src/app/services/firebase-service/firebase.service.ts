@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Injectable, inject } from '@angular/core';
+import { Firestore, collectionData, collection, doc, updateDoc } from '@angular/fire/firestore';
 import { Observable, Subscription } from 'rxjs';
 
 
 export interface Players {
   id?: string;
-  humanWins?: number;
-  robotWins?: number;
-  draw?: number;
+  humanWins?: string;
+  robotWins?: string;
+  draw?: string;
 }
 
 
@@ -16,19 +16,17 @@ export interface Players {
   providedIn: 'root'
 })
 export class FirebaseService {
-  initPlayers: Players;
-  players: Players;
-  playersArray: Observable<Players[]>;
+  initPlayers: Players = { } as Players;
+  players: Players = { } as Players;
   playersSub: Subscription;
-  playersDoc: AngularFirestoreDocument<Players>;
+  playersArray$: Observable<Players[]>;
+  firestore: Firestore = inject(Firestore)
 
 
-  constructor(public afs: AngularFirestore) {
-    this.afs.collection('players').get().subscribe(res => {
-      this.initPlayers = res.docs[0].data();
-    });
-    this.playersArray = this.afs.collection('players').valueChanges();
-    this.playersSub = this.playersArray.subscribe(players => {
+  constructor() {
+    const itemCollection = collection(this.firestore, 'players');
+    this.playersArray$ = collectionData(itemCollection);
+    this.playersSub = this.playersArray$.subscribe(players => {
       this.players = players[0];
       this.initPlayers = players[0];
     });
@@ -36,29 +34,32 @@ export class FirebaseService {
 
 
   getInitialStats() {
-    if (this.initPlayers) return this.initPlayers;
+    return this.initPlayers;
   }
 
   getStats(): Observable<Players[]> {
-    return this.playersArray;
+    return this.playersArray$;
   }
 
   addHumanWin() {
-    this.players.humanWins += 1;
-    this.playersDoc = this.afs.doc(`players/0as5g7EZpksHb74yeGBc`);
-    this.playersDoc.update(this.players);
+    if (this.players.humanWins) {
+      this.players.humanWins = (+this.players.humanWins + 1) + "";
+      updateDoc(doc(this.firestore, `players/0as5g7EZpksHb74yeGBc`), { humanWins: this.players.humanWins })
+    }
   }
 
   addRobotWin() {
-    this.players.robotWins += 1;
-    this.playersDoc = this.afs.doc(`players/0as5g7EZpksHb74yeGBc`);
-    this.playersDoc.update(this.players);
+    if (this.players.robotWins) {
+      this.players.robotWins = (+this.players.robotWins + 1) + "";
+      updateDoc(doc(this.firestore, `players/0as5g7EZpksHb74yeGBc`), { robotWins: this.players.robotWins });
+    }
   }
 
   addDraw() {
-    this.players.draw += 1;
-    this.playersDoc = this.afs.doc(`players/0as5g7EZpksHb74yeGBc`);
-    this.playersDoc.update(this.players);
+    if (this.players.draw) {
+      this.players.draw = (+this.players.draw + 1) + "";
+      updateDoc(doc(this.firestore, `players/0as5g7EZpksHb74yeGBc`), { draw: this.players.draw });
+    }
   }
 
 }

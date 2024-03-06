@@ -11,6 +11,13 @@ mat-toolbar-row {
   margin: 2px 4px;
 }
 
+::ng-deep {
+  .mat-mdc-menu-item fa-icon {
+    padding-right: 8px;
+    font-size: 110%;
+  }
+}
+
 @media (max-width: 350px) {
   .mat-button {
     margin: 2px 0;
