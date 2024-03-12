@@ -1,117 +1,128 @@
 <h1 *ngIf="browser.isScreen500()">Welcome!</h1>
-<mat-card class="welcome-card">
+<mat-card class="welcome-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="avi"></div>
     <h1 *ngIf="!browser.isScreen500()">Welcome!</h1>
     <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
       My name is Scott VandenToorn.
-      This is my personal website meant to showcase my projects and serve as an extension of my resume.
-      <br><br>
-      Make sure to explore <em>Fun Stuff</em> before you leave. Thanks for visiting!
+      This is my personal website to showcase my projects and serve as an extension of my resume.
+      Thanks for stopping by!
     </span>
   </mat-card-header>
   <mat-card-content *ngIf="!browser.isScreen500()">
     My name is Scott VandenToorn.
     This is my personal website meant to showcase my projects and serve as an extension of my resume.
-    <br><br>
-    Make sure to explore <em>Fun Stuff</em> before you leave. Thanks for visiting!
-  </mat-card-content>
-</mat-card>
-
-
-<h2 style="margin-top: 40px;">Education</h2>
-<mat-card>
-  <mat-card-header>
-    <div mat-card-avatar class="gvsu-logo"></div>
-    <mat-card-title>Bachelor of Science in Computer Engineering</mat-card-title>
-    <mat-card-subtitle>Grand Valley State University, Allendale, MI</mat-card-subtitle>
-    <mat-card-subtitle>2017 - 2022</mat-card-subtitle>
-  </mat-card-header>
-
-  <mat-card-content class="card-text">
-    Why Computer Engineering? It's really quite a lot of fun. I love building something
-    and watching it come to life. My favorite part is that <i>"Aha!"</i> moment when your team finally
-    finds the solution to a seemingly unsolveable problem.
-  </mat-card-content>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip>
-        <fa-icon [icon]="['fas', 'balance-scale']" size="lg" transform="shrink-7" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;3.47 GPA
-      </mat-chip>
-    </mat-chip-list>
+    Thanks for stopping by!
   </mat-card-content>
 </mat-card>
 
 
 <h2>Experience</h2>
-<mat-card style="margin-bottom: 12px;">
+<mat-card style="margin-bottom: 12px;" appearance="outlined">
   <mat-card-header>
-    <div mat-card-avatar class="dornerworks-logo"></div>
-    <mat-card-title>IoT Engineer <small>(Co-op)</small></mat-card-title>
-    <mat-card-subtitle>DornerWorks, Grand Rapids, MI</mat-card-subtitle>
-    <mat-card-subtitle>May 2020 - Present</mat-card-subtitle>
+    <div mat-card-avatar class="volgistics-logo"></div>
+    <mat-card-title>Full Stack Engineer</mat-card-title>
+    <mat-card-subtitle>Volgistics, Byron Center, MI</mat-card-subtitle>
+    <mat-card-subtitle>September 2020 - June 2023</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
-    Description coming soon...
+    Volgistics is a group of dedicated individuals who provide software to manage an
+    organization's volunteers. The team takes great pride in developing software
+    to help people around the world make volunteering easy.
+    <br><br>
+    The Volgistics stack is a combination of legacy and modern components.
+    The back end is hosted on Windows Server, with Delphi performing logic,
+    and data stored in a BTrieve database. The front-end applications are single
+    page web and native apps built with Angular.
   </mat-card-content>
   <mat-card-content>
-    <mat-chip-list>
-      <mat-chip>
-        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Angular
-      </mat-chip>
-      <mat-chip>
-        <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Gitlab
-      </mat-chip>
-      <mat-chip>
-        <fa-icon [icon]="['fas', 'database']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Rails
-      </mat-chip>
-      <mat-chip>
-        <fa-icon [icon]="['fas', 'bug']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Redmine
-      </mat-chip>
-    </mat-chip-list>
+    <mat-chip-listbox>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
+        Angular
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
+        Delphi
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+        GitLab
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'python']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        Python
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'vuejs']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
+        Vue
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+        YAML
+      </mat-chip-option>
+    </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
 
 
-<mat-card>
+<mat-card style="margin-bottom: 12px;" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="dornerworks-logo"></div>
+    <mat-card-title>Software Engineer <small>(Internship)</small></mat-card-title>
+    <mat-card-subtitle>DornerWorks, Grand Rapids, MI</mat-card-subtitle>
+    <mat-card-subtitle>May 2020 - August 2020</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="card-text">
+    During my time at Dornerworks I worked on a variety of projects using the Angular and Rails frameworks.
+  </mat-card-content>
+  <mat-card-content>
+    <mat-chip-listbox>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+        Angular
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+        Gitlab
+      </mat-chip-option>
+      <mat-chip-option>
+        <fa-icon [icon]="['fas', 'database']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
+        Rails
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="volgistics-logo"></div>
-    <mat-card-title>Web Developer</mat-card-title>
+    <mat-card-title>Front-end Engineer <small>(Internship)</small></mat-card-title>
     <mat-card-subtitle>Volgistics, Byron Center, MI</mat-card-subtitle>
     <mat-card-subtitle>July 2019 - May 2020</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
-    Volgistics is a group of dedicated individuals who provide web software and a cloud database to manage an
-    organization’s volunteers. The team takes great pride in their role developing software that real people
-    benefit from. Volgistics was originally written in Delphi. Our main focus while I was there was transforming
-    the front end into a single page application using Angular.
+    My Volgistics internship focused on developing Angular applications.
   </mat-card-content>
   <mat-card-content>
-    <mat-chip-list>
-      <mat-chip>
+    <mat-chip-listbox>
+      <mat-chip-option>
         <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Angular
-      </mat-chip>
-      <mat-chip>
+        Angular
+      </mat-chip-option>
+      <mat-chip-option>
         <fa-icon [icon]="['fas', 'bug']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Mantis
-      </mat-chip>
-      <mat-chip>
+        Mantis
+      </mat-chip-option>
+      <mat-chip-option>
         <fa-icon [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;Subversion
-      </mat-chip>
-      <mat-chip>
-        <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-        &nbsp;&nbsp;VSCode
-      </mat-chip>
-    </mat-chip-list>
+        Subversion
+      </mat-chip-option>
+    </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
 
@@ -119,134 +130,73 @@
 <h2>Programming Knowledge</h2>
 <div class="row">
   <div class="col-md-12">
-    <mat-card>
+    <mat-card appearance="outlined" class="programming-card">
       <p>
-        Here are some technologies that I have used before and know how to use. I'm better with some more than others.
+        Technologies that I have a high degree of proficiency with.
       </p>
       <h4>IDEs</h4>
-      <mat-chip-list>
-        <mat-chip>
+      <mat-chip-listbox>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;CCStudio
-        </mat-chip>
-        <mat-chip>
+          VSCode
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;IntelliJ
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;VSCode
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Xilinx Vivado
-        </mat-chip>
-      </mat-chip-list>
+          XCode
+        </mat-chip-option>
+      </mat-chip-listbox>
 
       <h4 class="know-h4">Languages</h4>
-      <mat-chip-list>
-        <mat-chip>
+      <mat-chip-listbox>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;C
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fab', 'java']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Java
-        </mat-chip>
-        <mat-chip>
+          Delphi
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;JavaScript
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'square-root-alt']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;MATLAB
-        </mat-chip>
-        <mat-chip>
+          JavaScript
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fab', 'python']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Python
-        </mat-chip>
-        <mat-chip>
-          <span style="transform: rotate(-45deg);">
-            <fa-icon [icon]="['fas', 'gem']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          </span>
-          &nbsp;Ruby
-        </mat-chip>
-        <mat-chip>
+          Python
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;TypeScript
-        </mat-chip>
-        <mat-chip>
+          TypeScript
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Verilog
-        </mat-chip>
-      </mat-chip-list>
+          YAML
+        </mat-chip-option>
+      </mat-chip-listbox>
 
       <h4 class="know-h4">Platforms</h4>
-      <mat-chip-list>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;FPGA
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'microchip']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Microcontroller
-        </mat-chip>
-        <mat-chip>
+      <mat-chip-listbox>
+        <mat-chip-option>
+          <fa-icon [icon]="['fab', 'android']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          Android
+        </mat-chip-option>
+        <mat-chip-option>
+          <fa-icon [icon]="['fab', 'apple']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          iOS
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Web
-        </mat-chip>
-      </mat-chip-list>
+          Web
+        </mat-chip-option>
+      </mat-chip-listbox>
 
-      <h4 class="know-h4">Version Control</h4>
-      <mat-chip-list>
-        <mat-chip>
+      <h4 class="know-h4">CI and Version Control</h4>
+      <mat-chip-listbox>
+        <mat-chip-option>
           <fa-icon [icon]="['fab', 'git']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Git
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Subversion
-        </mat-chip>
-      </mat-chip-list>
-
-      <h4 class="know-h4">Web Frameworks</h4>
-      <mat-chip-list>
-        <mat-chip>
-          <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Angular
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'database']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Rails
-        </mat-chip>
-      </mat-chip-list>
-    </mat-card>
-  </div>
-</div>
-
-
-<h2>Other Skills</h2>
-<div class="row" style="margin-bottom: 47px;">
-  <div class="col-md-12">
-    <mat-card>
-      <mat-chip-list>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'bolt']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Circuit Analysis
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'monument']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']" rotate="180"></fa-icon>
-          &nbsp;&nbsp;CNC Machining
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'cube']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;SolidWorks
-        </mat-chip>
-        <mat-chip>
-          <fa-icon [icon]="['fas', 'low-vision']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-          &nbsp;&nbsp;Web Accessibility
-        </mat-chip>
-      </mat-chip-list>
+          Git
+        </mat-chip-option>
+        <mat-chip-option>
+          <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          GitLab
+        </mat-chip-option>
+      </mat-chip-listbox>
     </mat-card>
   </div>
 </div>

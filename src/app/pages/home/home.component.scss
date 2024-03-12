@@ -49,6 +49,7 @@
 
 .welcome-text-desktop {
   max-width: 55%;
+  padding-left: 24px;
 }
 
 @media(max-width: 500px) {
@@ -89,6 +90,10 @@
  * Other
  ********************************/
 
+.programming-card {
+  padding: 16px;
+}
+
 h2 {
   margin-top: 28px;
 }
@@ -97,14 +102,11 @@ h2 {
   margin: 18px 0 7px 0;
 }
 
-.card-text {
-  padding: 0 3px;
-}
-
 mat-chip {
   user-select: none;
 }
 
 fa-icon {
   margin-left: -4px !important;
+  padding-right: 8px;
 }
