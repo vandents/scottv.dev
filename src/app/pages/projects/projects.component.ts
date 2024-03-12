@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
     private dialog: MatDialog,
     public browser: BrowserService
   ) {
-    this.title.setTitle('Scott VandenToorn - Projects');
+    this.title.setTitle('Scott VandenToorn - Portfolio');
   }
 
   ngOnInit() {

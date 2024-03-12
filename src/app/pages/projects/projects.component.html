@@ -1,21 +1,83 @@
-<h1>Projects.</h1>
-<p>Here are some cool things I've made!</p>
+<h1>Portfolio.</h1>
+<p>A non-exhaustive list of cool things I've made!</p>
 <div class="divider-container">
   <mat-divider></mat-divider>
 </div>
 
-<h2>TI Launchpad Slot Machine</h2>
-<mat-card>
-  <!-- <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
-  </a> -->
+<mat-card appearance="outlined">
+  <h2>
+    VicTouch
+    <a class="a-github" href="https://www.volgistics.com/help/victouch-time-clock/victouch-overview/" target="_blank" aria-label="More info about VicTouch"
+      matTooltip="More info" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <video autoplay="" loop="" muted="" playsinline="" class="project-img">
+    <source src="https://www.volgistics.com/help/assets/videos/4300a-s.mp4" type="video/mp4">
+    Example of Sign-In Process
+  </video>
+  <mat-card-content>
+    The core function of VicTouch is to allow volunteers to clock in and out when they arrive and depart when serving at their organization.
+    It also features messaging, scheduling, and touchless QR code sign-in.
+  </mat-card-content>
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    VicTouch was solo-developed by me for Volgistics, and was the first app Volgistics released to the App Store and Play Store.
+    The front end features an Angular SPA, while the back end runs on Windows Server and uses compiled Delphi code querying a BTrieve database.
+    Capacitor is used as a wrapper around the Angular project allowing the same code base to be used in the web, App Store, and Google Play Store.
+    VicTouch is continuously integrated and deployed using GitLab CI/CD tools.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <h2>
+    VicNet
+    <a class="a-github" href="https://www.volgistics.com/help/vicnet-portal/vicnet-overview/" target="_blank" aria-label="More info about VicNet"
+      matTooltip="More info" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <div class="dual-img">
+    <img mat-card-image class="project-img" src="../../../assets/img/vicnet-1.webp" alt="VicNet screenshot"
+      (click)="openViewImageDialog('../../../assets/img/vicnet-1.webp')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+    <img mat-card-image class="project-img" src="../../../assets/img/vicnet-2.webp" alt="VicNet screenshot"
+      (click)="openViewImageDialog('../../../assets/img/vicnet-2.webp')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  </div>
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    VicNet allows volunteers to view and manage their schedule, view or post their service, receive messages from their organization, and update their profile information.
+    I developed VicNet along with two other developers. It features the same stack as VicTouch.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <h2>
+    Volgistics Help Docs
+    <a class="a-github" href="https://www.volgistics.com/help/" target="_blank" aria-label="Launch help docs"
+      matTooltip="Launch help docs" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <img mat-card-image class="project-img" src="../../../assets/img/help.png" alt="Screenshot of Volgistics Help Docs"
+    (click)="openViewImageDialog('../../../assets/img/help.png')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    Over 700 help pages made editable by the non-engineers of Volgistics. The original help pages were static HTML files;
+    I used Selenium and Python to convert each page to markdown, then used Vuepress to read and display the files.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <h2>
+    TI Launchpad Slot Machine
+    <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to slot machine repository"
+      matTooltip="GitHub" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
   <img mat-card-image class="project-img" src="../../../assets/img/slot-machine.jpg" alt="Slot Machine"
     (click)="openViewImageDialog('../../../assets/img/slot-machine.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
   <mat-card-content>
-    It looks just like a GameBoy, but this device is actually a slot machine. Classmate Zakkaria Hales and I designed and
-    programmed the machine as the final project in a microcontroller class. You can even insert pennies to keep playing after we take
-    all of your money, which will happen every time. Being the dirty capitalists we are, we heavily rigged the game against
-    the player. Penny by penny, we hope to recover the money we spent on textbooks that semester.
+    It looks like a GameBoy, but this device is actually a slot machine that accepts pennies. Classmate Zakkaria Hales and I designed and
+    programmed the machine as the final project in a microcontroller class. Being the dirty capitalists we are, we rigged the game against
+    the player; penny by penny we hope to recover all the money we've spent on textbooks.
   </mat-card-content>
   <mat-card-content class="no-margin-bottom">
     The design constraints were to design a slot machine which must utilize a keypad, pushbuttons, speaker, tri-color LED,
@@ -26,9 +88,15 @@
   </mat-card-content>
 </mat-card>
 
-<h2>Robo Sockey Arduino Robot</h2>
-<mat-card>
-  <img mat-card-image class="project-img" src="../../../assets/img/the-boi.jpg" alt="Slot Machine"
+<mat-card appearance="outlined">
+  <h2>
+    Robo Sockey Arduino Robot
+    <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to robo sockey robot repository"
+      matTooltip="GitHub" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <img mat-card-image class="project-img" src="../../../assets/img/the-boi.jpg" alt="Arduino robot"
     (click)="openViewImageDialog('../../../assets/img/the-boi.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
   <mat-card-content>
     GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between students enrolled
@@ -41,25 +109,4 @@
     My hard-working team implemented many original design features into our robot, which we named The Boi. The Boi scored as many
     goals as he could muster, managing to obtain first place and earn the Design Innovation Award.
   </mat-card-content>
-  <!-- <a class="a-github" href="https://github.com/vandents/Robo-Sockey-arduino-robot-the-boi" target="_blank"
-    matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
-  </a> -->
-</mat-card>
-
-<h2>scottv.dev</h2>
-<mat-card>
-  <a class="a-github" href="https://github.com/vandents/scottv.dev"
-  target="_blank" matTooltip="GitHub" aria-label="Link to Slot Machine Project GitHub">
-    <fa-icon [icon]="['fab', 'github-alt']" size="2x"></fa-icon>
-  </a>
-  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
-    This is the website you are currently on. It's written using Google's Angular framework and was my first
-    programming project not entirely in C. If you haven't already, see yourself to the
-    <a routerLink="../game">Tic-Tac-Toe</a> page to challenge Mr. Roboto.
-  </mat-card-content>
-  <a class="a-build" routerLink="/build-info"
-    matTooltip="Build Info" aria-label="View Build Info">
-    <fa-icon [icon]="['fas', 'hammer']" size="2x" transform="shrink-3"></fa-icon>
-  </a>
 </mat-card>
