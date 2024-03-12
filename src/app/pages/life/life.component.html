@@ -1,0 +1,14 @@
+<h1>Life.</h1>
+<p style="margin-bottom: -16px;">The extracurriculars.</p>
+
+<span class="life-container">
+  <ng-container *ngFor="let event of lifeEvents; index as i">
+    <app-article [article]="event"></app-article>
+  </ng-container>
+</span>
+
+<h1 style="margin: 48px 0 -16px 0;">Hobbies.</h1>
+
+<ng-container *ngFor="let hobby of hobbies; index as i">
+  <app-article [article]="hobby"></app-article>
+</ng-container>

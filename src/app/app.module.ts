@@ -29,6 +29,10 @@ import { FooterComponent                  } from '@elements/footer/footer.compon
 import { ViewImageDialogComponent         } from '@elements/dialogs/view-image-dialog/view-image-dialog.component';
 import { GameWinDialogComponent           } from '@elements/dialogs/game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent  } from '@elements/dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
+import { ArticleComponent                 } from '@elements/article/article.component';
+
+// Directives
+import { LazyImgDirective                 } from './directives/lazy-img-directive/lazy-img.directive';
 
 // Pages
 import { HomeComponent                    } from '@pages/home/home.component';
@@ -37,6 +41,10 @@ import { GameComponent                    } from '@pages/game/game.component';
 import { BuildInfoComponent               } from '@pages/build-info/build-info.component';
 import { PageNotFoundComponent            } from '@pages/page-not-found/page-not-found.component';
 import { AlgorithmsComponent              } from '@pages/algorithms/algorithms.component';
+import { LifeComponent                    } from '@pages/life/life.component';
+
+// Pipes
+import { SafePipe                         } from '@pipes/safe/safe.pipe';
 
 // Services
 import { BrowserService                   } from '@services/browser-service/browser.service';
@@ -53,6 +61,7 @@ import { FontAwesomeModule                } from '@fortawesome/angular-fontaweso
 import { DeviceDetectorService            } from 'ngx-device-detector';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore   } from '@angular/fire/firestore';
+import { CarouselModule     } from '@coreui/angular';
 
 // Environment variables
 import { environment                      } from '../environments/environment';
@@ -72,10 +81,16 @@ import { environment                      } from '../environments/environment';
     PageNotFoundComponent,
     ChooseCompetitorDialogComponent,
     AlgorithmsComponent,
+    LifeComponent,
+    ArticleComponent,
     // Dialogs
     ChooseCompetitorDialogComponent,
     GameWinDialogComponent,
-    ViewImageDialogComponent
+    ViewImageDialogComponent,
+    // Directives
+    LazyImgDirective,
+    // Pipes
+    SafePipe
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -102,6 +117,7 @@ import { environment                      } from '../environments/environment';
     FontAwesomeModule,
     FormsModule,
     RouterModule,
+    CarouselModule
   ],
   providers: [
     AlgorithmService,

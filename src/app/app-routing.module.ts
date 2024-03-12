@@ -7,6 +7,7 @@ import { GameComponent          } from '@pages/game/game.component';
 import { BuildInfoComponent     } from '@pages/build-info/build-info.component';
 import { PageNotFoundComponent  } from '@pages/page-not-found/page-not-found.component';
 import { AlgorithmsComponent    } from '@pages/algorithms/algorithms.component';
+import { LifeComponent          } from '@pages/life/life.component';
 
 
 export const appRoutes: Routes = [
@@ -16,6 +17,7 @@ export const appRoutes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'build-info', component: BuildInfoComponent },
   { path: 'algorithms', component: AlgorithmsComponent },
+  { path: 'life', component: LifeComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
