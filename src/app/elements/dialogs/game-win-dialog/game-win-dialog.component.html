@@ -1,4 +1,4 @@
-<mat-card [style.height]="robotWin ? '400px' : '350px'">
+<mat-card [style.height]="robotWin ? '400px' : '350px'" appearance="outlined">
   <h1 cdkFocusInitial><span style="font-size: 130%;">{{playerName}} Wins!</span></h1>
   <div class="absolute-container">
     <div class="divider-container">
@@ -43,5 +43,5 @@
   </div>
 
   <div *ngIf="animateMessage && robotWin" class="icon-container message" [class.robot-padding]="robotWin" [@fade]="'in'">{{ message }}</div>
-  <button mat-button [mat-dialog-close]>Close</button>
+  <button mat-raised-button [mat-dialog-close]>Close</button>
 </mat-card>
