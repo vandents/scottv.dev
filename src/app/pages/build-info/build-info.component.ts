@@ -2,10 +2,6 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { VERSION } from '../../../environments/version';
 import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
-declare var require: any;
-import * as core from '@angular/core';
-import * as fire from '@angular/fire';
-import * as ts from 'typescript';
 
 
 export interface Dependency {
@@ -32,12 +28,12 @@ export class BuildInfoComponent {
     this.title.setTitle('Scott VandenToorn - Build Info');
 
     this.dependencies = [
-      { name: 'Angular', version: core.VERSION.full, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Fire', version: fire.VERSION.full, link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Material', version: core.VERSION.full, link: 'https://www.npmjs.com/package/@angular/material', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Font Awesome', version: '6.5.1', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
+      { name: 'Angular', version: '17.2.3', link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Angular Fire', version: '17.0.1', link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Core UI', version: '4.7.16', link: 'https://www.npmjs.com/package/@coreui/angular', iconPackage: 'fas', icon: 'code' },
+      { name: 'Font Awesome', version: '0.14.1', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
       { name: 'RxJS', version: '7.8.1', link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
-      { name: 'TypeScript', version: ts.version, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
+      { name: 'TypeScript', version: '5.2.2', link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
     ];
 
     this.buildInfo = [
