@@ -33,7 +33,8 @@
       "@dialogs/*":       ["src/app/elements/dialogs/*"],
       "@pages/*":         ["src/app/pages/*"],
       "@services/*":      ["src/app/services/*"],
-      "@assets/*":        ["src/app/assets/*"]
+      "@assets/*":        ["src/app/assets/*"],
+      "@pipes/*":         ["src/app/pipes/*"],
     }
   },
   "angularCompilerOptions": {
