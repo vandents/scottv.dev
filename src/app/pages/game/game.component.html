@@ -31,7 +31,7 @@
     </div>
 
     <!----------  Current Player  ---------->
-    <mat-card class="cur-player-side clearfix">
+    <mat-card class="cur-player-side clearfix" appearance="outlined">
       <mat-card-title cdkFocusInitial>Current Player</mat-card-title>
       <div class="divider-container" style="margin-top: -4px !important;">
         <mat-divider></mat-divider>
@@ -46,7 +46,7 @@
     </mat-card>
 
     <!----------  Win Stats  ---------->
-    <mat-card class="win-stats-side clearfix" *ngIf="browser.isScreen992()">
+    <mat-card class="win-stats-side clearfix" *ngIf="browser.isScreen992()" appearance="outlined">
       <mat-card-title cdkFocusInitial>Win Statistics</mat-card-title>
       <p class="stats-date">Since July 31, 2019</p>
       <div class="divider-container" style="margin-top: -10px !important;">
@@ -81,7 +81,7 @@
 <!--------------------  Bottom Action Card (mobile)  -------------------->
 <div *ngIf="!browser.isScreen767()" class="row">
   <div class="col-12">
-    <mat-card class="actions-bottom">
+    <mat-card class="actions-bottom" appearance="outlined">
       <div class="row">
         <div class="col-5">
           <mat-card-title cdkFocusInitial style="margin-top: -10px;">Current Player</mat-card-title>
