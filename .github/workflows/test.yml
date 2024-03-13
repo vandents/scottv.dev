@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
   echo-something:
-    runs-on: [self-hosted, macos-14]
+    runs-on: [self-hosted]
     steps:
       - run: echo This is a test!
       - run: echo Whoop whoop!
