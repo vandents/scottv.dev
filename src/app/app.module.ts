@@ -125,10 +125,10 @@ import { environment                      } from '../environments/environment';
     DeviceDetectorService,
     FirebaseService,
     ThemeService,
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy
-    }
+    // {
+    //   provide: LocationStrategy,
+    //   useClass: HashLocationStrategy
+    // }
   ],
   bootstrap: [AppComponent]
 })
