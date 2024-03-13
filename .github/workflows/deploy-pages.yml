@@ -10,14 +10,14 @@ jobs:
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
-          rm -r /scottv.dev
+          if [ -d "./scottv.dev" ]; then rm -Rf ./scottv.dev; fi
           git clone https://github.com/vandents/scottv.dev.git
           cd scottv.dev
           npm i --loglevel=error
           npx ts-node ./src/set-env.ts "$ENVIRONMENT"
           npm run build
           cd ..
-          rm -r /scottv-pages
+          if [ -d "./scottv-pages" ]; then rm -Rf ./scottv-pages; fi
           git clone https://github.com/vandents/scottv.dev.git scottv-pages
           cd scottv-pages
           git checkout gh-pages
