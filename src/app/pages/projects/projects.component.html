@@ -12,10 +12,10 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <video autoplay="" loop="" muted="" playsinline="" class="project-img">
-    <source src="https://www.volgistics.com/help/assets/videos/4300a-s.mp4" type="video/mp4">
-    Example of Sign-In Process
-  </video>
+  <div class="multi-img">
+    <img *ngFor="let number of [1, 2, 3, 4, 5]" mat-card-image class="project-img" [src]="'../../../assets/img/victouch-' + number + '.webp'" alt="VicNet screenshot"
+      (click)="openViewImageDialog('../../../assets/img/victouch-' + number + '.webp')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+  </div>
   <mat-card-content>
     The core function of VicTouch is to allow volunteers to clock in and out when they arrive and depart when serving at their organization.
     It also features messaging, scheduling, and touchless QR code sign-in.
@@ -36,11 +36,9 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <div class="dual-img">
-    <img mat-card-image class="project-img" src="../../../assets/img/vicnet-1.webp" alt="VicNet screenshot"
-      (click)="openViewImageDialog('../../../assets/img/vicnet-1.webp')" [matTooltip]="getTooltip()" matTooltipPosition="right">
-    <img mat-card-image class="project-img" src="../../../assets/img/vicnet-2.webp" alt="VicNet screenshot"
-      (click)="openViewImageDialog('../../../assets/img/vicnet-2.webp')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <div class="multi-img">
+    <img *ngFor="let number of [1, 2, 3, 4, 5, 6]" mat-card-image class="project-img" [src]="'../../../assets/img/vicnet-' + number + '.webp'" alt="VicNet screenshot"
+      (click)="openViewImageDialog('../../../assets/img/vicnet-' + number + '.webp')" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     VicNet allows volunteers to view and manage their schedule, view or post their service, receive messages from their organization, and update their profile information.
@@ -56,8 +54,8 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <img mat-card-image class="project-img" src="../../../assets/img/help.png" alt="Screenshot of Volgistics Help Docs"
-    (click)="openViewImageDialog('../../../assets/img/help.png')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <img mat-card-image class="project-img" src="../../../assets/img/help.jpg" alt="Screenshot of Volgistics Help Docs"
+    (click)="openViewImageDialog('../../../assets/img/help.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     Over 700 help pages made editable by the non-engineers of Volgistics. The original help pages were static HTML files;
     I used Selenium and Python to convert each page to markdown, then used Vuepress to read and display the files.
@@ -87,8 +85,10 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <img mat-card-image class="project-img" src="../../../assets/img/slot-machine.jpg" alt="Slot Machine"
-    (click)="openViewImageDialog('../../../assets/img/slot-machine.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <div class="multi-img">
+    <img *ngFor="let number of [1, 2, 3, 4]" mat-card-image class="project-img" [src]="'../../../assets/img/slot-machine-' + number + '.jpg'" alt="Slot machine"
+      (click)="openViewImageDialog('../../../assets/img/slot-machine-' + number + '.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+  </div>
   <mat-card-content>
     It looks like a GameBoy, but this device is actually a slot machine that accepts pennies. Classmate Zakkaria Hales and I designed and
     programmed the machine as the final project in a microcontroller class. Being the dirty capitalists we are, we rigged the game against
@@ -111,8 +111,10 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <img mat-card-image class="project-img" src="../../../assets/img/the-boi.jpg" alt="Arduino robot"
-    (click)="openViewImageDialog('../../../assets/img/the-boi.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <div class="multi-img">
+    <img *ngFor="let number of [1, 2, 3, 4, 5]" mat-card-image class="project-img" [src]="'../../../assets/img/the-boi-' + number + '.jpg'" alt="Robo sockey"
+      (click)="openViewImageDialog('../../../assets/img/the-boi-' + number + '.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+  </div>
   <mat-card-content>
     GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between students enrolled
     in the Introduction to Engineering II courses. Around 40 teams, each consisting of 4 students, are tasked with creating an

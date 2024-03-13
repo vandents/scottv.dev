@@ -19,12 +19,14 @@ video:hover {
   pointer-events: none;
 }
 
-.dual-img {
+.multi-img {
   display: flex;
   margin: 0 auto;
+  width: calc(100% - 64px);
+  overflow-x: scroll;
 }
 
-.dual-img .project-img {
+.multi-img .project-img {
   margin: 0 8px 16px 8px;
 }
 
@@ -35,7 +37,7 @@ video:hover {
 }
 
 @media screen and (max-width: 430px) {
-  .dual-img .project-img {
+  .multi-img .project-img {
     height: auto;
     width: 160px;
   }
@@ -45,7 +47,7 @@ video:hover {
   .project-img {
     max-height: 375px;
   }
-  .dual-img .project-img {
+  .multi-img .project-img {
     width: 150px;
   }
 }
@@ -54,7 +56,7 @@ video:hover {
   .project-img {
     max-height: 350px;
   }
-  .dual-img .project-img {
+  .multi-img .project-img {
     width: 140px;
   }
 }
@@ -63,7 +65,7 @@ video:hover {
   .project-img {
     max-height: 330px;
   }
-  .dual-img .project-img {
+  .multi-img .project-img {
     width: 130px;
   }
 }
@@ -72,7 +74,7 @@ video:hover {
   .project-img {
     max-height: 310px;
   }
-  .dual-img .project-img {
+  .multi-img .project-img {
     width: 120px;
   }
 }
