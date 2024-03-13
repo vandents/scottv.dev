@@ -6,8 +6,9 @@
   border-radius: 4px !important;
   display: block;
   margin: 0 auto 16px auto;
-  height: 400px;
+  max-height: 400px;
   width: auto;
+  max-width: calc(100vw - 48px);
 }
 
 .project-img:hover {
@@ -42,7 +43,7 @@ video:hover {
 
 @media screen and (max-width: 400px) {
   .project-img {
-    height: 375px;
+    max-height: 375px;
   }
   .dual-img .project-img {
     width: 150px;
@@ -51,7 +52,7 @@ video:hover {
 
 @media screen and (max-width: 370px) {
   .project-img {
-    height: 350px;
+    max-height: 350px;
   }
   .dual-img .project-img {
     width: 140px;
@@ -60,7 +61,7 @@ video:hover {
 
 @media screen and (max-width: 350px) {
   .project-img {
-    height: 330px;
+    max-height: 330px;
   }
   .dual-img .project-img {
     width: 130px;
@@ -69,7 +70,7 @@ video:hover {
 
 @media screen and (max-width: 330px) {
   .project-img {
-    height: 310px;
+    max-height: 310px;
   }
   .dual-img .project-img {
     width: 120px;
@@ -81,7 +82,7 @@ video:hover {
  * Links
  ********************************/
 
-.a-github {
+.link {
   display: inline-block;
   vertical-align: text-top;
 }

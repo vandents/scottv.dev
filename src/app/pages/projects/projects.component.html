@@ -7,7 +7,7 @@
 <mat-card appearance="outlined">
   <h2>
     VicTouch
-    <a class="a-github" href="https://www.volgistics.com/help/victouch-time-clock/victouch-overview/" target="_blank" aria-label="More info about VicTouch"
+    <a class="link" href="https://www.volgistics.com/help/victouch-time-clock/victouch-overview/" target="_blank" aria-label="More info about VicTouch"
       matTooltip="More info" matTooltipPosition="right">
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
@@ -31,7 +31,7 @@
 <mat-card appearance="outlined">
   <h2>
     VicNet
-    <a class="a-github" href="https://www.volgistics.com/help/vicnet-portal/vicnet-overview/" target="_blank" aria-label="More info about VicNet"
+    <a class="link" href="https://www.volgistics.com/help/vicnet-portal/vicnet-overview/" target="_blank" aria-label="More info about VicNet"
       matTooltip="More info" matTooltipPosition="right">
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
@@ -51,7 +51,7 @@
 <mat-card appearance="outlined">
   <h2>
     Volgistics Help Docs
-    <a class="a-github" href="https://www.volgistics.com/help/" target="_blank" aria-label="Launch help docs"
+    <a class="link" href="https://www.volgistics.com/help/" target="_blank" aria-label="Launch help docs"
       matTooltip="Launch help docs" matTooltipPosition="right">
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
@@ -66,8 +66,23 @@
 
 <mat-card appearance="outlined">
   <h2>
+    Harry's Appraisals
+    <a class="link" href="https://www.harrysappraisals.com" target="_blank" aria-label="Harry's Appraisals"
+      matTooltip="Visit site" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <img mat-card-image class="project-img" src="../../../assets/img/harrys-appraisals.jpg" alt="Screenshot of Harry's Appraisals website"
+    (click)="openViewImageDialog('../../../assets/img/harrys-appraisals.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    A simple Angular site for a local insurance appraisal business.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <h2>
     TI Launchpad Slot Machine
-    <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to slot machine repository"
+    <a class="link" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to slot machine repository"
       matTooltip="GitHub" matTooltipPosition="right">
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
@@ -91,7 +106,7 @@
 <mat-card appearance="outlined">
   <h2>
     Robo Sockey Arduino Robot
-    <a class="a-github" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to robo sockey robot repository"
+    <a class="link" href="https://github.com/vandents/TI-MSP432-Launchpad-Slot-Machine" target="_blank" aria-label="Link to robo sockey robot repository"
       matTooltip="GitHub" matTooltipPosition="right">
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
