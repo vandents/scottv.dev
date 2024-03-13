@@ -23,7 +23,7 @@ video:hover {
   display: flex;
   margin: 0 auto;
   width: calc(100% - 64px);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .multi-img .project-img {
