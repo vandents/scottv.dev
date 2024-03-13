@@ -18,7 +18,7 @@ import { MatSnackBarModule                } from '@angular/material/snack-bar';
 import { MatListModule                    } from '@angular/material/list';
 import { FormsModule                      } from '@angular/forms';
 import { RouterModule                     } from '@angular/router';
-import { CommonModule                     } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // Root component
 import { AppComponent                     } from './app.component';
@@ -61,7 +61,7 @@ import { FontAwesomeModule                } from '@fortawesome/angular-fontaweso
 import { DeviceDetectorService            } from 'ngx-device-detector';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore   } from '@angular/fire/firestore';
-import { CarouselModule     } from '@coreui/angular';
+import { CarouselModule                   } from '@coreui/angular';
 
 // Environment variables
 import { environment                      } from '../environments/environment';
@@ -124,7 +124,11 @@ import { environment                      } from '../environments/environment';
     BrowserService,
     DeviceDetectorService,
     FirebaseService,
-    ThemeService
+    ThemeService,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ],
   bootstrap: [AppComponent]
 })
