@@ -93,6 +93,11 @@ mat-dialog-container {
   width: 50%;
 }
 
+.mat-mdc-chip,
+.mat-mdc-chip * {
+  pointer-events: none !important;
+}
+
 @media (max-width: 768px) {
   .container {
     max-width: 100% !important;

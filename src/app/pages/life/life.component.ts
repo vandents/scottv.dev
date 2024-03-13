@@ -61,7 +61,7 @@ export class LifeComponent {
           alt: 'Marathon bib'
         }
       ],
-      caption: `Checked off a big bucket list item by completing the 2023 GR Marathon in 3 hours 28 minutes (7:58 mile pace).`
+      caption: `Checked off a huge bucket list item by completing the 2023 GR Marathon in 3 hours 28 minutes (7:58 mile pace).`
     },
     {
       title: `Trying the Trades`,

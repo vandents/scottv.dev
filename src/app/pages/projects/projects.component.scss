@@ -19,10 +19,14 @@ video:hover {
   pointer-events: none;
 }
 
+img {
+  object-fit: cover;
+}
+
 .multi-img {
   display: flex;
   margin: 0 auto;
-  width: calc(100% - 64px);
+  width: calc(100% - 40px);
   overflow-x: auto;
 }
 
@@ -34,12 +38,8 @@ video:hover {
   .project-img {
     pointer-events: none;
   }
-}
-
-@media screen and (max-width: 430px) {
-  .multi-img .project-img {
-    height: auto;
-    width: 160px;
+  .multi-img {
+    width: calc(100% - 16px);
   }
 }
 
@@ -48,7 +48,7 @@ video:hover {
     max-height: 375px;
   }
   .multi-img .project-img {
-    width: 150px;
+    max-width: 150px;
   }
 }
 
@@ -57,7 +57,7 @@ video:hover {
     max-height: 350px;
   }
   .multi-img .project-img {
-    width: 140px;
+    max-width: 140px;
   }
 }
 
@@ -66,7 +66,7 @@ video:hover {
     max-height: 330px;
   }
   .multi-img .project-img {
-    width: 130px;
+    max-width: 130px;
   }
 }
 
@@ -75,7 +75,7 @@ video:hover {
     max-height: 310px;
   }
   .multi-img .project-img {
-    width: 120px;
+    max-width: 120px;
   }
 }
 

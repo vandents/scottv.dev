@@ -2,7 +2,7 @@
 <mat-card class="welcome-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="avi"></div>
-    <h1 *ngIf="!browser.isScreen500()">Welcome!</h1>
+    <h1 *ngIf="!browser.isScreen500()" style="margin-left: 16px;">Welcome!</h1>
     <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
       My name is Scott VandenToorn.
       This is my personal website to showcase my projects and serve as an extension of my resume.
