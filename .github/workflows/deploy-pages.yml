@@ -10,13 +10,14 @@ jobs:
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
-          git clone https://github.com/vandents/scottv.dev.git
+          [ ! -d "/scottv.dev" ] && git clone https://github.com/vandents/scottv.dev.git
           cd scottv.dev
+          git pull
           npm i --loglevel=error
           npx ts-node ./src/set-env.ts "$ENVIRONMENT"
           npm run build
           cd ..
-          git clone https://github.com/vandents/scottv.dev.git scottv-pages
+          [ ! -d "/scottv-pages" ] && git clone https://github.com/vandents/scottv.dev.git scottv-pages
           cd scottv-pages
           git checkout gh-pages
           rm -r *
