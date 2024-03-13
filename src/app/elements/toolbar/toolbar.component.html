@@ -8,24 +8,21 @@
     <a mat-button routerLink="portfolio" routerLinkActive="current" class="toolbar-item">
       Portfolio
     </a>
+    <a mat-button routerLink="life" routerLinkActive="current" class="toolbar-item">
+      Life
+    </a>
     <button mat-button [matMenuTriggerFor]="fun" class="toolbar-item"
       [style.background]="router.url.includes('game') || router.url.includes('algorithms') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
-      <ng-container *ngIf="browser.isScreen500()">
-        <fa-icon [icon]="['fas', 'smile-wink']" size="sm"></fa-icon>&nbsp;&nbsp;
-      </ng-container>
-      <span>Fun Stuff</span>
+      <span>Games</span>
     </button>
     <button mat-button [matMenuTriggerFor]="info" class="toolbar-item"
       [style.background]="router.url.includes('build-info') ? 'rgba(255, 255, 255, 0.04)' : 'transparent'">
-      <fa-icon [icon]="['fas', 'address-book']" [size]="browser.isScreen500() ? 'sm' : 'lg'"></fa-icon>
-      <ng-container *ngIf="browser.isScreen500()">
-        &nbsp;&nbsp;Info
-      </ng-container>
+      Info
     </button>
 
     <span class="fill-remaining-space"></span>
 
-    <!-- Fun Stuff -->
+    <!-- Games -->
     <mat-menu #fun="matMenu">
       <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">
         <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
@@ -44,7 +41,7 @@
         &nbsp;&nbsp;&nbsp;{{ emailAddress }}
       </button>
 
-      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Go to GitHub" matTooltipPosition="left">
+      <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Open GitHub" matTooltipPosition="left">
         <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
         &nbsp;&nbsp;&nbsp;vandents
       </a>
@@ -54,7 +51,7 @@
         &nbsp;&nbsp;&nbsp;Build Info
       </a>
 
-      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" download>
+      <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>
         <!-- href="../../../assets/vandentoorn-resume.pdf" -->
         &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
         &nbsp;&nbsp;&nbsp;Download Resume
