@@ -18,7 +18,7 @@ import { MatSnackBarModule                } from '@angular/material/snack-bar';
 import { MatListModule                    } from '@angular/material/list';
 import { FormsModule                      } from '@angular/forms';
 import { RouterModule                     } from '@angular/router';
-import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 // Root component
 import { AppComponent                     } from './app.component';
@@ -124,11 +124,7 @@ import { environment                      } from '../environments/environment';
     BrowserService,
     DeviceDetectorService,
     FirebaseService,
-    ThemeService,
-    // {
-    //   provide: LocationStrategy,
-    //   useClass: HashLocationStrategy
-    // }
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })
