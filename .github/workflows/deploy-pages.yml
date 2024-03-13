@@ -1,0 +1,16 @@
+name: deploy-pages
+run-name: Building and deploying to GitHub pages
+on: [push]
+jobs:
+  deploy-pages:
+    runs-on: [self-hosted]
+    steps:
+      - shell: bash
+        env:
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        - run: |
+          git clone https://github.com/vandents/scottv.dev.git
+          cd scottv.dev
+          npm i --loglevel=error
+          npx ts-node ./src/set-env.ts "$ENVIRONMENT"
+          npm run build
