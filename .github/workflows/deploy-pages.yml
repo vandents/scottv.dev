@@ -3,12 +3,13 @@ run-name: Building and deploying to GitHub pages
 on: [push]
 jobs:
   deploy-pages:
-    runs-on: [self-hosted]
+    runs-on: self-hosted
     steps:
-      - shell: bash
+      - name: Build and deploy to pages
+        shell: bash
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-        - run: |
+        run: |
           git clone https://github.com/vandents/scottv.dev.git
           cd scottv.dev
           npm i --loglevel=error
