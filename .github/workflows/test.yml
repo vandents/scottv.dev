@@ -1,9 +1,9 @@
-name: learn-github-actions
+name: my-test-name
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
-    runs-on: macos-14
+  echo-something:
+    runs-on: [self-hosted, macos-14]
     steps:
       - run: echo This is a test!
       - run: echo Whoop whoop!
