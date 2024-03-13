@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --aot --output-hashing=all",
+    "build": "ng build",
     "analyze": "esbuild-visualizer --metadata dist/scottvdev/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
