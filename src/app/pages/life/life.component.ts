@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { Article } from '@elements/article/article.component';
-import { ViewImageDialogComponent } from '@elements/dialogs/view-image-dialog/view-image-dialog.component';
 import { BrowserService } from '@services/browser-service/browser.service';
 
 
@@ -147,40 +146,8 @@ export class LifeComponent {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    // setTimeout(() => this.insertVideo(), 100);
   }
 
-
-  // /**
-  //  * Insert the skid steer demolition video into the DOM (videos aren't supported by CoreUI Carousel)
-  //  */
-  // insertVideo() {
-  //   const images = document.getElementsByTagName('img');
-  //   console.log('images', images);
-  //   for (var i = 0; i < images.length; i++) {
-  //     const image = images[i];
-  //     console.log(image.src);
-  //     if (image.src.includes('trades-1.jpg')) {
-  //       image.outerHTML = `
-  //         <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
-  //           <iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/lu95oj?autoplay=1&nocontrols=1" width="100%"
-  //             style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>
-  //         </div>
-  //       `;
-  //     }
-  //   };
-  // }
-
-  openViewImageDialog(imageSource: string) {
-    this.dialog.open(
-      ViewImageDialogComponent, {
-        maxWidth: '600px',
-        data: {
-          imgSrc: imageSource
-        }
-      }
-    );
-  }
 
   getTooltip(): string {
     return this.browser.isScreen650() ? 'Click to enlarge' : '';
