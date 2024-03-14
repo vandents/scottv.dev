@@ -1,1 +1,5 @@
-<img src="{{ imgSrc }}" (click)="dialogRef.close()" cdkFocusInitial>
+<img src="{{ imgSrc }}" (click)="dialogRef.close()">
+
+<button mat-icon-button color="primary" cdkFocusInitial (click)="dialogRef.close()">
+  <fa-icon [icon]="['fas', 'xmark']" size="xl"></fa-icon>
+</button>

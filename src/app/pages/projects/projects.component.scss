@@ -35,9 +35,6 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .project-img {
-    pointer-events: none;
-  }
   .multi-img {
     width: calc(100% - 16px);
   }

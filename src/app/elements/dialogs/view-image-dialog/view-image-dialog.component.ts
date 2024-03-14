@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 /** Dialog for expanding an image on the project page */
@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './view-image-dialog.component.html',
   styleUrls: ['./view-image-dialog.component.scss']
 })
-export class ViewImageDialogComponent implements OnInit {
+export class ViewImageDialogComponent {
   imgSrc: string;
 
   constructor(
@@ -15,9 +15,6 @@ export class ViewImageDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.imgSrc = data.imgSrc;
-  }
-
-  ngOnInit() {
   }
 
 }
