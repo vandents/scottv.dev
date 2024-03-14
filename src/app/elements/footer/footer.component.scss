@@ -1,3 +1,22 @@
 .mat-toolbar {
   margin: 0 auto;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: transparent !important;
+}
+
+.footer p {
+  margin: 0px 20px 0px 0px;
+  font-weight: 300;
+  font-size: medium;
+}
+
+@media screen and (max-width: 450px) {
+  .footer p {
+    margin: 0px 5px 0px 5px;
+    font-size: small;
+  }
+}

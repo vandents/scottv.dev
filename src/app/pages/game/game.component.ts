@@ -515,4 +515,12 @@ export class GameComponent implements OnInit {
     }, 2700);
   }
 
+  /**
+   * @return 'light-grid', 'dark-grid', or 'black-grid'
+   */
+  getGridTheme(): 'light-grid' | 'dark-grid' | 'black-grid' {
+    if (this.themeService.isLight()) return 'light-grid';
+    return this.themeService.isDark() ? 'dark-grid' : 'black-grid';
+  }
+
 }

@@ -21,7 +21,7 @@ export class ThemeService {
       this.meta.updateTag({name: 'theme-color', content: "#f5f5f5"});
     } else if (theme == ThemeType.Dark) {
       this.themeType = theme;
-      this.meta.updateTag({name: 'theme-color', content: "#262626"});
+      this.meta.updateTag({name: 'theme-color', content: "#26292f"});
     } else if (theme == ThemeType.Black) {
       this.themeType = theme;
       this.meta.updateTag({name: 'theme-color', content: "#000000"});
@@ -36,7 +36,11 @@ export class ThemeService {
         theme == ThemeType.Black)
       return theme;
     else localStorage.removeItem('theme');
-    return ThemeType.Black;
+
+    // Default to device theme
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      return ThemeType.Dark;
+    else return ThemeType.Light;
   }
 
   isLight(): boolean {

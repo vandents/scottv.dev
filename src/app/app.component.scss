@@ -1,11 +1,15 @@
 .container {
   padding-top: 16px;
-  padding-bottom: 98px;
+  padding-bottom: 60px;
   overflow: hidden !important;
-  min-height: calc(100vh - 108px);
+  min-height: calc(100vh - 168px);
 }
 
 .app-frame {
   min-height: calc(100vh);
   overflow: hidden !important;
+}
+
+::ng-deep .mat-mdc-menu-content {
+  padding: 0 !important;
 }

@@ -18,7 +18,7 @@ import { MatSnackBarModule                } from '@angular/material/snack-bar';
 import { MatListModule                    } from '@angular/material/list';
 import { FormsModule                      } from '@angular/forms';
 import { RouterModule                     } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule                     } from '@angular/common';
 
 // Root component
 import { AppComponent                     } from './app.component';
@@ -30,6 +30,7 @@ import { ViewImageDialogComponent         } from '@elements/dialogs/view-image-d
 import { GameWinDialogComponent           } from '@elements/dialogs/game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent  } from '@elements/dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
 import { ArticleComponent                 } from '@elements/article/article.component';
+import { MenuAutoOpenComponent            } from '@elements/menu-auto-open/menu-auto-open.component';
 
 // Directives
 import { LazyImgDirective                 } from './directives/lazy-img-directive/lazy-img.directive';
@@ -70,23 +71,23 @@ import { environment                      } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    FooterComponent,
+    // Pages
     HomeComponent,
     ProjectsComponent,
     GameComponent,
-    ViewImageDialogComponent,
-    GameWinDialogComponent,
     BuildInfoComponent,
     PageNotFoundComponent,
-    ChooseCompetitorDialogComponent,
     AlgorithmsComponent,
     LifeComponent,
+    // Elements
+    ToolbarComponent,
+    FooterComponent,
     ArticleComponent,
+    MenuAutoOpenComponent,
     // Dialogs
-    ChooseCompetitorDialogComponent,
     GameWinDialogComponent,
     ViewImageDialogComponent,
+    ChooseCompetitorDialogComponent,
     // Directives
     LazyImgDirective,
     // Pipes

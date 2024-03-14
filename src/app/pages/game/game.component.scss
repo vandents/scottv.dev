@@ -3,8 +3,11 @@
  ********************************/
 
 mat-grid-list {
-  background-color: rgb(33, 33, 33);
   border-radius: 4px;
+}
+
+.black-grid {
+  background-color: rgb(33, 33, 33);
 }
 
 .light-grid {
@@ -16,13 +19,16 @@ mat-grid-tile {
 }
 
 mat-grid-tile:hover {
-  background-color: rgb(38, 38, 38);
   cursor: pointer;
   transition: 0.2s;
 }
 
 .light-grid mat-grid-tile:hover {
   background-color: rgb(245, 245, 245);
+}
+
+.dark-grid mat-grid-tile:hover {
+  background-color: rgb(245, 245, 245, 0.05);
 }
 
 @media screen and (max-width: 768px) {
@@ -73,6 +79,13 @@ mat-grid-tile:hover {
   .horizontal-2 { border: 3px solid #303030 !important; }
   .vertical-1 { border: 3px solid #303030 !important; }
   .vertical-2 { border: 3px solid #303030 !important; }
+}
+
+.dark-grid .horizontal-1,
+.dark-grid .horizontal-2,
+.dark-grid .vertical-1,
+.dark-grid .vertical-2 {
+  border-color: rgb(37, 41, 47) !important;
 }
 
 

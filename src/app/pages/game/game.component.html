@@ -1,7 +1,7 @@
 <div class="row">
   <!--------------------  Game Board  -------------------->
   <div class="col-lg-7 col-md-8 col-12">
-    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0" [class.light-grid]="themeService.isLight()">
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0" [ngClass]="getGridTheme()">
       <!----------  Tiles  ---------->
       <mat-grid-tile *ngFor="let i of boardPositions" (click)="squareClicked(i)">
         <ng-container [ngTemplateOutlet]="tileTemplate" [ngTemplateOutletContext]="{ i: i }">

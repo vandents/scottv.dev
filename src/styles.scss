@@ -72,7 +72,7 @@ body {
 
 /* Navbar active link styling */
 a.current {
-  background: rgba(255, 255, 255, 0.04);
+  font-weight: 600;
 }
 
 /* Gets rid of the blue accessibility border on focus */
@@ -104,38 +104,4 @@ mat-dialog-container {
   }
 }
 
-
-/**************************
- * Toolbar
- **************************/
-/* Toolbar containing the three main nav buttons */
-.navbar {
-  position: -webkit-sticky !important;
-  position: sticky;
-  top: 0;                       /* Sets the sticky toolbar to be at the top */
-  z-index: 1000;                /* Ensure that content doesn't overlap the toolbar */
-  padding: 0px;
-  min-height: 44px !important;  /* Always change this value in the toolbar row as well */
-}
-
-.navbar mat-toolbar-row {
-  height: 44px;
-}
-
-
-/**************************
- * Footer
- **************************/
-
-.footer p {
-  margin: 0px 20px 0px 0px;
-  font-weight: 300;
-  font-size: medium;
-}
-
-@media screen and (max-width: 450px) {
-  .footer p {
-    margin: 0px 5px 0px 5px;
-    font-size: small;
-  }
-}
+// }
