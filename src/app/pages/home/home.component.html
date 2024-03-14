@@ -5,14 +5,12 @@
     <h1 *ngIf="!browser.isScreen500()" style="margin-left: 16px;">Welcome!</h1>
     <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
       My name is Scott VandenToorn.
-      This is my personal website to showcase my projects and serve as an extension of my resume.
-      Thanks for stopping by!
+      This is my personal website meant to showcase my work; thanks for stopping by!
     </span>
   </mat-card-header>
   <mat-card-content *ngIf="!browser.isScreen500()">
     My name is Scott VandenToorn.
-    This is my personal website meant to showcase my projects and serve as an extension of my resume.
-    Thanks for stopping by!
+    This is my personal website meant to showcase my projects; thanks for stopping by!
   </mat-card-content>
 </mat-card>
 
