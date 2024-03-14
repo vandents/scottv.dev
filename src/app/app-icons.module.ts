@@ -11,6 +11,7 @@ import {
 // Solid Icons (fas)
 import {
   faAddressBook,
+  faAngleDown,
   faBalanceScale,
   faBold,
   faBolt,
@@ -45,7 +46,8 @@ import {
   faTerminal,
   faUndoAlt,
   faUser,
-  faUserFriends
+  faUserFriends,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand Icons (fab)
@@ -94,6 +96,7 @@ export class AppIconsModule {
 
       // fas
       faAddressBook,
+      faAngleDown,
       faBalanceScale,
       faBold,
       faBolt,
@@ -129,6 +132,7 @@ export class AppIconsModule {
       faUndoAlt,
       faUser,
       faUserFriends,
+      faXmark,
 
       // fab
       faAndroid,
