@@ -15,11 +15,11 @@ export class LifeComponent {
       title: `She said yes!`,
       medias: [
         {
-          src: '../../../assets/img/engagement-1.jpg',
+          src: '../../../assets/img/engagement-2.jpg',
           alt: 'Maddie and Scott after he proposed'
         },
         {
-          src: '../../../assets/img/engagement-2.jpg',
+          src: '../../../assets/img/engagement-1.jpg',
           alt: 'Maddie and Scott after he proposed'
         },
         {

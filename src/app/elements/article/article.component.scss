@@ -2,6 +2,16 @@
   margin-top: 48px;
   border-radius: 5px;
   overflow: hidden;
+  min-height: 163px;
+}
+
+.carousel-item {
+  transition-duration: 350ms;
+}
+
+*:not(.carousel-item) {
+  transition-duration: 0ms !important;
+  transition: none !important;
 }
 
 .carousel-caption {
@@ -14,6 +24,27 @@
   display: block !important;
 }
 
+.navbar {
+  box-shadow: inset 0 -1px 0 #21262d;
+}
+
+::ng-deep .light-theme .navbar {
+  box-shadow: inset 0 -1px 0 rgb(208, 215, 222) !important;
+}
+
+h4 {
+  text-align: center;
+  margin: -4px 0 0 0;
+  padding: 10px 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: rgb(37, 41, 47);
+}
+
+::ng-deep .light-theme h4 {
+  background-color: rgb(211, 186, 183, 0.3);
+}
+
 :host ::ng-deep .visually-hidden {
   display: none;
 }
@@ -22,10 +53,30 @@ c-carousel-control:hover {
   cursor: pointer;
 }
 
+::ng-deep .carousel-control-next,
+::ng-deep .carousel-control-prev {
+  width: 50%;
+  opacity: 0.7;
+}
+
+::ng-deep .carousel-control-next:hover,
+::ng-deep .carousel-control-prev:hover {
+  opacity: 1;
+}
+
 ::ng-deep .carousel-control-next-icon,
 ::ng-deep .carousel-control-prev-icon {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+}
+
+::ng-deep .carousel-control-prev-icon {
+  left: 68px;
+}
+
+::ng-deep .carousel-control-next-icon {
+  right: 68px;
 }
 
 ::ng-deep .carousel-control-next-icon {
@@ -82,5 +133,24 @@ iframe {
 
   .carousel-caption p {
     display: none;
+  }
+
+  .carousel {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  ::ng-deep .carousel-control-next-icon,
+  ::ng-deep .carousel-control-prev-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  ::ng-deep .carousel-control-prev-icon {
+    left: 52px;
+  }
+
+  ::ng-deep .carousel-control-next-icon {
+    right: 52px;
   }
 }

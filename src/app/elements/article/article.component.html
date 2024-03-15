@@ -1,4 +1,4 @@
-<c-carousel [interval]="0" [animate]="false">
+<c-carousel [interval]="0" [animate]="false" transition="crossfade">
   <c-carousel-indicators></c-carousel-indicators>
   <c-carousel-inner>
     <c-carousel-item *ngFor="let media of article.medias; index as i">
@@ -8,7 +8,7 @@
           <iframe allow="fullscreen" allowfullscreen height="100%" [src]="media.src | safe:'resourceUrl'" width="100%"></iframe>
         </div>
       </ng-template>
-      <c-carousel-caption class="d-none d-md-block">
+      <c-carousel-caption *ngIf="browser.isScreen767()" class="d-none d-md-block">
         <h3>{{ article.title }}</h3>
         <p>{{ article.caption }}</p>
       </c-carousel-caption>
@@ -17,3 +17,5 @@
   <c-carousel-control direction="prev"></c-carousel-control>
   <c-carousel-control direction="next"></c-carousel-control>
 </c-carousel>
+
+<h4 *ngIf="!browser.isScreen767()">{{ article.title }}</h4>
