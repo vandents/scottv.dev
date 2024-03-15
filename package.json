@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path dist",
+    "build": "node version.js && ng build --output-path dist",
     "analyze": "esbuild-visualizer --metadata dist/scottvdev/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
