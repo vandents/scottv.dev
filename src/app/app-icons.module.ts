@@ -68,7 +68,6 @@ import {
   faNodeJs,
   faPython,
   faSass,
-  faSlackHash,
   faVuejs,
   faWindows
 } from '@fortawesome/free-brands-svg-icons';
@@ -151,7 +150,6 @@ export class AppIconsModule {
       faNodeJs,
       faPython,
       faSass,
-      faSlackHash,
       faVuejs,
       faWindows
     );

@@ -44,7 +44,7 @@
       <div trigger>
         <div (click)="$event.stopPropagation();">
           <button mat-button class="toolbar-item"
-            [style.background]="router.url.includes('game') || router.url.includes('algorithms') ? 'rgba(255, 255, 255, 0.1)' : 'transparent'">
+            [ngClass]="router.url.includes('game') || router.url.includes('algorithms') ? 'current' : ''">
             Games
             &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
           </button>
@@ -53,18 +53,19 @@
       <div content>
         <a mat-menu-item routerLink="algorithms" routerLinkActive  color="primary">
           <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
-          &nbsp;&nbsp;&nbsp;Algorithms
+          &nbsp;&nbsp;Algorithms
         </a>
         <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
-          <fa-icon [icon]="['fab', 'slack-hash']" size="lg"></fa-icon>
-          &nbsp;&nbsp;&nbsp;Tic-Tac-Toe
+          <fa-icon [icon]="['fas', 'hashtag']" size="lg"></fa-icon>
+          &nbsp;&nbsp;Tic-Tac-Toe
         </a>
       </div>
     </app-menu-auto-open>
     <!-- Info -->
     <app-menu-auto-open>
       <div trigger>
-        <button mat-button class="toolbar-item" [style.background]="router.url.includes('build-info') ? 'rgba(255, 255, 255, 0.1)' : 'transparent'">
+        <button (click)="$event.stopPropagation();" mat-button class="toolbar-item"
+          [ngClass]="router.url.includes('build-info') ? 'current' : ''">
           Info
           &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
         </button>
@@ -72,23 +73,22 @@
       <div content>
         <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="right" (click)="copyToClipboard(emailAddress)">
           <fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>
-          &nbsp;&nbsp;&nbsp;{{ emailAddress }}
+          &nbsp;&nbsp;{{ emailAddress }}
         </button>
 
         <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Open GitHub" matTooltipPosition="right">
           <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
-          &nbsp;&nbsp;&nbsp;vandents
+          &nbsp;&nbsp;vandents
         </a>
 
         <a mat-menu-item routerLink="build-info">
           <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>
-          &nbsp;&nbsp;&nbsp;Build Info
+          &nbsp;&nbsp;Build Info
         </a>
 
         <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>
-          <!-- href="../../../assets/vandentoorn-resume.pdf" -->
           &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
-          &nbsp;&nbsp;&nbsp;Download Resume
+          &nbsp;&nbsp;Download Resume
         </a>
       </div>
     </app-menu-auto-open>

@@ -71,8 +71,14 @@ body {
 }
 
 /* Navbar active link styling */
+button.current,
 a.current {
-  font-weight: 600;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.light-theme button.current,
+.light-theme a.current {
+  background-color: rgb(0, 0, 0, 0.05);
 }
 
 /* Gets rid of the blue accessibility border on focus */
@@ -103,5 +109,3 @@ mat-dialog-container {
     max-width: 100% !important;
   }
 }
-
-// }
