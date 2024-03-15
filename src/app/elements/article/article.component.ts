@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ThemeService } from '@app/services/theme-service/theme.service';
 
 export interface Slide {
   src: string;
@@ -20,9 +19,4 @@ export interface Article {
 })
 export class ArticleComponent {
   @Input() article: Article;
-
-  constructor(public themeService: ThemeService) {
-
-  }
-
 }
