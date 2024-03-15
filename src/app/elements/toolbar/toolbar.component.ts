@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BrowserService } from '@services/browser-service/browser.service';
 import { AppComponent } from '@app/app.component';
-import { ThemeService, ThemeType } from '@app/services/theme-service/theme.service';
+import { ThemeService, ThemeType } from '@services/theme-service/theme.service';
 
 /** The navigation bar at the top of the screen */
 @Component({

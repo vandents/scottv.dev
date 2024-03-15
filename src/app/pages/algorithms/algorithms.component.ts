@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { AlgorithmService, Algos } from '@app/services/algorithm-service/algorithm.service';
+import { AlgorithmService, Algos } from '@services/algorithm-service/algorithm.service';
 import { Title } from '@angular/platform-browser';
-import { BrowserService } from '@app/services/browser-service/browser.service';
+import { BrowserService } from '@services/browser-service/browser.service';
 import { Subscription } from 'rxjs';
 
 

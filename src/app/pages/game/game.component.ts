@@ -7,7 +7,7 @@ import { ChooseCompetitorDialogComponent } from '@dialogs/choose-competitor-dial
 import { BrowserService } from '@services/browser-service/browser.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
-import { ThemeService } from '@app/services/theme-service/theme.service';
+import { ThemeService } from '@services/theme-service/theme.service';
 import { Subscription } from 'rxjs';
 
 
