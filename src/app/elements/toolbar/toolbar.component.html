@@ -1,11 +1,9 @@
 <mat-toolbar class="navbar">
   <!-- Logo and theme buttons -->
-  <mat-toolbar-row style="margin: 8px 0 4px 0;">
-    <span class="fill-remaining-space"></span>
+  <mat-toolbar-row class="first-row">
     <a mat-button routerLink="home" routerLinkActive="current" matTooltip="Home" class="logo-button" matTooltipPosition="left">
       <img [src]="'../../../assets/img/logo-' + (themeService.isLight() ? 'light.png' : 'dark.png')" class="un-lazy logo">
     </a>
-    <span class="fill-remaining-space"></span>
 
     <button mat-icon-button class="theme-button" matTooltip="Switch Theme" matTooltipPosition="below"
       matTooltipClass="mat-tooltip-multi" [matMenuTriggerFor]="themeMenu">
