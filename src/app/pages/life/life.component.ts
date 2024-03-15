@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { Article } from '@elements/article/article.component';
 import { BrowserService } from '@services/browser-service/browser.service';
@@ -138,7 +137,6 @@ export class LifeComponent {
 
   constructor(
     private title: Title,
-    private dialog: MatDialog,
     public browser: BrowserService
   ) {
     this.title.setTitle('Scott VandenToorn - Portfolio');
