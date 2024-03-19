@@ -4,13 +4,13 @@
     <div mat-card-avatar class="avi"></div>
     <h1 *ngIf="!browser.isScreen500()" style="margin-left: 16px;">Welcome!</h1>
     <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
-      My name is Scott VandenToorn.
-      This is my personal website meant to showcase my work; thanks for stopping by!
+      My name is Scott VandenToorn. I'm looking for the next step in my engineering journey.
+      Welcome to my personal website meant to showcase my projects. Thanks for stopping by!
     </span>
   </mat-card-header>
   <mat-card-content *ngIf="!browser.isScreen500()">
-    My name is Scott VandenToorn.
-    This is my personal website meant to showcase my projects; thanks for stopping by!
+    My name is Scott VandenToorn. I'm looking for the next step in my engineering journey.
+    Welcome to my personal website meant to showcase my projects. Thanks for stopping by!
   </mat-card-content>
 </mat-card>
 
@@ -21,46 +21,24 @@
     <div mat-card-avatar class="volgistics-logo"></div>
     <mat-card-title>Full Stack Engineer</mat-card-title>
     <mat-card-subtitle>Volgistics, Byron Center, MI</mat-card-subtitle>
-    <mat-card-subtitle>September 2020 - June 2023</mat-card-subtitle>
+    <mat-card-subtitle>July 2019 - May 2020, September 2020 - June 2023</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
-    Volgistics is a group of dedicated individuals who provide software to manage an
-    organization's volunteers. The team takes great pride in developing software
-    to help people around the world make volunteering easy.
-    <br><br>
-    The Volgistics stack is a combination of legacy and modern components.
-    The back end is hosted on Windows Server, with Delphi performing logic,
-    and data stored in a BTrieve database. The front-end applications are single
-    page web and native apps built with Angular.
-  </mat-card-content>
-  <mat-card-content>
-    <mat-chip-listbox>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
-        Angular
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
-        Delphi
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        GitLab
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'python']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-        Python
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'vuejs']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
-        Vue
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-        YAML
-      </mat-chip-option>
-    </mat-chip-listbox>
+    <p>
+      Volgistics is a small software company dedicated to providing software to manage an organization's volunteers.
+      The team consists of 4 engineers, 2 IT professionals, 6 customer support/software testers, and an accountant,
+      and they take great pride in developing software that helps make volunteering easy for people around the world.
+    </p>
+    <p>
+      The Volgistics stack is a combination of legacy and modern components. The back end is hosted on Windows Server,
+      with Delphi performing logic, and data stored in a BTrieve database, while the front-end applications are single
+      page web and native apps built with the Angular and Capacitor frameworks.
+    </p>
+    <p>
+      By pioneering native apps and DevOps for Volgistics, along with many other projects, I helped foster a pivotal
+      transition for the company that enhanced market competetiveness and increased the quality of development.
+    </p>
   </mat-card-content>
 </mat-card>
 
@@ -68,59 +46,17 @@
 <mat-card style="margin-bottom: 12px;" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="dornerworks-logo"></div>
-    <mat-card-title>Software Engineer <small>(Internship)</small></mat-card-title>
+    <mat-card-title>Full Stack Engineer <small>(Internship)</small></mat-card-title>
     <mat-card-subtitle>DornerWorks, Grand Rapids, MI</mat-card-subtitle>
     <mat-card-subtitle>May 2020 - August 2020</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
-    During my time at Dornerworks I worked on a variety of projects using the Angular and Rails frameworks.
-  </mat-card-content>
-  <mat-card-content>
-    <mat-chip-listbox>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        Angular
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-        Gitlab
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fas', 'database']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        Rails
-      </mat-chip-option>
-    </mat-chip-listbox>
-  </mat-card-content>
-</mat-card>
-
-
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="volgistics-logo"></div>
-    <mat-card-title>Front-end Engineer <small>(Internship)</small></mat-card-title>
-    <mat-card-subtitle>Volgistics, Byron Center, MI</mat-card-subtitle>
-    <mat-card-subtitle>July 2019 - May 2020</mat-card-subtitle>
-  </mat-card-header>
-
-  <mat-card-content class="card-text">
-    My Volgistics internship focused on developing Angular applications.
-  </mat-card-content>
-  <mat-card-content>
-    <mat-chip-listbox>
-      <mat-chip-option>
-        <fa-icon [icon]="['fab', 'angular']" size="lg" transform="shrink-5" [mask]="['fas', 'circle']"></fa-icon>
-        Angular
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fas', 'bug']" size="lg" transform="shrink-5.5" [mask]="['fas', 'circle']"></fa-icon>
-        Mantis
-      </mat-chip-option>
-      <mat-chip-option>
-        <fa-icon [icon]="['fas', 'code-branch']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-        Subversion
-      </mat-chip-option>
-    </mat-chip-listbox>
+    <p>
+      DornerWorks was an opportunity for me to be mentored by the best in the business.
+      During my stay I worked on a variety of projects, most notably a timesheet Dornerworks uses to track hours
+      for over 200 employees, which greatly decreased the amount of time engineers spend logging hours.
+    </p>
   </mat-card-content>
 </mat-card>
 
@@ -135,11 +71,15 @@
       <h4>IDEs</h4>
       <mat-chip-listbox>
         <mat-chip-option>
+          <fa-icon [icon]="['fab', 'android']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          Android Studio
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
           VSCode
         </mat-chip-option>
         <mat-chip-option>
-          <fa-icon [icon]="['fas', 'laptop-code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          <fa-icon [icon]="['fab', 'apple']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           XCode
         </mat-chip-option>
       </mat-chip-listbox>
@@ -162,10 +102,6 @@
           <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
           TypeScript
         </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          YAML
-        </mat-chip-option>
       </mat-chip-listbox>
 
       <h4 class="know-h4">Platforms</h4>
@@ -184,15 +120,23 @@
         </mat-chip-option>
       </mat-chip-listbox>
 
-      <h4 class="know-h4">CI and Version Control</h4>
+      <h4 class="know-h4">CI/CD and Version Control</h4>
       <mat-chip-listbox>
         <mat-chip-option>
           <fa-icon [icon]="['fab', 'git']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           Git
         </mat-chip-option>
         <mat-chip-option>
+          <fa-icon [icon]="['fab', 'github']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
+          GitHub
+        </mat-chip-option>
+        <mat-chip-option>
           <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           GitLab
+        </mat-chip-option>
+        <mat-chip-option>
+          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
+          YAML
         </mat-chip-option>
       </mat-chip-listbox>
     </mat-card>
