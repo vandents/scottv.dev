@@ -79,10 +79,6 @@ export class LifeComponent {
           alt: 'Clearing trails with a skid steer'
         },
         {
-          src: '../../../assets/img/trades-3.jpg',
-          alt: 'Looking at an electrical plan'
-        },
-        {
           src: '../../../assets/img/trades-4.jpg',
           alt: 'Installing a cattle waterer'
         },
