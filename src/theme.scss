@@ -177,6 +177,7 @@ $black-app-theme: mat.define-dark-theme((
   .mat-mdc-card,
   .mat-toolbar {
     background-color: rgb(37, 41, 47) !important;
+    color: white;
   }
   .mat-mdc-text-field-wrapper,
   .mat-app-background {

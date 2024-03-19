@@ -43,5 +43,5 @@
   </div>
 
   <div *ngIf="animateMessage && robotWin" class="icon-container message" [class.robot-padding]="robotWin" [@fade]="'in'">{{ message }}</div>
-  <button mat-raised-button [mat-dialog-close]>Close</button>
+  <button mat-raised-button [mat-dialog-close] color="primary">Close</button>
 </mat-card>
