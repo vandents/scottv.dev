@@ -13,3 +13,7 @@
 ::ng-deep .mat-mdc-menu-content {
   padding: 0 !important;
 }
+
+::ng-deep .dark-theme .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: rgb(95, 100, 107) !important;
+}
