@@ -61,34 +61,34 @@ export class LifeComponent {
       ],
       caption: `Checked off a huge bucket list item by completing the 2023 GR Marathon in 3 hours 28 minutes (7:58 mile pace).`
     },
-    {
-      title: `Trying the Trades`,
-      medias: [
-        // Barn demo video
-        {
-          src: 'https://streamable.com/e/lu95oj?autoplay=1&nocontrols=1',
-          alt: '',
-          isVideo: true
-        },
-        {
-          src: '../../../assets/img/trades-1.jpg',
-          alt: 'Screeting concrete'
-        },
-        {
-          src: '../../../assets/img/trades-2.jpg',
-          alt: 'Clearing trails with a skid steer'
-        },
-        {
-          src: '../../../assets/img/trades-4.jpg',
-          alt: 'Installing a cattle waterer'
-        },
-        {
-          src: '../../../assets/img/trades-5.jpg',
-          alt: 'Midwestern logo'
-        }
-      ],
-      caption: `"You'll have that on them big jobs."`
-    }
+    // {
+    //   title: `Trying the Trades`,
+    //   medias: [
+    //     // Barn demo video
+    //     {
+    //       src: 'https://streamable.com/e/lu95oj?autoplay=1&nocontrols=1',
+    //       alt: '',
+    //       isVideo: true
+    //     },
+    //     {
+    //       src: '../../../assets/img/trades-1.jpg',
+    //       alt: 'Screeting concrete'
+    //     },
+    //     {
+    //       src: '../../../assets/img/trades-2.jpg',
+    //       alt: 'Clearing trails with a skid steer'
+    //     },
+    //     {
+    //       src: '../../../assets/img/trades-4.jpg',
+    //       alt: 'Installing a cattle waterer'
+    //     },
+    //     {
+    //       src: '../../../assets/img/trades-5.jpg',
+    //       alt: 'Midwestern logo'
+    //     }
+    //   ],
+    //   caption: `"You'll have that on them big jobs."`
+    // }
   ];
 
   hobbies: Article[] = [
