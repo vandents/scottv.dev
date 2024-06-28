@@ -182,8 +182,8 @@ export class AlgorithmService implements OnDestroy {
 
   /** @return Background color for each bar */
   getBackgroundColor(index: number): string {
-    if (this.redIdx === index) return 'rgb(190, 54, 54)';
-    if (this.greenIDX === index) return 'rgb(20, 135, 72)';
+    if (this.redIdx === index) return this.themeService.isLight() ? 'rgb(245, 49, 127)' : 'rgb(190, 54, 54)';
+    if (this.greenIDX === index) return this.themeService.isLight() ? 'rgb(76, 235, 59)' : 'rgb(20, 135, 72)';
     return this.themeService.isLight() ? 'rgb(60, 80, 115)' : 'rgb(215, 183, 180)';
   }
 
