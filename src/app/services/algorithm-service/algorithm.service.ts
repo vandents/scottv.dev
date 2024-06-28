@@ -1,7 +1,8 @@
 import { Injectable, ElementRef, OnDestroy } from '@angular/core';
-import { BrowserService } from '../browser-service/browser.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { BrowserService } from '@services/browser-service/browser.service';
+import { ThemeService } from '@services/theme-service/theme.service';
 
 
 /** The different sorting algorithms */
@@ -41,7 +42,8 @@ export class AlgorithmService implements OnDestroy {
 
   constructor(
     private snackbar: MatSnackBar,
-    private browser: BrowserService
+    private browser: BrowserService,
+    private themeService: ThemeService
   ) {
     this.numElements = 250;
     this.delayTime = 1;
@@ -182,7 +184,7 @@ export class AlgorithmService implements OnDestroy {
   getBackgroundColor(index: number): string {
     if (this.redIdx === index) return 'rgb(190, 54, 54)';
     if (this.greenIDX === index) return 'rgb(20, 135, 72)';
-    return 'rgb(173, 227, 223)';
+    return this.themeService.isLight() ? 'rgb(60, 80, 115)' : 'rgb(215, 183, 180)';
   }
 
 
