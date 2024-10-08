@@ -6,4 +6,4 @@ This is my personal website to showcase my projects and serve as an extension of
 
 
 ## CI/CD
-This site uses GitHub actions and a self-hosted runner to continously integrate and deploy to GitHub pages.
+This site uses GitHub actions and a self-hosted runner to continously integrate and deploy to GitHub pages. `zsh run.sh`
