@@ -12,37 +12,62 @@ import { BrowserService } from '@services/browser-service/browser.service';
 export class LifeComponent {
   lifeEvents: Article[] = [
     {
-      title: `She said yes!`,
+      title: `Dad Mode`,
       medias: [
         {
-          src: '../../../assets/img/engagement-2.jpg',
-          alt: 'Maddie and Scott after he proposed'
+          src: '../../../assets/img/dad-mode-3.jpg',
+          alt: 'Family at the zoo'
         },
         {
-          src: '../../../assets/img/engagement-1.jpg',
-          alt: 'Maddie and Scott after he proposed'
+          src: '../../../assets/img/dad-mode-1.jpg',
+          alt: 'Family riding bikes'
         },
         {
-          src: '../../../assets/img/engagement-3.jpg',
-          alt: 'Maddie and Scott after he proposed'
+          src: '../../../assets/img/dad-mode-2.jpg',
+          alt: 'Messy baby'
+        },
+        {
+          src: '../../../assets/img/dad-mode-4.jpg',
+          alt: 'Baby in wagon'
         }
       ],
-      caption: 'In April 2025 I get to marry my best friend Maddie.'
+      caption: 'Building a legion of children.'
     },
     {
-      title: `West Michigan's Newest Homeowner`,
+      title: `Michigan -> Florida`,
       medias: [
         {
-          src: '../../../assets/img/house-1.jpg',
-          alt: 'House under construction'
+          src: '../../../assets/img/florida-1.jpg',
+          alt: 'UHaul truck'
         },
         {
-          src: '../../../assets/img/house-2.jpg',
-          alt: 'Scott and his realtor Jake after closing'
+          src: '../../../assets/img/florida-2.jpg',
+          alt: 'Baby on the beach'
         }
       ],
-      caption: `Finally moved out of mom's basement.`
+      caption: 'Goodbye, snow.'
     },
+    {
+      title: `Hitched!`,
+      medias: [
+        {
+          src: '../../../assets/img/wedding-1.jpg',
+          alt: 'Reading vows'
+        },
+        {
+          src: '../../../assets/img/wedding-2.jpg',
+          alt: 'Couple walking'
+        },
+        {
+          src: '../../../assets/img/wedding-3.jpg',
+          alt: 'Proposal'
+        }
+      ],
+      caption: 'In 2024 I married my best friend.'
+    }
+  ];
+
+  hobbies: Article[] = [
     {
       title: `Grand Rapids Marathon`,
       medias: [
@@ -59,39 +84,8 @@ export class LifeComponent {
           alt: 'Marathon bib'
         }
       ],
-      caption: `Checked off a huge bucket list item by completing the 2023 GR Marathon in 3 hours 28 minutes (7:58 mile pace).`
+      caption: `Completed the 2023 GR Marathon in 3 hours 28 minutes (7:58 mile pace).`
     },
-    // {
-    //   title: `Trying the Trades`,
-    //   medias: [
-    //     // Barn demo video
-    //     {
-    //       src: 'https://streamable.com/e/lu95oj?autoplay=1&nocontrols=1',
-    //       alt: '',
-    //       isVideo: true
-    //     },
-    //     {
-    //       src: '../../../assets/img/trades-1.jpg',
-    //       alt: 'Screeting concrete'
-    //     },
-    //     {
-    //       src: '../../../assets/img/trades-2.jpg',
-    //       alt: 'Clearing trails with a skid steer'
-    //     },
-    //     {
-    //       src: '../../../assets/img/trades-4.jpg',
-    //       alt: 'Installing a cattle waterer'
-    //     },
-    //     {
-    //       src: '../../../assets/img/trades-5.jpg',
-    //       alt: 'Midwestern logo'
-    //     }
-    //   ],
-    //   caption: `"You'll have that on them big jobs."`
-    // }
-  ];
-
-  hobbies: Article[] = [
     {
       title: `Motocross`,
       medias: [
@@ -123,10 +117,10 @@ export class LifeComponent {
         },
         {
           src: '../../../assets/img/workout-2.jpg',
-          alt: `Text that says "That's the only photo of me at the gym"`
+          alt: `Scott deadlifting`
         }
       ],
-      caption: `455lb deadlift and counting!`
+      caption: `500lb deadlift and counting!`
     }
   ];
 
