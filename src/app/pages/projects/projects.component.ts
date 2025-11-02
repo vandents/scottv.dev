@@ -28,10 +28,14 @@ export class ProjectsComponent implements OnInit {
   }
 
 
-  openViewImageDialog(imageSource: string) {
+  openViewImageDialog(imageSource: string, isLandscape = false) {
+    if (!this.browser.isScreen650()) return;
+
+    const maxWidth = isLandscape ? '1200px' : '650px';
+
     this.dialog.open(
       ViewImageDialogComponent, {
-        maxWidth: '600px',
+        maxWidth,
         data: {
           imgSrc: imageSource
         }
