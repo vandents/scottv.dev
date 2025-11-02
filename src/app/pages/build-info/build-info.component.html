@@ -7,9 +7,8 @@
           <mat-list-item *ngFor="let build of buildInfo">
             <fa-icon [icon]="[build.iconPackage, build.icon]" size="lg" matListItemAvatar></fa-icon>
             <h3 matListItemTitle>{{ build.name }}</h3>
-            <a matListItemLine [href]="build.link" target="_blank" (click)="onLinkClick($event, build.link)" [ngClass]="build.link ? '' : 'no-link'" >
-              {{ build.version }}
-            </a>
+            <a matListItemLine [href]="build.link" target="_blank" (click)="onLinkClick($event, build.link)"
+              [ngClass]="build.link ? '' : 'no-link'">{{ build.version }}</a>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
@@ -24,9 +23,7 @@
           <mat-list-item *ngFor="let dep of dependencies">
             <fa-icon [icon]="[dep.iconPackage, dep.icon]" size="lg" matListItemAvatar></fa-icon>
             <h3 matListItemTitle>{{ dep.name }}</h3>
-            <a matListItemLine [href]="dep.link" target="_blank" >
-              {{ dep.version }}
-            </a>
+            <a matListItemLine [href]="dep.link" target="_blank">{{ dep.version }}</a>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
