@@ -325,7 +325,7 @@
 
     pre {
       background-color: rgba(0, 0, 0, 0.3);
-      
+
       code {
         color: #e6edf3;
       }
@@ -435,7 +435,7 @@
 :host-context(.black-theme) ::ng-deep {
   .preview-container pre {
     background-color: rgba(0, 0, 0, 0.3) !important;
-    
+
     code {
       color: #e6edf3 !important;
     }

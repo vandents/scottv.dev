@@ -13,7 +13,7 @@ export class MarkdownPreviewerComponent implements OnInit {
   // Input/Output
   markdownInput = '';
   htmlOutput: SafeHtml = '';
-  
+
   // Options
   enableGfm = true;
   enableLineBreaks = true;
@@ -145,7 +145,7 @@ export class MarkdownPreviewerComponent implements OnInit {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
-      
+
       if (line.includes('|') && !inTable) {
         inTable = true;
         tableRows = [line];
@@ -175,7 +175,7 @@ export class MarkdownPreviewerComponent implements OnInit {
     if (rows.length < 2) return rows.join('\n');
 
     let html = '<table class="markdown-table">';
-    
+
     // Header row
     const headerCells = rows[0].split('|').filter(cell => cell.trim());
     html += '<thead><tr>';
@@ -316,7 +316,7 @@ print(fibonacci(10))
 ---
 
 Happy markdown editing! 🚀`;
-    
+
     this.onInputChange();
     this.openSnackBar('Sample markdown loaded');
   }
