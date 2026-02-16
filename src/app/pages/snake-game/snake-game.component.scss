@@ -1,0 +1,368 @@
+.snake-game-container {
+  max-width: 900px;
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+  }
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 24px;
+
+  .stat-item {
+    text-align: center;
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(0, 0, 0, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #4CAF50;
+    }
+  }
+}
+
+.game-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.game-canvas {
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+  background: #1a1a1a;
+
+  &.game-over {
+    opacity: 0.5;
+  }
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  .overlay-content {
+    text-align: center;
+    padding: 32px;
+    color: white;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .final-score {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: #4CAF50;
+      font-weight: 500;
+    }
+
+    .instructions {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .desktop-instructions {
+      display: block;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .mobile-instructions {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+
+    .start-button,
+    .restart-button {
+      padding: 0 32px;
+      height: 48px;
+      font-size: 1.1rem;
+
+      fa-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.controls-info {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  .control-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .key-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    kbd {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    span {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 0.9rem;
+    }
+
+    .control-label {
+      font-weight: 500;
+    }
+  }
+}
+
+.mobile-controls {
+  display: none;
+  justify-content: center;
+  margin: 32px 0;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.dpad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dpad-middle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dpad-center {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.dpad-button {
+  width: 70px !important;
+  height: 70px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  transition: all 0.1s ease !important;
+
+  &:active {
+    background: #4CAF50 !important;
+    color: white !important;
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  fa-icon {
+    font-size: 32px;
+  }
+
+  &.up, &.down {
+    align-self: center;
+  }
+}
+
+.game-tips {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.87);
+
+    fa-icon {
+      color: #FFC107;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 24px;
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.7);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Dark theme support
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .snake-game-container {
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .game-stats {
+    .stat-item {
+      .stat-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  .game-canvas {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .controls-info {
+    .control-item {
+      kbd {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.87);
+      }
+
+      span {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  .game-tips {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    h3 {
+      color: rgba(255, 255, 255, 0.87);
+    }
+
+    ul li {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .dpad-container {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .dpad-center {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .dpad-button {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+
+    &:active {
+      background: #4CAF50 !important;
+      color: white !important;
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 600px) {
+  .snake-game-container {
+    padding: 16px;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .game-stats {
+    gap: 24px;
+
+    .stat-item {
+      .stat-value {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .game-canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .controls-info {
+    gap: 16px;
+  }
+}

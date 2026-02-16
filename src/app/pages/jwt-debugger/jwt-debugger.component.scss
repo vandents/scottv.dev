@@ -1,0 +1,302 @@
+.jwt-debugger-container {
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.encoded-section,
+.decoded-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.decoded-section h2 {
+  margin-top: 13px;
+  margin-bottom: 6px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+:host ::ng-deep {
+  .header-actions button svg {
+    margin-bottom: 4px !important;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.token-textarea {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 4px;
+  border-left: 4px solid #c62828;
+
+  fa-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.token-info {
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 4px;
+    border-left: 4px solid #2e7d32;
+
+    .success-icon {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.decoded-part {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  .part-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+
+    fa-icon {
+      opacity: 0.7;
+    }
+  }
+
+  .json-display,
+  .signature-display {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 12px;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+.header-part {
+  border-left: 4px solid #e91e63;
+}
+
+.payload-part {
+  border-left: 4px solid #9c27b0;
+}
+
+.signature-part {
+  border-left: 4px solid #00bcd4;
+}
+
+.encoder-section {
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .encoder-description {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 24px;
+  }
+}
+
+.encoder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+
+  .encoder-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .format-button {
+        font-size: 0.85rem;
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
+.json-textarea {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.encoder-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+
+  .encode-button {
+    padding: 0 32px;
+    height: 48px;
+    font-size: 1rem;
+
+    fa-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.encoder-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+  color: rgba(0, 0, 0, 0.87);
+
+  fa-icon {
+    color: #ff9800;
+    font-size: 1.2rem;
+    margin-top: 2px;
+  }
+
+  span {
+    flex: 1;
+    line-height: 1.5;
+  }
+}
+
+// Dark theme support
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .jwt-debugger-container {
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .error-message {
+    background-color: rgba(198, 40, 40, 0.1);
+    color: #ef5350;
+    border-left-color: #ef5350;
+  }
+
+  .token-info .info-item {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: #66bb6a;
+    border-left-color: #66bb6a;
+  }
+
+  .decoded-part {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    .part-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .json-display,
+    .signature-display {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.87);
+    }
+  }
+
+  .encoder-section {
+    .encoder-description {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .encoder-field label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .encoder-note {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: rgba(255, 255, 255, 0.87);
+  }
+}

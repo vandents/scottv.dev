@@ -1,0 +1,114 @@
+<div class="base64-tool-container">
+  <h1>Base64 Encoder/Decoder</h1>
+  <p class="subtitle">Encode text to Base64 or decode Base64 to text</p>
+
+  <!-- Tab Buttons -->
+  <div class="tab-buttons">
+    <button mat-raised-button [color]="activeTab === 'encode' ? 'primary' : ''" (click)="setActiveTab('encode')" class="tab-button">
+      <fa-icon [icon]="['fas', 'lock']" size="sm"></fa-icon>
+      Encode
+    </button>
+    <button mat-raised-button [color]="activeTab === 'decode' ? 'primary' : ''" (click)="setActiveTab('decode')" class="tab-button">
+      <fa-icon [icon]="['fas', 'unlock']" size="sm"></fa-icon>
+      Decode
+    </button>
+  </div>
+
+  <!-- Encode Tab -->
+  <div class="content-section" *ngIf="activeTab === 'encode'">
+    <div class="content-grid">
+      <!-- Input Section -->
+      <div class="input-section">
+        <div class="section-header">
+          <h2>Plain Text</h2>
+          <div class="header-actions">
+            <button mat-icon-button matTooltip="Copy" (click)="copyToClipboard(plainText, 'Plain text')" [disabled]="!plainText">
+              <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+            </button>
+            <button mat-icon-button matTooltip="Clear" (click)="clearAll()">
+              <fa-icon [icon]="['fas', 'trash']" size="sm"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Enter text to encode</mat-label>
+          <textarea matInput [(ngModel)]="plainText" (ngModelChange)="encodeToBase64()" placeholder="Type or paste text here..." rows="12" class="text-area"></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- Output Section -->
+      <div class="output-section">
+        <div class="section-header">
+          <h2>Base64 Encoded</h2>
+          <button mat-icon-button matTooltip="Copy" (click)="copyToClipboard(encodedText, 'Encoded text')" [disabled]="!encodedText">
+            <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+          </button>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Base64 output</mat-label>
+          <textarea matInput [value]="encodedText" readonly placeholder="Encoded text will appear here..." rows="12" class="text-area output-area"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decode Tab -->
+  <div class="content-section" *ngIf="activeTab === 'decode'">
+    <div class="content-grid">
+      <!-- Input Section -->
+      <div class="input-section">
+        <div class="section-header">
+          <h2>Base64 Encoded</h2>
+          <div class="header-actions">
+            <button mat-icon-button matTooltip="Copy" (click)="copyToClipboard(encodedText, 'Encoded text')" [disabled]="!encodedText">
+              <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+            </button>
+            <button mat-icon-button matTooltip="Clear" (click)="clearAll()">
+              <fa-icon [icon]="['fas', 'trash']" size="sm"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Enter Base64 to decode</mat-label>
+          <textarea matInput [(ngModel)]="encodedText" (ngModelChange)="decodeFromBase64()" placeholder="Paste Base64 encoded text here..." rows="12"
+            class="text-area"></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- Output Section -->
+      <div class="output-section">
+        <div class="section-header">
+          <h2>Decoded Text</h2>
+          <button mat-icon-button matTooltip="Copy" (click)="copyToClipboard(plainText, 'Decoded text')" [disabled]="!plainText">
+            <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+          </button>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Decoded output</mat-label>
+          <textarea matInput [value]="plainText" readonly placeholder="Decoded text will appear here..." rows="12" class="text-area output-area"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <h3>
+      <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      About Base64
+    </h3>
+    <p>
+      Base64 is a binary-to-text encoding scheme that represents binary data in ASCII string format.
+      It's commonly used for encoding data in URLs, encoding credentials, and embedding images in HTML/CSS.
+    </p>
+    <ul>
+      <li>Supports UTF-8 text encoding for international characters</li>
+      <li>Real-time encoding/decoding as you type</li>
+      <li>All processing happens client-side - your data never leaves your browser</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+.tools-container {
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-card {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    .tool-icon fa-icon {
+      transform: scale(1.1);
+      color: var(--primary-color, #3f51b5);
+    }
+
+    .tool-action {
+      color: var(--primary-color, #3f51b5);
+
+      fa-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var(--primary-color, #3f51b5);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    min-height: 280px;
+    justify-content: space-between;
+  }
+}
+
+.tool-icon {
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.6);
+
+  fa-icon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.tool-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.tool-description {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+.tool-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+
+  fa-icon {
+    transition: transform 0.3s ease;
+  }
+}
+
+// Dark theme support
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .tools-container {
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .tool-card {
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .tool-icon {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .tool-name {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .tool-description {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .tool-action {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

@@ -3,14 +3,29 @@
 
 <mat-card appearance="outlined">
   <h2>
+    USDA Receipt for Service
+  </h2>
+  <!-- <img mat-card-image class="project-img" src="../../../assets/img/rfs.jpg" alt="Screenshot of Receipt for Service Application"
+    (click)="openViewImageDialog('../../../assets/img/rfs.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right"> -->
+  <div class="multi-img">
+    <img *ngFor="let number of [1, 2]" mat-card-image class="project-img" [src]="'../../../assets/img/rfs-' + number + '.jpg'" alt="RFS screenshot"
+      (click)="openViewImageDialog('../../../assets/img/rfs-' + number + '.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="below">
+  </div>
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    The Receipt for Service application allows employees to generate the service receipts required by the 2014 Farm Bill.
+    Our team is undertaking a full stack rewrite, bringing the application from legacy ASP.NET Web Forms running on physical servers
+    to Angular/.NET 8 running in AWS Lambda.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <h2>
     USDA FSA Customer Check-in Kiosk
   </h2>
   <img mat-card-image class="project-img" src="../../../assets/img/customer-check-in.jpg" alt="Screenshot of Customer Check-in Application"
     (click)="openViewImageDialog('../../../assets/img/customer-check-in.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right">
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     The FSA Customer Check-in Kiosk allows farmers to check in for their appointment and be put into a queue - similar to checking in at the DMV.
-    Our team is also responsible for rewriting the FSA employee-facing application using Angular and .NET, however as it is an internal application
-    I am not at liberty to divulge additional info!
   </mat-card-content>
 </mat-card>
 

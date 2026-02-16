@@ -7,6 +7,10 @@ import { BuildInfoComponent     } from '@pages/build-info/build-info.component';
 import { PageNotFoundComponent  } from '@pages/page-not-found/page-not-found.component';
 import { AlgorithmsComponent    } from '@pages/algorithms/algorithms.component';
 import { LifeComponent          } from '@pages/life/life.component';
+import { JwtDebuggerComponent   } from '@pages/jwt-debugger/jwt-debugger.component';
+import { ToolsComponent         } from '@pages/tools/tools.component';
+import { SnakeGameComponent     } from '@pages/snake-game/snake-game.component';
+import { Base64ToolComponent    } from '@pages/base64-tool/base64-tool.component';
 
 
 export const appRoutes: Routes = [
@@ -17,6 +21,10 @@ export const appRoutes: Routes = [
   { path: 'build-info', component: BuildInfoComponent },
   { path: 'algorithms', component: AlgorithmsComponent },
   { path: 'life', component: LifeComponent },
+  { path: 'base64-tool', component: Base64ToolComponent },
+  { path: 'tools', component: ToolsComponent },
+  { path: 'jwt-debugger', component: JwtDebuggerComponent },
+  { path: 'snake-game', component: SnakeGameComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

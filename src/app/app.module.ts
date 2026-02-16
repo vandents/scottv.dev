@@ -43,6 +43,10 @@ import { BuildInfoComponent               } from '@pages/build-info/build-info.c
 import { PageNotFoundComponent            } from '@pages/page-not-found/page-not-found.component';
 import { AlgorithmsComponent              } from '@pages/algorithms/algorithms.component';
 import { LifeComponent                    } from '@pages/life/life.component';
+import { JwtDebuggerComponent             } from '@pages/jwt-debugger/jwt-debugger.component';
+import { ToolsComponent                   } from '@pages/tools/tools.component';
+import { SnakeGameComponent               } from '@pages/snake-game/snake-game.component';
+import { Base64ToolComponent              } from '@pages/base64-tool/base64-tool.component';
 
 // Pipes
 import { SafePipe                         } from '@pipes/safe/safe.pipe';
@@ -79,6 +83,10 @@ import { environment                      } from '../environments/environment';
     PageNotFoundComponent,
     AlgorithmsComponent,
     LifeComponent,
+    JwtDebuggerComponent,
+    ToolsComponent,
+    SnakeGameComponent,
+    Base64ToolComponent,
     // Elements
     ToolbarComponent,
     FooterComponent,

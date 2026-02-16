@@ -27,22 +27,22 @@
     </mat-menu>
   </mat-toolbar-row>
 
-  <!-- Portfolio, Life, Games, and Info buttons -->
+  <!-- Portfolio, Tools, Games, and Info buttons -->
   <mat-toolbar-row class="second-row">
     <!-- Portfolio -->
     <a mat-button routerLink="portfolio" routerLinkActive="current" class="toolbar-item">
       Portfolio
     </a>
-    <!-- Life -->
-    <a mat-button routerLink="life" routerLinkActive="current" class="toolbar-item">
-      Life
+    <!-- Tools -->
+    <a mat-button routerLink="tools" routerLinkActive="current" class="toolbar-item">
+      Tools
     </a>
     <!-- Games -->
     <app-menu-auto-open>
       <div trigger>
         <div (click)="$event.stopPropagation();">
           <button mat-button class="toolbar-item"
-            [ngClass]="router.url.includes('game') || router.url.includes('algorithms') ? 'current' : ''">
+            [ngClass]="router.url.includes('game') || router.url.includes('algorithms') || router.url.includes('snake') ? 'current' : ''">
             Games
             &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
           </button>
@@ -53,9 +53,13 @@
           <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
           &nbsp;&nbsp;Algorithms
         </a>
+        <a mat-menu-item routerLink="snake-game" routerLinkActive color="primary">
+          <fa-icon [icon]="['fas', 'dragon']" size="lg"></fa-icon>
+          &nbsp;Snake
+        </a>
         <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
           <fa-icon [icon]="['fas', 'hashtag']" size="lg"></fa-icon>
-          &nbsp;&nbsp;Tic-Tac-Toe
+          &nbsp;&nbsp;&thinsp;Tic-Tac-Toe
         </a>
       </div>
     </app-menu-auto-open>
@@ -63,12 +67,17 @@
     <app-menu-auto-open>
       <div trigger>
         <button (click)="$event.stopPropagation();" mat-button class="toolbar-item"
-          [ngClass]="router.url.includes('build-info') ? 'current' : ''">
+          [ngClass]="router.url.includes('build-info') || router.url.includes('life') ? 'current' : ''">
           Info
           &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
         </button>
       </div>
       <div content>
+        <a mat-menu-item routerLink="life">
+          <fa-icon [icon]="['fas', 'heart']" size="lg"></fa-icon>
+          &nbsp;&nbsp;Life
+        </a>
+
         <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="right" (click)="copyToClipboard(emailAddress)">
           <fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>
           &nbsp;&nbsp;{{ emailAddress }}
@@ -84,7 +93,7 @@
           &nbsp;&nbsp;Build Info
         </a>
 
-        <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/vandentoorn-resume.pdf" download>
+        <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/Scott VandenToorn Resume.pdf" download>
           &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
           &nbsp;&nbsp;Download Resume
         </a>

@@ -1,0 +1,143 @@
+<div class="jwt-debugger-container">
+  <h1>JWT Debugger</h1>
+  <p class="subtitle">Decode and encode JSON Web Tokens</p>
+
+  <div class="content-grid">
+    <!-- Left Panel: Encoded Token -->
+    <div class="encoded-section">
+      <div class="section-header">
+        <h2>Encoded Token</h2>
+        <div class="header-actions">
+          <button mat-icon-button matTooltip="Copy" (click)="copyToken()" [disabled]="!encodedToken">
+            <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+          </button>
+          <button mat-icon-button matTooltip="Clear" (click)="clearAll()">
+            <fa-icon [icon]="['fas', 'trash']" size="sm"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>JWT Token</mat-label>
+        <textarea matInput [(ngModel)]="encodedToken" (ngModelChange)="decodeToken()"
+          placeholder="Paste your JWT token here..." rows="8" class="token-textarea"></textarea>
+      </mat-form-field>
+
+      <div *ngIf="!isValidToken" class="error-message">
+        <fa-icon [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <div *ngIf="isValidToken && encodedToken" class="token-info">
+        <div class="info-item">
+          <fa-icon [icon]="['fas', 'check-circle']" class="success-icon"></fa-icon>
+          <span>Valid JWT format</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Decoded Parts -->
+    <div class="decoded-section">
+      <h2>Decoded Token</h2>
+
+      <div class="decoded-part header-part">
+        <div class="part-label">
+          <fa-icon [icon]="['fas', 'file-code']" size="sm"></fa-icon>
+          <span>Header</span>
+        </div>
+        <pre class="json-display">{{ decodedHeader || 'No header decoded' }}</pre>
+      </div>
+
+      <div class="decoded-part payload-part">
+        <div class="part-label">
+          <fa-icon [icon]="['fas', 'database']" size="sm"></fa-icon>
+          <span>Payload</span>
+        </div>
+        <pre class="json-display">{{ decodedPayload || 'No payload decoded' }}</pre>
+      </div>
+
+      <div class="decoded-part signature-part">
+        <div class="part-label">
+          <fa-icon [icon]="['fas', 'key']" size="sm"></fa-icon>
+          <span>Signature</span>
+        </div>
+        <pre class="signature-display">{{ signature || 'No signature' }}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encoder Section -->
+  <mat-divider style="margin: 32px 0;"></mat-divider>
+
+  <div class="encoder-section">
+    <h2>
+      <fa-icon [icon]="['fas', 'code']" size="sm"></fa-icon>
+      Token Encoder
+    </h2>
+    <p class="encoder-description">Create a new JWT token from header and payload</p>
+
+    <div class="encoder-grid">
+      <div class="encoder-field">
+        <div class="field-header">
+          <label>Header (Algorithm & Token Type)</label>
+          <button mat-button color="primary" (click)="formatJSON('header')" class="format-button">
+            <fa-icon [icon]="['fas', 'magic']" size="sm"></fa-icon>
+            Format
+          </button>
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <textarea matInput [(ngModel)]="headerInput" rows="6" placeholder='{"alg": "HS256", "typ": "JWT"}'
+            class="json-textarea"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="encoder-field">
+        <div class="field-header">
+          <label>Payload (Claims)</label>
+          <button mat-button color="primary" (click)="formatJSON('payload')" class="format-button">
+            <fa-icon [icon]="['fas', 'magic']" size="sm"></fa-icon>
+            Format
+          </button>
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <textarea matInput [(ngModel)]="payloadInput" rows="6" placeholder='{"sub": "1234567890", "name": "John Doe"}'
+            class="json-textarea"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="encoder-field">
+        <label>Algorithm</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Signing Algorithm</mat-label>
+          <mat-select [(ngModel)]="selectedAlgorithm">
+            <mat-option *ngFor="let alg of algorithms" [value]="alg.value">
+              {{ alg.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="encoder-field">
+        <label>Secret Key (for signature)</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Secret</mat-label>
+          <input matInput [(ngModel)]="secretKey" placeholder="your-256-bit-secret" type="password">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="encoder-actions">
+      <button mat-raised-button color="primary" (click)="encodeToken()" class="encode-button">
+        <fa-icon [icon]="['fas', 'lock']" size="sm"></fa-icon>
+        Encode Token
+      </button>
+    </div>
+
+    <div class="encoder-note">
+      <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      <span><strong>Note:</strong> This tool uses the Web Crypto API for HMAC signing with real cryptographic
+        algorithms. Tokens are generated client-side only - your secret
+        keys never leave your browser.</span>
+    </div>
+  </div>
+</div>

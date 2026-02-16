@@ -1,0 +1,110 @@
+<div class="snake-game-container">
+  <h1>Snake</h1>
+  <p class="subtitle">Classic arcade game - Eat food, grow longer, don't crash!</p>
+
+  <!-- Game Stats -->
+  <div class="game-stats">
+    <div class="stat-item">
+      <div class="stat-label">Score</div>
+      <div class="stat-value">{{ gameEngine.score() }}</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">High Score</div>
+      <div class="stat-value">{{ gameEngine.highScore() }}</div>
+    </div>
+  </div>
+
+  <!-- Game Canvas -->
+  <div class="game-wrapper">
+    <canvas
+      #gameCanvas
+      class="game-canvas"
+      [class.game-over]="gameEngine.gameState() === GameState.GAME_OVER">
+    </canvas>
+
+    <!-- Game Over Overlay -->
+    <div
+      class="game-overlay"
+      *ngIf="gameEngine.gameState() === GameState.GAME_OVER">
+      <div class="overlay-content">
+        <h2>Game Over!</h2>
+        <p class="final-score">Final Score: {{ gameEngine.score() }}</p>
+        <button mat-raised-button color="primary" (click)="restartGame()" class="restart-button">
+          <fa-icon [icon]="['fas', 'redo']"></fa-icon>
+          Play Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Start Game Overlay -->
+    <div
+      class="game-overlay"
+      *ngIf="gameEngine.gameState() === GameState.IDLE">
+      <div class="overlay-content">
+        <h2>Ready to Play?</h2>
+        <p class="instructions desktop-instructions">Use arrow keys or WASD to control the snake</p>
+        <p class="instructions mobile-instructions">Use on-screen arrows to control the snake</p>
+        <button mat-raised-button color="primary" (click)="startGame()" class="start-button">
+          <fa-icon [icon]="['fas', 'play']"></fa-icon>
+          Start Game
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Touch Controls -->
+  <div class="mobile-controls" *ngIf="gameEngine.gameState() === GameState.PLAYING">
+    <div class="dpad-container">
+      <button mat-icon-button class="dpad-button up" (click)="handleDirectionClick(Direction.UP)">
+        <fa-icon [icon]="['fas', 'chevron-up']" size="2x"></fa-icon>
+      </button>
+      <div class="dpad-middle">
+        <button mat-icon-button class="dpad-button left" (click)="handleDirectionClick(Direction.LEFT)">
+          <fa-icon [icon]="['fas', 'chevron-left']" size="2x"></fa-icon>
+        </button>
+        <div class="dpad-center"></div>
+        <button mat-icon-button class="dpad-button right" (click)="handleDirectionClick(Direction.RIGHT)">
+          <fa-icon [icon]="['fas', 'chevron-right']" size="2x"></fa-icon>
+        </button>
+      </div>
+      <button mat-icon-button class="dpad-button down" (click)="handleDirectionClick(Direction.DOWN)">
+        <fa-icon [icon]="['fas', 'chevron-down']" size="2x"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Controls Info -->
+  <div class="controls-info">
+    <div class="control-item">
+      <div class="key-group">
+        <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>
+      </div>
+      <span>or</span>
+      <div class="key-group">
+        <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>
+      </div>
+      <span class="control-label">to move</span>
+    </div>
+    <div class="control-item">
+      <div class="key-group">
+        <kbd>Space</kbd>
+      </div>
+      <span class="control-label">to start</span>
+    </div>
+  </div>
+
+  <!-- Game Tips -->
+  <div class="game-tips">
+    <h3>
+      <fa-icon [icon]="['fas', 'lightbulb']"></fa-icon>
+      Tips
+    </h3>
+    <ul>
+      <li>The snake moves continuously - plan ahead!</li>
+      <li>Collect red apples to grow longer and increase your score</li>
+      <li>The game speeds up as your score increases</li>
+      <li>Don't hit walls or your own tail</li>
+      <li>You cannot reverse direction (e.g., can't go left while moving right)</li>
+    </ul>
+  </div>
+</div>

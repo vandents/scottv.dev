@@ -1,0 +1,25 @@
+<div class="tools-container">
+  <h1>Developer Tools</h1>
+  <p class="subtitle">A collection of useful tools for developers</p>
+
+  <div class="tools-grid">
+    <mat-card *ngFor="let tool of tools" class="tool-card" (click)="navigateToTool(tool.route)" tabindex="0"
+      role="button" [attr.aria-label]="'Navigate to ' + tool.name">
+
+      <mat-card-content>
+        <div class="tool-icon">
+          <fa-icon [icon]="tool.icon" size="3x"></fa-icon>
+        </div>
+
+        <h2 class="tool-name">{{ tool.name }}</h2>
+
+        <p class="tool-description">{{ tool.description }}</p>
+
+        <div class="tool-action">
+          <span>{{ tool.actionText }}</span>
+          <fa-icon [icon]="['fas', 'arrow-right']" size="sm"></fa-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

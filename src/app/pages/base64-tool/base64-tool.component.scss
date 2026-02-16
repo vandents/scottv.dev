@@ -1,0 +1,180 @@
+.base64-tool-container {
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+  }
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  justify-content: center;
+
+  .tab-button {
+    min-width: 150px;
+    height: 48px;
+    font-size: 1rem;
+
+    fa-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.content-section {
+  margin-bottom: 32px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-section,
+.output-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+      svg {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-area {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.output-area {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.info-section {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 32px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.87);
+
+    fa-icon {
+      color: #2196F3;
+    }
+  }
+
+  p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 24px;
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.7);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.output-area {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+// Dark theme support
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .base64-tool-container {
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .output-area {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .info-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    h3 {
+      color: rgba(255, 255, 255, 0.87);
+    }
+
+    p, ul li {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+:host ::ng-deep {
+  .header-actions button svg {
+    margin-bottom: 4px !important;
+  }
+
+  .output-section {
+    .mat-mdc-text-field-wrapper,
+    .mat-mdc-form-field-infix {
+      padding: 0;
+    }
+
+    textarea {
+      padding: 16px;
+    }
+  }
+}
