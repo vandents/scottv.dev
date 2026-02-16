@@ -69,7 +69,21 @@ export class LifeComponent {
 
   hobbies: Article[] = [
     {
-      title: `Grand Rapids Marathon`,
+      title: `Spartan Races`,
+      medias: [
+        {
+          src: '../../../assets/img/spartan-1.jpg',
+          alt: 'Logan, Scott and Don'
+        },
+        {
+          src: '../../../assets/img/spartan-2.jpg',
+          alt: 'Don, Scott and Logan'
+        }
+      ],
+      caption: `2025 Orlando Spartan Super 10k Men's 25-29 first place finisher 🏆`
+    },
+    {
+      title: `Distance Running`,
       medias: [
         {
           src: '../../../assets/img/marathon-1.jpg',
@@ -117,10 +131,14 @@ export class LifeComponent {
         },
         {
           src: '../../../assets/img/workout-2.jpg',
-          alt: `Scott deadlifting`
+          alt: `Scott deadlifting 475 pounds`
+        },
+        {
+          src: '../../../assets/img/workout-3.jpg',
+          alt: `Scott benching 315 pounds`
         }
       ],
-      caption: `500lb deadlift and counting!`
+      caption: `500lb deadlift, 315lb bench and counting!`
     }
   ];
 
