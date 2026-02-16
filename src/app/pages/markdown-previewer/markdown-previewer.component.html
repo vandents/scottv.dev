@@ -1,0 +1,88 @@
+<div class="markdown-previewer-container">
+  <h1>Markdown Previewer</h1>
+  <p class="subtitle">Preview GitHub Flavored Markdown with syntax highlighting</p>
+
+  <!-- Action Bar -->
+  <div class="action-bar">
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" (click)="loadSample()">
+        <fa-icon [icon]="['fas', 'file-code']" size="md"></fa-icon>
+        Load Sample
+      </button>
+      <button mat-raised-button (click)="clearAll()">
+        <fa-icon [icon]="['fas', 'trash']" size="md"></fa-icon>
+        Clear
+      </button>
+      <button mat-raised-button (click)="copyMarkdown()">
+        <fa-icon [icon]="['fas', 'copy']" size="md"></fa-icon>
+        Copy Markdown
+      </button>
+      <button mat-raised-button (click)="copyHtml()">
+        <fa-icon [icon]="['fas', 'code']" size="md"></fa-icon>
+        Copy HTML
+      </button>
+    </div>
+
+    <div class="options">
+      <mat-checkbox [(ngModel)]="enableGfm" (change)="onInputChange()">
+        GitHub Flavored Markdown
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="enableLineBreaks" (change)="onInputChange()">
+        Line Breaks
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Input/Output Grid -->
+  <div class="content-grid">
+    <!-- Input Section -->
+    <div class="input-section">
+      <div class="section-header">
+        <h2>Markdown Input</h2>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter Markdown</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="markdownInput"
+          (ngModelChange)="onInputChange()"
+          placeholder="Type or paste your markdown here..."
+          rows="25"
+          class="markdown-textarea"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output-section">
+      <div class="section-header">
+        <h2>Preview</h2>
+      </div>
+
+      <div class="preview-container" [innerHTML]="htmlOutput"></div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <h3>
+      <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      Markdown Guide
+    </h3>
+    <p>This previewer supports GitHub Flavored Markdown (GFM) with the following features:</p>
+    <ul>
+      <li><strong>Headers:</strong> Use # for H1, ## for H2, ### for H3</li>
+      <li><strong>Bold:</strong> **text** or __text__</li>
+      <li><strong>Italic:</strong> *text* or _text_</li>
+      <li><strong>Strikethrough:</strong> ~~text~~</li>
+      <li><strong>Code:</strong> `inline code` or ```language for code blocks</li>
+      <li><strong>Links:</strong> [text](url)</li>
+      <li><strong>Images:</strong> ![alt](url)</li>
+      <li><strong>Lists:</strong> Use -, *, or + for unordered, 1. for ordered</li>
+      <li><strong>Task Lists:</strong> - [ ] or - [x]</li>
+      <li><strong>Tables:</strong> Use | to separate columns</li>
+      <li><strong>Blockquotes:</strong> Use > at the start of lines</li>
+    </ul>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { SnakeGameComponent     } from '@pages/snake-game/snake-game.component';
 import { Base64ToolComponent    } from '@pages/base64-tool/base64-tool.component';
 import { DiffCheckerComponent   } from '@pages/diff-checker/diff-checker.component';
 import { JsonFormatterComponent } from '@pages/json-formatter/json-formatter.component';
+import { MarkdownPreviewerComponent } from '@pages/markdown-previewer/markdown-previewer.component';
 
 
 export const appRoutes: Routes = [
@@ -27,6 +28,7 @@ export const appRoutes: Routes = [
   { path: 'base64-tool', component: Base64ToolComponent },
   { path: 'diff-checker', component: DiffCheckerComponent },
   { path: 'json-formatter', component: JsonFormatterComponent },
+  { path: 'markdown-previewer', component: MarkdownPreviewerComponent },
   { path: 'jwt-debugger', component: JwtDebuggerComponent },
   { path: 'snake-game', component: SnakeGameComponent },
   { path: '**', component: PageNotFoundComponent }

@@ -40,6 +40,13 @@ export class ToolsComponent implements OnInit {
       actionText: 'Format JSON'
     },
     {
+      name: 'Markdown Previewer',
+      description: 'Preview GitHub Flavored Markdown with syntax highlighting',
+      icon: ['fas', 'file-code'],
+      route: '/markdown-previewer',
+      actionText: 'Preview markdown'
+    },
+    {
       name: 'JWT Debugger',
       description: 'Encode and decode JSON Web Tokens',
       icon: ['fas', 'key'],

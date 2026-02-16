@@ -50,6 +50,7 @@ import { SnakeGameComponent               } from '@pages/snake-game/snake-game.c
 import { Base64ToolComponent              } from '@pages/base64-tool/base64-tool.component';
 import { DiffCheckerComponent             } from '@pages/diff-checker/diff-checker.component';
 import { JsonFormatterComponent           } from '@pages/json-formatter/json-formatter.component';
+import { MarkdownPreviewerComponent       } from '@pages/markdown-previewer/markdown-previewer.component';
 
 // Pipes
 import { SafePipe                         } from '@pipes/safe/safe.pipe';
@@ -92,6 +93,7 @@ import { environment                      } from '../environments/environment';
     Base64ToolComponent,
     DiffCheckerComponent,
     JsonFormatterComponent,
+    MarkdownPreviewerComponent,
     // Elements
     ToolbarComponent,
     FooterComponent,
