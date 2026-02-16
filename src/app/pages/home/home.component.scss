@@ -54,8 +54,69 @@
 }
 
 .welcome-text-desktop {
-  max-width: 55%;
+  flex: 1;
   padding-left: 24px;
+  padding-right: 24px;
+}
+
+.welcome-buttons-desktop {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: center;
+  min-width: 200px;
+
+  button, a {
+    white-space: nowrap;
+
+    fa-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.welcome-buttons-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  margin: 0;
+
+  button, a {
+    width: 100%;
+
+    fa-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+/********************************
+ * Theme-specific styles
+ ********************************/
+
+:host-context(.light-theme) {
+  .welcome-buttons-desktop ::ng-deep button.mat-primary,
+  .welcome-buttons-mobile ::ng-deep button.mat-primary {
+    background-color: rgb(57, 79, 116) !important;
+    color: white !important;
+  }
+}
+
+:host-context(.dark-theme) {
+  .welcome-buttons-desktop ::ng-deep a.mat-mdc-raised-button,
+  .welcome-buttons-mobile ::ng-deep a.mat-mdc-raised-button {
+    background-color: rgb(13, 17, 22) !important;
+    color: white !important;
+  }
+}
+
+:host-context(.black-theme) {
+  .welcome-buttons-desktop ::ng-deep a.mat-mdc-raised-button,
+  .welcome-buttons-mobile ::ng-deep a.mat-mdc-raised-button {
+    background-color: black !important;
+    color: white !important;
+  }
 }
 
 @media(max-width: 500px) {

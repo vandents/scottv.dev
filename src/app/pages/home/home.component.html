@@ -1,17 +1,37 @@
-<h1 *ngIf="browser.isScreen500()">Welcome!</h1>
+<h1 *ngIf="browser.isScreen767()">Welcome!</h1>
 <mat-card class="welcome-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="avi"></div>
-    <h1 *ngIf="!browser.isScreen500()" style="margin-left: 16px;">Welcome!</h1>
-    <span *ngIf="browser.isScreen500()" class="welcome-text-desktop card-text">
+    <h1 *ngIf="!browser.isScreen767()" style="margin-left: 16px;">Welcome!</h1>
+    <span *ngIf="browser.isScreen767()" class="welcome-text-desktop card-text">
       Greetings! I'm Scott VandenToorn, on the lookout for the next chapter in my engineering career.
       Delighted to have you visit my personal website; your interest is greatly appreciated!
     </span>
+    <div *ngIf="browser.isScreen767()" class="welcome-buttons-desktop">
+      <button mat-raised-button color="primary" routerLink="/portfolio">
+        <fa-icon [icon]="['fas', 'briefcase']" size="lg" style="margin-right: 0;"></fa-icon>
+        View My Work
+      </button>
+      <a mat-raised-button href="assets/Scott VandenToorn Resume.pdf" download="Scott_VandenToorn_Resume.pdf">
+        <fa-icon [icon]="['fas', 'download']" size="lg" style="margin-right: 0;"></fa-icon>
+        Download Resume
+      </a>
+    </div>
   </mat-card-header>
-  <mat-card-content *ngIf="!browser.isScreen500()">
+  <mat-card-content *ngIf="!browser.isScreen767()">
     Greetings! I'm Scott VandenToorn, on the lookout for the next chapter in my engineering career.
     Delighted to have you visit my personal website; your interest is greatly appreciated!
   </mat-card-content>
+  <mat-card-actions *ngIf="!browser.isScreen767()" class="welcome-buttons-mobile">
+    <button mat-raised-button color="primary" routerLink="/portfolio">
+      <fa-icon [icon]="['fas', 'briefcase']" size="lg" style="margin-right: 0;"></fa-icon>
+      View My Work
+    </button>
+    <a mat-raised-button href="assets/Scott VandenToorn Resume.pdf" download="Scott_VandenToorn_Resume.pdf">
+      <fa-icon [icon]="['fas', 'download']" size="lg" style="margin-right: 0;"></fa-icon>
+      Download Resume
+    </a>
+  </mat-card-actions>
 </mat-card>
 
 
@@ -81,7 +101,7 @@
 <div class="row">
   <div class="col-md-12">
     <mat-card appearance="outlined" class="programming-card">
-      <p>
+      <!-- <p>
         Technologies that I have a high degree of proficiency with.
       </p>
       <h4>IDEs</h4>
@@ -98,7 +118,7 @@
           <fa-icon [icon]="['fab', 'apple']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
           XCode
         </mat-chip-option>
-      </mat-chip-listbox>
+      </mat-chip-listbox> -->
 
       <h4 class="know-h4">Languages</h4>
       <mat-chip-listbox>
