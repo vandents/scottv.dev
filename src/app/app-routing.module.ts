@@ -11,6 +11,8 @@ import { JwtDebuggerComponent   } from '@pages/jwt-debugger/jwt-debugger.compone
 import { ToolsComponent         } from '@pages/tools/tools.component';
 import { SnakeGameComponent     } from '@pages/snake-game/snake-game.component';
 import { Base64ToolComponent    } from '@pages/base64-tool/base64-tool.component';
+import { DiffCheckerComponent   } from '@pages/diff-checker/diff-checker.component';
+import { JsonFormatterComponent } from '@pages/json-formatter/json-formatter.component';
 
 
 export const appRoutes: Routes = [
@@ -21,8 +23,10 @@ export const appRoutes: Routes = [
   { path: 'build-info', component: BuildInfoComponent },
   { path: 'algorithms', component: AlgorithmsComponent },
   { path: 'life', component: LifeComponent },
-  { path: 'base64-tool', component: Base64ToolComponent },
   { path: 'tools', component: ToolsComponent },
+  { path: 'base64-tool', component: Base64ToolComponent },
+  { path: 'diff-checker', component: DiffCheckerComponent },
+  { path: 'json-formatter', component: JsonFormatterComponent },
   { path: 'jwt-debugger', component: JwtDebuggerComponent },
   { path: 'snake-game', component: SnakeGameComponent },
   { path: '**', component: PageNotFoundComponent }

@@ -1,0 +1,124 @@
+<div class="diff-checker-container">
+  <h1>Diff Checker</h1>
+  <p class="subtitle">Compare two text blocks and see the differences highlighted</p>
+
+  <!-- Options Bar -->
+  <div class="options-bar">
+    <mat-form-field appearance="outline" class="mode-select">
+      <mat-label>Diff Mode</mat-label>
+      <mat-select [(value)]="diffMode" (valueChange)="compareTexts()">
+        <mat-option value="lines">Lines</mat-option>
+        <mat-option value="words">Words</mat-option>
+        <mat-option value="characters">Characters</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="checkbox-group">
+      <mat-checkbox [(ngModel)]="ignoreCase" (ngModelChange)="compareTexts()">Ignore Case</mat-checkbox>
+      <mat-checkbox [(ngModel)]="ignoreWhitespace" (ngModelChange)="compareTexts()">Ignore Whitespace</mat-checkbox>
+    </div>
+
+    <div class="action-buttons">
+      <button mat-raised-button (click)="clearAll()">
+        <fa-icon [icon]="['fas', 'trash']" size="sm"></fa-icon>
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-grid">
+    <div class="input-section">
+      <div class="section-header">
+        <h2>Original Text</h2>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter original text</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="originalText"
+          (ngModelChange)="compareTexts()"
+          placeholder="Type or paste original text here..."
+          rows="15"
+          class="text-area"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="input-section">
+      <div class="section-header">
+        <h2>Modified Text</h2>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter modified text</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="modifiedText"
+          (ngModelChange)="compareTexts()"
+          placeholder="Type or paste modified text here..."
+          rows="15"
+          class="text-area"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <div class="results-header">
+      <h2>Diff Results</h2>
+      <div class="results-actions">
+        <button mat-icon-button matTooltip="Copy Diff" (click)="copyDiff()">
+          <fa-icon [icon]="['fas', 'copy']" size="sm"></fa-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Diff Display -->
+    <div class="diff-display">
+      <div class="diff-content">
+        <span
+          *ngFor="let result of diffResults; let i = index"
+          [class]="'diff-item diff-' + result.type"
+          [class.space-separator]="diffMode !== 'characters' && isWhitespace(result.value)">{{ diffMode === 'lines' && i > 0 ? '\n' : '' }}{{ result.value }}</span>
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-label">Additions:</span>
+        <span class="stat-value additions">{{ getStats().additions }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Deletions:</span>
+        <span class="stat-value deletions">{{ getStats().deletions }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Unchanged:</span>
+        <span class="stat-value">{{ getStats().unchanged }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <h3>
+      <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      About Diff Checker
+    </h3>
+    <p>
+      Compare two text blocks and see exactly what changed. Perfect for comparing code versions,
+      config files, or any text content.
+    </p>
+    <ul>
+      <li><strong>Lines Mode:</strong> Compare text line by line (best for code and structured text)</li>
+      <li><strong>Words Mode:</strong> Compare word by word (useful for prose and documentation)</li>
+      <li><strong>Characters Mode:</strong> Compare character by character (most detailed)</li>
+      <li><strong>Ignore Case:</strong> Treat uppercase and lowercase as the same</li>
+      <li><strong>Ignore Whitespace:</strong> Ignore spaces, tabs, and extra whitespace</li>
+    </ul>
+  </div>
+</div>

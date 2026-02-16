@@ -6,12 +6,6 @@
     font-size: 2.5rem;
     font-weight: 500;
   }
-
-  .subtitle {
-    color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-  }
 }
 
 .tools-grid {
@@ -110,12 +104,6 @@
 // Dark theme support
 :host-context(.dark-theme),
 :host-context(.black-theme) {
-  .tools-container {
-    .subtitle {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-
   .tool-card {
     &:hover {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);

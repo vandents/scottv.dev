@@ -83,19 +83,24 @@
           &nbsp;&nbsp;{{ emailAddress }}
         </button>
 
-        <a mat-menu-item href="https://github.com/vandents" target="_blank" matTooltip="Open GitHub" matTooltipPosition="right">
+        <a mat-menu-item href="https://github.com/vandents" target="_blank">
           <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
-          &nbsp;&nbsp;vandents
+          &nbsp;&nbsp;GitHub
+        </a>
+
+        <a mat-menu-item href="https://www.linkedin.com/in/scott-vandentoorn" target="_blank">
+          <fa-icon [icon]="['fab', 'linkedin']" size="lg"></fa-icon>
+          &nbsp;&nbsp;&thinsp;LinkedIn
         </a>
 
         <a mat-menu-item routerLink="build-info">
           <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>
-          &nbsp;&nbsp;Build Info
+          &nbsp;&thinsp;Build Info
         </a>
 
         <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/Scott VandenToorn Resume.pdf" download>
-          &nbsp;<fa-icon [icon]="['fas', 'file-pdf']" size="lg"></fa-icon>
-          &nbsp;&nbsp;Download Resume
+          &nbsp;<fa-icon [icon]="['fas', 'download']" size="lg"></fa-icon>
+          &nbsp;Download Resume
         </a>
       </div>
     </app-menu-auto-open>

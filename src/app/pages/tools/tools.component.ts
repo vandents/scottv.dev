@@ -26,6 +26,20 @@ export class ToolsComponent implements OnInit {
       actionText: 'Encode or decode'
     },
     {
+      name: 'Diff Checker',
+      description: 'Compare two text blocks and see the differences highlighted',
+      icon: ['fas', 'code-branch'],
+      route: '/diff-checker',
+      actionText: 'Compare texts'
+    },
+    {
+      name: 'JSON Formatter',
+      description: 'Beautify, minify, and validate JSON with ease',
+      icon: ['fas', 'magic'],
+      route: '/json-formatter',
+      actionText: 'Format JSON'
+    },
+    {
       name: 'JWT Debugger',
       description: 'Encode and decode JSON Web Tokens',
       icon: ['fas', 'key'],

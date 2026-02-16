@@ -95,6 +95,7 @@ $black-app-theme: mat.define-dark-theme((
 @include mat.menu-theme($light-app-theme);
 @include mat.icon-theme($light-app-theme);
 @include mat.select-theme($light-app-theme);
+@include mat.checkbox-theme($light-app-theme);
 
 .black-theme {
   @include mat.core-color($black-app-theme);
@@ -115,6 +116,7 @@ $black-app-theme: mat.define-dark-theme((
   @include mat.menu-color($black-app-theme);
   @include mat.icon-color($black-app-theme);
   @include mat.select-color($black-app-theme);
+  @include mat.checkbox-color($black-app-theme);
 
   .mat-app-background,
   .mat-toolbar { background-color: #000000; color: rgb(236, 236, 236) }
@@ -122,6 +124,49 @@ $black-app-theme: mat.define-dark-theme((
   .mat-mdc-card { background-color: #1a1a1a; color: rgb(236, 236, 236) }
   .mat-menu { background-color: #1a1a1a; color: rgb(236, 236, 236) }
   .mat-dialog-container { background-color: #1a1a1a; color: rgb(236, 236, 236) }
+
+  // Fix form field labels and borders visibility
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      background-color: #1a1a1a !important;
+    }
+
+    // Ensure labels are visible
+    .mat-mdc-floating-label {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    // Ensure focused labels are visible
+    &.mat-focused .mat-mdc-floating-label {
+      color: rgba(255, 255, 255, 0.87) !important;
+    }
+
+    // Ensure borders are visible
+    .mat-mdc-form-field-bottom-align::before {
+      display: none;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline__leading,
+    .mdc-text-field--outlined .mdc-notched-outline__notch,
+    .mdc-text-field--outlined .mdc-notched-outline__trailing {
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    // Ensure focused borders are visible
+    &.mat-focused {
+      .mdc-text-field--outlined .mdc-notched-outline__leading,
+      .mdc-text-field--outlined .mdc-notched-outline__notch,
+      .mdc-text-field--outlined .mdc-notched-outline__trailing {
+        border-color: rgba(255, 255, 255, 0.87) !important;
+      }
+    }
+
+    // Ensure input text is visible
+    input, textarea {
+      color: rgba(255, 255, 255, 0.87) !important;
+      caret-color: rgba(255, 255, 255, 0.87) !important;
+    }
+  }
 }
 
 .dark-theme {
@@ -144,6 +189,7 @@ $black-app-theme: mat.define-dark-theme((
   @include mat.icon-color($dark-app-theme);
   @include mat.select-color($dark-app-theme);
   @include mat.sidenav-color($dark-app-theme);
+  @include mat.checkbox-color($dark-app-theme);
 
   .mat-expansion-panel,
   .mat-mdc-dialog-surface,
@@ -179,6 +225,7 @@ $black-app-theme: mat.define-dark-theme((
   @include mat.menu-color($light-app-theme);
   @include mat.icon-color($light-app-theme);
   @include mat.select-color($light-app-theme);
+  @include mat.checkbox-color($light-app-theme);
 
   .mat-toolbar {
     background-color: rgb(246, 248, 250);

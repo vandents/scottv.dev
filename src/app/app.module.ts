@@ -1,5 +1,6 @@
 // Angular Modules
 import { MatButtonModule                  } from '@angular/material/button';
+import { MatCheckboxModule                } from '@angular/material/checkbox';
 import { MatExpansionModule               } from '@angular/material/expansion';
 import { MatGridListModule                } from '@angular/material/grid-list';
 import { MatInputModule                   } from '@angular/material/input';
@@ -47,6 +48,8 @@ import { JwtDebuggerComponent             } from '@pages/jwt-debugger/jwt-debugg
 import { ToolsComponent                   } from '@pages/tools/tools.component';
 import { SnakeGameComponent               } from '@pages/snake-game/snake-game.component';
 import { Base64ToolComponent              } from '@pages/base64-tool/base64-tool.component';
+import { DiffCheckerComponent             } from '@pages/diff-checker/diff-checker.component';
+import { JsonFormatterComponent           } from '@pages/json-formatter/json-formatter.component';
 
 // Pipes
 import { SafePipe                         } from '@pipes/safe/safe.pipe';
@@ -87,6 +90,8 @@ import { environment                      } from '../environments/environment';
     ToolsComponent,
     SnakeGameComponent,
     Base64ToolComponent,
+    DiffCheckerComponent,
+    JsonFormatterComponent,
     // Elements
     ToolbarComponent,
     FooterComponent,
@@ -111,6 +116,7 @@ import { environment                      } from '../environments/environment';
     CommonModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatChipsModule,
     MatDialogModule,
     MatDividerModule,

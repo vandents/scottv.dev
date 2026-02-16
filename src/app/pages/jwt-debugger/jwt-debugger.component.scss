@@ -6,12 +6,6 @@
     font-size: 2.5rem;
     font-weight: 500;
   }
-
-  .subtitle {
-    color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 32px;
-    font-size: 1.1rem;
-  }
 }
 
 .content-grid {
@@ -248,13 +242,64 @@
   }
 }
 
+// Light theme support
+:host-context(.light-theme) {
+  ::ng-deep .encode-button.mat-primary {
+    background-color: rgb(57, 79, 116) !important;
+    color: white !important;
+  }
+}
+
 // Dark theme support
-:host-context(.dark-theme),
-:host-context(.black-theme) {
-  .jwt-debugger-container {
-    .subtitle {
+:host-context(.dark-theme) {
+  .error-message {
+    background-color: rgba(198, 40, 40, 0.1);
+    color: #ef5350;
+    border-left-color: #ef5350;
+  }
+
+  .token-info .info-item {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: #66bb6a;
+    border-left-color: #66bb6a;
+  }
+
+  .decoded-part {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    .part-label {
       color: rgba(255, 255, 255, 0.7);
     }
+
+    .json-display,
+    .signature-display {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.87);
+    }
+  }
+
+  .encoder-section {
+    .encoder-description {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .encoder-field label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .encoder-note {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+:host-context(.black-theme) {
+  ::ng-deep .encode-button.mat-primary {
+    background-color: white !important;
+    color: rgba(0, 0, 0, 0.87) !important;
   }
 
   .error-message {

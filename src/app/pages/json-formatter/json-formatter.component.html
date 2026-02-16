@@ -1,0 +1,111 @@
+<div class="json-formatter-container">
+  <h1>JSON Formatter</h1>
+  <p class="subtitle">Beautify, minify, and validate JSON with ease</p>
+
+  <!-- Action Bar -->
+  <div class="action-bar">
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" (click)="beautify()">
+        <fa-icon [icon]="['fas', 'magic']" size="md"></fa-icon>
+        Beautify
+      </button>
+      <button mat-raised-button (click)="minify()">
+        <fa-icon [icon]="['fas', 'bold']" size="md"></fa-icon>
+        Minify
+      </button>
+      <button mat-raised-button (click)="loadSample()">
+        <fa-icon [icon]="['fas', 'file-code']" size="md"></fa-icon>
+        Load Sample
+      </button>
+      <button mat-raised-button (click)="clearAll()">
+        <fa-icon [icon]="['fas', 'trash']" size="md"></fa-icon>
+        Clear
+      </button>
+    </div>
+
+    <mat-form-field appearance="outline" class="indent-select">
+      <mat-label>Indentation</mat-label>
+      <mat-select [(value)]="indentation">
+        <mat-option value="2">2 Spaces</mat-option>
+        <mat-option value="4">4 Spaces</mat-option>
+        <mat-option value="tab">Tabs</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Validation Status -->
+  <div *ngIf="!isValid && errorMessage" class="error-message">
+    <fa-icon [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+  <div *ngIf="isValid" class="success-message">
+    <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
+    <span>Valid JSON</span>
+  </div>
+
+  <!-- Input/Output Grid -->
+  <div class="content-grid">
+    <!-- Input Section -->
+    <div class="input-section">
+      <div class="section-header">
+        <h2 style="margin-bottom: 6px">Input JSON</h2>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter JSON</mat-label>
+        <textarea matInput [(ngModel)]="inputJson" (ngModelChange)="onInputChange()" placeholder="Paste your JSON here..." rows="20" class="json-textarea"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output-section">
+      <div class="section-header">
+        <h2>Formatted Output</h2>
+        <button mat-icon-button matTooltip="Copy" (click)="copyOutput()" [disabled]="!outputJson" style="margin-bottom: -12px">
+          <fa-icon [icon]="['fas', 'copy']" size="md"></fa-icon>
+        </button>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Formatted JSON</mat-label>
+        <textarea matInput [value]="outputJson" readonly placeholder="Formatted output will appear here..." rows="20" class="json-textarea output-area"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Statistics Bar -->
+  <div class="stats-bar" *ngIf="outputJson">
+    <div class="stat">
+      <span class="stat-label">Size:</span>
+      <span class="stat-value">{{ stats.size }} bytes</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Keys:</span>
+      <span class="stat-value">{{ stats.keys }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Depth:</span>
+      <span class="stat-value">{{ stats.depth }}</span>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <h3>
+      <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      About JSON Formatter
+    </h3>
+    <p>
+      This tool helps you format, validate, and analyze JSON data. You can beautify messy JSON,
+      minify it for production, or validate its structure.
+    </p>
+    <ul>
+      <li><strong>Beautify:</strong> Format JSON with proper indentation for readability</li>
+      <li><strong>Minify:</strong> Remove all whitespace to reduce file size</li>
+      <li><strong>Validate:</strong> Check if your JSON syntax is correct</li>
+      <li><strong>Statistics:</strong> View size, key count, and maximum depth</li>
+      <li>All processing happens client-side - your data never leaves your browser</li>
+    </ul>
+  </div>
+</div>

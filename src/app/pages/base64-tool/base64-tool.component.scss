@@ -6,12 +6,6 @@
     font-size: 2.5rem;
     font-weight: 500;
   }
-
-  .subtitle {
-    color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 32px;
-    font-size: 1.1rem;
-  }
 }
 
 .tab-buttons {
@@ -135,13 +129,46 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+// Light theme support
+:host-context(.light-theme) {
+  .tab-buttons ::ng-deep .tab-button.mat-primary {
+    background-color: rgb(57, 79, 116) !important;
+    color: white !important;
+  }
+}
+
 // Dark theme support
-:host-context(.dark-theme),
-:host-context(.black-theme) {
-  .base64-tool-container {
-    .subtitle {
+:host-context(.dark-theme) {
+  .tab-buttons ::ng-deep .tab-button:not(.mat-primary) {
+    background-color: rgb(38, 41, 46) !important;
+  }
+
+  .output-area {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .info-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    h3 {
+      color: rgba(255, 255, 255, 0.87);
+    }
+
+    p, ul li {
       color: rgba(255, 255, 255, 0.7);
     }
+  }
+}
+
+:host-context(.black-theme) {
+  .tab-buttons ::ng-deep .tab-button.mat-primary {
+    background-color: white !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+
+  .tab-buttons ::ng-deep .tab-button:not(.mat-primary) {
+    background-color: rgb(38, 41, 46) !important;
   }
 
   .output-area {

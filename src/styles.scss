@@ -105,3 +105,15 @@ mat-dialog-container {
     max-width: 100% !important;
   }
 }
+
+/* Global subtitle styling */
+.subtitle {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+.dark-theme .subtitle,
+.black-theme .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
