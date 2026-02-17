@@ -28,7 +28,7 @@ jobs:
           npx ts-node ./src/set-env.ts "$ENVIRONMENT" 2>&1 | tee /dev/tty
 
           echo -e "\033[34mBuilding application...\033[0m" 2>&1 | tee /dev/tty
-          npm run build 2>&1 | tee /dev/tty
+          npm run build --loglevel=error 2>&1 | tee /dev/tty
 
           cd ..
 
