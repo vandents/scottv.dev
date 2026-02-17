@@ -10,20 +10,50 @@ jobs:
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
+          echo "========================================="
+          echo "Starting deployment at $(date)"
+          echo "========================================="
+
+          echo "Cleaning up old scottv.dev directory..."
           if [ -d "./scottv.dev" ]; then rm -Rf ./scottv.dev; fi
+
+          echo "Cloning repository..."
           git clone https://github.com/vandents/scottv.dev.git
           cd scottv.dev
+
+          echo "Installing dependencies..."
           npm i --loglevel=error
+
+          echo "Setting environment variables..."
           npx ts-node ./src/set-env.ts "$ENVIRONMENT"
-          npm run build
+
+          echo "Building application..."
+          npm run build 2>&1 | tee /dev/tty
+
           cd ..
+
+          echo "Cleaning up old scottv-pages directory..."
           if [ -d "./scottv-pages" ]; then rm -Rf ./scottv-pages; fi
+
+          echo "Cloning gh-pages branch..."
           git clone https://github.com/vandents/scottv.dev.git scottv-pages
           cd scottv-pages
           git checkout gh-pages
+
+          echo "Removing old files from gh-pages..."
           rm -r *
+
+          echo "Copying new build files..."
           mv ../scottv.dev/dist/browser/* ./
           cp index.html 404.html
+
+          echo "Committing changes..."
           git add -A
-          git commit -m "Uploading from self-hosted runner"
+          git commit -m "Uploading from self-hosted runner at $(date)"
+
+          echo "Pushing to GitHub..."
           git push
+
+          echo "========================================="
+          echo "Deployment completed at $(date)"
+          echo "========================================="
