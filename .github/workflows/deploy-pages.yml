@@ -10,50 +10,50 @@ jobs:
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
-          echo "=========================================" 2>&1 | tee /dev/tty
-          echo "Starting deployment at $(date)" 2>&1 | tee /dev/tty
-          echo "=========================================" 2>&1 | tee /dev/tty
+          echo -e $'\033[34m\n=========================================\033[0m' 2>&1 | tee /dev/tty
+          echo -e "\033[34mStarting deployment at $(date)\033[0m" 2>&1 | tee /dev/tty
+          echo -e $'\033[34m=========================================\n\033[0m' 2>&1 | tee /dev/tty
 
-          echo "Cleaning up old scottv.dev directory..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCleaning up old scottv.dev directory...\033[0m" 2>&1 | tee /dev/tty
           if [ -d "./scottv.dev" ]; then rm -Rf ./scottv.dev; fi
 
-          echo "Cloning repository..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCloning repository...\033[0m" 2>&1 | tee /dev/tty
           git clone https://github.com/vandents/scottv.dev.git 2>&1 | tee /dev/tty
           cd scottv.dev
 
-          echo "Installing dependencies..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mInstalling dependencies...\033[0m" 2>&1 | tee /dev/tty
           npm i 2>&1 | tee /dev/tty
 
-          echo "Setting environment variables..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mSetting environment variables...\033[0m" 2>&1 | tee /dev/tty
           npx ts-node ./src/set-env.ts "$ENVIRONMENT" 2>&1 | tee /dev/tty
 
-          echo "Building application..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mBuilding application...\033[0m" 2>&1 | tee /dev/tty
           npm run build 2>&1 | tee /dev/tty
 
           cd ..
 
-          echo "Cleaning up old scottv-pages directory..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCleaning up old scottv-pages directory...\033[0m" 2>&1 | tee /dev/tty
           if [ -d "./scottv-pages" ]; then rm -Rf ./scottv-pages; fi
 
-          echo "Cloning gh-pages branch..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCloning gh-pages branch...\033[0m" 2>&1 | tee /dev/tty
           git clone https://github.com/vandents/scottv.dev.git scottv-pages 2>&1 | tee /dev/tty
           cd scottv-pages
           git checkout gh-pages 2>&1 | tee /dev/tty
 
-          echo "Removing old files from gh-pages..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mRemoving old files from gh-pages...\033[0m" 2>&1 | tee /dev/tty
           rm -r * 2>&1 | tee /dev/tty
 
-          echo "Copying new build files..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCopying new build files...\033[0m" 2>&1 | tee /dev/tty
           mv ../scottv.dev/dist/browser/* ./ 2>&1 | tee /dev/tty
           cp index.html 404.html 2>&1 | tee /dev/tty
 
-          echo "Committing changes..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mCommitting changes...\033[0m" 2>&1 | tee /dev/tty
           git add -A 2>&1 | tee /dev/tty
           git commit -m "Uploading from self-hosted runner at $(date)" 2>&1 | tee /dev/tty
 
-          echo "Pushing to GitHub..." 2>&1 | tee /dev/tty
+          echo -e "\033[34mPushing to GitHub...\033[0m" 2>&1 | tee /dev/tty
           git push 2>&1 | tee /dev/tty
 
-          echo "=========================================" 2>&1 | tee /dev/tty
-          echo "Deployment completed at $(date)" 2>&1 | tee /dev/tty
-          echo "=========================================" 2>&1 | tee /dev/tty
+          echo -e $'\033[34m\n=========================================\033[0m' 2>&1 | tee /dev/tty
+          echo -e "\033[34mDeployment completed at $(date)\033[0m" 2>&1 | tee /dev/tty
+          echo -e $'\033[34m=========================================\n\033[0m' 2>&1 | tee /dev/tty
