@@ -10,50 +10,50 @@ jobs:
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         run: |
-          echo "========================================="
-          echo "Starting deployment at $(date)"
-          echo "========================================="
+          echo "=========================================" 2>&1 | tee /dev/tty
+          echo "Starting deployment at $(date)" 2>&1 | tee /dev/tty
+          echo "=========================================" 2>&1 | tee /dev/tty
 
-          echo "Cleaning up old scottv.dev directory..."
+          echo "Cleaning up old scottv.dev directory..." 2>&1 | tee /dev/tty
           if [ -d "./scottv.dev" ]; then rm -Rf ./scottv.dev; fi
 
-          echo "Cloning repository..."
-          git clone https://github.com/vandents/scottv.dev.git
+          echo "Cloning repository..." 2>&1 | tee /dev/tty
+          git clone https://github.com/vandents/scottv.dev.git 2>&1 | tee /dev/tty
           cd scottv.dev
 
-          echo "Installing dependencies..."
-          npm i --loglevel=error
+          echo "Installing dependencies..." 2>&1 | tee /dev/tty
+          npm i 2>&1 | tee /dev/tty
 
-          echo "Setting environment variables..."
-          npx ts-node ./src/set-env.ts "$ENVIRONMENT"
+          echo "Setting environment variables..." 2>&1 | tee /dev/tty
+          npx ts-node ./src/set-env.ts "$ENVIRONMENT" 2>&1 | tee /dev/tty
 
-          echo "Building application..."
+          echo "Building application..." 2>&1 | tee /dev/tty
           npm run build 2>&1 | tee /dev/tty
 
           cd ..
 
-          echo "Cleaning up old scottv-pages directory..."
+          echo "Cleaning up old scottv-pages directory..." 2>&1 | tee /dev/tty
           if [ -d "./scottv-pages" ]; then rm -Rf ./scottv-pages; fi
 
-          echo "Cloning gh-pages branch..."
-          git clone https://github.com/vandents/scottv.dev.git scottv-pages
+          echo "Cloning gh-pages branch..." 2>&1 | tee /dev/tty
+          git clone https://github.com/vandents/scottv.dev.git scottv-pages 2>&1 | tee /dev/tty
           cd scottv-pages
-          git checkout gh-pages
+          git checkout gh-pages 2>&1 | tee /dev/tty
 
-          echo "Removing old files from gh-pages..."
-          rm -r *
+          echo "Removing old files from gh-pages..." 2>&1 | tee /dev/tty
+          rm -r * 2>&1 | tee /dev/tty
 
-          echo "Copying new build files..."
-          mv ../scottv.dev/dist/browser/* ./
-          cp index.html 404.html
+          echo "Copying new build files..." 2>&1 | tee /dev/tty
+          mv ../scottv.dev/dist/browser/* ./ 2>&1 | tee /dev/tty
+          cp index.html 404.html 2>&1 | tee /dev/tty
 
-          echo "Committing changes..."
-          git add -A
-          git commit -m "Uploading from self-hosted runner at $(date)"
+          echo "Committing changes..." 2>&1 | tee /dev/tty
+          git add -A 2>&1 | tee /dev/tty
+          git commit -m "Uploading from self-hosted runner at $(date)" 2>&1 | tee /dev/tty
 
-          echo "Pushing to GitHub..."
-          git push
+          echo "Pushing to GitHub..." 2>&1 | tee /dev/tty
+          git push 2>&1 | tee /dev/tty
 
-          echo "========================================="
-          echo "Deployment completed at $(date)"
-          echo "========================================="
+          echo "=========================================" 2>&1 | tee /dev/tty
+          echo "Deployment completed at $(date)" 2>&1 | tee /dev/tty
+          echo "=========================================" 2>&1 | tee /dev/tty
