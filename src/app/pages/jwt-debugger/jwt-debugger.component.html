@@ -53,7 +53,19 @@
           <fa-icon [icon]="['fas', 'database']" size="sm"></fa-icon>
           <span>Payload</span>
         </div>
-        <pre class="json-display">{{ decodedPayload || 'No payload decoded' }}</pre>
+        <pre class="json-display" *ngIf="!decodedPayloadObject">{{ decodedPayload || 'No payload decoded' }}</pre>
+        <div class="json-display-interactive" *ngIf="decodedPayloadObject">
+          &#123;<br>
+          <span *ngFor="let key of getKeys(decodedPayloadObject); let last = last" class="json-line">
+            &nbsp;&nbsp;"{{ key }}": 
+            <span 
+              *ngIf="isTimestampField(key, decodedPayloadObject[key])" 
+              class="timestamp-value"
+              [matTooltip]="formatTimestamp(decodedPayloadObject[key])"
+              matTooltipPosition="right">{{ decodedPayloadObject[key] }}</span><span *ngIf="!isTimestampField(key, decodedPayloadObject[key])">{{ getValueString(decodedPayloadObject[key]) }}</span><span *ngIf="!last">,</span><br>
+          </span>
+          &#125;
+        </div>
       </div>
 
       <div class="decoded-part signature-part">

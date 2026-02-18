@@ -21,6 +21,7 @@ export class JwtDebuggerComponent implements OnInit {
   // Decoded parts
   decodedHeader = '';
   decodedPayload = '';
+  decodedPayloadObject: any = null;
   signature = '';
 
   // For encoding
@@ -82,6 +83,7 @@ export class JwtDebuggerComponent implements OnInit {
       // Decode payload
       const payload = JSON.parse(this.base64UrlDecode(parts[1]));
       this.decodedPayload = JSON.stringify(payload, null, 2);
+      this.decodedPayloadObject = payload;
 
       // Store signature (not decoded, as it's binary)
       this.signature = parts[2];
@@ -91,8 +93,70 @@ export class JwtDebuggerComponent implements OnInit {
       this.errorMessage = error instanceof Error ? error.message : 'Invalid JWT token';
       this.decodedHeader = '';
       this.decodedPayload = '';
+      this.decodedPayloadObject = null;
       this.signature = '';
     }
+  }
+
+  /**
+   * Check if a field name or value is a timestamp
+   */
+  isTimestampField(key: string, value: any): boolean {
+    // Common JWT timestamp fields
+    const timestampFields = ['iat', 'exp', 'nbf', 'auth_time', 'updated_at', 'created_at'];
+    
+    // Check if field name is a known timestamp field
+    if (timestampFields.includes(key.toLowerCase())) {
+      return true;
+    }
+    
+    // Check if value looks like a Unix timestamp (10 digits, reasonable date range)
+    if (typeof value === 'number') {
+      const timestamp = value;
+      // Check if it's a 10-digit number (seconds since epoch)
+      // Between year 2000 and 2100
+      if (timestamp > 946684800 && timestamp < 4102444800) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  /**
+   * Format timestamp to human-readable date
+   */
+  formatTimestamp(timestamp: number): string {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZoneName: 'short'
+    });
+  }
+
+  /**
+   * Get object keys for template iteration
+   */
+  getKeys(obj: any): string[] {
+    return obj ? Object.keys(obj) : [];
+  }
+
+  /**
+   * Get formatted JSON value as string
+   */
+  getValueString(value: any): string {
+    if (typeof value === 'string') {
+      return `"${value}"`;
+    }
+    if (typeof value === 'object' && value !== null) {
+      return JSON.stringify(value, null, 2);
+    }
+    return String(value);
   }
 
   /**
@@ -231,6 +295,7 @@ export class JwtDebuggerComponent implements OnInit {
     this.encodedToken = '';
     this.decodedHeader = '';
     this.decodedPayload = '';
+    this.decodedPayloadObject = null;
     this.signature = '';
     this.isValidToken = true;
     this.errorMessage = '';

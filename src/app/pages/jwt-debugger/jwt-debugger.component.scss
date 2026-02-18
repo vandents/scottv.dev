@@ -130,6 +130,36 @@
     max-height: 200px;
     overflow-y: auto;
   }
+
+  .json-display-interactive {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 12px;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+
+    .json-line {
+      display: inline;
+    }
+
+    .timestamp-value {
+      color: #1976d2;
+      cursor: help;
+      border-bottom: 1px dotted #1976d2;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #0d47a1;
+        border-bottom-style: solid;
+        background-color: rgba(25, 118, 210, 0.1);
+      }
+    }
+  }
 }
 
 .header-part {
@@ -278,6 +308,22 @@
       border-color: rgba(255, 255, 255, 0.12);
       color: rgba(255, 255, 255, 0.87);
     }
+
+    .json-display-interactive {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.87);
+
+      .timestamp-value {
+        color: #64b5f6;
+        border-bottom-color: #64b5f6;
+
+        &:hover {
+          color: #90caf9;
+          background-color: rgba(100, 181, 246, 0.1);
+        }
+      }
+    }
   }
 
   .encoder-section {
@@ -327,6 +373,22 @@
       background: rgba(0, 0, 0, 0.2);
       border-color: rgba(255, 255, 255, 0.12);
       color: rgba(255, 255, 255, 0.87);
+    }
+
+    .json-display-interactive {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.87);
+
+      .timestamp-value {
+        color: #64b5f6;
+        border-bottom-color: #64b5f6;
+
+        &:hover {
+          color: #90caf9;
+          background-color: rgba(100, 181, 246, 0.1);
+        }
+      }
     }
   }
 
