@@ -104,12 +104,12 @@ export class JwtDebuggerComponent implements OnInit {
   isTimestampField(key: string, value: any): boolean {
     // Common JWT timestamp fields
     const timestampFields = ['iat', 'exp', 'nbf', 'auth_time', 'updated_at', 'created_at'];
-    
+
     // Check if field name is a known timestamp field
     if (timestampFields.includes(key.toLowerCase())) {
       return true;
     }
-    
+
     // Check if value looks like a Unix timestamp (10 digits, reasonable date range)
     if (typeof value === 'number') {
       const timestamp = value;
@@ -119,7 +119,7 @@ export class JwtDebuggerComponent implements OnInit {
         return true;
       }
     }
-    
+
     return false;
   }
 

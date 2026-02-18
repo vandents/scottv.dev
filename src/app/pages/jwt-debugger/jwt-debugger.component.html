@@ -57,9 +57,9 @@
         <div class="json-display-interactive" *ngIf="decodedPayloadObject">
           &#123;<br>
           <span *ngFor="let key of getKeys(decodedPayloadObject); let last = last" class="json-line">
-            &nbsp;&nbsp;"{{ key }}": 
-            <span 
-              *ngIf="isTimestampField(key, decodedPayloadObject[key])" 
+            &nbsp;&nbsp;"{{ key }}":
+            <span
+              *ngIf="isTimestampField(key, decodedPayloadObject[key])"
               class="timestamp-value"
               [matTooltip]="formatTimestamp(decodedPayloadObject[key])"
               matTooltipPosition="right">{{ decodedPayloadObject[key] }}</span><span *ngIf="!isTimestampField(key, decodedPayloadObject[key])">{{ getValueString(decodedPayloadObject[key]) }}</span><span *ngIf="!last">,</span><br>
