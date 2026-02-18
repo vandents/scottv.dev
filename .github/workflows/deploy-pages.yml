@@ -59,7 +59,11 @@ jobs:
 
           echo -e "\033[34mInstalling GitHub CLI if needed...\033[0m" 2>&1 | tee /dev/tty
           if ! command -v gh &> /dev/null; then
-            brew install gh 2>&1 | tee /dev/tty
+            echo -e "\033[34mDownloading GitHub CLI...\033[0m" 2>&1 | tee /dev/tty
+            curl -sL https://github.com/cli/cli/releases/download/v2.43.1/gh_2.43.1_macOS_amd64.zip -o /tmp/gh.zip 2>&1 | tee /dev/tty
+            unzip -q /tmp/gh.zip -d /tmp 2>&1 | tee /dev/tty
+            sudo mv /tmp/gh_2.43.1_macOS_amd64/bin/gh /usr/local/bin/ 2>&1 | tee /dev/tty
+            rm -rf /tmp/gh* 2>&1 | tee /dev/tty
           fi
 
           echo -e "\033[34mUpdating GitHub Pages custom domain...\033[0m" 2>&1 | tee /dev/tty
