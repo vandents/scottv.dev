@@ -10,3 +10,5 @@ This site uses GitHub actions and a self-hosted runner to continously integrate 
 The runner executes a YAML file located at `.github/workflows/deploy-pages.yml`.
 
 Note: Start the runner by running `zsh run.sh` in the actions-runner directory.
+
+Note: May need to add/remove domain and re-check Enforce HTTPS checkbox after deploying.
