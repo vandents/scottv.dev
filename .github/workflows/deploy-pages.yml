@@ -12,7 +12,7 @@ jobs:
         shell: bash
         env:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           echo -e $'\033[34m\n=========================================\033[0m' 2>&1 | tee /dev/tty
           echo -e "\033[34mStarting deployment at $(date)\033[0m" 2>&1 | tee /dev/tty
