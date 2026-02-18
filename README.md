@@ -11,4 +11,4 @@ The runner executes a YAML file located at `.github/workflows/deploy-pages.yml`.
 
 Note: Start the runner by running `zsh run.sh` in the actions-runner directory.
 
-Note: May need to add/remove domain and re-check Enforce HTTPS checkbox after deploying.
+Note: Need to re-add custom domain (www.scottv.dev) in GitHub pages settings after deploying.
