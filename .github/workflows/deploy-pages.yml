@@ -1,6 +1,9 @@
 name: deploy-pages
 run-name: Building and deploying to GitHub pages
 on: [push]
+permissions:
+  contents: write
+  pages: write
 jobs:
   deploy-pages:
     runs-on: self-hosted
