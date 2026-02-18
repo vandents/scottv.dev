@@ -5,7 +5,6 @@ mat-card {
 
 .no-link:hover {
   cursor: default;
-  color: rgba(255, 255, 255, 0.7);
 }
 
 .flex-box {
@@ -27,5 +26,20 @@ mat-card {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+  }
+}
+
+// Light theme support
+:host-context(.light-theme) {
+  .no-link:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+// Dark theme support
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .no-link:hover {
+    color: rgba(255, 255, 255, 0.7);
   }
 }
