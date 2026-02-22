@@ -49,8 +49,10 @@ import { environment                      } from '../environments/environment';
   ],
   providers: [
     provideAnimations(),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    ...(typeof window !== 'undefined' ? [
+      provideFirebaseApp(() => initializeApp(environment.firebase)),
+      provideFirestore(() => getFirestore()),
+    ] : []),
     AlgorithmService,
     BrowserService,
     DeviceDetectorService,

@@ -43,15 +43,17 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
   ) {
     this.title.setTitle('Scott VandenToorn - Snake Game');
 
-    // React to game state changes
-    effect(() => {
-      const state = this.gameEngine.gameState();
-      if (state === GameState.PLAYING && !this.animationFrameId) {
-        this.startGameLoop();
-      } else if (state !== GameState.PLAYING && this.animationFrameId) {
-        this.stopGameLoop();
-      }
-    });
+    // React to game state changes (browser only - no requestAnimationFrame on server)
+    if (isPlatformBrowser(this.platformId)) {
+      effect(() => {
+        const state = this.gameEngine.gameState();
+        if (state === GameState.PLAYING && !this.animationFrameId) {
+          this.startGameLoop();
+        } else if (state !== GameState.PLAYING && this.animationFrameId) {
+          this.stopGameLoop();
+        }
+      });
+    }
   }
 
   ngOnInit(): void {
@@ -121,6 +123,8 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyboardInput(event: KeyboardEvent): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const keyMap: { [key: string]: Direction } = {
       'ArrowUp': Direction.UP,
       'ArrowDown': Direction.DOWN,
