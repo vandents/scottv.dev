@@ -5,6 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
  * Component to automatically open a mat menu on hover
  */
 @Component({
+  standalone: false,
   selector: 'app-menu-auto-open',
   templateUrl: './menu-auto-open.component.html',
   styleUrl: './menu-auto-open.component.scss'

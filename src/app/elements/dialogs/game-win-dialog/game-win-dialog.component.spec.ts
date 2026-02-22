@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameWinDialogComponent } from './game-win-dialog.component';
 
@@ -6,7 +6,7 @@ describe('GameWinDialogComponent', () => {
   let component: GameWinDialogComponent;
   let fixture: ComponentFixture<GameWinDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GameWinDialogComponent ]
     })

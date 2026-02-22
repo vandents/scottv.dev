@@ -1,4 +1,4 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* To learn more about this file see: https://angular.dev/reference/configs/workspace-config */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
@@ -12,12 +12,11 @@
       "@pages/*":         ["src/app/pages/*"],
       "@services/*":      ["src/app/services/*"],
       "@assets/*":        ["src/app/assets/*"],
-      "@pipes/*":         ["src/app/pipes/*"],
+      "@pipes/*":         ["src/app/pipes/*"]
     }
   },
   "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
+    "src/main.ts"
   ],
   "include": [
     "src/**/*.d.ts"

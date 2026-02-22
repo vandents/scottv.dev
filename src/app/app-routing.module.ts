@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'portfolio', component: ProjectsComponent },
-  { path: 'game', component: GameComponent },
+  { path: 'tic-tac-toe', component: GameComponent },
   { path: 'build-info', component: BuildInfoComponent },
   { path: 'algorithms', component: AlgorithmsComponent },
   { path: 'life', component: LifeComponent },
@@ -30,7 +30,7 @@ export const appRoutes: Routes = [
   { path: 'json-formatter', component: JsonFormatterComponent },
   { path: 'markdown-previewer', component: MarkdownPreviewerComponent },
   { path: 'jwt-debugger', component: JwtDebuggerComponent },
-  { path: 'snake-game', component: SnakeGameComponent },
+  { path: 'snake', component: SnakeGameComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

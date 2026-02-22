@@ -14,6 +14,7 @@ export interface Article {
 }
 
 @Component({
+  standalone: false,
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'

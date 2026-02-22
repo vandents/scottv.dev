@@ -10,6 +10,7 @@ interface DecodedJWT {
 
 /** JWT Debugger page for encoding and decoding JWT tokens */
 @Component({
+  standalone: false,
   selector: 'app-jwt-debugger',
   templateUrl: './jwt-debugger.component.html',
   styleUrls: ['./jwt-debugger.component.scss']

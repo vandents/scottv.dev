@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { Base64ToolComponent } from './base64-tool.component';
@@ -22,9 +22,9 @@ describe('Base64ToolComponent', () => {
         MatInputModule,
         MatButtonModule,
         FormsModule,
-        BrowserAnimationsModule,
         FontAwesomeModule
-      ]
+      ],
+      providers: [ provideNoopAnimations() ]
     })
     .compileComponents();
 

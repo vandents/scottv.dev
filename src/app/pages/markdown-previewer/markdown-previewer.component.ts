@@ -5,6 +5,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /** Markdown Previewer page */
 @Component({
+  standalone: false,
   selector: 'app-markdown-previewer',
   templateUrl: './markdown-previewer.component.html',
   styleUrls: ['./markdown-previewer.component.scss']

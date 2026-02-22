@@ -12,6 +12,7 @@ interface JsonStats {
 
 /** JSON Formatter page */
 @Component({
+  standalone: false,
   selector: 'app-json-formatter',
   templateUrl: './json-formatter.component.html',
   styleUrls: ['./json-formatter.component.scss']

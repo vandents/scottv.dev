@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { AlgorithmService, Algos } from '@services/algorithm-service/algorithm.service';
 import { Title } from '@angular/platform-browser';
 import { BrowserService } from '@services/browser-service/browser.service';
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
  * A neat component for displaying various sorting algorithms in real time
  */
 @Component({
+  standalone: false,
   selector: 'app-algorithms',
   templateUrl: './algorithms.component.html',
   styleUrls: ['./algorithms.component.scss']
@@ -20,12 +21,14 @@ export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
   algos: typeof Algos;
   numElements: number;
   private widthSub: Subscription;
+  private sortCompleteSub: Subscription;
 
 
   constructor(
     public algoServ: AlgorithmService,
     private title: Title,
-    private browser: BrowserService
+    private browser: BrowserService,
+    private cdr: ChangeDetectorRef
   ) {
     this.title.setTitle('Scott VandenToorn - Algorithms');
     this.algorithms = algoServ.getAlgorithms();
@@ -42,6 +45,10 @@ export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.widthSub = this.browser.widthChanges.subscribe((width: number) => {
       if (width <= 500) this.numElements = this.numElements > 150 ? 100 : this.numElements;
     });
+
+    this.sortCompleteSub = this.algoServ.sortComplete$.subscribe(() => {
+      this.cdr.detectChanges();
+    });
   }
 
   ngAfterViewInit() {
@@ -54,6 +61,7 @@ export class AlgorithmsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy() {
     this.widthSub.unsubscribe();
+    this.sortCompleteSub.unsubscribe();
   }
 
 

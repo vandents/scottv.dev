@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewImageDialogComponent } from './view-image-dialog.component';
 
@@ -6,7 +6,7 @@ describe('ViewImageDialogComponent', () => {
   let component: ViewImageDialogComponent;
   let fixture: ComponentFixture<ViewImageDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewImageDialogComponent ]
     })

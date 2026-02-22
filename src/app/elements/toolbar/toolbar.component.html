@@ -42,7 +42,7 @@
       <div trigger>
         <div (click)="$event.stopPropagation();">
           <button mat-button class="toolbar-item"
-            [ngClass]="router.url.includes('game') || router.url.includes('algorithms') || router.url.includes('snake') ? 'current' : ''">
+            [ngClass]="router.url.includes('tic-tac-toe') || router.url.includes('algorithms') || router.url.includes('snake') ? 'current' : ''">
             Games
             &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
           </button>
@@ -53,11 +53,11 @@
           <fa-icon [icon]="['fas', 'sort-numeric-up-alt']" size="lg"></fa-icon>
           &nbsp;&nbsp;Algorithms
         </a>
-        <a mat-menu-item routerLink="snake-game" routerLinkActive color="primary">
+        <a mat-menu-item routerLink="snake" routerLinkActive color="primary">
           <fa-icon [icon]="['fas', 'dragon']" size="lg"></fa-icon>
           &nbsp;Snake
         </a>
-        <a mat-menu-item routerLink="game" routerLinkActive #ttt="routerLinkActive" color="primary">
+        <a mat-menu-item routerLink="tic-tac-toe" routerLinkActive #ttt="routerLinkActive" color="primary">
           <fa-icon [icon]="['fas', 'hashtag']" size="lg"></fa-icon>
           &nbsp;&nbsp;&thinsp;Tic-Tac-Toe
         </a>

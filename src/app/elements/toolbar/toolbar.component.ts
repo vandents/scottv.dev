@@ -7,6 +7,7 @@ import { ThemeService, ThemeType } from '@services/theme-service/theme.service';
 
 /** The navigation bar at the top of the screen */
 @Component({
+  standalone: false,
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']

@@ -9,7 +9,7 @@ import { MatSelectModule                  } from '@angular/material/select';
 import { MatToolbarModule                 } from '@angular/material/toolbar';
 import { BrowserModule                    } from '@angular/platform-browser';
 import { NgModule                         } from '@angular/core';
-import { BrowserAnimationsModule          } from '@angular/platform-browser/animations';
+import { provideAnimations                } from '@angular/platform-browser/animations';
 import { MatCardModule                    } from '@angular/material/card';
 import { MatTooltipModule                 } from '@angular/material/tooltip';
 import { MatDividerModule                 } from '@angular/material/divider';
@@ -109,12 +109,9 @@ import { environment                      } from '../environments/environment';
     SafePipe
   ],
   imports: [
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
     AppIconsModule,
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
     CommonModule,
     MatButtonModule,
     MatCardModule,
@@ -137,6 +134,9 @@ import { environment                      } from '../environments/environment';
     CarouselModule
   ],
   providers: [
+    provideAnimations(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     AlgorithmService,
     BrowserService,
     DeviceDetectorService,

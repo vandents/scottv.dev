@@ -8,6 +8,7 @@ import { SnakeGameEngineService, Direction, GameState } from '@services/snake-ga
  * Game logic is delegated to SnakeGameEngineService
  */
 @Component({
+  standalone: false,
   selector: 'app-snake-game',
   templateUrl: './snake-game.component.html',
   styleUrls: ['./snake-game.component.scss']

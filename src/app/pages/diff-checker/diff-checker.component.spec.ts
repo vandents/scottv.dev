@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -6,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { DiffCheckerComponent } from './diff-checker.component';
@@ -26,9 +26,9 @@ describe('DiffCheckerComponent', () => {
         MatSelectModule,
         MatCheckboxModule,
         FormsModule,
-        BrowserAnimationsModule,
         FontAwesomeModule
-      ]
+      ],
+      providers: [ provideNoopAnimations() ]
     })
     .compileComponents();
 

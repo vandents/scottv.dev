@@ -63,3 +63,26 @@ button {
 .icon-person { margin-top: 26px; }
 
 .icon-robot-lost { margin-top: 25px; }
+
+
+/********************************
+ * Animations (animate.enter / animate.leave)
+ ********************************/
+
+/* fade enter: opacity 0→1 in 1300ms */
+@keyframes fade-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-enter {
+  animation: fade-enter 1300ms ease;
+}
+
+/* fade leave: opacity 1→0.465 + color change in 1000ms */
+@keyframes fade-leave {
+  from { opacity: 1; }
+  to { opacity: 0.465; color: rgb(36, 36, 36); }
+}
+.fade-leave {
+  animation: fade-leave 1000ms ease;
+}

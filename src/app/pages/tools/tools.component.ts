@@ -12,6 +12,7 @@ interface Tool {
 
 /** Tools page displaying available developer tools */
 @Component({
+  standalone: false,
   selector: 'app-tools',
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.scss']

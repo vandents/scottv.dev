@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 /** Base64 Encoder/Decoder page */
 @Component({
+  standalone: false,
   selector: 'app-base64-tool',
   templateUrl: './base64-tool.component.html',
   styleUrls: ['./base64-tool.component.scss']

@@ -11,6 +11,7 @@ type DiffMode = 'characters' | 'words' | 'lines';
 
 /** Diff Checker page for comparing text */
 @Component({
+  standalone: false,
   selector: 'app-diff-checker',
   templateUrl: './diff-checker.component.html',
   styleUrls: ['./diff-checker.component.scss']

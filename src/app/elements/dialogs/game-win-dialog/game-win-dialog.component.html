@@ -8,15 +8,15 @@
 
   <!------------------ Losers (fade out) ------------------>
   <!-- X won, show O -->
-  <div *ngIf="xWin && !animateLoser" class="icon-container icon-o" [class.robot-padding]="robotWin" [@fade]="'out'">o</div>
+  <div *ngIf="xWin && !animateLoser" class="icon-container icon-o" [class.robot-padding]="robotWin" [animate.leave]="'fade-leave'">o</div>
   <div *ngIf="xWin && resting" [style.color]="restColor" class="icon-container icon-o">o</div>
 
   <!-- O won, show X -->
-  <div *ngIf="oWin && !animateLoser" class="icon-container icon-x" [@fade]="'out'">X</div>
+  <div *ngIf="oWin && !animateLoser" class="icon-container icon-x" [animate.leave]="'fade-leave'">X</div>
   <div *ngIf="oWin && resting" [style.color]="restColor" class="icon-container icon-x">X</div>
 
   <!-- Robot won, show person -->
-  <div *ngIf="robotWin && !animateLoser" class="icon-container icon-person" [class.robot-padding]="robotWin" [@fade]="'out'">
+  <div *ngIf="robotWin && !animateLoser" class="icon-container icon-person" [class.robot-padding]="robotWin" [animate.leave]="'fade-leave'">
     <fa-icon [icon]="['fas', 'user']" size="9x"></fa-icon>
   </div>
   <div *ngIf="robotWin && resting" class="icon-container icon-person" [class.robot-padding]="robotWin" [style.color]="restColor">
@@ -24,7 +24,7 @@
   </div>
 
   <!-- Robot Lost, show robot -->
-  <div *ngIf="robotLose && !animateLoser" class="icon-container icon-robot-lost" [@fade]="'out'">
+  <div *ngIf="robotLose && !animateLoser" class="icon-container icon-robot-lost" [animate.leave]="'fade-leave'">
     <fa-icon [icon]="['fas', 'robot']" size="9x"></fa-icon>
   </div>
   <div *ngIf="robotLose && resting" class="icon-container icon-robot-lost" [style.color]="restColor">
@@ -33,15 +33,15 @@
 
   <!------------------ Winners (fade in) ------------------>
   <!-- Skull icon fade in -->
-  <div *ngIf="animateWinner && !robotWin" class="icon-container" [@fade]="'in'">
+  <div *ngIf="animateWinner && !robotWin" class="icon-container" [animate.enter]="'fade-enter'">
     <fa-icon [icon]="['fas', 'skull-crossbones']" size="7x" class="icon-skull"></fa-icon>
   </div>
 
   <!-- Robot icon fade in -->
-  <div *ngIf="animateWinner && robotWin" class="icon-container icon-robot" [class.robot-padding]="robotWin" [@fade]="'in'">
+  <div *ngIf="animateWinner && robotWin" class="icon-container icon-robot" [class.robot-padding]="robotWin" [animate.enter]="'fade-enter'">
     <fa-icon [icon]="['fas', 'robot']" size="7x" class="icon-skull"></fa-icon>
   </div>
 
-  <div *ngIf="animateMessage && robotWin" class="icon-container message" [class.robot-padding]="robotWin" [@fade]="'in'">{{ message }}</div>
+  <div *ngIf="animateMessage && robotWin" class="icon-container message" [class.robot-padding]="robotWin" [animate.enter]="'fade-enter'">{{ message }}</div>
   <button mat-raised-button [mat-dialog-close] color="primary">Close</button>
 </mat-card>

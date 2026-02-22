@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameWinDialogComponent } from '@dialogs/game-win-dialog/game-win-dialog.component';
 import { ChooseCompetitorDialogComponent } from '@dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
 import { BrowserService } from '@services/browser-service/browser.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
 import { ThemeService } from '@services/theme-service/theme.service';
 import { Subscription } from 'rxjs';
@@ -48,30 +47,10 @@ interface Board {
  * trying to follow.
  */
 @Component({
+  standalone: false,
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss'],
-  animations: [
-    trigger('fastFade', [   // Board icons
-      state('in', style({ opacity: 1 })),
-      transition(':enter', [style({ opacity: 0.5 }), animate(300)]),
-      transition(':leave', animate(350, style({ opacity: 0 })))
-    ]),
-    trigger('mediumFade', [ // "Current Player" icons
-      state('in', style({ opacity: 1 })),
-      transition(':enter', [style({ opacity: 0.2 }), animate(450)])
-    ]),
-    trigger('blue', [       // Winning icons
-      state('in', style({ color: '#007bff' })),
-      transition(':enter', [style({ opacity: 0.5 }), animate(400)]),
-      transition(':leave', animate(350, style({ opacity: 0.3 })))
-    ]),
-    trigger('grey', [       // Losing icons
-      state('in', style({ color: '#333333' })),
-      transition(':enter', [style({ opacity: 0.5 }), animate(400)]),
-      transition(':leave', animate(350, style({ opacity: 0.3 })))
-    ])
-  ]
+  styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
   /** True -> x's turn, false -> o/robot's turn */
@@ -95,7 +74,8 @@ export class GameComponent implements OnInit {
     private title: Title,
     public browser: BrowserService,
     private firebaseService: FirebaseService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    private cdr: ChangeDetectorRef
   ) {
     this.title.setTitle('Scott VandenToorn - Game');
   }
@@ -127,6 +107,7 @@ export class GameComponent implements OnInit {
     if (this.isRobot && !this.isTurnX) {
       setTimeout(() => {
         this.robotMove(true);
+        this.cdr.detectChanges();
       }, 1250);
     }
   }
@@ -169,6 +150,8 @@ export class GameComponent implements OnInit {
       this.toggleTurn();
     }
 
+    this.cdr.detectChanges();
+
     if (this.isRobotTurn()) {
       const turnTimeout = 700;
       if (this.checkForWinner()) {
@@ -177,6 +160,7 @@ export class GameComponent implements OnInit {
       } else {
         setTimeout(() => {
           this.robotMove();
+          this.cdr.detectChanges();
           if (this.checkForWinner()) {
             this.openGameWinDialog();
             this.updateFirebase();
@@ -487,7 +471,10 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.initBoard();
       this.isRobot = result;
-      if (this.isRobot && !this.isTurnX) this.robotMove(true);
+      if (this.isRobot && !this.isTurnX) {
+        this.robotMove(true);
+        this.cdr.detectChanges();
+      }
 
       if (this.isRobot !== true) {
         this.snackBar.open(`We all know you're really playing against yourself`, '', {

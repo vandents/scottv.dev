@@ -5,6 +5,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
 
 
 @Component({
+  standalone: false,
   selector: 'app-life',
   templateUrl: './life.component.html',
   styleUrl: './life.component.scss'

@@ -1,4 +1,4 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { fromEvent } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { fromEvent } from 'rxjs';
   providedIn: 'root'
 })
 export class BrowserService {
-  @Output() public widthChanges: EventEmitter<number>;
+  public widthChanges: EventEmitter<number>;
 
 
   constructor(private deviceServ: DeviceDetectorService) {
@@ -62,12 +62,12 @@ export class BrowserService {
 
   /** @returns {boolean} true if browser is Safari */
   isSafari(): boolean {
-    return this.deviceServ.browser.toLowerCase() === 'safari';
+    return this.deviceServ.browser().toLowerCase() === 'safari';
   }
 
   /** @returns {boolean} true if browser is Instagram */
   isInstagram(): boolean {
-    return this.deviceServ.browser.toLowerCase() === 'instagram';
+    return this.deviceServ.browser().toLowerCase() === 'instagram';
   }
 
 }

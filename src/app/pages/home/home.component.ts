@@ -6,6 +6,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
 
 /** Home page */
 @Component({
+  standalone: false,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

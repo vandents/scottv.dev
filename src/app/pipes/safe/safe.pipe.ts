@@ -8,6 +8,7 @@ import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl
  * https://stackoverflow.com/questions/37927657/img-unsafe-value-used-in-a-resource-url-context
  */
 @Pipe({
+  standalone: false,
   name: 'safe'
 })
 export class SafePipe implements PipeTransform {

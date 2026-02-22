@@ -15,6 +15,7 @@ export interface Dependency {
 
 /** Page for displaying build and dependency info */
 @Component({
+  standalone: false,
   selector: 'app-build-info',
   templateUrl: './build-info.component.html',
   styleUrls: ['./build-info.component.scss']

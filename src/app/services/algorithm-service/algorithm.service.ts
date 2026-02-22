@@ -1,6 +1,6 @@
 import { Injectable, ElementRef, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { BrowserService } from '@services/browser-service/browser.service';
 import { ThemeService } from '@services/theme-service/theme.service';
 
@@ -38,6 +38,8 @@ export class AlgorithmService implements OnDestroy {
   private greenIDX = -1;
   /** Subscribes to changes in the browser width */
   private widthSub: Subscription;
+  /** Emits after a sort completes and values are reset */
+  public sortComplete$ = new Subject<void>();
 
 
   constructor(
@@ -78,6 +80,7 @@ export class AlgorithmService implements OnDestroy {
           this.updateChart();
           this._isProcessing = false;
           this._isSorted = true;
+          this.sortComplete$.next();
         });
         break;
 
@@ -275,6 +278,7 @@ export class AlgorithmService implements OnDestroy {
     this.greenIDX = -1;
 
     this.updateChart();
+    this.sortComplete$.next();
   }
 
 

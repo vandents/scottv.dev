@@ -277,3 +277,75 @@ mat-card-content { margin: 0; }
   }
   .robot-turn { margin-top: 15px !important; }
 }
+
+
+/********************************
+ * Animations (animate.enter / animate.leave)
+ ********************************/
+
+/* fastFade: Board icons - enter opacity 0.5→1 in 300ms */
+@keyframes fast-fade-enter {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+.fast-fade-enter {
+  animation: fast-fade-enter 300ms ease;
+}
+
+/* fastFade: Board icons - leave opacity 1→0 in 350ms */
+@keyframes fast-fade-leave {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.fast-fade-leave {
+  animation: fast-fade-leave 350ms ease;
+}
+
+/* mediumFade: "Current Player" icons - enter opacity 0.2→1 in 450ms */
+@keyframes medium-fade-enter {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+.medium-fade-enter {
+  animation: medium-fade-enter 450ms ease;
+}
+
+/* blue: Winning icons - enter opacity 0.5→1 in 400ms, color #007bff */
+@keyframes blue-enter {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+.blue-enter {
+  color: #007bff;
+  animation: blue-enter 400ms ease;
+}
+
+/* blue: Winning icons - leave opacity 1→0.3 in 350ms */
+@keyframes blue-leave {
+  from { opacity: 1; }
+  to { opacity: 0.3; }
+}
+.blue-leave {
+  color: #007bff;
+  animation: blue-leave 350ms ease;
+}
+
+/* grey: Losing icons - enter opacity 0.5→1 in 400ms, color #333 */
+@keyframes grey-enter {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+.grey-enter {
+  color: #333333;
+  animation: grey-enter 400ms ease;
+}
+
+/* grey: Losing icons - leave opacity 1→0.3 in 350ms */
+@keyframes grey-leave {
+  from { opacity: 1; }
+  to { opacity: 0.3; }
+}
+.grey-leave {
+  color: #333333;
+  animation: grey-leave 350ms ease;
+}

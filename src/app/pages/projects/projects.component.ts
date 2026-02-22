@@ -8,6 +8,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
 
 /** Projects page */
 @Component({
+  standalone: false,
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']

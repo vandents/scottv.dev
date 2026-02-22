@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JwtDebuggerComponent } from './jwt-debugger.component';
@@ -24,9 +24,9 @@ describe('JwtDebuggerComponent', () => {
         MatButtonModule,
         MatDividerModule,
         FormsModule,
-        BrowserAnimationsModule,
         FontAwesomeModule
-      ]
+      ],
+      providers: [ provideNoopAnimations() ]
     })
     .compileComponents();
 
