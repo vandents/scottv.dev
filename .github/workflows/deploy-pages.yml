@@ -48,7 +48,7 @@ jobs:
           rm -r * 2>&1 | tee /dev/tty
 
           echo -e "\033[34mCopying new build files...\033[0m" 2>&1 | tee /dev/tty
-          mv ../scottv.dev/dist/browser/* ./ 2>&1 | tee /dev/tty
+          mv ../scottv.dev/dist/scottvdev/browser/* ./ 2>&1 | tee /dev/tty
           cp index.html 404.html 2>&1 | tee /dev/tty
 
           echo -e "\033[34mCommitting changes...\033[0m" 2>&1 | tee /dev/tty
