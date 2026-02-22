@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, effect } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, effect, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { SnakeGameEngineService, Direction, GameState } from '@services/snake-game-engine/snake-game-engine.service';
+import { SharedModule } from '@app/shared.module';
 
 /**
  * Snake Game Component
@@ -8,7 +10,8 @@ import { SnakeGameEngineService, Direction, GameState } from '@services/snake-ga
  * Game logic is delegated to SnakeGameEngineService
  */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-snake-game',
   templateUrl: './snake-game.component.html',
   styleUrls: ['./snake-game.component.scss']
@@ -32,6 +35,7 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
   // Expose enums to template
   readonly GameState = GameState;
   readonly Direction = Direction;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -51,9 +55,11 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
-    this.initializeCanvas();
-    this.renderInitialState();
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo(0, 0);
+      this.initializeCanvas();
+      this.renderInitialState();
+    }
   }
 
   ngOnDestroy(): void {

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SharedModule } from '@app/shared.module';
 
 /** Markdown Previewer page */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-markdown-previewer',
   templateUrl: './markdown-previewer.component.html',
   styleUrls: ['./markdown-previewer.component.scss']
@@ -18,6 +21,7 @@ export class MarkdownPreviewerComponent implements OnInit {
   // Options
   enableGfm = true;
   enableLineBreaks = true;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -28,7 +32,7 @@ export class MarkdownPreviewerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
   /**

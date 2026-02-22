@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedModule } from '@app/shared.module';
 
 /** Base64 Encoder/Decoder page */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-base64-tool',
   templateUrl: './base64-tool.component.html',
   styleUrls: ['./base64-tool.component.scss']
@@ -16,6 +19,7 @@ export class Base64ToolComponent implements OnInit {
 
   // Active tab
   activeTab: 'encode' | 'decode' = 'encode';
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -25,7 +29,7 @@ export class Base64ToolComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
   /**
@@ -93,16 +97,13 @@ export class Base64ToolComponent implements OnInit {
       return;
     }
 
-    const tempElement = document.createElement('textarea');
-    tempElement.style.display = 'none';
-    tempElement.value = text;
-    document.body.appendChild(tempElement);
-    tempElement.focus();
-    tempElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempElement);
-
-    this.openSnackBar(`${label} copied to clipboard!`);
+    if (isPlatformBrowser(this.platformId)) {
+      navigator.clipboard.writeText(text).then(() => {
+        this.openSnackBar(`${label} copied to clipboard!`);
+      }).catch(() => {
+        this.openSnackBar('Failed to copy to clipboard');
+      });
+    }
   }
 
   /**

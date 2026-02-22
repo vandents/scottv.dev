@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { VERSION } from '../../../environments/version';
 import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import { SharedModule } from '@app/shared.module';
 
 
 export interface Dependency {
@@ -15,7 +16,8 @@ export interface Dependency {
 
 /** Page for displaying build and dependency info */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-build-info',
   templateUrl: './build-info.component.html',
   styleUrls: ['./build-info.component.scss']

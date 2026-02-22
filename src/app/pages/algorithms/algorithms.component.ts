@@ -3,13 +3,15 @@ import { AlgorithmService, Algos } from '@services/algorithm-service/algorithm.s
 import { Title } from '@angular/platform-browser';
 import { BrowserService } from '@services/browser-service/browser.service';
 import { Subscription } from 'rxjs';
+import { SharedModule } from '@app/shared.module';
 
 
 /**
  * A neat component for displaying various sorting algorithms in real time
  */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-algorithms',
   templateUrl: './algorithms.component.html',
   styleUrls: ['./algorithms.component.scss']

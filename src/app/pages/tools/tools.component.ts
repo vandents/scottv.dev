@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { SharedModule } from '@app/shared.module';
 
 interface Tool {
   name: string;
@@ -12,7 +14,8 @@ interface Tool {
 
 /** Tools page displaying available developer tools */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-tools',
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.scss']
@@ -55,6 +58,7 @@ export class ToolsComponent implements OnInit {
       actionText: 'Decode a token'
     }
   ];
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -64,7 +68,7 @@ export class ToolsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
   navigateToTool(route: string): void {

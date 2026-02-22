@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedModule } from '@app/shared.module';
 
 type IndentationType = '2' | '4' | 'tab';
 
@@ -12,7 +14,8 @@ interface JsonStats {
 
 /** JSON Formatter page */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-json-formatter',
   templateUrl: './json-formatter.component.html',
   styleUrls: ['./json-formatter.component.scss']
@@ -32,6 +35,7 @@ export class JsonFormatterComponent implements OnInit {
 
   // Stats
   stats: JsonStats = { size: 0, keys: 0, depth: 0 };
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -41,7 +45,7 @@ export class JsonFormatterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
   /**
@@ -221,16 +225,13 @@ export class JsonFormatterComponent implements OnInit {
       return;
     }
 
-    const tempElement = document.createElement('textarea');
-    tempElement.style.display = 'none';
-    tempElement.value = this.outputJson;
-    document.body.appendChild(tempElement);
-    tempElement.focus();
-    tempElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempElement);
-
-    this.openSnackBar('Output copied to clipboard!');
+    if (isPlatformBrowser(this.platformId)) {
+      navigator.clipboard.writeText(this.outputJson).then(() => {
+        this.openSnackBar('Output copied to clipboard!');
+      }).catch(() => {
+        this.openSnackBar('Failed to copy output');
+      });
+    }
   }
 
   /**

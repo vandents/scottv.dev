@@ -1,4 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,6 +9,7 @@ import { BrowserService } from '@services/browser-service/browser.service';
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
 import { ThemeService } from '@services/theme-service/theme.service';
 import { Subscription } from 'rxjs';
+import { SharedModule } from '@app/shared.module';
 
 
 /** Player enum */
@@ -47,7 +49,8 @@ interface Board {
  * trying to follow.
  */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
@@ -67,6 +70,8 @@ export class GameComponent implements OnInit {
   /** Used for ngFor when looping through tile template */
   boardPositions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+  private platformId = inject(PLATFORM_ID);
+
 
   constructor(
     private dialog: MatDialog,
@@ -77,11 +82,11 @@ export class GameComponent implements OnInit {
     public themeService: ThemeService,
     private cdr: ChangeDetectorRef
   ) {
-    this.title.setTitle('Scott VandenToorn - Game');
+    this.title.setTitle('Scott VandenToorn - Tic-Tac-Toe');
   }
 
   ngOnInit() {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
     this.initBoard();
     this.openChooseCompetitorDialog();
     this.players = this.firebaseService.getInitialStats();
@@ -102,6 +107,7 @@ export class GameComponent implements OnInit {
 
   /** Initializes board. If it's Mr. Robot's turn after init robotMove() is called */
   resetBoard() {
+    this.cdr.detectChanges();
     if (this.isRobotTurn() && !this.gameOver) return;
     this.initBoard();
     if (this.isRobot && !this.isTurnX) {
@@ -485,6 +491,7 @@ export class GameComponent implements OnInit {
           duration: 3000
         });
       }
+      this.cdr.detectChanges();
     });
   }
 

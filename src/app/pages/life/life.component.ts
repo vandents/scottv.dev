@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { Article } from '@elements/article/article.component';
 import { BrowserService } from '@services/browser-service/browser.service';
+import { SharedModule } from '@app/shared.module';
 
 
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-life',
   templateUrl: './life.component.html',
   styleUrl: './life.component.scss'
@@ -143,16 +146,18 @@ export class LifeComponent {
     }
   ];
 
+  private platformId = inject(PLATFORM_ID);
+
 
   constructor(
     private title: Title,
     public browser: BrowserService
   ) {
-    this.title.setTitle('Scott VandenToorn - Portfolio');
+    this.title.setTitle('Scott VandenToorn - Life');
   }
 
   ngOnInit() {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
 

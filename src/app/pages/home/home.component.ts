@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { BrowserService } from '@services/browser-service/browser.service';
+import { SharedModule } from '@app/shared.module';
 
 
 /** Home page */
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
     private title: Title,
@@ -22,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
 

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 
 export enum ThemeType {
@@ -12,6 +13,7 @@ export enum ThemeType {
 })
 export class ThemeService {
   themeType: ThemeType;
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   constructor(public meta: Meta) { }
 
@@ -26,21 +28,23 @@ export class ThemeService {
       this.themeType = theme;
       this.meta.updateTag({name: 'theme-color', content: "#000000"});
     }
-    localStorage.setItem('theme', theme);
+    if (this.isBrowser) localStorage.setItem('theme', theme);
   }
 
   getSaved(): string {
-    let theme = localStorage.getItem('theme');
-    if (theme == ThemeType.Light ||
-        theme == ThemeType.Dark ||
-        theme == ThemeType.Black)
-      return theme;
-    else localStorage.removeItem('theme');
+    if (this.isBrowser) {
+      let theme = localStorage.getItem('theme');
+      if (theme == ThemeType.Light ||
+          theme == ThemeType.Dark ||
+          theme == ThemeType.Black)
+        return theme;
+      else localStorage.removeItem('theme');
 
-    // Default to device theme
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      return ThemeType.Dark;
-    else return ThemeType.Light;
+      // Default to device theme
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        return ThemeType.Dark;
+    }
+    return ThemeType.Light;
   }
 
   isLight(): boolean {
