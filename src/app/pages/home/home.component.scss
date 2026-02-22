@@ -179,5 +179,9 @@ mat-chip {
 
 fa-icon {
   margin-left: -4px !important;
-  padding-right: 8px;
+  padding-right: 4px;
+}
+
+:host ::ng-deep .mdc-evolution-chip__text-label {
+  overflow: visible;
 }

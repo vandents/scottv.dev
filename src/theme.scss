@@ -1,10 +1,32 @@
 @use '@angular/material' as mat;
+@use 'sass:map';
+
+// Custom primary palette based on #394F74 (rgb(57, 79, 116))
+// Keeps secondary, neutral, neutral-variant, and error from azure
+$custom-blue-palette: map.merge(mat.$azure-palette, (
+  0: #000000,
+  10: #0F1A2E,
+  20: #1E2F48,
+  25: #263856,
+  30: #2E4264,
+  35: #34486C,
+  40: #394F74,
+  50: #516690,
+  60: #6B80AA,
+  70: #889BC2,
+  80: #A8B8D8,
+  90: #CCD5E8,
+  95: #E5EAF3,
+  98: #F3F5FA,
+  99: #F9FAFD,
+  100: #FFFFFF,
+));
 
 // Define light theme using Material 3 API
 $light-app-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$azure-palette,
+    primary: $custom-blue-palette,
     tertiary: mat.$blue-palette,
   )
 ));
