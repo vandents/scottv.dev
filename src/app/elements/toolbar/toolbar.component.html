@@ -2,7 +2,8 @@
   <!-- Logo and theme buttons -->
   <mat-toolbar-row class="first-row">
     <a mat-button routerLink="home" routerLinkActive="current" matTooltip="Home" class="logo-button" matTooltipPosition="left">
-      <img [src]="'../../../assets/img/logo-' + (themeService.isLight() ? 'light.png' : 'dark.png')" class="un-lazy logo">
+      <img src="../../../assets/img/logo-light.png" class="un-lazy logo logo-light-img">
+      <img src="../../../assets/img/logo-dark.png" class="un-lazy logo logo-dark-img">
     </a>
 
     <button mat-icon-button class="theme-button" matTooltip="Switch Theme" matTooltipPosition="below"

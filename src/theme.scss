@@ -52,6 +52,11 @@ $black-app-theme: mat.define-theme((
 // Apply light theme as the default
 @include mat.all-component-themes($light-app-theme);
 
+html.black-theme {
+  background-color: #000000;
+  color: rgb(236, 236, 236);
+}
+
 .black-theme {
   @include mat.all-component-colors($black-app-theme);
 
@@ -104,6 +109,11 @@ $black-app-theme: mat.define-theme((
       caret-color: rgba(255, 255, 255, 0.87) !important;
     }
   }
+}
+
+html.dark-theme {
+  background-color: rgb(13, 17, 22);
+  color: white;
 }
 
 .dark-theme {

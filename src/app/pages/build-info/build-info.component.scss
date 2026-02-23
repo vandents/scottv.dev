@@ -13,6 +13,10 @@ mat-card {
   justify-content: space-evenly;
 }
 
+fa-icon {
+  background-color: transparent;
+}
+
 @media (max-width: 767px) {
   h2,
   mat-card {

@@ -25,9 +25,14 @@ export class AppComponent implements OnInit {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event =>
         this.setTheme(event.matches ? ThemeType.Dark : ThemeType.Light)
       );
+      this.setTheme(this.themeService.getSaved());
+    } else {
+      // On server, set service state but don't bind a class to app-root.
+      // The root-level theme.scss already provides light theme styles.
+      // Binding 'light-theme' here would bake it into the prerendered HTML,
+      // causing it to override dark/black theme classes on <html> after refresh.
+      this.themeService.set(this.themeService.getSaved() as ThemeType);
     }
-
-    this.setTheme(this.themeService.getSaved());
   }
 
   setTheme(theme: any) {

@@ -43,6 +43,17 @@ mat-toolbar-row {
   padding: 4px 0;
 }
 
+// Show light logo by default, dark logo for dark/black themes.
+// CSS-driven so the correct logo displays before Angular hydrates.
+.logo-dark-img { display: none; }
+.logo-light-img { display: inline; }
+
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .logo-dark-img { display: inline; }
+  .logo-light-img { display: none; }
+}
+
 .logo-button {
   height: 50px;
 }

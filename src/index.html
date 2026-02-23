@@ -37,5 +37,19 @@
 
 <body>
   <app-root></app-root>
+  <script>
+    // Apply saved theme class to app-root before first paint.
+    // The <head> script already handles <html>, this handles the Angular host element.
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        var el = document.querySelector('app-root');
+        if (el && (theme === 'dark-theme' || theme === 'black-theme')) {
+          el.className = el.className.replace(/light-theme|dark-theme|black-theme/g, '').trim();
+          el.classList.add(theme);
+        }
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>
