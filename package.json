@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node version.js && ng build && cp dist/scottvdev/browser/index.html dist/scottvdev/browser/404.html",
+    "build": "node version.js && ng build && cp dist/scottvdev/browser/home/index.html dist/scottvdev/browser/index.html && cp dist/scottvdev/browser/home/index.html dist/scottvdev/browser/404.html",
     "analyze": "esbuild-visualizer --metadata dist/scottvdev/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
