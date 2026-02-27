@@ -2,14 +2,22 @@
 /* tslint:disable */
 export const VERSION = {
     "dirty": true,
-    "raw": "961492c-dirty",
-    "hash": "961492c",
+    "raw": "ff1b7f9-dirty",
+    "hash": "ff1b7f9",
     "distance": null,
     "tag": null,
     "semver": null,
-    "suffix": "961492c-dirty",
+    "suffix": "ff1b7f9-dirty",
     "semverString": null,
     "version": "0.0.0",
-    "date": "September 10, 2025 at 2:29 PM"
+    "date": "February 27, 2026 at 8:32 AM",
+    "dependencies": {
+        "angular": "21.1.5",
+        "angularFire": "21.0.0-rc.0",
+        "coreUi": "5.6.13",
+        "fontAwesome": "4.0.0",
+        "rxjs": "7.8.2",
+        "typescript": "5.9.3"
+    }
 };
 /* tslint:enable */

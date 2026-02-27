@@ -31,12 +31,12 @@ export class BuildInfoComponent {
     this.title.setTitle('Scott VandenToorn - Build Info');
 
     this.dependencies = [
-      { name: 'Angular', version: '17.2.3', link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Fire', version: '17.0.1', link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Core UI', version: '4.7.16', link: 'https://www.npmjs.com/package/@coreui/angular', iconPackage: 'fas', icon: 'code' },
-      { name: 'Font Awesome', version: '0.14.1', link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
-      { name: 'RxJS', version: '7.8.1', link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
-      { name: 'TypeScript', version: '5.2.2', link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
+      { name: 'Angular', version: VERSION.dependencies.angular, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Angular Fire', version: VERSION.dependencies.angularFire, link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Core UI', version: VERSION.dependencies.coreUi, link: 'https://www.npmjs.com/package/@coreui/angular', iconPackage: 'fas', icon: 'code' },
+      { name: 'Font Awesome', version: VERSION.dependencies.fontAwesome, link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
+      { name: 'RxJS', version: VERSION.dependencies.rxjs, link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
+      { name: 'TypeScript', version: VERSION.dependencies.typescript, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
     ];
 
     this.buildInfo = [
