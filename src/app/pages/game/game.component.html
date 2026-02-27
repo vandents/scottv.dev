@@ -1,4 +1,4 @@
-<h1>Tic-Tac-Toe.</h1>
+<h1>Tic-Tac-Toe</h1>
 <p class="subtitle" style="margin-bottom: 32px;">
   A game I made when I first learned Angular. Mr. Roboto will kick your butt!
 </p>
@@ -6,7 +6,7 @@
 <div class="row">
   <!--------------------  Game Board  -------------------->
   <div class="col-lg-7 col-md-8 col-12">
-    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0" [ngClass]="getGridTheme()">
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0">
       <!----------  Tiles  ---------->
       <mat-grid-tile *ngFor="let i of boardPositions" (click)="squareClicked(i)">
         <ng-container [ngTemplateOutlet]="tileTemplate" [ngTemplateOutletContext]="{ i: i }">
@@ -22,7 +22,7 @@
   </div>
 
   <!--------------------  Side Actions (desktop)  -------------------->
-  <div *ngIf="browser.isScreen767()" class="col-lg-5 col-md-4">
+  <div class="col-lg-5 col-md-4 game-desktop">
     <!----------  Buttons  ---------->
     <div class="actions-side clearfix">
       <button mat-raised-button class="change-btn-side" color="primary" (click)="changeOpponent()">
@@ -51,7 +51,7 @@
     </mat-card>
 
     <!----------  Win Stats  ---------->
-    <mat-card class="win-stats-side clearfix" *ngIf="browser.isScreen992()" appearance="outlined">
+    <mat-card class="win-stats-side clearfix game-desktop-lg" appearance="outlined">
       <mat-card-title cdkFocusInitial>Win Statistics</mat-card-title>
       <p class="stats-date">Since July 31, 2019</p>
       <div class="divider-container" style="margin-top: -10px !important;">
@@ -84,7 +84,7 @@
 </div>
 
 <!--------------------  Bottom Action Card (mobile)  -------------------->
-<div *ngIf="!browser.isScreen767()" class="row">
+<div class="row game-mobile">
   <div class="col-12">
     <mat-card class="actions-bottom" appearance="outlined">
       <div class="row">
@@ -118,7 +118,7 @@
 </div>
 
 <!--------------------  Win Statistics (mobile)  -------------------->
-<div *ngIf="!browser.isScreen992()" class="row win-stats-bottom">
+<div class="row win-stats-bottom game-mobile-lg">
   <div class="col-md-8 col-12">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -173,10 +173,10 @@
     <div *ngIf="board[i].x" class="x-player" [animate.enter]="'fast-fade-enter'" [animate.leave]="'fast-fade-leave'">X</div>
     <div *ngIf="board[i].o" [animate.enter]="'fast-fade-enter'" [animate.leave]="'fast-fade-leave'">
       <div *ngIf="!isRobot" class="o-player">o</div>
-      <div *ngIf="isRobot">
-        <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-        <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x"></fa-icon>
-        <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x"></fa-icon>
+      <div *ngIf="isRobot" class="robot-icons">
+        <fa-icon class="robot-lg" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+        <fa-icon class="robot-md" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+        <fa-icon class="robot-sm" [icon]="['fas', 'robot']" size="4x"></fa-icon>
       </div>
     </div>
   </span>
@@ -185,29 +185,25 @@
   <span *ngIf="gameOver">
     <!-- Turn grey -->
     <span *ngIf="!board[i].winSpot">
-      <div *ngIf="board[i].x" class="x-player" [animate.enter]="'grey-enter'">X</div>
-      <span *ngIf="board[i].o" [animate.enter]="'grey-enter'">
+      <div *ngIf="board[i].x" class="x-player lose-grey" [animate.enter]="'grey-enter'">X</div>
+      <span *ngIf="board[i].o" class="lose-grey" [animate.enter]="'grey-enter'">
         <div *ngIf="!isRobot" class="o-player">o</div>
-        <span *ngIf="isRobot">
-          <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x">
-          </fa-icon>
-          <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x">
-          </fa-icon>
+        <span *ngIf="isRobot" class="robot-icons">
+          <fa-icon class="robot-lg" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+          <fa-icon class="robot-md" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+          <fa-icon class="robot-sm" [icon]="['fas', 'robot']" size="4x"></fa-icon>
         </span>
       </span>
     </span>
     <!-- Turn blue -->
     <span *ngIf="board[i].winSpot">
-      <div *ngIf="board[i].x" class="x-player" [animate.enter]="'blue-enter'">X</div>
-      <span *ngIf="board[i].o" [animate.enter]="'blue-enter'">
+      <div *ngIf="board[i].x" class="x-player win-blue" [animate.enter]="'blue-enter'">X</div>
+      <span *ngIf="board[i].o" class="win-blue" [animate.enter]="'blue-enter'">
         <div *ngIf="!isRobot" class="o-player">o</div>
-        <span *ngIf="isRobot">
-          <fa-icon *ngIf="browser.isScreen992()" [icon]="['fas', 'robot']" size="6x"></fa-icon>
-          <fa-icon *ngIf="!browser.isScreen992() && browser.isScreen500()" [icon]="['fas', 'robot']" size="5x">
-          </fa-icon>
-          <fa-icon *ngIf="!browser.isScreen992() && !browser.isScreen500()" [icon]="['fas', 'robot']" size="4x">
-          </fa-icon>
+        <span *ngIf="isRobot" class="robot-icons">
+          <fa-icon class="robot-lg" [icon]="['fas', 'robot']" size="6x"></fa-icon>
+          <fa-icon class="robot-md" [icon]="['fas', 'robot']" size="5x"></fa-icon>
+          <fa-icon class="robot-sm" [icon]="['fas', 'robot']" size="4x"></fa-icon>
         </span>
       </span>
     </span>

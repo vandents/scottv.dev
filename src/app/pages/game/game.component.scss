@@ -1,4 +1,64 @@
 /********************************
+ * Responsive show/hide
+ ********************************/
+
+/* Desktop: visible >= 768px */
+.game-desktop {
+  display: block;
+}
+.game-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .game-desktop {
+    display: none;
+  }
+  .game-mobile {
+    display: block;
+  }
+}
+
+/* Desktop-lg: visible >= 992px */
+.game-desktop-lg {
+  display: block;
+}
+.game-mobile-lg {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .game-desktop-lg {
+    display: none;
+  }
+  .game-mobile-lg {
+    display: block;
+  }
+}
+
+/* Robot icon sizes */
+.robot-icons {
+  display: inline;
+}
+
+.robot-lg { display: inline; }
+.robot-md { display: none; }
+.robot-sm { display: none; }
+
+@media (max-width: 991px) {
+  .robot-lg { display: none; }
+  .robot-md { display: inline; }
+  .robot-sm { display: none; }
+}
+
+@media (max-width: 500px) {
+  .robot-lg { display: none; }
+  .robot-md { display: none; }
+  .robot-sm { display: inline; }
+}
+
+
+/********************************
  * Game Board
  ********************************/
 
@@ -6,11 +66,11 @@ mat-grid-list {
   border-radius: 4px;
 }
 
-.black-grid {
+:host-context(.black-theme) mat-grid-list {
   background-color: rgb(33, 33, 33);
 }
 
-.light-grid {
+:host-context(.light-theme) mat-grid-list {
   background-color: white;
 }
 
@@ -23,20 +83,20 @@ mat-grid-tile:hover {
   transition: 0.2s;
 }
 
-.light-grid mat-grid-tile:hover {
+:host-context(.light-theme) mat-grid-tile:hover {
   background-color: rgb(245, 245, 245);
 }
 
-.dark-grid mat-grid-tile:hover {
+:host-context(.dark-theme) mat-grid-tile:hover {
   background-color: rgb(245, 245, 245, 0.05);
 }
 
 @media screen and (max-width: 768px) {
   mat-grid-tile:hover {
-    background-color:  rgb(33, 33, 33);
+    background-color: rgb(33, 33, 33);
   }
 
-  .light-grid mat-grid-tile:hover {
+  :host-context(.light-theme) mat-grid-tile:hover {
     background-color: white;
   }
 }
@@ -81,10 +141,10 @@ mat-grid-tile:hover {
   .vertical-2 { border: 3px solid #303030 !important; }
 }
 
-.dark-grid .horizontal-1,
-.dark-grid .horizontal-2,
-.dark-grid .vertical-1,
-.dark-grid .vertical-2 {
+:host-context(.dark-theme) .horizontal-1,
+:host-context(.dark-theme) .horizontal-2,
+:host-context(.dark-theme) .vertical-1,
+:host-context(.dark-theme) .vertical-2 {
   border-color: rgb(37, 41, 47) !important;
 }
 
@@ -223,7 +283,11 @@ mat-card-content { margin: 0; }
   height: 110px;
 }
 
-.actions-bottom mat-card { width: 100% !important; }
+@media screen and (max-width: 355px) {
+  .actions-bottom {
+    height: 140px;
+  }
+}
 
 .actions-bottom mat-card-title { font-size: 100%; }
 
@@ -316,8 +380,10 @@ mat-card-content { margin: 0; }
   to { opacity: 1; }
 }
 .blue-enter {
-  color: #007bff;
   animation: blue-enter 400ms ease;
+}
+.win-blue {
+  color: #007bff;
 }
 
 /* blue: Winning icons - leave opacity 1→0.3 in 350ms */
@@ -333,11 +399,13 @@ mat-card-content { margin: 0; }
 /* grey: Losing icons - enter opacity 0.5→1 in 400ms, color #333 */
 @keyframes grey-enter {
   from { opacity: 0.5; }
-  to { opacity: 1; }
+  to { opacity: 0.3; }
 }
 .grey-enter {
-  color: #333333;
   animation: grey-enter 400ms ease;
+}
+.lose-grey {
+  opacity: 0.3;
 }
 
 /* grey: Losing icons - leave opacity 1→0.3 in 350ms */
@@ -346,6 +414,6 @@ mat-card-content { margin: 0; }
   to { opacity: 0.3; }
 }
 .grey-leave {
-  color: #333333;
+  opacity: 0.3;
   animation: grey-leave 350ms ease;
 }

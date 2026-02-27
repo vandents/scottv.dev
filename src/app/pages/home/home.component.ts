@@ -30,6 +30,11 @@ export class HomeComponent implements OnInit {
   }
 
 
+  copyEmail() {
+    navigator.clipboard.writeText('scottvandentoorn@gmail.com');
+    this.openSnackBar('Email copied to clipboard');
+  }
+
   openSnackBar(message: string, action = 'Dismiss') {
     this.snackBar.open(message, action, {
       duration: 2000,

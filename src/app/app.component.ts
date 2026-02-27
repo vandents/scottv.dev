@@ -1,7 +1,8 @@
-import { Component, HostBinding, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, HostBinding, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService, ThemeType } from '@services/theme-service/theme.service';
+import { BrowserService } from '@services/browser-service/browser.service';
 
 @Component({
   standalone: false,
@@ -15,8 +16,10 @@ export class AppComponent implements OnInit {
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   constructor(
-    public overlayContainer : OverlayContainer,
-    public themeService: ThemeService
+    public overlayContainer: OverlayContainer,
+    public themeService: ThemeService,
+    private browserService: BrowserService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -26,6 +29,9 @@ export class AppComponent implements OnInit {
         this.setTheme(event.matches ? ThemeType.Dark : ThemeType.Light)
       );
       this.setTheme(this.themeService.getSaved());
+
+      // Trigger change detection on window width changes
+      this.browserService.widthChanges.subscribe(() => this.cdr.detectChanges());
     } else {
       // On server, set service state but don't bind a class to app-root.
       // The root-level theme.scss already provides light theme styles.

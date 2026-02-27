@@ -1,4 +1,30 @@
 /********************************
+ * Responsive show/hide
+ ********************************/
+
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+mat-card-actions.mobile-only {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: flex;
+  }
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+
+/********************************
  * Logos
  ********************************/
 
@@ -53,18 +79,82 @@
   align-self: center;
 }
 
-.welcome-text-desktop {
+.welcome-body-desktop {
   flex: 1;
   padding-left: 24px;
+  flex-direction: column;
+  align-self: center;
+}
+
+.name-row {
+  // display: flex;
+  align-items: center;
+  gap: 12px;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 6px;
+  }
+
+  .social-links {
+    margin-top: 0;
+  }
+}
+
+.mobile-name {
+  margin-left: 16px;
+}
+
+.welcome-headline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .social-links {
+    margin-top: 0;
+  }
+}
+
+.welcome-headline {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  opacity: 0.85;
+
+  .welcome-headline-row & {
+    margin-bottom: 0;
+  }
+}
+
+.welcome-text-desktop {
+  flex: 1;
   padding-right: 24px;
+}
+
+.social-links {
+  display: flex;
+  gap: 13px;
+  margin-top: 12px;
+  margin-left: 4px;
+
+  a {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .welcome-buttons-desktop {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
-  align-self: center;
-  min-width: 200px;
+  margin-top: 20px;
+  padding-bottom: 12px;
 
   button, a {
     white-space: nowrap;
@@ -77,14 +167,14 @@
 
 .welcome-buttons-mobile {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   padding: 16px;
   margin: 0;
 
   button, a {
-    width: 100%;
-
     fa-icon {
       margin-right: 8px;
     }
@@ -119,9 +209,12 @@
   }
 }
 
+/********************************
+ * Mobile
+ ********************************/
+
 @media(max-width: 500px) {
   h1 {
-    margin: 0 0 0 -12px;
     font-weight: 400;
   }
   .avi {
@@ -130,25 +223,57 @@
   }
 }
 
-@media(max-width: 410px) {
+@media(max-width: 440px) {
   h1 {
-    margin-left: -14px;
     font-size: 2.3rem;
   }
   .avi {
     height: 110px;
     width: 110px;
   }
+  .social-links {
+    display: none;
+  }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
   h1 {
-    margin-left: -16px;
     font-size: 2.2rem !important;
   }
   .avi {
     height: 100px;
     width: 100px;
+  }
+}
+
+@media (max-width: 385px) {
+  h1 {
+    font-size: 2.1rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .avi {
+    height: 95px;
+    width: 95px;
+  }
+}
+
+@media (max-width: 365px) {
+  h1 {
+    margin-left: 10px !important;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 355px) {
+  h1 {
+    margin-left: 8px !important;
+    font-size: 1.9rem;
+  }
+  .avi {
+    height: 92px;
+    width: 92px;
   }
 }
 

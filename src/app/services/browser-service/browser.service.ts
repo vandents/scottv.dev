@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter, PLATFORM_ID, inject } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { fromEvent } from 'rxjs';
+import { Subject, fromEvent } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 
 /** Service for the detecting browser width and type */
@@ -9,18 +10,24 @@ import { fromEvent } from 'rxjs';
   providedIn: 'root'
 })
 export class BrowserService {
-  public widthChanges: EventEmitter<number>;
+  public widthChanges = new Subject<number>();
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private _width: number;
 
 
   constructor(private deviceServ: DeviceDetectorService) {
-    this.widthChanges = new EventEmitter<number>();
+    this._width = this.isBrowser ? window.innerWidth : 1024;
 
     if (this.isBrowser) {
-      // Emit width change event when window resizes
-      fromEvent(window, 'resize').subscribe((event: any) => {
-        this.widthChanges.emit(event.target.innerWidth);
-      });
+      // debounceTime limits to one event per 100ms, so CD frequency
+      // is already controlled. The cached _width prevents
+      // ExpressionChangedAfterItHasBeenCheckedError.
+      fromEvent(window, 'resize')
+        .pipe(debounceTime(16))
+        .subscribe((event: any) => {
+          this._width = event.target.innerWidth;
+          this.widthChanges.next(this._width);
+        });
     }
   }
 
@@ -31,37 +38,32 @@ export class BrowserService {
 
   /** @returns {boolean} true if screen width is bigger than 992px */
   isScreen992(): boolean {
-    if (!this.isBrowser) return true;
-    if (window.innerWidth >= 992) return true;
-    return false;
+    return this._width >= 992;
   }
 
-  /** @returns {boolean} true if screen width is bigger than 500px */
+  /** @returns {boolean} true if screen width is bigger than 767px */
   isScreen767(): boolean {
-    if (!this.isBrowser) return true;
-    if (window.innerWidth > 767) return true;
-    return false;
+    return this._width > 767;
   }
 
   /** @returns {boolean} true if screen width is bigger than 650px */
   isScreen650(): boolean {
-    if (!this.isBrowser) return true;
-    if (window.innerWidth > 650) return true;
-    return false;
+    return this._width > 650;
   }
 
   /** @returns {boolean} true if screen width is bigger than 500px */
   isScreen500(): boolean {
-    if (!this.isBrowser) return true;
-    if (window.innerWidth > 500) return true;
-    return false;
+    return this._width > 500;
+  }
+
+  /** @returns {boolean} true if screen width is bigger than 440px */
+  isScreen440(): boolean {
+    return this._width > 440;
   }
 
   /** @returns {boolean} true if screen width is bigger than 400px */
   isScreen400(): boolean {
-    if (!this.isBrowser) return true;
-    if (window.innerWidth > 400) return true;
-    return false;
+    return this._width > 400;
   }
 
 

@@ -8,7 +8,7 @@
           <iframe allow="fullscreen" allowfullscreen height="100%" [src]="media.src | safe:'resourceUrl'" width="100%"></iframe>
         </div>
       </ng-template>
-      <c-carousel-caption *ngIf="browser.isScreen767()" class="d-none d-md-block">
+      <c-carousel-caption class="d-none d-md-block carousel-caption-desktop">
         <h3>{{ article.title }}</h3>
         <p>{{ article.caption }}</p>
       </c-carousel-caption>
@@ -18,4 +18,4 @@
   <c-carousel-control direction="next"></c-carousel-control>
 </c-carousel>
 
-<h4 *ngIf="!browser.isScreen767()">{{ article.title }}</h4>
+<h4 class="article-title-mobile">{{ article.title }}</h4>

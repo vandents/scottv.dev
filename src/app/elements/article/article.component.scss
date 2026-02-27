@@ -158,3 +158,20 @@ iframe {
     right: 52px;
   }
 }
+
+.carousel-caption-desktop {
+  display: block;
+}
+
+.article-title-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .carousel-caption-desktop {
+    display: none !important;
+  }
+  .article-title-mobile {
+    display: block;
+  }
+}

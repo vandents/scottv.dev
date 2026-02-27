@@ -7,7 +7,6 @@ import { GameWinDialogComponent } from '@dialogs/game-win-dialog/game-win-dialog
 import { ChooseCompetitorDialogComponent } from '@dialogs/choose-competitor-dialog/choose-competitor-dialog.component';
 import { BrowserService } from '@services/browser-service/browser.service';
 import { FirebaseService, Players } from '@services/firebase-service/firebase.service';
-import { ThemeService } from '@services/theme-service/theme.service';
 import { Subscription } from 'rxjs';
 import { SharedModule } from '@app/shared.module';
 
@@ -79,7 +78,6 @@ export class GameComponent implements OnInit {
     private title: Title,
     public browser: BrowserService,
     private firebaseService: FirebaseService,
-    public themeService: ThemeService,
     private cdr: ChangeDetectorRef
   ) {
     this.title.setTitle('Scott VandenToorn - Tic-Tac-Toe');
@@ -88,10 +86,11 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
     this.initBoard();
-    this.openChooseCompetitorDialog();
+    if (isPlatformBrowser(this.platformId)) this.openChooseCompetitorDialog();
     this.players = this.firebaseService.getInitialStats();
     this.firebaseService.getStats().subscribe(players => {
       this.players = players[0];
+      this.cdr.detectChanges();
     });
   }
 
@@ -103,6 +102,7 @@ export class GameComponent implements OnInit {
     this.isTurnX = Math.random() < 0.5,
     this.numTurns = 0;
     this.gameOver = false;
+    this.cdr.detectChanges();
   }
 
   /** Initializes board. If it's Mr. Robot's turn after init robotMove() is called */
@@ -123,6 +123,7 @@ export class GameComponent implements OnInit {
     if (this.isRobot) {
       this.winner === Player.x ? this.firebaseService.addHumanWin() :
         this.firebaseService.addRobotWin();
+      this.cdr.detectChanges();
     }
   }
 
@@ -156,8 +157,6 @@ export class GameComponent implements OnInit {
       this.toggleTurn();
     }
 
-    this.cdr.detectChanges();
-
     if (this.isRobotTurn()) {
       const turnTimeout = 700;
       if (this.checkForWinner()) {
@@ -166,7 +165,6 @@ export class GameComponent implements OnInit {
       } else {
         setTimeout(() => {
           this.robotMove();
-          this.cdr.detectChanges();
           if (this.checkForWinner()) {
             this.openGameWinDialog();
             this.updateFirebase();
@@ -174,6 +172,7 @@ export class GameComponent implements OnInit {
             this.openDrawSnackBar();
             if (this.isRobot) this.firebaseService.addDraw();
           }
+          this.cdr.detectChanges();
         }, turnTimeout);
       }
     } else {
@@ -185,6 +184,8 @@ export class GameComponent implements OnInit {
         if (this.isRobot) this.firebaseService.addDraw();
       }
     }
+
+    this.cdr.detectChanges();
   }
 
   /**
@@ -507,14 +508,6 @@ export class GameComponent implements OnInit {
     setTimeout(() => {
       this.resetBoard();
     }, 2700);
-  }
-
-  /**
-   * @return 'light-grid', 'dark-grid', or 'black-grid'
-   */
-  getGridTheme(): 'light-grid' | 'dark-grid' | 'black-grid' {
-    if (this.themeService.isLight()) return 'light-grid';
-    return this.themeService.isDark() ? 'dark-grid' : 'black-grid';
   }
 
 }
