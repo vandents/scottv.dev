@@ -68,21 +68,21 @@
     <app-menu-auto-open>
       <div trigger>
         <button (click)="$event.stopPropagation();" mat-button class="toolbar-item"
-          [ngClass]="router.url.includes('build-info') || router.url.includes('life') ? 'current' : ''">
+          [ngClass]="router.url.includes('build-info') || router.url.includes('about') ? 'current' : ''">
           Info
           &nbsp;<fa-icon [icon]="['fas', 'angle-down']" size="sm" class="caret"></fa-icon>
         </button>
       </div>
       <div content>
-        <a mat-menu-item routerLink="life">
-          <fa-icon [icon]="['fas', 'heart']" size="lg"></fa-icon>
-          &nbsp;&nbsp;Life
-        </a>
-
         <button mat-menu-item matTooltip="Click to copy" matTooltipPosition="right" (click)="copyToClipboard(emailAddress)">
           <fa-icon [icon]="['fas', 'envelope']" size="lg"></fa-icon>
           &nbsp;&nbsp;{{ emailAddress }}
         </button>
+
+        <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/Scott VandenToorn Resume.pdf" download>
+          &nbsp;<fa-icon [icon]="['fas', 'download']" size="lg"></fa-icon>
+          &nbsp;Download Resume
+        </a>
 
         <a mat-menu-item href="https://github.com/vandents" target="_blank">
           <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
@@ -94,14 +94,14 @@
           &nbsp;&nbsp;&thinsp;LinkedIn
         </a>
 
+        <a mat-menu-item routerLink="about">
+          <fa-icon [icon]="['fas', 'heart']" size="lg"></fa-icon>
+          &nbsp;&nbsp;About
+        </a>
+
         <a mat-menu-item routerLink="build-info">
           <fa-icon [icon]="['fas', 'hammer']" size="lg" transform="shrink-1.5"></fa-icon>
           &nbsp;&thinsp;Build Info
-        </a>
-
-        <a mat-menu-item (click)="openSnackBar('Downloading resume.')" href="../../../assets/Scott VandenToorn Resume.pdf" download>
-          &nbsp;<fa-icon [icon]="['fas', 'download']" size="lg"></fa-icon>
-          &nbsp;Download Resume
         </a>
       </div>
     </app-menu-auto-open>

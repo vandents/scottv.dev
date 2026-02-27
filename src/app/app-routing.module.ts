@@ -9,7 +9,7 @@ export const appRoutes: Routes = [
   { path: 'tic-tac-toe', loadComponent: () => import('@pages/game/game.component').then(m => m.GameComponent) },
   { path: 'build-info', loadComponent: () => import('@pages/build-info/build-info.component').then(m => m.BuildInfoComponent) },
   { path: 'algorithms', loadComponent: () => import('@pages/algorithms/algorithms.component').then(m => m.AlgorithmsComponent) },
-  { path: 'life', loadComponent: () => import('@pages/life/life.component').then(m => m.LifeComponent) },
+  { path: 'about', loadComponent: () => import('@pages/about/about.component').then(m => m.AboutComponent) },
   { path: 'tools', loadComponent: () => import('@pages/tools/tools.component').then(m => m.ToolsComponent) },
   { path: 'base64-tool', loadComponent: () => import('@pages/base64-tool/base64-tool.component').then(m => m.Base64ToolComponent) },
   { path: 'diff-checker', loadComponent: () => import('@pages/diff-checker/diff-checker.component').then(m => m.DiffCheckerComponent) },

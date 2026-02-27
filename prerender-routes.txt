@@ -4,7 +4,7 @@
 /tic-tac-toe
 /build-info
 /algorithms
-/life
+/about
 /tools
 /base64-tool
 /diff-checker

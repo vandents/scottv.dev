@@ -9,15 +9,23 @@ import { SharedModule } from '@app/shared.module';
 @Component({
   standalone: true,
   imports: [SharedModule],
-  selector: 'app-life',
-  templateUrl: './life.component.html',
-  styleUrl: './life.component.scss'
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss'
 })
-export class LifeComponent {
+export class AboutComponent {
   lifeEvents: Article[] = [
     {
       title: `Dad Mode`,
       medias: [
+        {
+          src: '../../../assets/img/dad-mode-5.jpg',
+          alt: 'Family in Mexico'
+        },
+        {
+          src: '../../../assets/img/dad-mode-4.jpg',
+          alt: 'Baby in wagon'
+        },
         {
           src: '../../../assets/img/dad-mode-3.jpg',
           alt: 'Family at the zoo'
@@ -29,10 +37,6 @@ export class LifeComponent {
         {
           src: '../../../assets/img/dad-mode-2.jpg',
           alt: 'Messy baby'
-        },
-        {
-          src: '../../../assets/img/dad-mode-4.jpg',
-          alt: 'Baby in wagon'
         }
       ],
       caption: 'Building a legion of children.'
@@ -153,7 +157,7 @@ export class LifeComponent {
     private title: Title,
     public browser: BrowserService
   ) {
-    this.title.setTitle('Scott VandenToorn - Life');
+    this.title.setTitle('Scott VandenToorn - About');
   }
 
   ngOnInit() {
