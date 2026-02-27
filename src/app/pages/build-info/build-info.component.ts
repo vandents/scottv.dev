@@ -34,6 +34,7 @@ export class BuildInfoComponent {
       { name: 'Angular', version: VERSION.dependencies.angular, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
       { name: 'Angular Fire', version: VERSION.dependencies.angularFire, link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
       { name: 'Core UI', version: VERSION.dependencies.coreUi, link: 'https://www.npmjs.com/package/@coreui/angular', iconPackage: 'fas', icon: 'code' },
+      { name: 'Firebase', version: VERSION.dependencies.firebase, link: 'https://www.npmjs.com/package/firebase', iconPackage: 'fas', icon: 'fire' },
       { name: 'Font Awesome', version: VERSION.dependencies.fontAwesome, link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
       { name: 'RxJS', version: VERSION.dependencies.rxjs, link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
       { name: 'TypeScript', version: VERSION.dependencies.typescript, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }

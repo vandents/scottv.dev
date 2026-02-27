@@ -26,6 +26,7 @@ gitInfo.dependencies = {
   angular: getInstalledVersion('@angular/core'),
   angularFire: getInstalledVersion('@angular/fire'),
   coreUi: getInstalledVersion('@coreui/angular'),
+  firebase: getInstalledVersion('firebase'),
   fontAwesome: getInstalledVersion('@fortawesome/angular-fontawesome'),
   rxjs: getInstalledVersion('rxjs'),
   typescript: getInstalledVersion('typescript'),
