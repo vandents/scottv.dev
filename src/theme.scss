@@ -144,7 +144,7 @@ html.dark-theme {
   @include mat.all-component-colors($light-app-theme);
 
   .mat-toolbar {
-    background-color: rgb(246, 248, 250);
+    background-color: var(--mat-card-outlined-container-color, var(--mat-sys-surface));
   }
   .mat-app-background {
     background-color: rgb(255, 255, 255);
