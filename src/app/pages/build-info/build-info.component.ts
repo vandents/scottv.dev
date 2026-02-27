@@ -32,16 +32,16 @@ export class BuildInfoComponent {
 
     this.dependencies = [
       { name: 'Angular', version: VERSION.dependencies.angular, link: 'https://www.npmjs.com/package/@angular/core', iconPackage: 'fab', icon: 'angular' },
-      { name: 'Angular Fire', version: VERSION.dependencies.angularFire, link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fab', icon: 'angular' },
+      { name: 'Angular Fire', version: VERSION.dependencies.angularFire, link: 'https://www.npmjs.com/package/@angular/fire', iconPackage: 'fas', icon: 'fire' },
       { name: 'Core UI', version: VERSION.dependencies.coreUi, link: 'https://www.npmjs.com/package/@coreui/angular', iconPackage: 'fas', icon: 'code' },
       { name: 'Firebase', version: VERSION.dependencies.firebase, link: 'https://www.npmjs.com/package/firebase', iconPackage: 'fas', icon: 'fire' },
       { name: 'Font Awesome', version: VERSION.dependencies.fontAwesome, link: 'https://www.fontawesome.com', iconPackage: 'fab', icon: 'font-awesome' },
       { name: 'RxJS', version: VERSION.dependencies.rxjs, link: 'https://www.npmjs.com/package/rxjs', iconPackage: 'fab', icon: 'js' },
-      { name: 'TypeScript', version: VERSION.dependencies.typescript, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fas', icon: 'code' }
+      { name: 'TypeScript', version: VERSION.dependencies.typescript, link: 'https://www.npmjs.com/package/typescript', iconPackage: 'fab', icon: 'typescript' as IconName }
     ];
 
     this.buildInfo = [
-      { name: 'Date', version: VERSION.date, link: '', iconPackage: 'fas', icon: 'calendar' },
+      { name: 'Date', version: VERSION.date, link: '', iconPackage: 'fas', icon: 'calendar-day' },
       { name: 'Hash', version: VERSION.hash, link: `https://github.com/vandents/scottv.dev/commit/${VERSION.hash}`, iconPackage: 'fas', icon: 'hashtag' }
     ];
   }
