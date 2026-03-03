@@ -8,9 +8,9 @@
 
     <button mat-icon-button class="theme-button" matTooltip="Switch Theme" matTooltipPosition="below"
       matTooltipClass="mat-tooltip-multi" [matMenuTriggerFor]="themeMenu">
-      <fa-icon *ngIf="themeService.isLight()" [icon]="['far', 'sun']" size="sm"></fa-icon>
-      <fa-icon *ngIf="themeService.isDark()" [icon]="['far', 'moon']" size="sm"></fa-icon>
-      <fa-icon *ngIf="themeService.isBlack()" [icon]="['fas', 'moon']" size="sm"></fa-icon>
+      <fa-icon class="theme-icon-light" [icon]="['far', 'sun']" size="sm"></fa-icon>
+      <fa-icon class="theme-icon-dark" [icon]="['far', 'moon']" size="sm"></fa-icon>
+      <fa-icon class="theme-icon-black" [icon]="['fas', 'moon']" size="sm"></fa-icon>
     </button>
     <mat-menu #themeMenu="matMenu">
       <button mat-menu-item (click)="appComponent.setTheme(ThemeType.Light)">

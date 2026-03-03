@@ -8,11 +8,14 @@
 }
 
 .navbar {
-  box-shadow: inset 0 -1px 0 #21262d;
+  box-shadow: inset 0 -1px 0 rgb(208, 215, 222);
 }
 
-::ng-deep .light-theme .navbar {
-  box-shadow: inset 0 -1px 0 rgb(208, 215, 222) !important;
+:host-context(.dark-theme),
+:host-context(.black-theme) {
+  .navbar {
+    box-shadow: inset 0 -1px 0 #21262d;
+  }
 }
 
 /* Gets rid of default link styling. */
@@ -52,6 +55,23 @@ mat-toolbar-row {
 :host-context(.black-theme) {
   .logo-dark-img { display: inline; }
   .logo-light-img { display: none; }
+}
+
+// Theme button icons - CSS-driven to avoid flash on hydration
+.theme-icon-light { display: inline-flex; }
+.theme-icon-dark { display: none; }
+.theme-icon-black { display: none; }
+
+:host-context(.dark-theme) {
+  .theme-icon-light { display: none; }
+  .theme-icon-dark { display: inline-flex; }
+  .theme-icon-black { display: none; }
+}
+
+:host-context(.black-theme) {
+  .theme-icon-light { display: none; }
+  .theme-icon-dark { display: none; }
+  .theme-icon-black { display: inline-flex; }
 }
 
 .logo-button {

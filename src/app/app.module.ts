@@ -1,5 +1,5 @@
 // Angular Modules
-import { BrowserModule                    } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { NgModule                         } from '@angular/core';
 import { provideAnimations                } from '@angular/platform-browser/animations';
 import { RouterModule                     } from '@angular/router';
@@ -49,6 +49,7 @@ import { environment                      } from '../environments/environment';
   ],
   providers: [
     provideAnimations(),
+    provideClientHydration(),
     ...(typeof window !== 'undefined' ? [
       provideFirebaseApp(() => initializeApp(environment.firebase)),
       provideFirestore(() => getFirestore()),

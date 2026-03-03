@@ -185,15 +185,20 @@ mat-card-actions.mobile-only {
  * Theme-specific styles
  ********************************/
 
-:host-context(.light-theme) {
-  .welcome-buttons-desktop ::ng-deep button.mat-primary,
-  .welcome-buttons-mobile ::ng-deep button.mat-primary {
-    background-color: rgb(57, 79, 116) !important;
-    color: white !important;
-  }
+// Primary button colors (light theme is default, dark/black override below)
+.welcome-buttons-desktop ::ng-deep button.mat-primary,
+.welcome-buttons-mobile ::ng-deep button.mat-primary {
+  background-color: rgb(57, 79, 116) !important;
+  color: white !important;
 }
 
 :host-context(.dark-theme) {
+  .welcome-buttons-desktop ::ng-deep button.mat-primary,
+  .welcome-buttons-mobile ::ng-deep button.mat-primary {
+    background-color: #121316 !important;
+    color: #abc7ff !important;
+  }
+
   .welcome-buttons-desktop ::ng-deep a.mat-mdc-raised-button,
   .welcome-buttons-mobile ::ng-deep a.mat-mdc-raised-button {
     background-color: rgb(13, 17, 22) !important;
@@ -202,6 +207,12 @@ mat-card-actions.mobile-only {
 }
 
 :host-context(.black-theme) {
+  .welcome-buttons-desktop ::ng-deep button.mat-primary,
+  .welcome-buttons-mobile ::ng-deep button.mat-primary {
+    background-color: #121316 !important;
+    color: #abc7ff !important;
+  }
+
   .welcome-buttons-desktop ::ng-deep a.mat-mdc-raised-button,
   .welcome-buttons-mobile ::ng-deep a.mat-mdc-raised-button {
     background-color: black !important;

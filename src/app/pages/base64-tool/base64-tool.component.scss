@@ -129,16 +129,19 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-// Light theme support
-:host-context(.light-theme) {
-  .tab-buttons ::ng-deep .tab-button.mat-primary {
-    background-color: rgb(57, 79, 116) !important;
-    color: white !important;
-  }
+// Primary button colors (light theme is default, dark/black override below)
+.tab-buttons ::ng-deep .tab-button.mat-primary {
+  background-color: rgb(57, 79, 116) !important;
+  color: white !important;
 }
 
 // Dark theme support
 :host-context(.dark-theme) {
+  .tab-buttons ::ng-deep .tab-button.mat-primary {
+    background-color: #121316 !important;
+    color: #abc7ff !important;
+  }
+
   .tab-buttons ::ng-deep .tab-button:not(.mat-primary) {
     background-color: rgb(38, 41, 46) !important;
   }
@@ -163,8 +166,8 @@
 
 :host-context(.black-theme) {
   .tab-buttons ::ng-deep .tab-button.mat-primary {
-    background-color: white !important;
-    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #121316 !important;
+    color: #abc7ff !important;
   }
 
   .tab-buttons ::ng-deep .tab-button:not(.mat-primary) {

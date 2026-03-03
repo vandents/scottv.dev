@@ -272,16 +272,19 @@
   }
 }
 
-// Light theme support
-:host-context(.light-theme) {
-  ::ng-deep .encode-button.mat-primary {
-    background-color: rgb(57, 79, 116) !important;
-    color: white !important;
-  }
+// Primary button colors (light theme is default, dark/black override below)
+::ng-deep .encode-button.mat-primary {
+  background-color: rgb(57, 79, 116) !important;
+  color: white !important;
 }
 
 // Dark theme support
 :host-context(.dark-theme) {
+  ::ng-deep .encode-button.mat-primary {
+    background-color: #121316 !important;
+    color: #abc7ff !important;
+  }
+
   .error-message {
     background-color: rgba(198, 40, 40, 0.1);
     color: #ef5350;
@@ -344,8 +347,8 @@
 
 :host-context(.black-theme) {
   ::ng-deep .encode-button.mat-primary {
-    background-color: white !important;
-    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #121316 !important;
+    color: #abc7ff !important;
   }
 
   .error-message {

@@ -64,14 +64,11 @@
 
 mat-grid-list {
   border-radius: 4px;
+  background-color: white;
 }
 
 :host-context(.black-theme) mat-grid-list {
   background-color: rgb(33, 33, 33);
-}
-
-:host-context(.light-theme) mat-grid-list {
-  background-color: white;
 }
 
 mat-grid-tile {
@@ -81,9 +78,6 @@ mat-grid-tile {
 mat-grid-tile:hover {
   cursor: pointer;
   transition: 0.2s;
-}
-
-:host-context(.light-theme) mat-grid-tile:hover {
   background-color: rgb(245, 245, 245);
 }
 
@@ -93,10 +87,6 @@ mat-grid-tile:hover {
 
 @media screen and (max-width: 768px) {
   mat-grid-tile:hover {
-    background-color: rgb(33, 33, 33);
-  }
-
-  :host-context(.light-theme) mat-grid-tile:hover {
     background-color: white;
   }
 }

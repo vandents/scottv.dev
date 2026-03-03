@@ -33,11 +33,9 @@ fa-icon {
   }
 }
 
-// Light theme support
-:host-context(.light-theme) {
-  .no-link:hover {
-    color: rgba(0, 0, 0, 0.7);
-  }
+// No-link hover color (light theme is default)
+.no-link:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 // Dark theme support
