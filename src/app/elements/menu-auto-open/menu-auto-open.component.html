@@ -1,8 +1,10 @@
 <div class="app-nav-item" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
   (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
-  <ng-content select="[trigger]"></ng-content>
+  <div (click)="onTriggerClick($event, menuTrigger)">
+    <ng-content select="[trigger]"></ng-content>
+  </div>
 </div>
-<mat-menu #menu="matMenu" [hasBackdrop]="!supportsHover">
+<mat-menu #menu="matMenu" [hasBackdrop]="false">
   <div (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
     <ng-content select="[content]"></ng-content>
   </div>

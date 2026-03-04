@@ -1,13 +1,15 @@
-import { Component, PLATFORM_ID, inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 /**
- * Component to automatically open a mat menu on hover (desktop) or click/tap (touch/keyboard).
+ * Component to open a mat menu on hover (desktop) and click/tap (touch & keyboard).
  *
- * Desktop hover: mouseenter opens, mouseleave closes.
- * Touch & keyboard: matMenuTriggerFor handles click-to-toggle natively.
- * The (hover: hover) media query prevents hover handlers from interfering on touch devices.
+ * - Desktop: mouseenter/mouseleave handle open/close.
+ * - Touch (iOS Safari): click toggles the menu. A time guard prevents the
+ *   double-toggle caused by iOS firing both mouseenter and click from a single tap.
+ * - Keyboard: Enter/Space fire a click event which toggles the menu.
+ * - An inner wrapper div calls stopPropagation so matMenuTriggerFor's built-in
+ *   click handler never fires (we manage toggling ourselves).
  */
 @Component({
   standalone: false,
@@ -18,32 +20,39 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class MenuAutoOpenComponent {
 
   timeoutId: number;
-
-  /** True on devices with a fine pointer / hover capability (not iOS Safari touch) */
-  supportsHover = false;
-
-  private platformId = inject(PLATFORM_ID);
-
-  constructor() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.supportsHover = window.matchMedia('(hover: hover)').matches;
-    }
-  }
+  private lastOpenTime = 0;
 
   mouseEnter(trigger: MatMenuTrigger) {
-    if (!this.supportsHover) return;
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = -1;
     }
-    trigger.openMenu();
+    if (!trigger.menuOpen) {
+      trigger.openMenu();
+      this.lastOpenTime = Date.now();
+    }
   }
 
   mouseLeave(trigger: MatMenuTrigger) {
-    if (!this.supportsHover) return;
     this.timeoutId = +setTimeout(() => {
       trigger.closeMenu();
     }, 50);
+  }
+
+  /** Click/tap handler on the inner wrapper. Stops propagation to prevent
+   *  matMenuTriggerFor's click from conflicting, and toggles the menu. */
+  onTriggerClick(event: Event, trigger: MatMenuTrigger) {
+    event.stopPropagation();
+    // If mouseenter just opened the menu (< 300 ms ago), skip the click.
+    // This prevents iOS Safari's tap from opening then immediately closing.
+    if (Date.now() - this.lastOpenTime < 300) return;
+
+    if (trigger.menuOpen) {
+      trigger.closeMenu();
+    } else {
+      trigger.openMenu();
+      this.lastOpenTime = Date.now();
+    }
   }
 
 }
