@@ -39,7 +39,7 @@
       Tools
     </a>
     <!-- Games -->
-    <app-menu-auto-open>
+    <app-menu-auto-open ngSkipHydration>
       <div trigger>
         <button mat-button class="toolbar-item"
           [ngClass]="router.url.includes('tic-tac-toe') || router.url.includes('algorithms') || router.url.includes('snake') ? 'current' : ''">
@@ -63,7 +63,7 @@
       </div>
     </app-menu-auto-open>
     <!-- Info -->
-    <app-menu-auto-open>
+    <app-menu-auto-open ngSkipHydration>
       <div trigger>
         <button mat-button class="toolbar-item"
           [ngClass]="router.url.includes('build-info') || router.url.includes('about') ? 'current' : ''">

@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 /**
- * Component to open a mat menu on hover (desktop) and click/tap (touch & keyboard).
+ * Open a mat-menu on hover (desktop mouse) while letting matMenuTriggerFor
+ * handle click, tap, and keyboard natively.
  *
- * - Desktop: mouseenter/mouseleave handle open/close.
- * - Touch (iOS Safari): click toggles the menu. A time guard prevents the
- *   double-toggle caused by iOS firing both mouseenter and click from a single tap.
- * - Keyboard: Enter/Space fire a click event which toggles the menu.
- * - An inner wrapper div calls stopPropagation so matMenuTriggerFor's built-in
- *   click handler never fires (we manage toggling ourselves).
+ * Uses PointerEvent.pointerType to distinguish mouse from touch so hover
+ * logic never fires on iOS Safari.
+ * No platform detection → no SSR/hydration issues.
  */
 @Component({
   standalone: false,
@@ -19,40 +17,20 @@ import { MatMenuTrigger } from '@angular/material/menu';
 })
 export class MenuAutoOpenComponent {
 
-  timeoutId: number;
-  private lastOpenTime = 0;
+  private closeTimeout: number;
 
-  mouseEnter(trigger: MatMenuTrigger) {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = -1;
+  onPointerEnter(event: PointerEvent, trigger: MatMenuTrigger) {
+    if (event.pointerType !== 'mouse') return;
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+      this.closeTimeout = -1;
     }
-    if (!trigger.menuOpen) {
-      trigger.openMenu();
-      this.lastOpenTime = Date.now();
-    }
+    trigger.openMenu();
   }
 
-  mouseLeave(trigger: MatMenuTrigger) {
-    this.timeoutId = +setTimeout(() => {
-      trigger.closeMenu();
-    }, 50);
-  }
-
-  /** Click/tap handler on the inner wrapper. Stops propagation to prevent
-   *  matMenuTriggerFor's click from conflicting, and toggles the menu. */
-  onTriggerClick(event: Event, trigger: MatMenuTrigger) {
-    event.stopPropagation();
-    // If mouseenter just opened the menu (< 300 ms ago), skip the click.
-    // This prevents iOS Safari's tap from opening then immediately closing.
-    if (Date.now() - this.lastOpenTime < 300) return;
-
-    if (trigger.menuOpen) {
-      trigger.closeMenu();
-    } else {
-      trigger.openMenu();
-      this.lastOpenTime = Date.now();
-    }
+  onPointerLeave(event: PointerEvent, trigger: MatMenuTrigger) {
+    if (event.pointerType !== 'mouse') return;
+    this.closeTimeout = +setTimeout(() => trigger.closeMenu(), 50);
   }
 
 }
