@@ -1,8 +1,9 @@
 <div class="app-nav-item" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
-  (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
+  (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)"
+  (click)="toggleMenu(menuTrigger)">
   <ng-content select="[trigger]"></ng-content>
 </div>
-<mat-menu #menu="matMenu" [hasBackdrop]="false">
+<mat-menu #menu="matMenu" [hasBackdrop]="false" (closed)="timeoutId = -1">
   <div (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
     <ng-content select="[content]"></ng-content>
   </div>

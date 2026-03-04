@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 /**
- * Component to automatically open a mat menu on hover
+ * Component to automatically open a mat menu on hover.
+ * Uses mouseenter/mouseleave for desktop and click to toggle for touch devices (iOS Safari).
  */
 @Component({
   standalone: false,
@@ -26,6 +27,15 @@ export class MenuAutoOpenComponent {
     this.timeoutId = +setTimeout(() => {
       trigger.closeMenu();
     }, 50);
+  }
+
+  /** Toggle menu on click/tap — needed for touch devices where hover events are unreliable */
+  toggleMenu(trigger: MatMenuTrigger) {
+    if (trigger.menuOpen) {
+      trigger.closeMenu();
+    } else {
+      trigger.openMenu();
+    }
   }
 
 }
