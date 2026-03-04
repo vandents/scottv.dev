@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 /**
- * Component to automatically open a mat menu on hover.
- * Uses mouseenter/mouseleave for desktop and click to toggle for touch devices (iOS Safari).
+ * Component to automatically open a mat menu on hover (desktop) or click/tap (touch/keyboard).
+ *
+ * Desktop hover: mouseenter opens, mouseleave closes.
+ * Touch & keyboard: matMenuTriggerFor handles click-to-toggle natively.
+ * The (hover: hover) media query prevents hover handlers from interfering on touch devices.
  */
 @Component({
   standalone: false,
@@ -15,7 +19,19 @@ export class MenuAutoOpenComponent {
 
   timeoutId: number;
 
+  /** True on devices with a fine pointer / hover capability (not iOS Safari touch) */
+  supportsHover = false;
+
+  private platformId = inject(PLATFORM_ID);
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.supportsHover = window.matchMedia('(hover: hover)').matches;
+    }
+  }
+
   mouseEnter(trigger: MatMenuTrigger) {
+    if (!this.supportsHover) return;
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = -1;
@@ -24,18 +40,10 @@ export class MenuAutoOpenComponent {
   }
 
   mouseLeave(trigger: MatMenuTrigger) {
+    if (!this.supportsHover) return;
     this.timeoutId = +setTimeout(() => {
       trigger.closeMenu();
     }, 50);
-  }
-
-  /** Toggle menu on click/tap — needed for touch devices where hover events are unreliable */
-  toggleMenu(trigger: MatMenuTrigger) {
-    if (trigger.menuOpen) {
-      trigger.closeMenu();
-    } else {
-      trigger.openMenu();
-    }
   }
 
 }
