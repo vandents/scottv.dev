@@ -146,7 +146,7 @@ export class AboutComponent {
           alt: `Scott benching 315 pounds`
         }
       ],
-      caption: `500lb deadlift, 315lb bench and counting!`
+      caption: `500lb deadlift, 325lb bench and counting!`
     }
   ];
 
