@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService, ThemeType } from '@services/theme-service/theme.service';
 import { BrowserService } from '@services/browser-service/browser.service';
+import { environment } from '@environments/environment';
 
 declare let gtag: Function;
 
@@ -36,11 +37,13 @@ export class AppComponent implements OnInit {
       this.setTheme(this.themeService.getSaved());
 
       // Track page views in Google Analytics
-      this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => {
-          gtag('event', 'page_view', { page_path: event.urlAfterRedirects });
-        });
+      if (environment.production) {
+        this.router.events
+          .pipe(filter(event => event instanceof NavigationEnd))
+          .subscribe((event: NavigationEnd) => {
+            gtag('event', 'page_view', { page_path: event.urlAfterRedirects });
+          });
+      }
 
       // Trigger change detection on window width changes
       this.browserService.widthChanges.subscribe(() => this.cdr.detectChanges());
