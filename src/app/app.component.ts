@@ -1,8 +1,12 @@
 import { ChangeDetectorRef, Component, HostBinding, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService, ThemeType } from '@services/theme-service/theme.service';
 import { BrowserService } from '@services/browser-service/browser.service';
+
+declare let gtag: Function;
 
 @Component({
   standalone: false,
@@ -19,7 +23,8 @@ export class AppComponent implements OnInit {
     public overlayContainer: OverlayContainer,
     public themeService: ThemeService,
     private browserService: BrowserService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -29,6 +34,13 @@ export class AppComponent implements OnInit {
         this.setTheme(event.matches ? ThemeType.Dark : ThemeType.Light)
       );
       this.setTheme(this.themeService.getSaved());
+
+      // Track page views in Google Analytics
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          gtag('event', 'page_view', { page_path: event.urlAfterRedirects });
+        });
 
       // Trigger change detection on window width changes
       this.browserService.widthChanges.subscribe(() => this.cdr.detectChanges());
