@@ -4,6 +4,8 @@ import { NgModule                         } from '@angular/core';
 import { provideAnimations                } from '@angular/platform-browser/animations';
 import { RouterModule                     } from '@angular/router';
 
+import { provideHttpClient                } from '@angular/common/http';
+
 // Root component
 import { AppComponent                     } from './app.component';
 
@@ -11,6 +13,7 @@ import { AppComponent                     } from './app.component';
 import { ToolbarComponent                 } from '@elements/toolbar/toolbar.component';
 import { FooterComponent                  } from '@elements/footer/footer.component';
 import { MenuAutoOpenComponent            } from '@elements/menu-auto-open/menu-auto-open.component';
+import { ChatbotComponent                 } from '@elements/chatbot/chatbot.component';
 
 // Shared Module
 import { SharedModule                     } from '@app/shared.module';
@@ -45,11 +48,13 @@ import { environment                      } from '@environments/environment';
     AppRoutingModule,
     BrowserModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    ChatbotComponent
   ],
   providers: [
     provideAnimations(),
     provideClientHydration(),
+    provideHttpClient(),
     ...(typeof window !== 'undefined' ? [
       provideFirebaseApp(() => initializeApp(environment.firebase)),
       provideFirestore(() => getFirestore()),

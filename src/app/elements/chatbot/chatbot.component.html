@@ -1,0 +1,53 @@
+<ng-container *ngIf="isBrowser">
+  <!-- Floating chat button -->
+  <button
+    *ngIf="!isOpen"
+    mat-fab
+    class="chat-fab"
+    (click)="toggle()"
+    aria-label="Open chat">
+    <fa-icon [icon]="['fas', 'comment']" size="lg"></fa-icon>
+  </button>
+
+  <!-- Chat panel -->
+  <div *ngIf="isOpen" class="chat-panel">
+    <div class="chat-header">
+      <span>Ask Scott's AI</span>
+      <button mat-icon-button (click)="toggle()" aria-label="Close chat">
+        <fa-icon [icon]="['fas', 'xmark']" size="lg"></fa-icon>
+      </button>
+    </div>
+
+    <div class="chat-messages" #messageContainer>
+      <div
+        *ngFor="let msg of messages"
+        class="chat-bubble"
+        [ngClass]="msg.role"
+        [textContent]="msg.content">
+      </div>
+      <div *ngIf="isLoading" class="chat-bubble assistant loading">
+        <mat-spinner diameter="20"></mat-spinner>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <mat-form-field appearance="outline" class="chat-field">
+        <input
+          matInput
+          [(ngModel)]="userInput"
+          (keydown)="onKeydown($event)"
+          placeholder="Ask a question..."
+          maxlength="500"
+          autocomplete="off" />
+      </mat-form-field>
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="send()"
+        [disabled]="!userInput.trim() || isLoading"
+        aria-label="Send message">
+        <fa-icon [icon]="['fas', 'paper-plane']" size="lg"></fa-icon>
+      </button>
+    </div>
+  </div>
+</ng-container>

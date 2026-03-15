@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "source": "chatbot/functions",
+    "runtime": "nodejs20"
+  }
+}
