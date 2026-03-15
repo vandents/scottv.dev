@@ -1,6 +1,6 @@
 @if (isBrowser) {
   <!-- Floating chat button -->
-  @if (!isOpen) {
+  @if (!isOpen()) {
     <button
       mat-fab
       class="chat-fab"
@@ -11,7 +11,7 @@
   }
 
   <!-- Chat panel -->
-  @if (isOpen) {
+  @if (isOpen()) {
     <div class="chat-panel">
       <div class="chat-header">
         <span>Ask Scott's AI</span>
@@ -21,14 +21,14 @@
       </div>
 
       <div class="chat-messages" #messageContainer>
-        @for (msg of messages; track $index) {
+        @for (msg of messages(); track $index) {
           <div
             class="chat-bubble"
             [class]="msg.role"
             [textContent]="msg.content">
           </div>
         }
-        @if (isLoading) {
+        @if (isLoading()) {
           <div class="chat-bubble assistant loading">
             <mat-spinner diameter="20"></mat-spinner>
           </div>
@@ -49,7 +49,7 @@
           mat-icon-button
           color="primary"
           (click)="send()"
-          [disabled]="!userInput.trim() || isLoading"
+          [disabled]="!userInput.trim() || isLoading()"
           aria-label="Send message">
           <fa-icon [icon]="['fas', 'paper-plane']" size="lg"></fa-icon>
         </button>

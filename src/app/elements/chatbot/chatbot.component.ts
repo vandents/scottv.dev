@@ -1,5 +1,5 @@
-import { Component, inject, NgZone, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -15,45 +15,42 @@ import { ChatService, ChatMessage } from '@services/chat-service/chat.service';
   templateUrl: './chatbot.component.html',
   styleUrls: ['./chatbot.component.scss'],
   imports: [
-    NgIf, NgFor, NgClass, FormsModule,
+    FormsModule,
     MatButtonModule, MatInputModule,
     MatFormFieldModule, MatProgressSpinnerModule,
     FontAwesomeModule
   ]
 })
 export class ChatbotComponent {
-  isOpen = false;
-  isLoading = false;
+  isOpen = signal(false);
+  isLoading = signal(false);
   userInput = '';
-  messages: ChatMessage[] = [];
+  messages = signal<ChatMessage[]>([]);
   isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   private chatService = inject(ChatService);
-  private ngZone = inject(NgZone);
 
   toggle() {
-    this.isOpen = !this.isOpen;
-    if (this.isOpen && this.messages.length === 0) {
-      this.messages.push({
+    this.isOpen.update(v => !v);
+    if (this.isOpen() && this.messages().length === 0) {
+      this.messages.set([{
         role: 'assistant',
         content: 'Hi! I\'m Scott\'s AI assistant. Ask me anything about his experience, projects, or hobbies!'
-      });
+      }]);
     }
   }
 
   send() {
     const question = this.userInput.trim();
-    if (!question || this.isLoading) return;
+    if (!question || this.isLoading()) return;
 
-    this.messages.push({ role: 'user', content: question });
+    this.messages.update(msgs => [...msgs, { role: 'user', content: question }]);
     this.userInput = '';
-    this.isLoading = true;
+    this.isLoading.set(true);
 
     this.chatService.ask(question).subscribe(answer => {
-      this.ngZone.run(() => {
-        this.messages.push({ role: 'assistant', content: answer.trim() });
-        this.isLoading = false;
-      });
+      this.messages.update(msgs => [...msgs, { role: 'assistant', content: answer.trim() }]);
+      this.isLoading.set(false);
     });
   }
 
