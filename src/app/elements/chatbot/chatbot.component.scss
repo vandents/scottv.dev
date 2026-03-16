@@ -122,6 +122,10 @@
 
 // Light theme
 :host-context(.light-theme) {
+  &:has(.chat-panel) {
+    background: #fff;
+  }
+
   .chat-fab {
     background: #394F74;
     color: #fff;
@@ -157,6 +161,10 @@
 
 // Dark theme
 :host-context(.dark-theme) {
+  &:has(.chat-panel) {
+    background: rgb(13, 17, 22);
+  }
+
   .chat-fab {
     background: rgb(37, 41, 47);
     color: #fff;
@@ -188,6 +196,10 @@
 
 // Black theme
 :host-context(.black-theme) {
+  &:has(.chat-panel) {
+    background: #000;
+  }
+
   .chat-fab {
     background: #1a1a1a;
     color: rgb(236, 236, 236);
