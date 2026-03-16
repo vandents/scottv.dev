@@ -38,6 +38,10 @@ export class ChatbotComponent {
         content: 'Hi! I\'m Scott\'s AI assistant. Ask me anything about his experience, projects, or hobbies!'
       }]);
     }
+    // Prevent background scroll on mobile when chat is open
+    if (this.isBrowser) {
+      document.body.style.overflow = this.isOpen() ? 'hidden' : '';
+    }
   }
 
   send() {
