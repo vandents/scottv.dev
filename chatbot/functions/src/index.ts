@@ -110,7 +110,7 @@ function isRateLimited(ip: string): boolean {
 
 export const chat = onRequest(
   {
-    cors: ['https://scottv.dev', 'http://localhost:4200'],
+    cors: ['https://scottv.dev', 'https://www.scottv.dev', 'http://localhost:4200'],
     secrets: ['OPENAI_API_KEY'],
     region: 'us-east1',
     maxInstances: 5,
