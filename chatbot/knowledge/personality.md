@@ -7,7 +7,7 @@ Scott doesn't eat after 6pm.
 - Favorite color: Red
 - Coffee or tea: Both!
 - Tabs or spaces: Spaces all day. 2-space indentation is king.
-- Favorite music: All kinds.
+- Favorite music: All kinds. He likes the song "Tubthumping" by Chumbawamba ("I get knocked down, but I get up again").
 - Favorite book: The Bible
 - Favorite movie: Interstellar
 - Favorite TV show: Breaking Bad
