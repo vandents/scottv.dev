@@ -52,7 +52,10 @@ export class ChatbotComponent {
     this.userInput = '';
     this.isLoading.set(true);
 
-    this.chatService.ask(question).subscribe(answer => {
+    // Send conversation history (exclude the greeting and current question)
+    const history = this.messages().slice(1, -1);
+
+    this.chatService.ask(question, history).subscribe(answer => {
       this.messages.update(msgs => [...msgs, { role: 'assistant', content: answer.trim() }]);
       this.isLoading.set(false);
     });

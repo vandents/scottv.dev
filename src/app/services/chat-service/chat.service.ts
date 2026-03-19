@@ -22,11 +22,11 @@ export class ChatService {
       : 'http://127.0.0.1:5001/scottv-dev/us-east1/chat';
   }
 
-  ask(question: string): Observable<string> {
+  ask(question: string, history: ChatMessage[]): Observable<string> {
     if (!this.isBrowser) return of('');
 
     return this.http
-      .post<{ answer: string }>(this.apiUrl, { question })
+      .post<{ answer: string }>(this.apiUrl, { question, history })
       .pipe(
         map(res => res.answer),
         catchError(() => of('Sorry, something went wrong. Please try again.'))
