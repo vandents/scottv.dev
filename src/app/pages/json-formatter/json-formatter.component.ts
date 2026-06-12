@@ -191,7 +191,7 @@ export class JsonFormatterComponent implements OnInit {
   "experience": {
     "current": {
       "company": "TSPi",
-      "role": "Lead Angular Developer",
+      "role": "Senior Software Engineer",
       "startDate": "2024-05"
     },
     "previous": [

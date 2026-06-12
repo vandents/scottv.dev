@@ -1,5 +1,26 @@
 <h1>Portfolio</h1>
+
 <p class="subtitle">A non-exhaustive list of cool things I've made!</p>
+
+<mat-card appearance="outlined">
+  <h2>
+    nxtStudio
+    <a class="link" href="https://www.nxtstudio.ai" target="_blank" aria-label="nxtStudio product page"
+      matTooltip="More info" matTooltipPosition="right">
+      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
+    </a>
+  </h2>
+  <img mat-card-image class="project-img" src="../../../assets/img/nxtStudio-1.jpg" alt="Screenshot of nxtStudio architecture"
+    (click)="openViewImageDialog('../../../assets/img/nxtStudio-1.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
+    Abt Global's nxtStudio is an AI-powered document intelligence platform that analyzes government solicitations, tracks compliance, and drafts content with
+    LLM assistance. Built with React and Node.js over PostgreSQL with pgvector, running AI locally on Ollama or through AWS Bedrock.
+    <!-- The screenshot shows the AbtGentic Agent Canvas, where users assemble teams of specialized AI agents, wire them together with tasks, and direct the work through chat. -->
+    Our engineers develop with Claude Code, which feels right for a platform whose whole job is putting LLMs to work. I spend most of my time in the infrastructure: a
+    Terraform module library of 25+ modules deploying dedicated environments to AWS GovCloud, managed with Terragrunt, plus a locked-down
+    self-hosted CI runner that deploys cross-account with no inbound network access.
+  </mat-card-content>
+</mat-card>
 
 <mat-card appearance="outlined">
   <h2>
@@ -8,8 +29,9 @@
   <!-- <img mat-card-image class="project-img" src="../../../assets/img/rfs.jpg" alt="Screenshot of Receipt for Service Application"
     (click)="openViewImageDialog('../../../assets/img/rfs.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right"> -->
   <div class="multi-img">
-    <img *ngFor="let number of [1, 2]" mat-card-image class="project-img" [src]="'../../../assets/img/rfs-' + number + '.jpg'" alt="RFS screenshot"
-      (click)="openViewImageDialog('../../../assets/img/rfs-' + number + '.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="below">
+    <img *ngFor="let src of images['rfs']; let i = index" mat-card-image class="project-img" [src]="src" alt="RFS screenshot"
+      [loading]="i === 0 ? 'eager' : 'lazy'"
+      (click)="openImageGallery(images['rfs'], i, true)" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     The Receipt for Service application allows employees to generate the service receipts required by the 2014 Farm Bill.
@@ -22,7 +44,7 @@
   <h2>
     USDA FSA Customer Check-in Kiosk
   </h2>
-  <img mat-card-image class="project-img" src="../../../assets/img/customer-check-in.jpg" alt="Screenshot of Customer Check-in Application"
+  <img mat-card-image class="project-img" src="../../../assets/img/customer-check-in.jpg" alt="Screenshot of Customer Check-in Application" loading="eager"
     (click)="openViewImageDialog('../../../assets/img/customer-check-in.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right">
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     The FSA Customer Check-in Kiosk allows farmers to check in for their appointment and be put into a queue - similar to checking in at the DMV.
@@ -38,8 +60,8 @@
     </a>
   </h2>
   <div class="multi-img">
-    <img *ngFor="let number of [1, 2, 3, 4, 5]" mat-card-image class="project-img" [src]="'../../../assets/img/victouch-' + number + '.webp'" alt="VicNet screenshot"
-      (click)="openViewImageDialog('../../../assets/img/victouch-' + number + '.webp')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+    <img *ngFor="let src of images['victouch']; let i = index" mat-card-image class="project-img" [src]="src" alt="VicNet screenshot"
+      (click)="openImageGallery(images['victouch'], i)" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content>
     The core function of VicTouch is to allow volunteers to clock in and out when they arrive and depart when serving at their organization.
@@ -62,8 +84,8 @@
     </a>
   </h2>
   <div class="multi-img">
-    <img *ngFor="let number of [1, 2, 3, 4, 5, 6]" mat-card-image class="project-img" [src]="'../../../assets/img/vicnet-' + number + '.webp'" alt="VicNet screenshot"
-      (click)="openViewImageDialog('../../../assets/img/vicnet-' + number + '.webp')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+    <img *ngFor="let src of images['vicnet']; let i = index" mat-card-image class="project-img" [src]="src" alt="VicNet screenshot"
+      (click)="openImageGallery(images['vicnet'], i)" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
     VicNet allows volunteers to view and manage their schedule, view or post their service, receive messages from their organization, and update their profile information.
@@ -113,8 +135,8 @@
     </a>
   </h2>
   <div class="multi-img">
-    <img *ngFor="let number of [1, 2, 3, 4]" mat-card-image class="project-img" [src]="'../../../assets/img/slot-machine-' + number + '.jpg'" alt="Slot machine"
-      (click)="openViewImageDialog('../../../assets/img/slot-machine-' + number + '.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+    <img *ngFor="let src of images['slot-machine']; let i = index" mat-card-image class="project-img" [src]="src" alt="Slot machine"
+      (click)="openImageGallery(images['slot-machine'], i)" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content>
     It looks like a GameBoy, but this device is actually a slot machine that accepts pennies. Classmate Zakkaria Hales and I designed and
@@ -139,8 +161,8 @@
     </a>
   </h2>
   <div class="multi-img">
-    <img *ngFor="let number of [1, 2, 3, 4, 5]" mat-card-image class="project-img" [src]="'../../../assets/img/the-boi-' + number + '.jpg'" alt="Robo sockey"
-      (click)="openViewImageDialog('../../../assets/img/the-boi-' + number + '.jpg')" [matTooltip]="getTooltip()" matTooltipPosition="below">
+    <img *ngFor="let src of images['the-boi']; let i = index" mat-card-image class="project-img" [src]="src" alt="Robo sockey"
+      (click)="openImageGallery(images['the-boi'], i)" [matTooltip]="getTooltip()" matTooltipPosition="below">
   </div>
   <mat-card-content>
     GVSU's Robo Sockey competition, a mix between soccer and hockey, is a semester long competition between students enrolled

@@ -1,5 +1,15 @@
-<img src="{{ imgSrc }}" (click)="dialogRef.close()">
+<img [src]="currentSrc" [alt]="'Image ' + (currentIndex + 1) + ' of ' + imgSrcs.length" (click)="dialogRef.close()">
 
-<button mat-icon-button color="primary" cdkFocusInitial (click)="dialogRef.close()">
+<button mat-icon-button color="primary" cdkFocusInitial class="close-btn" (click)="dialogRef.close()" aria-label="Close">
   <fa-icon [icon]="['fas', 'xmark']" size="xl"></fa-icon>
 </button>
+
+<ng-container *ngIf="hasMultiple">
+  <button mat-icon-button class="nav-btn prev-btn" (click)="prev($event)" aria-label="Previous image">
+    <fa-icon [icon]="['fas', 'chevron-left']" size="xl"></fa-icon>
+  </button>
+  <button mat-icon-button class="nav-btn next-btn" (click)="next($event)" aria-label="Next image">
+    <fa-icon [icon]="['fas', 'chevron-right']" size="xl"></fa-icon>
+  </button>
+  <div class="counter">{{ currentIndex + 1 }} / {{ imgSrcs.length }}</div>
+</ng-container>
