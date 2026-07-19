@@ -4,33 +4,6 @@
 
 <mat-card appearance="outlined">
   <h2>
-    Mission Deck
-    <a class="link" href="https://www.mission-deck.app" target="_blank" aria-label="Mission Deck App"
-      matTooltip="More info" matTooltipPosition="right">
-      <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
-    </a>
-  </h2>
-  <div class="multi-img">
-    <img *ngFor="let src of images['mission-deck']; let i = index" mat-card-image class="project-img" [src]="src" alt="Mission Deck screenshot"
-      [loading]="i === 0 ? 'eager' : 'lazy'"
-      (click)="openImageGallery(images['mission-deck'], i, true)" [matTooltip]="getTooltip()" matTooltipPosition="below">
-  </div>
-  <mat-card-content>
-    Mission Deck is a browser-based ground station for flying an entire fleet of drones at once. You build each mission as a set of waypoints, assign
-    it to a drone, then open Live Ops and watch every aircraft trace its route across a Leaflet map in real time, each glyph rotated to its true
-    heading with battery, altitude, and status ticking once a second. Think QGroundControl, but for the whole fleet and living in the browser.
-  </mat-card-content>
-  <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
-    The catch with a UAS portfolio piece is that I don't own a squadron of drones, so I built one in Python: a stdlib-only flight simulator that pulls
-    the active missions off the app's own REST API and flies each drone's waypoints with real bearing and haversine math, POSTing telemetry back exactly
-    like a real ground station would (which keeps the bearer auth, Swagger docs, and health probe honest). Built on a classic LAMP stack: PHP 8.4 on Yii2
-    over MySQL 8.4, Apache, a Bootstrap 5.3 front end with dark/light theming, and a Swagger-documented REST API behind hardened security headers.
-    Solo-developed by myself with the assitance of Opus 4.8, running on AWS EC2 and deployed by a GitHub Actions pipeline that gates every push through
-    PHPStan, code-style, and unit tests.
-  </mat-card-content>
-</mat-card>
-<mat-card appearance="outlined">
-  <h2>
     nxtStudio
     <a class="link" href="https://www.nxtstudio.ai" target="_blank" aria-label="nxtStudio product page"
       matTooltip="More info" matTooltipPosition="right">
