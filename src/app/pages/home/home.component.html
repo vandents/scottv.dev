@@ -17,7 +17,7 @@
     <div mat-card-avatar class="avi"></div>
     <h1 class="mobile-name mobile-only">Scott VandenToorn</h1>
     <div class="welcome-body-desktop desktop-only">
-      <p class="welcome-headline">Senior Software Engineer</p>
+      <p class="welcome-headline">Senior Software Developer</p>
       <span class="welcome-text-desktop card-text">
         Building government-scale web and AI applications at TSPi. Currently working on nxtStudio, an AI document intelligence
         platform on AWS GovCloud, and leading the modernization of USDA applications to Angular and .NET 8 on AWS.
@@ -36,7 +36,7 @@
   </mat-card-header>
   <mat-card-content class="mobile-only">
     <div class="welcome-headline-row">
-      <p class="welcome-headline">Senior Software Engineer</p>
+      <p class="welcome-headline">Senior Software Developer</p>
       <div class="social-links">
         <a href="https://github.com/vandents" target="_blank" aria-label="GitHub" matTooltip="GitHub">
           <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
@@ -69,25 +69,41 @@
 <mat-card style="margin-bottom: 12px;" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="tspi-logo"></div>
-    <mat-card-title>Senior Software Engineer</mat-card-title>
+    <mat-card-title>Senior Software Developer</mat-card-title>
     <mat-card-subtitle>TSPi, Reston, VA (Remote)</mat-card-subtitle>
-    <mat-card-subtitle>May 2024 - Present</mat-card-subtitle>
+    <mat-card-subtitle>April 2024 - Present</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
-    As a federal contractor at TSPi, I lead the development of robust and accessible applications for the United States Government.
-    My team is currently tasked with the modernization of the USDA Receipt for Service application, migrating legacy ASP.NET Web
-    Forms to an Angular SPA on AWS S3 with .NET 8 APIs on AWS Lambda. I also build out AWS GovCloud infrastructure for nxtStudio,
-    an AI document intelligence platform that analyzes government solicitations and generates draft content using LLMs.
+    <p>
+      As a federal contractor at TSPi, I build robust, secure, and accessible applications for the United States
+      Government — spanning legacy modernization, cloud infrastructure, and now AI-powered tooling.
+    </p>
+    <p>
+      On nxtStudio, an AI document intelligence platform that analyzes government solicitations and drafts content
+      using local (Ollama) and cloud (AWS Bedrock) LLMs, I own the infrastructure: a 25-module Terraform and
+      Terragrunt library that deploys isolated client environments — ECS Fargate, GPU-backed LLM servers, end-to-end
+      TLS — to AWS GovCloud, including production environments for city government customers. I've also driven
+      security hardening across every environment, building reusable Terraform modules for WAF, CloudTrail,
+      GuardDuty, Security Hub, and AWS Config that cut vulnerability findings from roughly 600 down to single digits.
+    </p>
+    <p>
+      On the USDA Farmers.gov team, I led the full modernization of the Receipt for Service application, migrating
+      a legacy ASP.NET Web Forms system running on physical servers to an Angular SPA on AWS S3 backed by .NET 8
+      APIs on AWS Lambda. I also built a check-in kiosk for USDA Farm Service Agencies that improved appointment
+      tracking across 2,300 offices nationwide. I'm the team's go-to Angular expert and accessibility subject
+      matter expert, guiding other teams toward Section 508 compliance, and I mentor junior developers through
+      code review and pairing.
+    </p>
   </mat-card-content>
 </mat-card>
 
 <mat-card style="margin-bottom: 12px;" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="volgistics-logo"></div>
-    <mat-card-title>Full Stack Engineer</mat-card-title>
+    <mat-card-title>Full Stack Developer</mat-card-title>
     <mat-card-subtitle>Volgistics, Byron Center, MI</mat-card-subtitle>
-    <mat-card-subtitle>February 2019 - May 2020, September 2020 - April 2024</mat-card-subtitle>
+    <mat-card-subtitle>June 2019 - May 2020, December 2020 - June 2023</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content class="card-text">
@@ -102,8 +118,12 @@
       page web and native apps built with the Angular and Capacitor frameworks.
     </p>
     <p>
-      By pioneering native apps and DevOps for Volgistics, along with many other projects, I helped foster a pivotal
-      transition for the company that enhanced market competetiveness and increased the quality of development.
+      My proudest achievement there was independently rewriting VicTouch, the company's flagship application
+      generating roughly $1M in annual recurring revenue — architecting and building both the Angular frontend and
+      the backend services from scratch. I shipped a production beta in 6 months and fully replaced the legacy
+      system within 12, all without AI-assisted coding tools. That project, along with pioneering Volgistics' shift
+      to native apps and a modern DevOps workflow, helped foster a pivotal transition for the company that enhanced
+      market competetiveness and increased the quality of development.
     </p>
   </mat-card-content>
 </mat-card>
@@ -112,7 +132,7 @@
 <mat-card style="margin-bottom: 12px;" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="dornerworks-logo"></div>
-    <mat-card-title>Full Stack Engineer <small>(Internship)</small></mat-card-title>
+    <mat-card-title>Full Stack Developer <small>(Internship)</small></mat-card-title>
     <mat-card-subtitle>DornerWorks, Grand Rapids, MI</mat-card-subtitle>
     <mat-card-subtitle>May 2020 - August 2020</mat-card-subtitle>
   </mat-card-header>
@@ -127,78 +147,3 @@
   </mat-card-content>
 </mat-card>
 
-
-<h2>Tech Stack</h2>
-<div class="row">
-  <div class="col-md-12">
-    <mat-card appearance="outlined" class="programming-card">
-      <h4 class="know-h4">Languages</h4>
-      <mat-chip-listbox>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          Delphi
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'js-square']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          JavaScript
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'windows']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          C#
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'python']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          Python
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          TypeScript
-        </mat-chip-option>
-      </mat-chip-listbox>
-
-      <h4 class="know-h4">Platforms</h4>
-      <mat-chip-listbox>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'android']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          Android
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'apple']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          iOS
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'mouse-pointer']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          Web
-        </mat-chip-option>
-      </mat-chip-listbox>
-
-      <h4 class="know-h4">CI/CD and Version Control</h4>
-      <mat-chip-listbox>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          BitBucket
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'git']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          Git
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'github']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          GitHub
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fab', 'gitlab']" size="lg" transform="shrink-6.5" [mask]="['fas', 'circle']"></fa-icon>
-          GitLab
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          Jenkins
-        </mat-chip-option>
-        <mat-chip-option>
-          <fa-icon [icon]="['fas', 'code']" size="lg" transform="shrink-7.5" [mask]="['fas', 'circle']"></fa-icon>
-          YAML
-        </mat-chip-option>
-      </mat-chip-listbox>
-    </mat-card>
-  </div>
-</div>
