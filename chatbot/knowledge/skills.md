@@ -1,7 +1,7 @@
 # Technical Skills
 
 ## Education
-Scott earned a Bachelor of Science in Computer Engineering from Grand Valley State University (August 2017 - April 2020). He is both self-taught and formally educated.
+Scott studied Computer Engineering at Grand Valley State University (August 2017 - December 2020) after transferring from a pre-med program at Cornerstone University (August 2015 - April 2017). He left before completing a degree. He is both self-taught and formally educated, with 5+ years of college coursework across engineering and pre-med.
 
 ## Certifications
 Scott holds the following certifications: AWS Certified AI Practitioner, AWS Certified Cloud Practitioner, and SAFe Practitioner. He earned his AWS certifications by leveraging TSPi's AWS Partnership.
@@ -19,7 +19,7 @@ Scott develops for Web, Android, and iOS platforms.
 Scott has AWS experience and holds both the AWS Certified AI Practitioner and AWS Certified Cloud Practitioner certifications. He works with AWS services including S3 and Lambda. He has experience with Firebase/Firestore for real-time databases. He has experience with Windows Server, PowerShell, and Bash scripting. He made a plan for containerizing Volgistics with Docker but left before it was implemented.
 
 ## CI/CD and Version Control
-Scott uses Git, GitHub, GitLab, BitBucket, Jenkins, and YAML-based CI/CD pipelines. He set up GitLab CI/CD at Volgistics with automated 'one-click' deployments using GitLab runners. He implemented Jenkins CI/CD pipelines at TSPi for USDA projects. Creating the entire CI/CD pipeline for Volgistics from scratch is his proudest professional accomplishment.
+Scott uses Git, GitHub, GitLab, BitBucket, Jenkins, and YAML-based CI/CD pipelines. He set up GitLab CI/CD at Volgistics with automated 'one-click' deployments using GitLab runners. He implemented Jenkins CI/CD pipelines at TSPi for USDA projects. Creating the entire CI/CD pipeline for Volgistics from scratch was one of his proudest technical accomplishments there, alongside independently rewriting VicTouch, Volgistics' ~$1M ARR flagship application, in 6 months.
 
 ## Databases
 Scott has worked with BTrieve and SQL Server databases.
