@@ -13,6 +13,10 @@ export const IMAGE_MANIFEST: Record<string, readonly string[]> = {
     "assets/img/florida-1.jpg",
     "assets/img/florida-2.jpg"
   ],
+  "harrys-appraisals": [
+    "assets/img/harrys-appraisals-1.jpg",
+    "assets/img/harrys-appraisals-2.jpg"
+  ],
   "house": [
     "assets/img/house-1.jpg",
     "assets/img/house-2.jpg"

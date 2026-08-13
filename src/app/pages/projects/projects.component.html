@@ -118,10 +118,14 @@
       <fa-icon [icon]="['fas', 'link']" size="xs"></fa-icon>
     </a>
   </h2>
-  <img mat-card-image class="project-img" src="../../../assets/img/harrys-appraisals.jpg" alt="Screenshot of Harry's Appraisals website"
-    (click)="openViewImageDialog('../../../assets/img/harrys-appraisals.jpg', true)" [matTooltip]="getTooltip()" matTooltipPosition="right">
+  <div class="multi-img">
+    <img *ngFor="let src of images['harrys-appraisals']; let i = index" mat-card-image class="project-img" [src]="src" alt="Harry's Appraisals screenshot"
+      (click)="openImageGallery(images['harrys-appraisals'], i, true)" [matTooltip]="getTooltip()" matTooltipPosition="below">
+  </div>
   <mat-card-content class="no-margin-bottom" style="margin-top: 5px;">
-    A simple Angular site for a local insurance appraisal business.
+    A statically-generated Astro site for a local vehicle insurance appraisal business, deployed to Cloudflare Pages via GitHub Actions.
+    The lead form is a plain HTML POST handled by a Cloudflare Pages Function — no client-side JavaScript required to submit it —
+    guarded by Cloudflare Turnstile and backed by Resend for email delivery.
   </mat-card-content>
 </mat-card>
 
