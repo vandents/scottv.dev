@@ -6,7 +6,7 @@
   border-radius: 4px !important;
   display: block;
   margin: 0 auto 16px auto;
-  max-height: 400px;
+  height: 400px;
   width: auto;
   max-width: calc(100vw - 48px);
 }
@@ -42,7 +42,7 @@ img {
 
 @media screen and (max-width: 400px) {
   .project-img {
-    max-height: 375px;
+    height: 375px;
   }
   .multi-img .project-img {
     max-width: 150px;
@@ -51,7 +51,7 @@ img {
 
 @media screen and (max-width: 370px) {
   .project-img {
-    max-height: 350px;
+    height: 350px;
   }
   .multi-img .project-img {
     max-width: 140px;
@@ -60,7 +60,7 @@ img {
 
 @media screen and (max-width: 350px) {
   .project-img {
-    max-height: 330px;
+    height: 330px;
   }
   .multi-img .project-img {
     max-width: 130px;
@@ -69,7 +69,7 @@ img {
 
 @media screen and (max-width: 330px) {
   .project-img {
-    max-height: 310px;
+    height: 310px;
   }
   .multi-img .project-img {
     max-width: 120px;

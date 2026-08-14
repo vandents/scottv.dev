@@ -2,6 +2,7 @@ import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { BrowserService } from '@services/browser-service/browser.service';
 import { SharedModule } from '@app/shared.module';
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private title: Title,
     private snackBar: MatSnackBar,
+    private router: Router,
     public browser: BrowserService
   ) {
     this.title.setTitle('Scott VandenToorn - Home');
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
   }
 
+
+  viewProject(fragment: string) {
+    this.router.navigate(['/portfolio'], { fragment });
+  }
 
   copyEmail() {
     navigator.clipboard.writeText('scottvandentoorn@gmail.com');

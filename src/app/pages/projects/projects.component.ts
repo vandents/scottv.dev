@@ -1,7 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { ViewImageDialogComponent } from '@dialogs/view-image-dialog/view-image-dialog.component';
@@ -27,6 +27,7 @@ export class ProjectsComponent implements OnInit {
   constructor(
     private title: Title,
     public router: Router,
+    private route: ActivatedRoute,
     private dialog: MatDialog,
     public browser: BrowserService
   ) {
@@ -34,7 +35,16 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const fragment = this.route.snapshot.fragment;
+    const target = fragment ? document.getElementById(fragment) : null;
+
+    if (target) {
+      target.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
   }
 
 

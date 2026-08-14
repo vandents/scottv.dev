@@ -290,6 +290,109 @@ mat-card-actions.mobile-only {
 
 
 /********************************
+ * Certifications
+ ********************************/
+
+.cert-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.cert-card {
+  flex: 1 1 260px;
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 !important;
+
+    fa-icon {
+      margin-left: 0 !important;
+      padding-right: 0;
+      color: rgb(57, 79, 116);
+    }
+  }
+}
+
+.cert-name {
+  margin: 0;
+  font-weight: 500;
+}
+
+.cert-issuer {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+:host-context(.dark-theme) .cert-card fa-icon,
+:host-context(.black-theme) .cert-card fa-icon {
+  color: #abc7ff;
+}
+
+
+/********************************
+ * Featured Projects
+ ********************************/
+
+.featured-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+
+  h3 {
+    margin: 12px 0 6px 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
+
+.project-card {
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 2px solid rgb(57, 79, 116);
+    outline-offset: 2px;
+  }
+}
+
+:host-context(.dark-theme) .project-card:focus,
+:host-context(.black-theme) .project-card:focus {
+  outline-color: #abc7ff;
+}
+
+.project-card-img {
+  height: 140px;
+  object-fit: cover;
+}
+
+.view-all-projects {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  fa-icon {
+    margin-left: 8px !important;
+  }
+}
+
+
+/********************************
  * Other
  ********************************/
 

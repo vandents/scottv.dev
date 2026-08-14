@@ -147,3 +147,88 @@
   </mat-card-content>
 </mat-card>
 
+
+<h2>Certifications</h2>
+<div class="cert-row">
+  <mat-card class="cert-card" appearance="outlined">
+    <mat-card-content>
+      <fa-icon [icon]="['fas', 'award']" size="2x"></fa-icon>
+      <div class="cert-text">
+        <p class="cert-name">AWS Certified AI Practitioner</p>
+        <p class="cert-issuer">Amazon Web Services</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="cert-card" appearance="outlined">
+    <mat-card-content>
+      <fa-icon [icon]="['fas', 'award']" size="2x"></fa-icon>
+      <div class="cert-text">
+        <p class="cert-name">AWS Certified Cloud Practitioner</p>
+        <p class="cert-issuer">Amazon Web Services</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="cert-card" appearance="outlined">
+    <mat-card-content>
+      <fa-icon [icon]="['fas', 'award']" size="2x"></fa-icon>
+      <div class="cert-text">
+        <p class="cert-name">SAFe Practitioner</p>
+        <p class="cert-issuer">Scaled Agile, Inc.</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="cert-card" appearance="outlined">
+    <mat-card-content>
+      <fa-icon [icon]="['fas', 'shield-halved']" size="2x"></fa-icon>
+      <div class="cert-text">
+        <p class="cert-name">Public Trust Clearance</p>
+        <p class="cert-issuer">U.S. Federal Government</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<h2>Featured Projects</h2>
+<div class="featured-projects-grid">
+  <mat-card class="project-card" appearance="outlined" tabindex="0" role="button"
+    aria-label="View VicTouch in portfolio" (click)="viewProject('victouch')" (keydown.enter)="viewProject('victouch')">
+    <img mat-card-image class="project-card-img" src="assets/img/victouch-1.webp" alt="VicTouch app screenshot" loading="lazy">
+    <mat-card-content>
+      <h3>VicTouch</h3>
+      <p>
+        Volgistics' ~$1M ARR flagship app — I solo-built the Angular frontend and Delphi backend from scratch,
+        shipping a beta in 6 months and fully replacing the legacy system in 12.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="project-card" appearance="outlined" tabindex="0" role="button"
+    aria-label="View nxtStudio in portfolio" (click)="viewProject('nxtStudio')" (keydown.enter)="viewProject('nxtStudio')">
+    <img mat-card-image class="project-card-img" src="assets/img/nxtStudio-1.jpg" alt="nxtStudio infrastructure architecture diagram" loading="lazy">
+    <mat-card-content>
+      <h3>nxtStudio</h3>
+      <p>
+        An AI document intelligence platform for government solicitations. I own the infrastructure: a 25-module
+        Terraform library deploying isolated client environments to AWS GovCloud.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="project-card" appearance="outlined" tabindex="0" role="button"
+    aria-label="View USDA Receipt for Service in portfolio" (click)="viewProject('rfs')" (keydown.enter)="viewProject('rfs')">
+    <img mat-card-image class="project-card-img" src="assets/img/rfs-1.jpg" alt="USDA Receipt for Service application screenshot" loading="lazy">
+    <mat-card-content>
+      <h3>USDA Receipt for Service</h3>
+      <p>
+        A full-stack rewrite migrating a legacy ASP.NET Web Forms system on physical servers to an Angular SPA
+        backed by .NET 8 APIs on AWS Lambda.
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="view-all-projects">
+  <a mat-stroked-button color="primary" routerLink="/portfolio">
+    View All Projects
+    <fa-icon [icon]="['fas', 'arrow-right']" size="sm" style="margin-right: 0;"></fa-icon>
+  </a>
+</div>
+
