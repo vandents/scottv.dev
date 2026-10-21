@@ -9,7 +9,7 @@ This is my personal website to showcase my projects and serve as an extension of
 This site uses GitHub actions and a self-hosted runner to continously integrate and deploy to GitHub pages.
 The runner executes a YAML file located at `.github/workflows/deploy-pages.yml`.
 
-Note: Start the runner by running `zsh run.sh` in the actions-runner directory.
+Note: Start the runner by running `zsh run.sh` in the Proggy/actions-runner directory.
 
 Note: ~~Need to re-add custom domain (www.scottv.dev) in GitHub pages settings after deploying.~~ This is now done by runner.
 
